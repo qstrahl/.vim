@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/harlequin/.config/luakit/lib/follow'
-let g:netrw_dirhist_2='/home/harlequin/.config/luakit'
-let g:netrw_dirhist_3='/home/harlequin/www/qstrahl.com/httpdocs/system'
-let g:netrw_dirhist_4='/home/harlequin'
-let g:netrw_dirhist_5='/home/harlequin/.local/share/applications'
