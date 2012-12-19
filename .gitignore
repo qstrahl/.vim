@@ -3,7 +3,4 @@ sessions/*
 swap/*
 view/*
 .netrwhist
-.git
-.gitignore
-!/.gitignore
 !empty
