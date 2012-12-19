@@ -27,6 +27,7 @@ se mouses+="vd:updown"  " updown cursor when dragging vertical separators
 se nohls                " search highlighting hurts my eyes :<
 se ru                   " display the cursor coordinates
 se sb                   " new horizontal splits go on the bottom
+se sc                   " show pending commands in the last line
 se spr                  " new vertical splits go on the right
 " }}}
 
