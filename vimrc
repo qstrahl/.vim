@@ -37,7 +37,7 @@ se bdir=~/.vim/backup   " directory to put backups in
 se bs=2                 " allow delete anything in insert mode
 se bk                   " make backups, please
 se cb=autoselectml      " autoselect for modeless selection (non-GVIM)
-se cb+=autoselectplus   " autoselect into the + register (non-GVIM)
+"se cb+=autoselectplus   " autoselect into the + register (non-GVIM)
 se dir=~/.vim/swap      " directory to put swap files in
 se fo=r                 " automatically insert comment leader on <CR>
 se fo+=o                " automatically insert comment leader on normal o
