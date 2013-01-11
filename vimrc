@@ -46,6 +46,7 @@ se fo+=n                " recognise numbered lists when formatting
 se fo+=1                " don't break long lines in insert mode
 se fo+=j                " be smart when joining comment lines
 se hi=100               " 100 is more than enough command history
+se hid                  " hide, not unload, buffers when abandoned
 se ml                   " always obey modelines
 se mouse=a              " enable the use of the mouse
 se swb=usetab           " consider existing buffers when using :sb
