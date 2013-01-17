@@ -17,7 +17,7 @@ let Tlist_WinWidth = 33         " Tlist has a width of 33
 " display settings {{{
 se bg=dark              " who uses light backgrounds in terminals?
 se cul                  " show the cursor line
-se fdm=marker           " folding on markers > folding on manual
+se fdm=manual           " folding on markers > folding on manual
 se list                 " set list mode to view special characters
 se lcs=tab:\ \          " this makes the cursor appear at the end of tabs
 se mouses="s:updown"    " updown cursor on status lines
@@ -46,12 +46,14 @@ se fo+=n                " recognise numbered lists when formatting
 se fo+=1                " don't break long lines in insert mode
 se fo+=j                " be smart when joining comment lines
 se hi=100               " 100 is more than enough command history
+se hid                  " hide, not unload, buffers when abandoned
 se ml                   " always obey modelines
 se mouse=a              " enable the use of the mouse
-se swb=usetab           " consider existing buffers when using :sb
+se swb=split,useopen    " consider existing buffers when using :sb
 se tags=./tags          " look where you are for tags first
 se tags+=tags;          " look up the tree for tags as necessary
 se tw=80                " 80 characters wide all day erry day
+se vdir=~/.vim/view     " directory to put views in
 se vop=folds            " views remember folds
 se vop+=cursor          " views remember cursor position
 se wmnu                 " use wildmenu tab completion
