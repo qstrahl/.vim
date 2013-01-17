@@ -13,3 +13,6 @@
 [submodule "bundle/DBGPavim"]
 	path = bundle/DBGPavim
 	url = git://github.com/brookhong/DBGPavim.git
+[submodule "bundle/phpcomplete"]
+	path = bundle/phpcomplete
+	url = git://github.com/sebastiankessler/phpcomplete.vim.git
