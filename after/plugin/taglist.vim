@@ -8,6 +8,9 @@ let Tlist_Enable_Fold_Column = 0
 let Tlist_Use_Right_Window = 1
 let Tlist_Auto_Update = 1
 let tlist_php_settings = 'php;c:class;d:constant;f:function'
+let Tlist_Use_Right_Window = 1  " Tlist uses the right window
+let Tlist_WinWidth = 33         " Tlist has a width of 33
+
 if exists('loaded_taglist')
     nmap <silent> <Leader>t :TlistToggle<Cr>
 endif

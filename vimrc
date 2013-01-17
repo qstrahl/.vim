@@ -2,13 +2,11 @@
 
 " [Plugins] {{{
 
-call pathogen#infect()
-call pathogen#helptags()
 filet plugin indent on          " use smart settings for filetypes
 syntax on                       " use syntax highlighting
 
-let Tlist_Use_Right_Window = 1  " Tlist uses the right window
-let Tlist_WinWidth = 33         " Tlist has a width of 33
+call pathogen#infect()
+call pathogen#helptags()
 
 " }}}
 
