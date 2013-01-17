@@ -17,7 +17,7 @@ let Tlist_WinWidth = 33         " Tlist has a width of 33
 " display settings {{{
 se bg=dark              " who uses light backgrounds in terminals?
 se cul                  " show the cursor line
-se fdm=manual           " folding on markers > folding on manual
+se fdm=manual           " prefer manual folds
 se list                 " set list mode to view special characters
 se lcs=tab:\ \          " this makes the cursor appear at the end of tabs
 se mouses="s:updown"    " updown cursor on status lines
