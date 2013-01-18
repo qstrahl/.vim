@@ -106,7 +106,7 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 endif
 
 " Make views automatic
-au BufWritePost,BufLeave,WinLeave ?* mkview!
-au BufReadPre ?* silent loadview
+au BufWrite ?* silent! mkview!
+au BufRead ?* silent! loadview!
 
 " vim: set fdm=marker:
