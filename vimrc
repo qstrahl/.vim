@@ -30,7 +30,7 @@ se spr                  " new vertical splits go on the right
 " }}}
 
 " behavioural settings {{{
-let mapleader="	"       " tab is a way better mapleader than backslash
+let mapleader='\'       " backslash is my mapleader of choice
 se bdir=~/.vim/backup   " directory to put backups in
 se bs=2                 " allow delete anything in insert mode
 se bk                   " make backups, please
