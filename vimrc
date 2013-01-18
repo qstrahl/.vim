@@ -54,6 +54,8 @@ se tw=80                " 80 characters wide all day erry day
 se vdir=~/.vim/view     " directory to put views in
 se vop=folds            " views remember folds
 se vop+=cursor          " views remember cursor position
+se wim=longest:full     " complete as much as possible and show wildmenu
+se wim+=full            " then complete from possible matches
 se wmnu                 " use wildmenu tab completion
 " }}}
 
