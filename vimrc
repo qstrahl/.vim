@@ -2,11 +2,11 @@
 
 " [Plugins] {{{
 
-filet plugin indent on          " use smart settings for filetypes
-syntax on                       " use syntax highlighting
-
 call pathogen#infect()
 call pathogen#helptags()
+
+filet plugin indent on          " use smart settings for filetypes
+syntax on                       " use syntax highlighting
 
 " }}}
 
@@ -15,7 +15,7 @@ call pathogen#helptags()
 " display settings {{{
 se bg=dark              " who uses light backgrounds in terminals?
 se cul                  " show the cursor line
-se fdm=manual           " prefer manual folds
+se fdm=marker           " prefer marker folds
 se list                 " set list mode to view special characters
 se lcs=tab:\ \          " this makes the cursor appear at the end of tabs
 se mouses="s:updown"    " updown cursor on status lines
