@@ -46,7 +46,7 @@ se fo+=j                " be smart when joining comment lines
 se hi=100               " 100 is more than enough command history
 se hid                  " hide, not unload, buffers when abandoned
 se mouse=a              " enable the use of the mouse
-se swb=split,useopen    " consider existing buffers when using :sb
+se swb=useopen          " consider existing buffers when using :sb
 se tags=./tags          " look where you are for tags first
 se tags+=tags;          " look up the tree for tags as necessary
 se tw=80                " 80 characters wide all day erry day
