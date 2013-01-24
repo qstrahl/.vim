@@ -16,12 +16,13 @@ syntax on                       " use syntax highlighting
 se bg=dark              " who uses light backgrounds in terminals?
 se cul                  " show the cursor line
 se fdm=marker           " prefer marker folds
-se list                 " set list mode to view special characters
 se lcs=tab:\ \          " this makes the cursor appear at the end of tabs
-se mouses="s:updown"    " updown cursor on status lines
+se list                 " set list mode to view special characters
+se mouses =             " mouseshape
+se mouses+="s:updown"   " updown cursor on status lines
 se mouses+="sd:updown"  " updown cursor when dragging status lines
-se mouses+="vs:updown"  " updown cursor on vertical separators
 se mouses+="vd:updown"  " updown cursor when dragging vertical separators
+se mouses+="vs:updown"  " updown cursor on vertical separators
 se nohls                " search highlighting hurts my eyes :<
 se ru                   " display the cursor coordinates
 se sb                   " new horizontal splits go on the bottom
@@ -32,29 +33,34 @@ se spr                  " new vertical splits go on the right
 " behavioural settings {{{
 let mapleader='\'       " backslash is my mapleader of choice
 se bdir=~/.vim/backup   " directory to put backups in
-se bs=2                 " allow delete anything in insert mode
 se bk                   " make backups, please
-se cb=autoselectml      " autoselect for modeless selection (non-GVIM)
+se bs=2                 " allow delete anything in insert mode
+se cb+=autoselectml     " autoselect for modeless selection (non-GVIM)
 "se cb+=autoselectplus   " autoselect into the + register (non-GVIM)
 se dir=~/.vim/swap      " directory to put swap files in
-se fo=r                 " automatically insert comment leader on <CR>
-se fo+=o                " automatically insert comment leader on normal o
-se fo+=q                " allow formatting comments with gq
-se fo+=n                " recognise numbered lists when formatting
+se fo =                 " formatoptions
 se fo+=1                " don't break long lines in insert mode
 se fo+=j                " be smart when joining comment lines
+se fo+=n                " recognise numbered lists when formatting
+se fo+=o                " automatically insert comment leader on normal o
+se fo+=q                " allow formatting comments with gq
+se fo+=r                " automatically insert comment leader on <CR>
 se hi=100               " 100 is more than enough command history
 se hid                  " hide, not unload, buffers when abandoned
 se mouse=a              " enable the use of the mouse
+se sb                   " splitbelow
 se swb=useopen          " consider existing buffers when using :sb
-se tags=./tags          " look where you are for tags first
+se tags =               " tags file locations
+se tags+=./tags         " look where you are for tags first
 se tags+=tags;          " look up the tree for tags as necessary
 se tw=80                " 80 characters wide all day erry day
 se vdir=~/.vim/view     " directory to put views in
-se vop=folds            " views remember folds
+se vop =                " viewoptions
 se vop+=cursor          " views remember cursor position
-se wim=longest:full     " complete as much as possible and show wildmenu
+se vop+=folds           " views remember folds
+se wim =                " wildmode
 se wim+=full            " then complete from possible matches
+se wim+=longest:full    " complete as much as possible and show wildmenu
 se wmnu                 " use wildmenu tab completion
 " }}}
 
@@ -107,7 +113,7 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 endif
 
 " Make views automatic
-au BufWrite ?* silent! mkview!
 au BufRead ?* silent! loadview!
+au BufWrite ?* silent! mkview!
 
 " vim: set fdm=marker:
