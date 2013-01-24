@@ -59,8 +59,8 @@ se vop =                " viewoptions
 se vop+=cursor          " views remember cursor position
 se vop+=folds           " views remember folds
 se wim =                " wildmode
-se wim+=full            " then complete from possible matches
 se wim+=longest:full    " complete as much as possible and show wildmenu
+se wim+=full            " then complete from possible matches
 se wmnu                 " use wildmenu tab completion
 " }}}
 
