@@ -1,4 +1,5 @@
 " Author: Quinn Strahl
+" Best Ever: Bex
 
 " [Plugins] {{{
 
