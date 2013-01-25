@@ -14,25 +14,34 @@ syntax on                       " use syntax highlighting
 " [Settings] {{{
 
 " display settings {{{
+
+" Highlight Colours
+hi CursorColumn ctermbg=237
+hi CursorLine   ctermbg=237
+hi CursorColumn term=none
+hi CursorLine   term=underline
+
 se bg=dark              " who uses light backgrounds in terminals?
-se cul                  " show the cursor line
+"se cuc                  " highlight the column the cursor is on
+"se cul                  " highlight the line the cursor is on
 se fdm=marker           " prefer marker folds
-se lcs=tab:\ \          " this makes the cursor appear at the end of tabs
+se lcs =                " listchars
+se lcs+=tab:\ \         " this makes the cursor appear at the end of tabs
 se list                 " set list mode to view special characters
 se mouses =             " mouseshape
 se mouses+="s:updown"   " updown cursor on status lines
 se mouses+="sd:updown"  " updown cursor when dragging status lines
 se mouses+="vd:updown"  " updown cursor when dragging vertical separators
 se mouses+="vs:updown"  " updown cursor on vertical separators
-se noea                 " don't equalize window sizes; equality is for losers
+"se noea                 " don't equalize window sizes; equality is for losers
 se nohls                " search highlighting hurts my eyes :<
 se ru                   " display the cursor coordinates
 se sb                   " new horizontal splits go on the bottom
 se sc                   " show pending commands in the last line
-se so=999               " arbitrarily huge scroll offset centres cursor
+se so=999               " arbitrarily huge scrolloff centres cursor
 se spr                  " new vertical splits go on the right
-se wh=30                " current window tries to be 30 lines high
-se wiw=20               " current window tries to be 20 lines wide
+se wh=10                " current window tries to be this high
+se wiw=10               " current window tries to be this wide
 se wmh=0                " minimum height of windows is 0 lines
 se wmw=0                " minimum width of windows is 0 lines
 " }}}
@@ -122,5 +131,12 @@ endif
 " Make views automatic
 au BufRead ?* silent! loadview!
 au BufWrite ?* silent! mkview!
+
+" Maximize windows when I switch to them
+"au WinEnter * wincmd _ | wincmd |
+
+" Crosshair the cursor, but only for the active window
+au VimEnter,WinEnter,BufWinEnter * setl cul cuc
+au WinLeave * setl nocul nocuc
 
 " vim: set fdm=marker:
