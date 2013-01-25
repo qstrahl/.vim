@@ -24,11 +24,17 @@ se mouses+="s:updown"   " updown cursor on status lines
 se mouses+="sd:updown"  " updown cursor when dragging status lines
 se mouses+="vd:updown"  " updown cursor when dragging vertical separators
 se mouses+="vs:updown"  " updown cursor on vertical separators
+se noea                 " don't equalize window sizes; equality is for losers
 se nohls                " search highlighting hurts my eyes :<
 se ru                   " display the cursor coordinates
 se sb                   " new horizontal splits go on the bottom
 se sc                   " show pending commands in the last line
+se so=999               " arbitrarily huge scroll offset centres cursor
 se spr                  " new vertical splits go on the right
+se wh=30                " current window tries to be 30 lines high
+se wiw=20               " current window tries to be 20 lines wide
+se wmh=0                " minimum height of windows is 0 lines
+se wmw=0                " minimum width of windows is 0 lines
 " }}}
 
 " behavioural settings {{{
