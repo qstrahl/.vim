@@ -18,6 +18,7 @@ syntax on                       " use syntax highlighting
 " Highlight Colours
 hi CursorColumn ctermbg=237
 hi CursorLine   ctermbg=237
+hi CursorLine   cterm=none
 hi CursorColumn term=none
 hi CursorLine   term=underline
 
@@ -25,19 +26,22 @@ se bg=dark              " who uses light backgrounds in terminals?
 "se cuc                  " highlight the column the cursor is on
 "se cul                  " highlight the line the cursor is on
 se fdm=marker           " prefer marker folds
+se fdo =all             " foldopen on any movement command
+se fcs =                " fillchars
+se fcs+=fold:-          " fill foldlines with '-'
+se fcs+=diff:-          " fill removed lines in diff with '-'
 se lcs =                " listchars
 se lcs+=tab:\ \         " this makes the cursor appear at the end of tabs
+se lcs+=precedes:<      " show < when we can scroll to the left
+se lcs+=extends:>       " show > when we can scroll to the right
 se list                 " set list mode to view special characters
-se mouses =             " mouseshape
-se mouses+="s:updown"   " updown cursor on status lines
-se mouses+="sd:updown"  " updown cursor when dragging status lines
-se mouses+="vd:updown"  " updown cursor when dragging vertical separators
-se mouses+="vs:updown"  " updown cursor on vertical separators
-"se noea                 " don't equalize window sizes; equality is for losers
+se noea                 " don't equalize window sizes; equality is for losers
 se nohls                " search highlighting hurts my eyes :<
+se pvh=13               " preview window is 13 lines high
 se ru                   " display the cursor coordinates
 se sb                   " new horizontal splits go on the bottom
 se sc                   " show pending commands in the last line
+"se siso=999             " arbitrarily huge sidescrolloff centres cursor
 se so=999               " arbitrarily huge scrolloff centres cursor
 se spr                  " new vertical splits go on the right
 se wh=10                " current window tries to be this high
