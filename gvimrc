@@ -4,9 +4,9 @@
 " Highlight Settings
 hi CursorColumn guibg=#f4f4f4
 hi CursorLine   guibg=#f4f4f4
-hi Folded       guibg=#e0e0f0
-hi Folded       guifg=#0000cc
+hi Folded       guibg=#e0e0f0 guifg=#0000cc
 hi Visual       guibg=#e0e0e0
+hi DbgBreakPt   guibg=#f0d0c0
 
 " GUI-specific Options
 se bg=light             " who uses dark backgrounds in GUIs?
