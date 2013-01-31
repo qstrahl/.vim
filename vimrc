@@ -23,7 +23,6 @@ hi DbgBreakPt   term=reverse ctermbg=95 ctermfg=none
 se bg=dark              " who uses light backgrounds in terminals?
 "se cuc                  " highlight the column the cursor is on
 "se cul                  " highlight the line the cursor is on
-se fdm=marker           " prefer marker folds
 se fdo =                " foldopen
 se fdo+=hor             " open folds on a horizontal movement command
 se fdo+=insert          " open folds on any command in insert mode
