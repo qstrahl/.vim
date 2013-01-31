@@ -16,29 +16,39 @@ syntax on                       " use syntax highlighting
 " display settings {{{
 
 " Highlight Colours
-hi CursorColumn ctermbg=237
-hi CursorLine   ctermbg=237
-hi CursorLine   cterm=none
-hi CursorColumn term=none
-hi CursorLine   term=underline
+hi CursorLine   term=underline cterm=none ctermbg=237
+hi CursorColumn term=none ctermbg=237
+hi DbgBreakPt   term=reverse ctermbg=95 ctermfg=none
 
 se bg=dark              " who uses light backgrounds in terminals?
 "se cuc                  " highlight the column the cursor is on
 "se cul                  " highlight the line the cursor is on
 se fdm=marker           " prefer marker folds
+se fdo =                " foldopen
+se fdo+=hor             " open folds on a horizontal movement command
+se fdo+=insert          " open folds on any command in insert mode
+se fdo+=jump            " open folds on far jumps; G, gg, :<line>, etc
+se fdo+=mark            " open folds on jump to mark
+se fdo+=percent         " open folds on %
+se fdo+=quickfix        " open folds on quickfix jumps
+se fdo+=search          " open folds on search into fold
+se fdo+=tag             " open folds on tag jump
+se fdo+=undo            " open folds on undo/redo commands
+se fcs =                " fillchars
+se fcs+=fold:-          " fill foldlines with '-'
+se fcs+=diff:-          " fill removed lines in diff with '-'
 se lcs =                " listchars
 se lcs+=tab:\ \         " this makes the cursor appear at the end of tabs
+se lcs+=precedes:<      " show < when we can scroll to the left
+se lcs+=extends:>       " show > when we can scroll to the right
 se list                 " set list mode to view special characters
-se mouses =             " mouseshape
-se mouses+="s:updown"   " updown cursor on status lines
-se mouses+="sd:updown"  " updown cursor when dragging status lines
-se mouses+="vd:updown"  " updown cursor when dragging vertical separators
-se mouses+="vs:updown"  " updown cursor on vertical separators
-"se noea                 " don't equalize window sizes; equality is for losers
+se noea                 " don't equalize window sizes; equality is for losers
 se nohls                " search highlighting hurts my eyes :<
+se pvh=13               " preview window is 13 lines high
 se ru                   " display the cursor coordinates
 se sb                   " new horizontal splits go on the bottom
 se sc                   " show pending commands in the last line
+"se siso=999             " arbitrarily huge sidescrolloff centres cursor
 se so=999               " arbitrarily huge scrolloff centres cursor
 se spr                  " new vertical splits go on the right
 se wh=10                " current window tries to be this high
@@ -48,7 +58,6 @@ se wmw=0                " minimum width of windows is 0 lines
 " }}}
 
 " behavioural settings {{{
-let mapleader='\'       " backslash is my mapleader of choice
 se bdir=~/.vim/backup   " directory to put backups in
 se bk                   " make backups, please
 se bs=2                 " allow delete anything in insert mode
@@ -99,6 +108,8 @@ se sw=4                 " indentation is four spaces
 " }}}
 
 " [Maps] {{{
+
+let mapleader='\'       " backslash is my mapleader of choice
 
 " useful maps for writing html / xml {{{
 nn <Leader>dt wbF<df>f<df>

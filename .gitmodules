@@ -1,24 +1,9 @@
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
 	url = git://github.com/tpope/vim-fugitive.git
-[submodule "bundle/taglist"]
-	path = bundle/taglist
-	url = git://github.com/vim-scripts/taglist.vim.git
-[submodule "bundle/nerdtree"]
-	path = bundle/nerdtree
-	url = git://github.com/scrooloose/nerdtree.git
 [submodule "bundle/php-syntax"]
 	path = bundle/php-syntax
 	url = git://github.com/StanAngeloff/php.vim.git
-[submodule "bundle/DBGPavim"]
-	path = bundle/DBGPavim
-	url = git://github.com/brookhong/DBGPavim.git
-[submodule "bundle/phpcomplete"]
-	path = bundle/phpcomplete
-	url = git@github.com:qstrahl/phpcomplete.vim.git
-[submodule "bundle/vdebug"]
-	path = bundle/vdebug
-	url = git://github.com/joonty/vdebug.git
 [submodule "bundle/dbgpavim"]
 	path = bundle/dbgpavim
 	url = git://github.com/brookhong/DBGPavim.git
