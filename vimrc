@@ -18,6 +18,7 @@ syntax on                       " use syntax highlighting
 " Highlight Colours
 hi CursorColumn ctermbg=237
 hi CursorLine   ctermbg=237
+hi CursorLine   cterm=none
 hi CursorColumn term=none
 hi CursorLine   term=underline
 
