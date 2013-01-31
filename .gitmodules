@@ -7,3 +7,6 @@
 [submodule "bundle/dbgpavim"]
 	path = bundle/dbgpavim
 	url = git://github.com/brookhong/DBGPavim.git
+[submodule "bundle/supertab"]
+	path = bundle/supertab
+	url = git://github.com/ervandew/supertab.git

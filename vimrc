@@ -140,8 +140,8 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
 endif
 
 " Make views automatic
-au BufRead ?* silent! loadview!
-au BufWrite ?* silent! mkview!
+au BufRead ?* sil! loadview
+au BufWrite ?* sil! mkview!
 
 " Maximize windows when I switch to them
 "au WinEnter * wincmd _ | wincmd |
