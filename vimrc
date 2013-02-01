@@ -18,11 +18,13 @@ syntax on                       " use syntax highlighting
 " Highlight Colours
 hi CursorLine   term=underline cterm=none ctermbg=237
 hi CursorColumn term=none ctermbg=237
-hi DbgBreakPt   term=reverse ctermbg=95 ctermfg=none
+hi DbgBreakPt   term=reverse ctermbg=95 ctermfg=none cterm=none
+hi DbgCurrent   term=reverse ctermbg=94 ctermfg=none cterm=none
 
 se bg=dark              " who uses light backgrounds in terminals?
 "se cuc                  " highlight the column the cursor is on
 "se cul                  " highlight the line the cursor is on
+se fdm=syntax           " use syntax-based folding by default
 se fdo =                " foldopen
 se fdo+=hor             " open folds on a horizontal movement command
 se fdo+=insert          " open folds on any command in insert mode
@@ -84,7 +86,6 @@ se udir=~/.vim/undo     " directory to put persistent undo files in
 se vdir=~/.vim/view     " directory to put views in
 se vop =                " viewoptions
 se vop+=cursor          " views remember cursor position
-se vop+=folds           " views remember folds
 se wim =                " wildmode
 se wim+=longest:full    " complete as much as possible and show wildmenu
 se wim+=full            " then complete from possible matches
@@ -93,7 +94,9 @@ se wmnu                 " use wildmenu tab completion
 
 " indentation and tab setings {{{
 se ai                   " use autoindent
+se ci                   " paste uses indent structure of current context
 se et                   " expand tabs to spaces
+se pi                   " preserve indent structure when possible
 se si                   " use smart autoindenting
 se sta                  " use smarttab insertion
 se sts=8                " use softtabstop for magic space
@@ -129,10 +132,10 @@ nn <Leader>mt yiwi<<Esc>ea></<Esc>pa><Esc>F<
 nn <Leader>u :se nu!<CR>
 
 " toggle NERDTree
-nn <Leader>n :NERDTreeToggle<CR>
+nn <Leader>N :NERDTreeToggle<CR>
 
 " toggle TagList
-nn <Leader>t :TlistToggle<CR>
+nn <Leader>T :TagbarToggle<CR>
 
 " }}}
 
