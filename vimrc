@@ -74,6 +74,7 @@ se fo+=q                " allow formatting comments with gq
 se fo+=r                " automatically insert comment leader on <CR>
 se hi=100               " 100 is more than enough command history
 se hid                  " hide, not unload, buffers when abandoned
+se inc                  " search as you type
 se mouse=a              " enable the use of the mouse
 se sb                   " splitbelow
 se swb=useopen          " consider existing buffers when using :sb
