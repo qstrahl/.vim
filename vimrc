@@ -79,6 +79,8 @@ se tags =               " tags file locations
 se tags+=./tags         " look where you are for tags first
 se tags+=tags;          " look up the tree for tags as necessary
 se tw=80                " 80 characters wide all day erry day
+se udf                  " keep persistent undo files
+se udir=~/.vim/undo     " directory to put persistent undo files in
 se vdir=~/.vim/view     " directory to put views in
 se vop =                " viewoptions
 se vop+=cursor          " views remember cursor position
