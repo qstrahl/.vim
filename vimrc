@@ -17,9 +17,9 @@ syntax on                       " use syntax highlighting
 
 " Highlight Colours
 hi CursorLine   term=underline cterm=none ctermbg=237
-hi CursorColumn term=none ctermbg=237
-hi DbgBreakPt   term=reverse ctermbg=95 ctermfg=none cterm=none
-hi DbgCurrent   term=reverse ctermbg=94 ctermfg=none cterm=none
+hi CursorColumn term=none                 ctermbg=237
+hi DbgBreakPt   term=reverse   cterm=none ctermbg=95
+hi DbgCurrent   term=reverse   cterm=none ctermbg=94
 
 se bg=dark              " who uses light backgrounds in terminals?
 "se cuc                  " highlight the column the cursor is on
@@ -39,21 +39,20 @@ se fcs =                " fillchars
 se fcs+=fold:-          " fill foldlines with '-'
 se fcs+=diff:-          " fill removed lines in diff with '-'
 se lcs =                " listchars
-se lcs+=tab:\ \         " this makes the cursor appear at the end of tabs
+se lcs+=tab:\ \         " hack to make the cursor appear at the end of tabs
 se lcs+=precedes:<      " show < when we can scroll to the left
 se lcs+=extends:>       " show > when we can scroll to the right
 se list                 " set list mode to view special characters
-se noea                 " don't equalize window sizes; equality is for losers
-se nohls                " search highlighting hurts my eyes :<
+se hls                  " search highlighting is great
 se pvh=13               " preview window is 13 lines high
-se ru                   " display the cursor coordinates
+se ru                   " display the cursor coordinates in statusline
 se sb                   " new horizontal splits go on the bottom
 se sc                   " show pending commands in the last line
 "se siso=999             " arbitrarily huge sidescrolloff centres cursor
 se so=999               " arbitrarily huge scrolloff centres cursor
 se spr                  " new vertical splits go on the right
-se wh=10                " current window tries to be this high
-se wiw=10               " current window tries to be this wide
+se wh=28                " current window tries to be this high
+se wiw=28               " current window tries to be this wide
 se wmh=0                " minimum height of windows is 0 lines
 se wmw=0                " minimum width of windows is 0 lines
 " }}}
@@ -153,7 +152,7 @@ au BufWrite ?* sil! mkview!
 "au WinEnter * wincmd _ | wincmd |
 
 " Crosshair the cursor, but only for the active window
-au VimEnter,WinEnter,BufWinEnter * setl cul cuc
-au WinLeave * setl nocul nocuc
+"au VimEnter,WinEnter,BufWinEnter * setl cul cuc
+"au WinLeave * setl nocul nocuc
 
 " vim: set fdm=marker:
