@@ -26,7 +26,7 @@ se bg=dark              " who uses light backgrounds in terminals?
 "se cul                  " highlight the line the cursor is on
 se fdm=syntax           " use syntax-based folding by default
 se fdo =                " foldopen
-se fdo+=hor             " open folds on a horizontal movement command
+"se fdo+=hor             " open folds on a horizontal movement command
 se fdo+=insert          " open folds on any command in insert mode
 se fdo+=jump            " open folds on far jumps; G, gg, :<line>, etc
 se fdo+=mark            " open folds on jump to mark
@@ -36,7 +36,7 @@ se fdo+=search          " open folds on search into fold
 se fdo+=tag             " open folds on tag jump
 se fdo+=undo            " open folds on undo/redo commands
 se fcs =                " fillchars
-se fcs+=fold:-          " fill foldlines with '-'
+se fcs+=fold:+          " fill foldlines with '-'
 se fcs+=diff:-          " fill removed lines in diff with '-'
 se lcs =                " listchars
 se lcs+=tab:\ \         " hack to make the cursor appear at the end of tabs
@@ -51,18 +51,19 @@ se sc                   " show pending commands in the last line
 "se siso=999             " arbitrarily huge sidescrolloff centres cursor
 se so=999               " arbitrarily huge scrolloff centres cursor
 se spr                  " new vertical splits go on the right
-se wh=28                " current window tries to be this high
-se wiw=28               " current window tries to be this wide
-se wmh=0                " minimum height of windows is 0 lines
-se wmw=0                " minimum width of windows is 0 lines
+"se wh=28                " minimum height of current window is 28
+"se wiw=28               " minimum width of current window is 28
+se wmh=0                " minimum height of other windows is 0 lines
+se wmw=0                " minimum width of other windows is 0 lines
 " }}}
 
 " behavioural settings {{{
 se bdir=~/.vim/backup   " directory to put backups in
 se bk                   " make backups, please
-se bs=2                 " allow delete anything in insert mode
+se bs=2                 " allow deleting over anything in insert mode
 se cb+=autoselectml     " autoselect for modeless selection (non-GVIM)
 "se cb+=autoselectplus   " autoselect into the + register (non-GVIM)
+se dip+=foldcolumn:0    " foldcolumn width = 0 in diff mode
 se dir=~/.vim/swap      " directory to put swap files in
 se fo =                 " formatoptions
 se fo+=1                " don't break long lines in insert mode
@@ -75,8 +76,7 @@ se hi=100               " 100 is more than enough command history
 se hid                  " hide, not unload, buffers when abandoned
 se is                   " search as you type
 se mouse=a              " enable the use of the mouse
-se sb                   " splitbelow
-se swb=useopen          " consider existing buffers when using :sb
+se swb=usetab           " consider all open buffers when using :sb and similar
 se tags =               " tags file locations
 se tags+=./tags         " look where you are for tags first
 se tags+=tags;          " look up the tree for tags as necessary
@@ -115,27 +115,11 @@ se sw=4                 " indentation is four spaces
 
 let mapleader='\'       " backslash is my mapleader of choice
 
-" useful maps for writing html / xml {{{
-nn <Leader>dt wbF<df>f<df>
-nn <Leader>h1 I<h1><Esc>A</h1><Esc>
-nn <Leader>h2 I<h2><Esc>A</h2><Esc>
-nn <Leader>h3 I<h3><Esc>A</h3><Esc>
-nn <Leader>h4 I<h4><Esc>A</h4><Esc>
-nn <Leader>h5 I<h5><Esc>A</h5><Esc>
-nn <Leader>h6 I<h6><Esc>A</h6><Esc>
-nn <Leader>he wbi<em><Esc>ea</em><Esc>bb
-nn <Leader>hs wbi<strong><Esc>ea</strong><Esc>bbb
-nn <Leader>mt yiwi<<Esc>ea></<Esc>pa><Esc>F<
-" }}}
-
-" toggle line numbers
-nn <Leader>u :se nu!<CR>
-
 " toggle NERDTree
-nn <Leader>N :NERDTreeToggle<CR>
+nn <Leader>n :NERDTreeToggle<CR>
 
 " toggle TagList
-nn <Leader>T :TagbarToggle<CR>
+nn <Leader>t :TagbarToggle<CR>
 
 " }}}
 
