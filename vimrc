@@ -87,6 +87,7 @@ se udir=~/.vim/undo     " directory to put persistent undo files in
 se vdir=~/.vim/view     " directory to put views in
 se vop =                " viewoptions
 se vop+=cursor          " views remember cursor position
+se vop+=folds           " views remember folds
 se wim =                " wildmode
 se wim+=longest:full    " complete as much as possible and show wildmenu
 se wim+=full            " then complete from possible matches

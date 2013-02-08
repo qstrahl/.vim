@@ -4,9 +4,6 @@
 [submodule "bundle/php-syntax"]
 	path = bundle/php-syntax
 	url = git://github.com/StanAngeloff/php.vim.git
-[submodule "bundle/dbgpavim"]
-	path = bundle/dbgpavim
-	url = git://github.com/brookhong/DBGPavim.git
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git://github.com/ervandew/supertab.git
@@ -34,3 +31,6 @@
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
+[submodule "bundle/vdebug"]
+	path = bundle/vdebug
+	url = git://github.com/joonty/vdebug.git
