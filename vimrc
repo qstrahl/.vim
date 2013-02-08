@@ -103,6 +103,12 @@ se sts=8                " use softtabstop for magic space
 se sw=4                 " indentation is four spaces
 " }}}
 
+" VDebug Settings {{{
+let g:vdebug_options= {
+\    "break_on_open" : 0,
+\}
+" }}}
+
 " }}}
 
 " [Functions] {{{
