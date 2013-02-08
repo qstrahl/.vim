@@ -18,8 +18,6 @@ syntax on                       " use syntax highlighting
 " Highlight Colours
 hi CursorLine   term=underline cterm=none ctermbg=237
 hi CursorColumn term=none                 ctermbg=237
-hi DbgBreakPt   term=reverse   cterm=none ctermbg=95
-hi DbgCurrent   term=reverse   cterm=none ctermbg=94
 
 se bg=dark              " who uses light backgrounds in terminals?
 "se cuc                  " highlight the column the cursor is on

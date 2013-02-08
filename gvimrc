@@ -4,8 +4,6 @@
 " Highlight Settings
 hi CursorColumn          guibg=#f4f4f4
 hi CursorLine            guibg=#f4f4f4
-hi DbgBreakPt   gui=none guibg=#f0d0c0
-hi DbgCurrent   gui=none guibg=#f0a080
 hi DiffAdd               guibg=#e0ffe0
 hi DiffDelete            guibg=#ffb0b0 guifg=#ff0000
 hi DiffChange            guibg=#ffe0ff
