@@ -75,7 +75,7 @@ se hi=100               " 100 is more than enough command history
 se hid                  " hide, not unload, buffers when abandoned
 se is                   " search as you type
 se mouse=a              " enable the use of the mouse
-se swb=usetab           " consider existing buffers when using :sb
+se swb=useopen          " consider active-tab buffers when using :sb
 se tags =               " tags file locations
 se tags+=./tags         " look where you are for tags first
 se tags+=tags;          " look up the tree for tags as necessary
