@@ -3,6 +3,8 @@
 
 " [Plugins] {{{
 
+runtime bundle/pathogen/autoload/pathogen.vim   " load pathogen
+
 call pathogen#infect()
 call pathogen#helptags()
 
