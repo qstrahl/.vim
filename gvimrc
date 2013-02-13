@@ -30,6 +30,5 @@ se gfn=Terminus\ 9
 
 se go =
 se go+=c
-se go+=e
 
 " }}}
