@@ -1,7 +1,10 @@
+" vim: set fdm=marker:
 " Author: Quinn Strahl
-" Best Ever: Bex
 
-" Highlight Settings
+" [ Color & Highlights ] {{{
+
+se bg=light
+
 hi CursorColumn          guibg=#f4f4f4
 hi CursorLine            guibg=#f4f4f4
 hi DiffAdd               guibg=#e0ffe0
@@ -15,10 +18,18 @@ hi StatusLine   gui=none guibg=#000000 guifg=#ffffff
 hi StatusLineNC gui=none guibg=#000000 guifg=#909090
 hi Visual                guibg=#e0e0e0
 
-" GUI-specific Options
-se bg=light             " who uses dark backgrounds in GUIs?
-se gfn=Terminus\ 9      " Terminus 9 is best gui font
-se go =                 " guioptions
-se go+=A                " autoselect for modeless selection
-se go+=c                " use console dialogs instead of popups
-se go+=i                " enable vim icon
+" }}}
+
+" [ Fonts ] {{{
+
+se gfn="Terminus 9"
+
+" }}}
+
+" [ GUI Options ] {{{
+
+se go =
+se go+=c
+se go+=e
+
+" }}}
