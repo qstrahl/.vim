@@ -22,7 +22,7 @@ hi Visual                guibg=#e0e0e0
 
 " [ Fonts ] {{{
 
-se gfn="Terminus 9"
+se gfn=Terminus\ 9
 
 " }}}
 
