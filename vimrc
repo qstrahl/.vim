@@ -96,7 +96,7 @@ se vop-=options
 
 " [ Completion ] {{{
 se cot+=menuone
-se cpt=.,i,t
+se cpt=.,w,i,t
 " }}}
 
 " [ Formatting Options ] {{{
@@ -135,6 +135,11 @@ nn <Leader>t :TagbarToggle<CR>
 
 " clear search highlighting
 nn <Leader>/ :noh<CR>
+
+" if omnifunc is set, i_CTRL-N uses omnicompletion bk
+if !empty(&omnifunc)
+    ino <C-n> <C-x><C-o>
+endif
 
 " }}}
 
