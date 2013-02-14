@@ -96,6 +96,7 @@ se vop-=options
 
 " [ Completion ] {{{
 se cot+=menuone
+se cot+=longest
 se cpt=.,w,i,t
 " }}}
 
@@ -148,5 +149,8 @@ endif
 " Automatic views
 au BufRead ?* sil! loadview
 au BufWrite ?* sil! mkview!
+
+" automatically close completion preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose | endif
 
 " }}}
