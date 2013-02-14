@@ -80,6 +80,8 @@ se udf
 se udir=~/.vim/undo
 se vdir=~/.vim/view
 
+se tags=./tags;,./TAGS;
+
 " }}}
 
 " [ Editor Behaviour ] {{{
@@ -136,11 +138,6 @@ nn <Leader>t :TagbarToggle<CR>
 
 " clear search highlighting
 nn <Leader>/ :noh<CR>
-
-" if omnifunc is set, i_CTRL-N uses omnicompletion bk
-if !empty(&omnifunc)
-    ino <C-n> <C-x><C-o>
-endif
 
 " }}}
 
