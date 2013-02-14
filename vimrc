@@ -57,7 +57,7 @@ se mouse=a
 se ru
 se sc
 se so=999
-se wim=longest,full
+se wim=longest:full,full
 se wmnu
 
 " }}}
