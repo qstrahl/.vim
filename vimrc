@@ -109,7 +109,7 @@ se fo+=r
 se fo+=n
 se fo+=l
 se fo+=j
-se tw=80
+se tw=78
 
 " }}}
 
