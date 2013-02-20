@@ -11,11 +11,6 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
-" Vdebug
-let g:vdebug_options= {
-\    "break_on_open" : 0,
-\}
-
 " }}}
 
 " [ Color & Highlights ] {{{
@@ -29,10 +24,9 @@ hi CursorColumn term=none                 ctermbg=237
 
 " [ Folds ] {{{
 
-se fdm=syntax
-se fdo-=block
-se fdo-=hor
+se fdm=marker
 se fdo+=insert
+se fdo+=jump
 
 " }}}
 
@@ -53,6 +47,7 @@ se is
 
 " [ User Interface ] {{{
 
+se ls=2
 se mouse=a
 se ru
 se sc
@@ -143,11 +138,15 @@ nn <Leader>/ :noh<CR>
 
 " [ AutoCommands ] {{{
 
-" Automatic views
+" automatically make and load views
 au BufRead ?* sil! loadview
 au BufWrite ?* sil! mkview!
 
 " automatically close completion preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose | endif
+
+" automatically load quickfixes in a new tab with the fix window open
+au QuickFixCmdPost [^l]* tabnew | copen
+au QuickFixCmdPost l* tabnew | copen
 
 " }}}
