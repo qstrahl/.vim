@@ -25,6 +25,7 @@ hi CursorColumn term=none                 ctermbg=237
 " [ Folds ] {{{
 
 se fdm=marker
+se fdo-=block
 se fdo+=insert
 se fdo+=jump
 
@@ -145,8 +146,8 @@ au BufWrite ?* sil! mkview!
 " automatically close completion preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose | endif
 
-" automatically load quickfixes in a new tab with the fix window open
-au QuickFixCmdPost [^l]* tabnew | copen
-au QuickFixCmdPost l* tabnew | copen
+" load quickfixes in a new tab with the fix window open
+au QuickFixCmdPost [^l]* if len(getqflist()) | tabnew | copen | endif
+au QuickFixCmdPost l* if len(getloclist()) | tabnew | lopen | endif
 
 " }}}
