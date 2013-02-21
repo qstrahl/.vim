@@ -1,7 +1,7 @@
 " vim: set fdm=marker:
 " Author: Quinn Strahl
 
-filet plugin on
+filet plugin indent on
 syntax on
 
 " [ Bundles ] {{{
@@ -94,7 +94,6 @@ se vop-=options
 
 " [ Completion ] {{{
 se cot+=menuone
-se cot+=longest
 se cpt=.,w,i,t
 " }}}
 
@@ -143,8 +142,12 @@ nn <Leader>/ :noh<CR>
 au BufRead ?* sil! loadview
 au BufWrite ?* sil! mkview!
 
+" prevent window from being resized in insert mode
+au InsertEnter * sil! let w:previous_wfw_setting=&wfw | sil! let w:previous_wfh_setting=&wfh | sil! se wfw wfh
+au InsertLeave * sil! let &wfw=w:previous_wfw_setting | sil! let &wfh=w:previous_wfh_setting
+
 " automatically close completion preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose | endif
+au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
 
 " load quickfixes in a new tab with the fix window open
 au QuickFixCmdPost [^l]* if len(getqflist()) | tabnew | copen | endif
