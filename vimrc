@@ -60,10 +60,10 @@ se wmnu
 
 " [ Windows ] {{{
 
+se wmw=0
+se wmh=0
 se sb
 se spr
-se wmh=0
-se wmw=0
 
 " }}}
 
@@ -89,11 +89,13 @@ se hi=1000
 se ml
 se swb+=useopen
 se vop-=options
+se vop-=folds
 
 " }}}
 
 " [ Completion ] {{{
 se cot+=menuone
+se cot+=longest
 se cpt=.,w,i,t
 " }}}
 
@@ -125,6 +127,9 @@ se sw=4
 
 let mapleader=' '
 
+" toggle BreakpointWindow
+nn <Leader>b :BreakpointWindow
+
 " toggle NERDTree
 nn <Leader>n :NERDTreeToggle<CR>
 
@@ -141,10 +146,6 @@ nn <Leader>/ :noh<CR>
 " automatically make and load views
 au BufRead ?* sil! loadview
 au BufWrite ?* sil! mkview!
-
-" prevent window from being resized in insert mode
-au InsertEnter * sil! let w:previous_wfw_setting=&wfw | sil! let w:previous_wfh_setting=&wfh | sil! se wfw wfh
-au InsertLeave * sil! let &wfw=w:previous_wfw_setting | sil! let &wfh=w:previous_wfh_setting
 
 " automatically close completion preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
