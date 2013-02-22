@@ -43,6 +43,3 @@
 [submodule "bundle/delimitmate"]
 	path = bundle/delimitmate
 	url = git://github.com/Raimondi/delimitMate.git
-[submodule "bundle/youcompleteme"]
-	path = bundle/youcompleteme
-	url = git://github.com/Valloric/YouCompleteMe.git
