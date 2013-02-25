@@ -37,9 +37,6 @@
 [submodule "bundle/pathogen"]
 	path = bundle/pathogen
 	url = git://github.com/tpope/vim-pathogen.git
-[submodule "bundle/delimitmate"]
-	path = bundle/delimitmate
-	url = git://github.com/Raimondi/delimitMate.git
 [submodule "bundle/phpcomplete"]
 	path = bundle/phpcomplete
 	url = git@github.com:qstrahl/phpcomplete.vim.git
