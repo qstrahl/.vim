@@ -133,8 +133,11 @@ nn <Leader>b :BreakpointWindow
 " toggle NERDTree
 nn <Leader>n :NERDTreeToggle<CR>
 
-" toggle TagList
+" toggle Tagbar
 nn <Leader>t :TagbarToggle<CR>
+
+" toggle Undotree
+nn <Leader>u :UndotreeToggle<CR>
 
 " clear search highlighting
 nn <Leader>/ :noh<CR>
