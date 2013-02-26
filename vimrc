@@ -43,6 +43,7 @@ se fcs+=diff:-
 
 se hls
 se is
+se nows
 
 " }}}
 
