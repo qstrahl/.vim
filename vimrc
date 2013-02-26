@@ -16,6 +16,7 @@ call pathogen#helptags()
 " [ Color & Highlights ] {{{
 
 se bg=dark
+se smc=0
 
 hi CursorLine   term=underline cterm=none ctermbg=237
 hi CursorColumn term=none                 ctermbg=237
