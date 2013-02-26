@@ -28,7 +28,6 @@ hi CursorColumn term=none                 ctermbg=237
 se fdm=marker
 se fdo-=block
 se fdo+=insert
-se fdo+=jump
 
 " }}}
 
