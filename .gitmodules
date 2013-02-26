@@ -25,9 +25,6 @@
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
-[submodule "bundle/matchit"]
-	path = bundle/matchit
-	url = git://github.com/benjifisher/matchit.zip.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git://github.com/scrooloose/nerdtree.git
@@ -43,3 +40,6 @@
 [submodule "bundle/undotree"]
 	path = bundle/undotree
 	url = git://github.com/mbbill/undotree.git
+[submodule "bundle/matchit"]
+	path = bundle/matchit
+	url = git@github.com:qstrahl/vim-matchit.git
