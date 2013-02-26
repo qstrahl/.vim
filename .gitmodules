@@ -43,3 +43,12 @@
 [submodule "bundle/matchit"]
 	path = bundle/matchit
 	url = git@github.com:qstrahl/vim-matchit.git
+[submodule "bundle/characterize"]
+	path = bundle/characterize
+	url = git://github.com/tpope/vim-characterize.git
+[submodule "bundle/sleuth"]
+	path = bundle/sleuth
+	url = git://github.com/tpope/vim-sleuth.git
+[submodule "bundle/eunuch"]
+	path = bundle/eunuch
+	url = git://github.com/tpope/vim-eunuch.git
