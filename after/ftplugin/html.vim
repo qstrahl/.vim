@@ -1,3 +1,4 @@
+se cms=<!--\ %s\ -->
 se fo-=a
 se fo-=t
-se fdm=marker
+se fdm=indent
