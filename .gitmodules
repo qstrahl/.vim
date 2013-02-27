@@ -52,3 +52,6 @@
 [submodule "bundle/eunuch"]
 	path = bundle/eunuch
 	url = git://github.com/tpope/vim-eunuch.git
+[submodule "bundle/php-indent"]
+	path = bundle/php-indent
+	url = git://github.com/2072/PHP-Indenting-for-VIm.git

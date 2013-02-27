@@ -11,11 +11,18 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+" Surround
+let g:surround_indent=1
+
+" Undotree
+let g:undotree_SplitWidth=38
+
 " }}}
 
 " [ Color & Highlights ] {{{
 
 se bg=dark
+se cul
 se smc=0
 
 hi CursorLine   term=underline cterm=none ctermbg=237
@@ -158,9 +165,5 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
 " load quickfixes in a new tab with the fix window open
 au QuickFixCmdPost [^l]* if len(getqflist()) | tabnew | copen | endif
 au QuickFixCmdPost l* if len(getloclist()) | tabnew | lopen | endif
-
-" Crosshair the cursor, but only for the active window
-au VimEnter,WinEnter,BufWinEnter * setl cul cuc
-au WinLeave * setl nocul nocuc
 
 " }}}
