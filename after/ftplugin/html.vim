@@ -1,4 +1,4 @@
-se cms=<!--%s-->
-se fo-=a
-se fo-=t
-se fdm=indent
+setl cms=<!--%s-->
+setl fo-=a
+setl fo-=t
+setl fdm=indent

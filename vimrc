@@ -22,7 +22,6 @@ let g:undotree_SplitWidth=38
 " [ Color & Highlights ] {{{
 
 se bg=dark
-se cul
 se smc=0
 
 hi CursorLine   term=underline cterm=none ctermbg=237
@@ -166,4 +165,7 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
 au QuickFixCmdPost [^l]* if len(getqflist()) | tabnew | copen | endif
 au QuickFixCmdPost l* if len(getloclist()) | tabnew | lopen | endif
 
+" highlight the cursor line in the active window (but not for quickfix)
+au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
+au WinLeave * setl nocul
 " }}}

@@ -1,2 +1,2 @@
-se fo+=at
-se tw=72
+setl fo+=at
+setl tw=72
