@@ -103,6 +103,7 @@ se vop-=folds
 " [ Completion ] {{{
 se cot+=menuone
 se cot+=longest
+se cot-=preview
 se cpt=.,w,i,t
 se ph=13
 " }}}
@@ -133,21 +134,39 @@ se sw=4
 
 " [ Maps ] {{{
 
-let mapleader=' '
+let mapleader='\'
 
-" toggle BreakpointWindow
-nn <Leader>b :BreakpointWindow
+" Toggle BreakpointWindow (mnemonic: breakpoint browse)
+nn <Leader>bb :BreakpointWindow<CR>
 
-" toggle NERDTree
+" Open Gblame
+nn <Leader>gb :Gblame<CR>
+
+" Gcommit all changes
+nn <Leader>gc :Gcommit -a<CR>
+
+" View Gdiff
+nn <Leader>gd :Gdiff<CR>
+
+" Go to file in working tree
+nn <Leader>ge :Gedit<CR>
+
+" View Glog
+nn <Leader>gl :Glog<CR>:cw<CR>
+
+" View Gstatus
+nn <Leader>gs :Gstatus<CR>
+
+" Toggle NERDTree
 nn <Leader>n :NERDTreeToggle<CR>
 
-" toggle Tagbar
+" Toggle Tagbar
 nn <Leader>t :TagbarToggle<CR>
 
-" toggle Undotree
+" Toggle Undotree
 nn <Leader>u :UndotreeToggle<CR>
 
-" clear search highlighting
+" Clear search highlighting
 nn <Leader>/ :noh<CR>
 
 " }}}
@@ -158,12 +177,12 @@ nn <Leader>/ :noh<CR>
 au BufRead ?* sil! loadview
 au BufWrite ?* sil! mkview!
 
-" automatically close completion preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
+" automatically close preview window
+"au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
 
 " load quickfixes in a new tab with the fix window open
 au QuickFixCmdPost [^l]* if len(getqflist()) | tabnew | copen | endif
-au QuickFixCmdPost l* if len(getloclist()) | tabnew | lopen | endif
+au QuickFixCmdPost l* if len(getloclist(0)) | tabnew | lopen | endif
 
 " highlight the cursor line in the active window (but not for quickfix)
 au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
