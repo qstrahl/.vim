@@ -166,6 +166,9 @@ nn <Leader>t :TagbarToggle<CR>
 " Toggle Undotree
 nn <Leader>u :UndotreeToggle<CR>
 
+" Logical > Compatible
+nn Y y$
+
 " Clear search highlighting
 nn <Leader>/ :noh<CR>
 
