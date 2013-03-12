@@ -152,7 +152,7 @@ nn <Leader>gd :Gdiff<CR>
 nn <Leader>ge :Gedit<CR>
 
 " View Glog
-nn <Leader>gl :Glog<CR>:cw<CR>
+nn <Leader>gl :Gllog<CR>
 
 " View Gstatus
 nn <Leader>gs :Gstatus<CR>
@@ -184,8 +184,8 @@ au BufWrite ?* sil! mkview!
 "au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
 
 " load quickfixes in a new tab with the fix window open
-au QuickFixCmdPost [^l]* if len(getqflist()) | tabnew | copen | endif
-au QuickFixCmdPost l* if len(getloclist(0)) | tabnew | lopen | endif
+au QuickFixCmdPost make,grep*,vimgrep*,helpgrep,cscope,c*file,Ggrep,Glog if len(getqflist()) | tabnew | copen | endif
+au QuickFixCmdPost lmake,lgrep,lvimgrep*,lhelpgrep,l*file,Glgrep,Gllog if len(getloclist(0)) | tabnew | lopen | endif
 
 " highlight the cursor line in the active window (but not for quickfix)
 au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
