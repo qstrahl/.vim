@@ -49,7 +49,6 @@ se fcs+=diff:-
 
 se hls
 se is
-se nows
 
 " }}}
 
@@ -95,7 +94,6 @@ se hid
 se hi=1000
 se ml
 
-se swb+=useopen
 se vop-=options
 se vop-=folds
 
