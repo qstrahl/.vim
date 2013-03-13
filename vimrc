@@ -31,9 +31,9 @@ hi CursorColumn term=none                 ctermbg=237
 
 " [ Folds ] {{{
 
+se fcl=all
 se fdm=marker
-se fdo-=block
-se fdo+=insert
+se fdo=all
 
 " }}}
 
@@ -94,6 +94,7 @@ se bs=2
 se hid
 se hi=1000
 se ml
+
 se swb+=useopen
 se vop-=options
 se vop-=folds
@@ -101,11 +102,13 @@ se vop-=folds
 " }}}
 
 " [ Completion ] {{{
+
 se cot+=menuone
 se cot+=longest
 se cot-=preview
 se cpt=.,w,i,t
 se ph=13
+
 " }}}
 
 " [ Formatting Options ] {{{
@@ -132,6 +135,20 @@ se sw=4
 
 " }}}
 
+" [ Functions ] {{{
+
+function! ToggleAutoFold()
+    if &foldopen == 'all' && &foldclose  == 'all'
+        se foldopen=
+        se foldclose=
+    else
+        se foldopen=all
+        se foldclose=all
+    endif
+endfunction
+
+" }}}
+
 " [ Maps ] {{{
 
 let mapleader='\'
@@ -143,7 +160,7 @@ nn <Leader>bb :BreakpointWindow<CR>
 nn <Leader>gb :Gblame<CR>
 
 " Gcommit all changes
-nn <Leader>gc :Gcommit -a<CR>
+nn <Leader>gc :Gcommit<CR>
 
 " View Gdiff
 nn <Leader>gd :Gdiff<CR>
@@ -166,11 +183,15 @@ nn <Leader>t :TagbarToggle<CR>
 " Toggle Undotree
 nn <Leader>u :UndotreeToggle<CR>
 
-" Logical > Compatible
-nn Y y$
-
 " Clear search highlighting
 nn <Leader>/ :noh<CR>
+
+" Toggle value of 'foldopen'
+nn <Leader>z :call ToggleAutoFold()<CR>
+
+" Text object meaning "a fold"
+vno af :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
+ono af :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 
 " }}}
 
@@ -183,11 +204,12 @@ au BufWrite ?* sil! mkview!
 " automatically close preview window
 "au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
 
-" load quickfixes in a new tab with the fix window open
+" load quickfixes / locations in a new tab with the list window open
 au QuickFixCmdPost make,grep*,vimgrep*,helpgrep,cscope,c*file,Ggrep,Glog if len(getqflist()) | tabnew | copen | endif
 au QuickFixCmdPost lmake,lgrep,lvimgrep*,lhelpgrep,l*file,Glgrep,Gllog if len(getloclist(0)) | tabnew | lopen | endif
 
-" highlight the cursor line in the active window (but not for quickfix)
+" highlight the cursor line in the active window (but not for quickfix lists)
 au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
 au WinLeave * setl nocul
+
 " }}}
