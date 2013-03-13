@@ -139,9 +139,11 @@ function! ToggleAutoFold()
     if &foldopen == 'all' && &foldclose  == 'all'
         se foldopen=
         se foldclose=
+        echo "Autofolding disabled"
     else
         se foldopen=all
         se foldclose=all
+        echo "Autofolding enabled"
     endif
 endfunction
 
