@@ -159,9 +159,6 @@ nn <Leader>bb :BreakpointWindow<CR>
 " Open Gblame
 nn <Leader>gb :Gblame<CR>
 
-" Gcommit all changes
-nn <Leader>gc :Gcommit<CR>
-
 " View Gdiff
 nn <Leader>gd :Gdiff<CR>
 
