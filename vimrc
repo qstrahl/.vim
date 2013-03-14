@@ -134,19 +134,6 @@ se sw=4
 " }}}
 
 " [ Functions ] {{{
-
-function! ToggleAutoFold()
-    if &foldopen == 'all' && &foldclose  == 'all'
-        se foldopen=
-        se foldclose=
-        echo "Autofolding disabled"
-    else
-        se foldopen=all
-        se foldclose=all
-        echo "Autofolding enabled"
-    endif
-endfunction
-
 " }}}
 
 " [ Maps ] {{{
@@ -183,12 +170,8 @@ nn <Leader>u :UndotreeToggle<CR>
 " Clear search highlighting
 nn <Leader>/ :noh<CR>
 
-" Toggle value of 'foldopen'
-nn <Leader>z :call ToggleAutoFold()<CR>
-
-" Text object meaning "a fold"
-vno af :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
-ono af :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
+" To match the functionality of za in visual mode
+ono za :<C-U>silent! normal! V[zo]z<CR>
 
 " }}}
 
@@ -208,5 +191,8 @@ au QuickFixCmdPost lmake,lgrep,lvimgrep*,lhelpgrep,l*file,Glgrep,Gllog if len(ge
 " highlight the cursor line in the active window (but not for quickfix lists)
 au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
 au WinLeave * setl nocul
+
+" Open all folds by default
+au Syntax,BufWinEnter * normal zR
 
 " }}}
