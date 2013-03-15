@@ -55,3 +55,6 @@
 [submodule "bundle/php-indent"]
 	path = bundle/php-indent
 	url = git://github.com/2072/PHP-Indenting-for-VIm.git
+[submodule "bundle/autofold"]
+	path = bundle/autofold
+	url = git@github.com:qstrahl/vim-autofold.git

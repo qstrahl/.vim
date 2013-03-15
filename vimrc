@@ -31,9 +31,8 @@ hi CursorColumn term=none                 ctermbg=237
 
 " [ Folds ] {{{
 
-se fcl=all
 se fdm=marker
-se fdo=all
+se fdo+=insert
 
 " }}}
 
@@ -133,42 +132,42 @@ se sw=4
 
 " }}}
 
-" [ Functions ] {{{
-" }}}
-
 " [ Maps ] {{{
 
 let mapleader='\'
 
 " Toggle BreakpointWindow (mnemonic: breakpoint browse)
-nn <Leader>bb :BreakpointWindow<CR>
+nn <Leader>bb :<C-U>BreakpointWindow<CR>
 
 " Open Gblame
-nn <Leader>gb :Gblame<CR>
+nn <Leader>gb :<C-U>Gblame<CR>
+
+" Go to Conflicts
+nn <Leader>gc :<C-U>Ggrep '^<<<<<<<'
 
 " View Gdiff
-nn <Leader>gd :Gdiff<CR>
+nn <Leader>gd :<C-U>Gdiff<CR>
 
 " Go to file in working tree
-nn <Leader>ge :Gedit<CR>
+nn <Leader>ge :<C-U>Gedit<CR>
 
 " View Glog
-nn <Leader>gl :Gllog<CR>
+nn <Leader>gl :<C-U>Gllog<CR>
 
 " View Gstatus
-nn <Leader>gs :Gstatus<CR>
+nn <Leader>gs :<C-U>Gstatus<CR>
 
 " Toggle NERDTree
-nn <Leader>n :NERDTreeToggle<CR>
+nn <Leader>n :<C-U>NERDTreeToggle<CR>
 
 " Toggle Tagbar
-nn <Leader>t :TagbarToggle<CR>
+nn <Leader>t :<C-U>TagbarToggle<CR>
 
 " Toggle Undotree
-nn <Leader>u :UndotreeToggle<CR>
+nn <Leader>u :<C-U>UndotreeToggle<CR>
 
 " Clear search highlighting
-nn <Leader>/ :noh<CR>
+nn <Leader>/ :<C-U>noh<CR>
 
 " To match the functionality of za in visual mode
 ono za :<C-U>silent! normal! V[zo]z<CR>
@@ -191,8 +190,5 @@ au QuickFixCmdPost lmake,lgrep,lvimgrep*,lhelpgrep,l*file,Glgrep,Gllog if len(ge
 " highlight the cursor line in the active window (but not for quickfix lists)
 au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
 au WinLeave * setl nocul
-
-" Open all folds by default
-au Syntax,BufWinEnter * normal zR
 
 " }}}
