@@ -170,8 +170,9 @@ nn <Leader>u :<C-U>UndotreeToggle<CR>
 " Clear search highlighting
 nn <Leader>/ :<C-U>noh<CR>
 
-" To match the functionality of za in visual mode
-ono za :<C-U>silent! normal! V[zo]z<CR>
+" Text object meaning "a fold"
+vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
+ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 
 " }}}
 
