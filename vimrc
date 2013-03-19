@@ -170,6 +170,10 @@ nn <Leader>u :<C-U>UndotreeToggle<CR>
 " Clear search highlighting
 nn <Leader>/ :<C-U>noh<CR>
 
+" Unimpaired-like map for switching/maximizing windows simultaneously
+nn [w <C-W>W<C-W>_<C-W><Bar>
+nn ]w <C-W>w<C-W>_<C-W><Bar>
+
 " Text object meaning "a fold"
 vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
