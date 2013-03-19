@@ -58,6 +58,7 @@ se mouse=a
 se ru
 se sc
 se so=999
+se stl=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 se wim=longest:full,full
 se wmnu
 
