@@ -192,4 +192,7 @@ au QuickFixCmdPost lmake,lgrep,lvimgrep*,lhelpgrep,l*file,Glgrep,Gllog if len(ge
 au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
 au WinLeave * setl nocul
 
+" you fold when and only when I tell you to fold
+au BufWinEnter * set nofen
+
 " }}}
