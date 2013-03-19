@@ -147,10 +147,10 @@ nn <Leader>gb :<C-U>Gblame<CR>
 nn <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>
 
 " View Gdiff
-nn <Leader>gd :<C-U>Gdiff<CR>
+nn <Leader>gd :<C-U>Gtdiff<CR>
 
 " Go to file in working tree
-nn <Leader>ge :<C-U>Gedit<CR>
+nn <Leader>ge :<C-U><CR>
 
 " View Glog
 nn <Leader>gl :<C-U>Gllog<CR>
