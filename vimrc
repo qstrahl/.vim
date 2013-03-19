@@ -144,7 +144,7 @@ nn <Leader>bb :<C-U>BreakpointWindow<CR>
 nn <Leader>gb :<C-U>Gblame<CR>
 
 " Go to Conflicts
-nn <Leader>gc :<C-U>Ggrep '^<<<<<<<'
+nn <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>
 
 " View Gdiff
 nn <Leader>gd :<C-U>Gdiff<CR>
