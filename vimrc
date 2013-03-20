@@ -133,9 +133,53 @@ se sw=4
 
 " }}}
 
+" [ Functions ] {{{
+
+" Closing to the right is stupid
+function! s:TabcloseLeft(...)
+    let l:bang = a:0 && a:1
+    let l:goleft = 0
+    if tabpagenr('$') > 1 && tabpagenr() > 1 && tabpagenr() != tabpagenr('$')
+        let l:goleft = 1
+    endif
+    execute 'tabclose' . (l:bang ? '!' : '')
+    if l:goleft
+        tabprevious
+    endif
+endfunction
+
+" Stuff to do after the quickfix list is populated
+function! s:QuickfixPost()
+    if len(getqflist())
+        copen
+    else
+        TabcloseLeft
+    endif
+endfunction
+
+" Stuff to do after the location list is populated
+function! s:LocationPost()
+    if len(getloclist(0))
+        lopen
+    else
+        TabcloseLeft
+    endif
+endfunction
+
+" }}}
+
+" [ Commands ] {{{
+    
+command! -bang -nargs=0 TabcloseLeft call s:TabcloseLeft(<bang>0)
+
+" }}}
+
 " [ Maps ] {{{
 
 let mapleader='\'
+
+" Closing to the right is REALLY stupid
+nn <Leader>q :<C-U>TabcloseLeft<CR>
 
 " Toggle BreakpointWindow (mnemonic: breakpoint browse)
 nn <Leader>bb :<C-U>BreakpointWindow<CR>
@@ -190,8 +234,10 @@ au BufWrite ?* sil! mkview!
 "au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
 
 " load quickfixes / locations in a new tab with the list window open
-au QuickFixCmdPost make,grep*,vimgrep*,helpgrep,cscope,c*file,Ggrep,Glog if len(getqflist()) | tabnew | copen | endif
-au QuickFixCmdPost lmake,lgrep,lvimgrep*,lhelpgrep,l*file,Glgrep,Gllog if len(getloclist(0)) | tabnew | lopen | endif
+au QuickFixCmdPre make,grep*,vimgrep*,helpgrep,cscope,c*file,Ggrep,Glog tabnew
+au QuickFixCmdPost make,grep*,vimgrep*,helpgrep,cscope,c*file,Ggrep,Glog call s:QuickfixPost()
+au QuickFixCmdPre lmake,lgrep,lvimgrep*,lhelpgrep,l*file,Glgrep,Gllog tabnew
+au QuickFixCmdPost lmake,lgrep,lvimgrep*,lhelpgrep,l*file,Glgrep,Gllog call s:LocationPost()
 
 " highlight the cursor line in the active window (but not for quickfix lists)
 au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
