@@ -136,33 +136,25 @@ se sw=4
 " [ Functions ] {{{
 
 " Closing to the right is stupid
-function! s:TabcloseLeft(...)
-    let l:bang = a:0 && a:1
+function! s:TabcloseLeft(bang)
     let l:goleft = 0
     if tabpagenr('$') > 1 && tabpagenr() > 1 && tabpagenr() != tabpagenr('$')
         let l:goleft = 1
     endif
-    execute 'tabclose' . (l:bang ? '!' : '')
+    exe 'tabclose'.(a:bang ? '!' : '')
     if l:goleft
         tabprevious
     endif
 endfunction
 
 " Stuff to do after the quickfix list is populated
-function! s:QuickfixPost()
-    if len(getqflist())
-        copen
+function! s:QuickFixPost(loc)
+    let l:success = len(a:loc ? getloclist(0) : getqflist())
+    let l:postcmd = a:loc ? 'lopen' : 'copen'
+    if l:success
+        exe l:postcmd
     else
-        TabcloseLeft
-    endif
-endfunction
-
-" Stuff to do after the location list is populated
-function! s:LocationPost()
-    if len(getloclist(0))
-        lopen
-    else
-        TabcloseLeft
+        call s:TabcloseLeft(0)
     endif
 endfunction
 
@@ -227,23 +219,37 @@ ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 " [ AutoCommands ] {{{
 
 " automatically make and load views
-au BufRead ?* sil! loadview
-au BufWrite ?* sil! mkview!
+augroup autoview
+    au!
+    au BufRead ?* sil! loadview
+    au BufWrite ?* sil! mkview!
+augroup END
 
 " automatically close preview window
-"au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
+"augroup autopreviewclose
+"    au!
+"    au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
+"augroup END
 
 " load quickfixes / locations in a new tab with the list window open
-au QuickFixCmdPre make,grep*,vimgrep*,helpgrep,cscope,c*file,Ggrep,Glog tabnew
-au QuickFixCmdPost make,grep*,vimgrep*,helpgrep,cscope,c*file,Ggrep,Glog call s:QuickfixPost()
-au QuickFixCmdPre lmake,lgrep,lvimgrep*,lhelpgrep,l*file,Glgrep,Gllog tabnew
-au QuickFixCmdPost lmake,lgrep,lvimgrep*,lhelpgrep,l*file,Glgrep,Gllog call s:LocationPost()
+augroup quickfixtabs
+    au!
+    au QuickFixCmdPre {,l}{make,grep,vimgrep,helpgrep} tab sp
+    au QuickFixCmdPost make,{,vim,help}grep call s:QuickFixPost(0)
+    au QuickFixCmdPost l{make,{,vim,help}grep} call s:QuickFixPost(1)
+augroup END
 
 " highlight the cursor line in the active window (but not for quickfix lists)
-au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
-au WinLeave * setl nocul
+augroup cursorhighlight
+    au!
+    au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
+    au WinLeave * setl nocul
+augroup END
 
 " you fold when and only when I tell you to fold
-au BufWinEnter * set nofen
+augroup disablefolding
+    au!
+    au BufWinEnter * set nofen
+augroup END
 
 " }}}
