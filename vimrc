@@ -147,12 +147,18 @@ function! s:TabcloseLeft(bang)
     endif
 endfunction
 
+" Stuff to do before the quickfix list is populated
+function! s:QuickFixPre()
+    tab sp
+endfunction
+
 " Stuff to do after the quickfix list is populated
 function! s:QuickFixPost(loc)
     let l:success = len(a:loc ? getloclist(0) : getqflist())
-    let l:postcmd = a:loc ? 'lopen' : 'copen'
+    let l:opencmd = a:loc ? 'lopen' : 'copen'
+    let l:closecmd = a:loc ? 'll' : 'cc'
     if l:success
-        exe l:postcmd
+        exe l:opencmd
     else
         call s:TabcloseLeft(0)
     endif
@@ -234,7 +240,7 @@ augroup END
 " load quickfixes / locations in a new tab with the list window open
 augroup quickfixtabs
     au!
-    au QuickFixCmdPre {,l}{make,grep,vimgrep,helpgrep} tab sp
+    au QuickFixCmdPre {,l}{make,grep,vimgrep,helpgrep} call s:QuickFixPre()
     au QuickFixCmdPost make,{,vim,help}grep call s:QuickFixPost(0)
     au QuickFixCmdPost l{make,{,vim,help}grep} call s:QuickFixPost(1)
 augroup END
