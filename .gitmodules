@@ -58,3 +58,6 @@
 [submodule "bundle/autofold"]
 	path = bundle/autofold
 	url = git@github.com:qstrahl/vim-autofold.git
+[submodule "bundle/tabcmd"]
+	path = bundle/tabcmd
+	url = git@github.com:qstrahl/vim-tabcmd.git

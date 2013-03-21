@@ -135,33 +135,33 @@ se sw=4
 
 " [ Functions ] {{{
 
+" I like pretending my stuff is vim core
+function! s:GetErrorMsg(exception)
+    return strpart(a:exception, stridx(a:exception, ':') + 1)
+endfunction
+
 " Closing to the right is stupid
 function! s:TabcloseLeft(bang)
     let l:goleft = 0
     if tabpagenr('$') > 1 && tabpagenr() > 1 && tabpagenr() != tabpagenr('$')
         let l:goleft = 1
     endif
-    exe 'tabclose'.(a:bang ? '!' : '')
+    try
+        exe 'tabclose'.(a:bang ? '!' : '')
+    catch
+        echohl ErrorMsg
+        echo s:GetErrorMsg(v:exception)
+        echohl None
+    endtry
     if l:goleft
         tabprevious
     endif
 endfunction
 
-" Stuff to do before the quickfix list is populated
-function! s:QuickFixPre()
-    tab sp
-endfunction
-
-" Stuff to do after the quickfix list is populated
-function! s:QuickFixPost(loc)
-    let l:success = len(a:loc ? getloclist(0) : getqflist())
-    let l:opencmd = a:loc ? 'lopen' : 'copen'
-    let l:closecmd = a:loc ? 'll' : 'cc'
-    if l:success
-        exe l:opencmd
-    else
-        call s:TabcloseLeft(0)
-    endif
+" Symmetry is beautiful
+function! s:TabspLeft()
+   tab sp
+   exe 'tabm' tabpagenr() - 2
 endfunction
 
 " }}}
@@ -169,15 +169,13 @@ endfunction
 " [ Commands ] {{{
     
 command! -bang -nargs=0 TabcloseLeft call s:TabcloseLeft(<bang>0)
+command! -nargs=0 TabnewLeft call s:TabnewLeft()
 
 " }}}
 
 " [ Maps ] {{{
 
 let mapleader='\'
-
-" Closing to the right is REALLY stupid
-nn <Leader>q :<C-U>TabcloseLeft<CR>
 
 " Toggle BreakpointWindow (mnemonic: breakpoint browse)
 nn <Leader>bb :<C-U>BreakpointWindow<CR>
@@ -212,9 +210,9 @@ nn <Leader>u :<C-U>UndotreeToggle<CR>
 " Clear search highlighting
 nn <Leader>/ :<C-U>noh<CR>
 
-" Unimpaired-like map for switching/maximizing windows simultaneously
-nn [w <C-W>W<C-W>_<C-W><Bar>
-nn ]w <C-W>w<C-W>_<C-W><Bar>
+" W wasn't taken and I want these in two keystrokes
+nn [w :<C-U>TabcloseLeft<CR>
+nn ]w :<C-U>tab sp<CR>
 
 " Text object meaning "a fold"
 vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
@@ -232,23 +230,15 @@ augroup autoview
 augroup END
 
 " automatically close preview window
-"augroup autopreviewclose
-"    au!
-"    au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
-"augroup END
+" augroup autopreviewclose
+"     au!
+"     au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
+" augroup END
 
-" load quickfixes / locations in a new tab with the list window open
-augroup quickfixtabs
-    au!
-    au QuickFixCmdPre {,l}{make,grep,vimgrep,helpgrep} call s:QuickFixPre()
-    au QuickFixCmdPost make,{,vim,help}grep call s:QuickFixPost(0)
-    au QuickFixCmdPost l{make,{,vim,help}grep} call s:QuickFixPost(1)
-augroup END
-
-" highlight the cursor line in the active window (but not for quickfix lists)
+" highlight the cursor line in the active window
 augroup cursorhighlight
     au!
-    au VimEnter,WinEnter,BufWinEnter * if !(&buftype == 'quickfix') | setl cul | endif
+    au VimEnter,WinEnter,BufWinEnter * setl cul
     au WinLeave * setl nocul
 augroup END
 
