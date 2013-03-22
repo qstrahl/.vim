@@ -127,7 +127,6 @@ se tw=78
 
 " [ Indentation & Tabs ] {{{
 
-DERPKUS
 se ai
 se ci
 se et
