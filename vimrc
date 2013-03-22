@@ -32,7 +32,7 @@ hi CursorColumn term=none                 ctermbg=237
 " [ Folds ] {{{
 
 se fdm=marker
-se fdo+=insert
+se fdo=insert,mark,quickfix,search,tag,undo
 
 " }}}
 
@@ -59,6 +59,7 @@ se ru
 se sc
 se so=999
 se stl=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+se wic
 se wim=longest:full,full
 se wmnu
 
@@ -99,7 +100,7 @@ se vop-=folds
 
 " }}}
 
-" [ Completion ] {{{
+" [ Insert Completion ] {{{
 
 se cot+=menuone
 se cot+=longest
