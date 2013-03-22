@@ -246,9 +246,9 @@ augroup cursorhighlight
 augroup END
 
 " you fold when and only when I tell you to fold
-" augroup disablefolding
-"     au!
-"     au BufWinEnter * set nofen
-" augroup END
+augroup disablefolding
+    au!
+    au BufWinEnter * set nofen
+augroup END
 
 " }}}
