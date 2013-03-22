@@ -47,7 +47,9 @@ se fcs+=diff:-
 " [ Search ] {{{
 
 se hls
+se ic
 se is
+se scs
 
 " }}}
 
