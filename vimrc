@@ -11,10 +11,10 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
-" Surround
+" bundle/surround
 let g:surround_indent=1
 
-" Undotree
+" bundle/undotree
 let g:undotree_SplitWidth=38
 
 " }}}
@@ -36,14 +36,6 @@ se fdo=insert,mark,quickfix,search,tag,undo
 
 " }}}
 
-" [ Fillchars ] {{{
-
-se fcs+=vert:\ 
-se fcs+=fold:+
-se fcs+=diff:-
-
-" }}}
-
 " [ Search ] {{{
 
 se hls
@@ -55,6 +47,9 @@ se scs
 
 " [ User Interface ] {{{
 
+se fcs+=vert:\ 
+se fcs+=fold:+
+se fcs+=diff:-
 se ls=2
 se mouse=a
 se ru
@@ -89,16 +84,23 @@ se tags=./tags;,./TAGS;
 
 " }}}
 
-" [ Editor Behaviour ] {{{
+" [ Vim Behaviour ] {{{
 
 se ar
 se bs=2
 se hid
 se hi=1000
 se ml
-
 se vop-=options
 se vop-=folds
+
+" }}}
+
+" [ Shell Settings ] {{{
+
+let $EDITOR="vim --remote-wait-silent"
+let $PAGER="vim --remote-tab-wait-silent"
+let $MANPAGER="vim --remote-tab-wait-silent"
 
 " }}}
 
@@ -123,8 +125,9 @@ se tw=78
 
 " }}}
 
-" [ Indents & Tabs ] {{{
+" [ Indentation & Tabs ] {{{
 
+DERPKUS
 se ai
 se ci
 se et
@@ -133,46 +136,6 @@ se si
 se sta
 se sts=8
 se sw=4
-
-" }}}
-
-" [ Functions ] {{{
-
-" I like pretending my stuff is vim core
-function! s:GetErrorMsg(exception)
-    return strpart(a:exception, stridx(a:exception, ':') + 1)
-endfunction
-
-" Closing to the right is stupid
-function! s:TabcloseLeft(bang)
-    let l:goleft = 0
-    if tabpagenr('$') > 1 && tabpagenr() > 1 && tabpagenr() != tabpagenr('$')
-        let l:goleft = 1
-    endif
-    try
-        exe 'tabclose'.(a:bang ? '!' : '')
-    catch
-        echohl ErrorMsg
-        echo s:GetErrorMsg(v:exception)
-        echohl None
-    endtry
-    if l:goleft
-        tabprevious
-    endif
-endfunction
-
-" Symmetry is beautiful
-function! s:TabspLeft()
-   tab sp
-   exe 'tabm' tabpagenr() - 2
-endfunction
-
-" }}}
-
-" [ Commands ] {{{
-    
-command! -bang -nargs=0 TabcloseLeft call s:TabcloseLeft(<bang>0)
-command! -nargs=0 TabnewLeft call s:TabnewLeft()
 
 " }}}
 
@@ -190,7 +153,7 @@ nn <Leader>gb :<C-U>Gblame<CR>
 nn <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>
 
 " View Gdiff
-nn <Leader>gd :<C-U>Gtdiff<CR>
+nn <Leader>gd :<C-U>Gdiff<CR>
 
 " Go to file in working tree
 nn <Leader>ge :<C-U><CR>
@@ -213,17 +176,13 @@ nn <Leader>u :<C-U>UndotreeToggle<CR>
 " Clear search highlighting
 nn <Leader>/ :<C-U>noh<CR>
 
-" W wasn't taken and I want these in two keystrokes
-nn [w :<C-U>TabcloseLeft<CR>
-nn ]w :<C-U>tab sp<CR>
-
 " Text object meaning "a fold"
 vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 
 " }}}
 
-" [ AutoCommands ] {{{
+" [ Autocommands ] {{{
 
 " automatically make and load views
 augroup autoview

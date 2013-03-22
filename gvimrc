@@ -32,3 +32,7 @@ se go =
 se go+=c
 
 " }}}
+
+let $EDITOR="gvim --remote-wait-silent"
+let $PAGER="gvim --remote-tab-wait-silent"
+let $MANPAGER="gvim --remote-tab-wait-silent"
