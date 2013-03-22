@@ -61,3 +61,6 @@
 [submodule "bundle/tabcmd"]
 	path = bundle/tabcmd
 	url = git@github.com:qstrahl/vim-tabcmd.git
+[submodule "bundle/staq"]
+	path = bundle/staq
+	url = git@github.com:qstrahl/vim-staq.git
