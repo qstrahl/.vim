@@ -155,7 +155,7 @@ nn <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>
 nn <Leader>gd :<C-U>Gdiff<CR>
 
 " Go to file in working tree
-nn <Leader>ge :<C-U><CR>
+nn <Leader>ge :<C-U>Gedit<CR>
 
 " View Glog
 nn <Leader>gl :<C-U>Gllog<CR>
@@ -165,6 +165,12 @@ nn <Leader>gs :<C-U>Gstatus<CR>
 
 " Toggle NERDTree
 nn <Leader>n :<C-U>NERDTreeToggle<CR>
+
+" Toggle quickfix/location lists
+nn <Leader>qw :<C-U>cwindow
+nn <Leader>lw :<C-U>lwindow
+nn <Leader>qc :<C-U>cclose
+nn <Leader>lc :<C-U>lclose
 
 " Toggle Tagbar
 nn <Leader>t :<C-U>TagbarToggle<CR>
