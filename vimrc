@@ -184,7 +184,7 @@ ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 " [ Autocommands ] {{{
 
 " automatically make and load views
-augroup autoview
+augroup Autoview
     au!
     au BufRead ?* sil! loadview
     au BufWrite ?* sil! mkview!
@@ -197,16 +197,22 @@ augroup END
 " augroup END
 
 " highlight the cursor line in the active window
-augroup cursorhighlight
+augroup CursorHighlight
     au!
     au VimEnter,WinEnter,BufWinEnter * setl cul
     au WinLeave * setl nocul
 augroup END
 
 " you fold when and only when I tell you to fold
-augroup disablefolding
+augroup DisableFolding
     au!
     au BufWinEnter * set nofen
+augroup END
+
+augroup QuickFixOpenList
+    au!
+    au QuickfixCmdPost [^l]* if len(getqflist()) | copen
+    au QuickfixCmdPost l* if len(getloclist(0)) | lopen
 augroup END
 
 " }}}
