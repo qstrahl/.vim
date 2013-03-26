@@ -211,8 +211,8 @@ augroup END
 
 augroup QuickFixOpenList
     au!
-    au QuickfixCmdPost [^l]* if len(getqflist()) | copen
-    au QuickfixCmdPost l* if len(getloclist(0)) | lopen
+    au QuickfixCmdPost [^l]* cwindow
+    au QuickfixCmdPost l* lwindow
 augroup END
 
 " }}}
