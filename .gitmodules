@@ -64,3 +64,6 @@
 [submodule "bundle/staq"]
 	path = bundle/staq
 	url = git@github.com:qstrahl/vim-staq.git
+[submodule "bundle/fixation"]
+	path = bundle/fixation
+	url = git@github.com:qstrahl/vim-fixation.git
