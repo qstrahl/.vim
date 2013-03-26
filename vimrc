@@ -52,8 +52,10 @@ se fcs+=fold:+
 se fcs+=diff:-
 se ls=2
 se mouse=a
+se report=0
 se ru
 se sc
+se shm=atTAI
 se so=999
 se stl=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 se wic
@@ -131,8 +133,8 @@ se tw=78
 se ai
 se ci
 se et
-se pi
 se si
+se sr
 se sta
 se sts=8
 se sw=4
