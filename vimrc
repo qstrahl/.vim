@@ -167,10 +167,12 @@ nn <Leader>gs :<C-U>Gstatus<CR>
 nn <Leader>n :<C-U>NERDTreeToggle<CR>
 
 " Toggle quickfix/location lists
-nn <Leader>qw :<C-U>cwindow
-nn <Leader>lw :<C-U>lwindow
-nn <Leader>qc :<C-U>cclose
-nn <Leader>lc :<C-U>lclose
+nn <Leader>qw :<C-U>cwindow<CR>
+nn <Leader>lw :<C-U>lwindow<CR>
+nn <Leader>qc :<C-U>cclose<CR>
+nn <Leader>lc :<C-U>lclose<CR>
+nn <Leader>qd :<C-U>cex [] <Bar> cwindow <Bar> echo "Quickfix list deleted"<CR>
+nn <Leader>ld :<C-U>lex [] <Bar> lwindow <Bar> echo "Location list deleted"<CR>
 
 " Toggle Tagbar
 nn <Leader>t :<C-U>TagbarToggle<CR>
