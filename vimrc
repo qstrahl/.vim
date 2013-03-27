@@ -93,7 +93,6 @@ se bs=2
 se hid
 se hi=1000
 se ml
-se ssop-=options
 se vop-=options
 se vop-=folds
 
