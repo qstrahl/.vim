@@ -6,7 +6,7 @@ syntax on
 
 " [ Bundles ] {{{
 
-" Pathogen
+" Load everything with Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
@@ -140,6 +140,26 @@ se sw=4
 
 " }}}
 
+" [ Functions ] {{{
+
+function! s:Gedit(count)
+    if a:count
+        exe 'Gedit ~'.a:count
+    else
+        exe 'Gedit'
+    endif
+endfunction
+
+function! s:Gdiff(count)
+    if a:count
+        exe 'Gdiff ~'.a:count
+    else
+        exe 'Gdiff'
+    endif
+endfunction
+
+" }}}
+
 " [ Maps ] {{{
 
 let mapleader='\'
@@ -154,10 +174,10 @@ nn <Leader>gb :<C-U>Gblame<CR>
 nn <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>
 
 " View Gdiff
-nn <Leader>gd :<C-U>Gdiff<CR>
+nn <Leader>gd :<C-U>call <SID>Gdiff(v:count)<CR>
 
 " Go to file in working tree
-nn <Leader>ge :<C-U>Gedit<CR>
+nn <Leader>ge :<C-U>call <SID>Gedit(v:count)<CR>
 
 " View Glog
 nn <Leader>gl :<C-U>Gllog<CR>
