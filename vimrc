@@ -209,6 +209,12 @@ nn <Leader>/ :<C-U>noh<CR>
 vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 
+" Unimpaired-style mappings for custom settings
+nn [oz :<C-U>Autofold
+nn ]oz :<C-U>Autofold!
+nn [om :<C-U>Matchmaker
+nn ]om :<C-U>Matchmaker!
+
 " }}}
 
 " [ Autocommands ] {{{
