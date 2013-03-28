@@ -67,3 +67,6 @@
 [submodule "bundle/fixation"]
 	path = bundle/fixation
 	url = git@github.com:qstrahl/vim-fixation.git
+[submodule "bundle/matchmaker"]
+	path = bundle/matchmaker
+	url = git@github.com:qstrahl/vim-matchmaker.git
