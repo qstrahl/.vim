@@ -158,8 +158,6 @@ function! s:Gdiff(count)
     endif
 endfunction
 
-" }}}
-
 " [ Maps ] {{{
 
 let mapleader='\'
@@ -188,13 +186,17 @@ nn <Leader>gs :<C-U>Gstatus<CR>
 " Toggle NERDTree
 nn <Leader>n :<C-U>NERDTreeToggle<CR>
 
-" Toggle quickfix/location lists
-nn <Leader>qw :<C-U>cwindow<CR>
-nn <Leader>lw :<C-U>lwindow<CR>
-nn <Leader>qc :<C-U>cclose<CR>
-nn <Leader>lc :<C-U>lclose<CR>
-nn <Leader>qd :<C-U>cex [] <Bar> cw <Bar> echo "Quickfix list deleted"<CR>
-nn <Leader>ld :<C-U>lex [] <Bar> lw <Bar> echo "Location list deleted"<CR>
+" Manipulate quickfix/location lists
+nn yqq :<C-U>copen<CR>
+nn yqw :<C-U>lopen<CR>
+nn dqq :<C-U>cclose<CR>
+nn dqw :<C-U>lclose<CR>
+nn cqq :<C-U>exe 'cnewer' v:count1<CR>
+nn cqQ :<C-U>exe 'colder' v:count1<CR>
+nn cQQ :<C-U>exe 'colder' v:count1<CR>
+nn cqw :<C-U>exe 'lnewer' v:count1<CR>
+nn cqW :<C-U>exe 'lolder' v:count1<CR>
+nn cQW :<C-U>exe 'lolder' v:count1<CR>
 
 " Toggle Tagbar
 nn <Leader>t :<C-U>TagbarToggle<CR>
