@@ -258,7 +258,7 @@ augroup END
 
 augroup ColorColumn
     au!
-    au VimEnter,BufWinEnter * let &colorcolumn = &textwidth + 1
+    au VimEnter,BufWinEnter,Syntax * if &tw | let &cc = &tw + 1 | else | se cc= | endif
 augroup END
 
 " }}}
