@@ -193,8 +193,8 @@ nn <Leader>qw :<C-U>cwindow<CR>
 nn <Leader>lw :<C-U>lwindow<CR>
 nn <Leader>qc :<C-U>cclose<CR>
 nn <Leader>lc :<C-U>lclose<CR>
-nn <Leader>qd :<C-U>cex [] <Bar> cwindow <Bar> echo "Quickfix list deleted"<CR>
-nn <Leader>ld :<C-U>lex [] <Bar> lwindow <Bar> echo "Location list deleted"<CR>
+nn <Leader>qd :<C-U>cex [] <Bar> cw <Bar> echo "Quickfix list deleted"<CR>
+nn <Leader>ld :<C-U>lex [] <Bar> lw <Bar> echo "Location list deleted"<CR>
 
 " Toggle Tagbar
 nn <Leader>t :<C-U>TagbarToggle<CR>
@@ -226,11 +226,11 @@ augroup Autoview
     au BufWrite ?* sil! mkview!
 augroup END
 
-" automatically close preview window
-" augroup autopreviewclose
-"     au!
-"     au CursorMovedI,InsertLeave * if pumvisible() == 0 | sil! pclose! | endif
-" augroup END
+" automatically close preview window after completion is done
+augroup AutoPclose
+    au!
+    au CompleteDone * pclose!
+augroup END
 
 " highlight the cursor line in the active window
 augroup CursorHighlight
@@ -254,6 +254,11 @@ augroup END
 augroup AutoMkdir
     au!
     au BufWritePre,FileWritePre ?* silent! call mkdir(expand('%:h'), 'p') 
+augroup END
+
+augroup ColorColumn
+    au!
+    au VimEnter,BufWinEnter * let &colorcolumn = &textwidth + 1
 augroup END
 
 " }}}
