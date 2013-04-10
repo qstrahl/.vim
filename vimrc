@@ -251,4 +251,9 @@ augroup QuickFixOpenList
     au QuickfixCmdPost l* lwindow
 augroup END
 
+augroup AutoMkdir
+    au!
+    au BufWritePre,FileWritePre ?* silent! call mkdir(expand('%:h'), 'p') 
+augroup END
+
 " }}}
