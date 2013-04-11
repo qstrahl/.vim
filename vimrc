@@ -31,6 +31,7 @@ hi CursorColumn term=none                 ctermbg=237
 
 " [ Folds ] {{{
 
+se cc=+1
 se fdm=marker
 se fdo=insert,mark,quickfix,search,tag,undo
 
@@ -256,11 +257,6 @@ augroup END
 augroup AutoMkdir
     au!
     au BufWritePre,FileWritePre ?* silent! call mkdir(expand('%:h'), 'p') 
-augroup END
-
-augroup ColorColumn
-    au!
-    au VimEnter,BufWinEnter,Syntax * if &tw | let &cc = &tw + 1 | else | se cc= | endif
 augroup END
 
 " }}}
