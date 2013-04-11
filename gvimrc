@@ -14,13 +14,11 @@ hi DiffText              guibg=#ff00ff guifg=#ffffff
 hi Folded                guibg=#e0e0f0 guifg=#0000cc
 hi IncSearch    gui=none guibg=#ffff00
 hi Search       gui=none guibg=#ffff00
-hi StatusLine   gui=none guibg=#000000 guifg=#ffffff
-hi StatusLineNC gui=none guibg=#000000 guifg=#909090
 hi Visual                guibg=#e0e0e0
 
 " }}}
 
-" [ Fonts ] {{{
+" [ Font Options ] {{{
 
 se gfn=Terminus\ 9
 
@@ -32,7 +30,3 @@ se go =
 se go+=c
 
 " }}}
-
-let $EDITOR="gvim --remote-wait-silent"
-let $PAGER="gvim --remote-tab-wait-silent"
-let $MANPAGER="gvim --remote-tab-wait-silent"

@@ -58,7 +58,6 @@ se ru
 se sc
 se shm=atTAI
 se so=999
-se stl=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 se wic
 se wim=longest:full,full
 se wmnu
@@ -98,14 +97,6 @@ se notimeout
 se ttimeout
 se vop-=options
 se vop-=folds
-
-" }}}
-
-" [ Shell Settings ] {{{
-
-let $EDITOR="vim --remote-wait-silent"
-let $PAGER="vim --remote-tab-wait-silent"
-let $MANPAGER="vim --remote-tab-wait-silent"
 
 " }}}
 
