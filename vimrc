@@ -94,6 +94,8 @@ se bs=2
 se hid
 se hi=1000
 se ml
+se notimeout
+se ttimeout
 se vop-=options
 se vop-=folds
 
