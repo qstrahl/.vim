@@ -24,14 +24,20 @@ let g:undotree_SplitWidth=38
 se bg=dark
 se smc=0
 
-hi CursorLine   term=underline cterm=none ctermbg=237
-hi CursorColumn term=none                 ctermbg=237
+hi CursorLine   term=underline  cterm=none      ctermbg=235
+hi ColorColumn                                  ctermbg=234
+hi DiffAdd                                      ctermbg=22
+hi DiffChange                                   ctermbg=17
+hi DiffText                                     ctermbg=4
+hi DiffDelete                                   ctermbg=52      ctermfg=1
+hi Folded                                       ctermbg=240     ctermfg=7
+hi IncSearch                    cterm=none      ctermbg=27
+hi Search                                       ctermbg=24      ctermfg=none
 
 " }}}
 
 " [ Folds ] {{{
 
-se cc=+1
 se fdm=marker
 se fdo=insert,mark,quickfix,search,tag,undo
 
