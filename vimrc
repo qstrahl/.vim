@@ -17,24 +17,27 @@ let g:surround_indent=1
 " bundle/undotree
 let g:undotree_SplitWidth=38
 
+" bundle/powerline
+let g:Powerline_symbols='fancy'
+
 " }}}
 
 " [ Color & Highlights ] {{{
 
+hi CursorLine   term=underline  cterm=none      ctermbg=235
+hi DiffAdd                                      ctermbg=22      ctermfg=2
+hi DiffChange                                   ctermbg=53      ctermfg=5
+hi DiffDelete                                   ctermbg=52      ctermfg=1
+hi DiffText                                     ctermbg=5       ctermfg=255
+hi Folded                                       ctermbg=242     ctermfg=255
+hi IncSearch                    cterm=none      ctermbg=27
+hi Search                                       ctermbg=4
+hi StatusLine                   cterm=none      ctermbg=236     ctermfg=241
+hi VertSplit                    cterm=none      ctermbg=239     ctermfg=0
+hi WildMenu                                     ctermbg=236     ctermfg=255
+
 se bg=dark
 se smc=0
-
-hi ColorColumn                                  ctermbg=234
-hi CursorLine   term=underline  cterm=none      ctermbg=235
-hi DiffAdd                                      ctermbg=22
-hi DiffChange                                   ctermbg=17
-hi DiffDelete                                   ctermbg=52      ctermfg=1
-hi DiffText                                     ctermbg=4
-hi Folded                                       ctermbg=240     ctermfg=7
-hi IncSearch                    cterm=none      ctermbg=27
-hi Search                                       ctermbg=24      ctermfg=none
-hi StatusLine                                   ctermbg=252     ctermfg=0
-hi WildMenu                                     ctermbg=148     ctermfg=22
 
 " }}}
 
@@ -58,7 +61,7 @@ se scs
 
 se fcs+=vert:\ 
 se fcs+=fold:+
-se fcs+=diff:-
+se fcs+=diff:\\
 se ls=2
 se mouse=a
 se report=0
@@ -214,10 +217,12 @@ vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 
 " Unimpaired-style mappings for custom settings
-nn [oz :<C-U>Autofold<CR>
-nn ]oz :<C-U>Autofold!<CR>
-nn [om :<C-U>Matchmaker<CR>
-nn ]om :<C-U>Matchmaker!<CR>
+no [oz :<C-U>Autofold<CR>
+no ]oz :<C-U>Autofold!<CR>
+no [ov :<C-U>set virtualedit=all<CR>
+no ]ov :<C-U>set virtualedit=<CR>
+no [om :<C-U>Matchmaker<CR>
+no ]om :<C-U>Matchmaker!<CR>
 
 " }}}
 
