@@ -11,32 +11,47 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+" bundle/matchmaker
+hi MatchMaker   term=none       cterm=none      ctermfg=none    ctermbg=237
+
+" bundle/powerline
+let g:Powerline_symbols='fancy'
+
 " bundle/surround
 let g:surround_indent=1
 
 " bundle/undotree
 let g:undotree_SplitWidth=38
 
-" bundle/powerline
-let g:Powerline_symbols='fancy'
-
 " }}}
 
 " [ Color & Highlights ] {{{
 
-hi CursorLine   term=underline  cterm=none      ctermbg=235     ctermfg=none
-hi DiffAdd      term=none       cterm=none      ctermbg=22      ctermfg=2
-hi DiffChange   term=none       cterm=none      ctermbg=53      ctermfg=5
-hi DiffDelete   term=none       cterm=none      ctermbg=52      ctermfg=1
-hi DiffText     term=none       cterm=none      ctermbg=5       ctermfg=255
-hi FoldColumn   term=none       cterm=none      ctermbg=240     ctermfg=255
-hi Folded       term=none       cterm=none      ctermbg=240     ctermfg=255
-hi IncSearch    term=none       cterm=none      ctermbg=4       ctermfg=252
-hi Normal       term=none       cterm=none      ctermbg=234     ctermfg=252
-hi Search       term=none       cterm=none      ctermbg=27      ctermfg=255
-hi StatusLine   term=none       cterm=none      ctermbg=0       ctermfg=239
-hi VertSplit    term=none       cterm=none      ctermbg=0       ctermfg=0
-hi WildMenu     term=none       cterm=none      ctermbg=0       ctermfg=255
+hi Conceal      term=reverse    cterm=none      ctermfg=237     ctermbg=none
+hi Cursor       term=reverse    cterm=none      ctermfg=234     ctermbg=252
+hi CursorLine   term=underline  cterm=none      ctermfg=none    ctermbg=235
+hi DiffAdd      term=none       cterm=none      ctermfg=2       ctermbg=22
+hi DiffChange   term=underline  cterm=none      ctermfg=5       ctermbg=53
+hi DiffDelete   term=reverse    cterm=none      ctermfg=1       ctermbg=52
+hi DiffText     term=reverse    cterm=none      ctermfg=15      ctermbg=5
+hi FoldColumn   term=none       cterm=none      ctermfg=15      ctermbg=240
+hi Folded       term=none       cterm=none      ctermfg=15      ctermbg=240
+hi IncSearch    term=underline  cterm=none      ctermfg=252     ctermbg=4
+hi NonText      term=reverse    cterm=none      ctermfg=237     ctermbg=none
+hi Normal       term=none       cterm=none      ctermfg=252     ctermbg=234
+hi Pmenu        term=reverse    cterm=none      ctermfg=250     ctermbg=25
+hi PmenuSel     term=underline  cterm=none      ctermfg=15      ctermbg=33
+hi PmenuSbar    term=none       cterm=none      ctermfg=31      ctermbg=31
+hi PmenuThumb   term=reverse    cterm=none      ctermfg=250     ctermbg=250
+hi Search       term=reverse    cterm=none      ctermfg=15      ctermbg=27
+hi SpecialKey   term=reverse    cterm=none      ctermfg=14      ctermbg=23
+hi StatusLine   term=reverse    cterm=none      ctermfg=239     ctermbg=0
+hi TabLine      term=underline  cterm=underline ctermfg=240     ctermbg=235
+hi TabLineFill  term=underline  cterm=underline ctermfg=240     ctermbg=0
+hi TabLineSel   term=reverse    cterm=none      ctermfg=15      ctermbg=240
+hi VertSplit    term=none       cterm=none      ctermfg=0       ctermbg=0
+hi Visual       term=reverse    cterm=none      ctermfg=none    ctermbg=240
+hi WildMenu     term=none       cterm=none      ctermfg=15      ctermbg=0
 
 se bg=dark
 se smc=0
@@ -61,16 +76,29 @@ se scs
 
 " [ User Interface ] {{{
 
-se fcs+=vert:\ 
-se fcs+=fold:-
 se fcs+=diff:\\
+se fcs+=fold:-
+se fcs+=vert:\ 
+se lcs =
+se lcs+=conceal:?
+se lcs+=eol:$
+se lcs+=extends:»
+se lcs+=nbsp:¬
+se lcs+=precedes:«
+se lcs+=tab:˫-
+se lcs+=trail:_
+se list
 se ls=2
 se mouse=a
+se nowrap
 se report=0
 se ru
 se sc
 se shm=atTAI
+se siso=1
+se sj=1
 se so=999
+se ss=1
 se wic
 se wim=longest:full,full
 se wmnu
@@ -243,11 +271,11 @@ augroup AutoPclose
 augroup END
 
 " highlight the cursor line in the active window
-augroup CursorHighlight
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setl cul
-    au WinLeave * setl nocul
-augroup END
+" augroup CursorHighlight
+"     au!
+"     au VimEnter,WinEnter,BufWinEnter * if &buftype != 'quickfix' | setl cul | endif
+"     au WinLeave * setl nocul
+" augroup END
 
 " you fold when and only when I tell you to fold
 augroup DisableFolding
@@ -263,7 +291,7 @@ augroup END
 
 augroup MkdirOnWrite
     au!
-    au BufWritePre,FileWritePre ?* silent! call mkdir(expand('%:h'), 'p') 
+    au BufWritePre,FileWritePre ?* silent! call mkdir(expand('%:h'), 'p')
 augroup END
 
 " }}}
