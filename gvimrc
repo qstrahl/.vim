@@ -3,19 +3,23 @@
 
 " [ Color & Highlights ] {{{
 
-se bg=light
+hi CursorLine   gui=NONE        guifg=NONE      guibg=#282828
+hi DiffAdd      gui=NONE        guifg=NONE      guibg=#222822
+hi DiffChange   gui=NONE        guifg=NONE      guibg=#292229
+hi DiffDelete   gui=NONE        guifg=#800000   guibg=#282222
+hi DiffText     gui=NONE        guifg=NONE      guibg=#482248
+hi FoldColumn   gui=NONE        guifg=#ffffff   guibg=#606060
+hi Folded       gui=NONE        guifg=#ffffff   guibg=#606060
+hi IncSearch    gui=NONE        guifg=#cccccc   guibg=#4455ee
+hi MatchMaker   gui=NONE        guifg=NONE      guibg=#585858
+hi Normal       gui=NONE        guifg=#cccccc   guibg=#222222
+hi Search       gui=NONE        guifg=#ffffff   guibg=#6677ff
+hi StatusLine   gui=NONE        guifg=#404040   guibg=#000000
+hi VertSplit    gui=NONE        guifg=#000000   guibg=#000000
+hi Visual       gui=NONE        guifg=NONE      guibg=#414141
+hi WildMenu     gui=NONE        guifg=#ffffff   guibg=#000000
 
-hi ColorColumn           guibg=#f4f4f4
-hi CursorColumn          guibg=#f4f4f4
-hi CursorLine            guibg=#f4f4f4
-hi DiffAdd               guibg=#e0ffe0
-hi DiffDelete            guibg=#ffb0b0 guifg=#ff0000
-hi DiffChange            guibg=#ffe0ff
-hi DiffText              guibg=#ff00ff
-hi Folded                guibg=#e0e0f0 guifg=#0000cc
-hi IncSearch    gui=none guibg=#ffff00
-hi Search       gui=none guibg=#ffff00
-hi Visual                guibg=#e0e0e0
+se bg=dark
 
 " }}}
 

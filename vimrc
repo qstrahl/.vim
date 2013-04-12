@@ -24,17 +24,19 @@ let g:Powerline_symbols='fancy'
 
 " [ Color & Highlights ] {{{
 
-hi CursorLine   term=underline  cterm=none      ctermbg=235
-hi DiffAdd                                      ctermbg=22      ctermfg=2
-hi DiffChange                                   ctermbg=53      ctermfg=5
-hi DiffDelete                                   ctermbg=52      ctermfg=1
-hi DiffText                                     ctermbg=5       ctermfg=255
-hi Folded                                       ctermbg=242     ctermfg=255
-hi IncSearch                    cterm=none      ctermbg=27
-hi Search                                       ctermbg=4
-hi StatusLine                   cterm=none      ctermbg=236     ctermfg=241
-hi VertSplit                    cterm=none      ctermbg=239     ctermfg=0
-hi WildMenu                                     ctermbg=236     ctermfg=255
+hi CursorLine   term=underline  cterm=none      ctermbg=235     ctermfg=none
+hi DiffAdd      term=none       cterm=none      ctermbg=22      ctermfg=2
+hi DiffChange   term=none       cterm=none      ctermbg=53      ctermfg=5
+hi DiffDelete   term=none       cterm=none      ctermbg=52      ctermfg=1
+hi DiffText     term=none       cterm=none      ctermbg=5       ctermfg=255
+hi FoldColumn   term=none       cterm=none      ctermbg=240     ctermfg=255
+hi Folded       term=none       cterm=none      ctermbg=240     ctermfg=255
+hi IncSearch    term=none       cterm=none      ctermbg=4       ctermfg=252
+hi Normal       term=none       cterm=none      ctermbg=234     ctermfg=252
+hi Search       term=none       cterm=none      ctermbg=27      ctermfg=255
+hi StatusLine   term=none       cterm=none      ctermbg=0       ctermfg=239
+hi VertSplit    term=none       cterm=none      ctermbg=0       ctermfg=0
+hi WildMenu     term=none       cterm=none      ctermbg=0       ctermfg=255
 
 se bg=dark
 se smc=0
@@ -60,7 +62,7 @@ se scs
 " [ User Interface ] {{{
 
 se fcs+=vert:\ 
-se fcs+=fold:+
+se fcs+=fold:-
 se fcs+=diff:\\
 se ls=2
 se mouse=a
@@ -115,7 +117,6 @@ se vop-=folds
 
 se cot+=menuone
 se cot+=longest
-se cot-=preview
 se cpt=.,w,i,t
 se ph=13
 
@@ -260,7 +261,7 @@ augroup QuickFixOpenList
     au QuickfixCmdPost l* lwindow
 augroup END
 
-augroup AutoMkdir
+augroup MkdirOnWrite
     au!
     au BufWritePre,FileWritePre ?* silent! call mkdir(expand('%:h'), 'p') 
 augroup END
