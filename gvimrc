@@ -11,7 +11,7 @@ hi MatchMaker           gui=NONE        guifg=NONE      guibg=#585858
 " [ Color & Highlights ] {{{
 
 hi Conceal              gui=NONE        guifg=#414141   guibg=NONE
-hi Cursor               gui=NONE        guifg=#1b1b1b   guibg=#cccccc
+hi Cursor               gui=NONE        guifg=#1b1b1b   guibg=#ffffff
 hi CursorLine           gui=NONE        guifg=NONE      guibg=#282828
 hi DiffAdd              gui=NONE        guifg=NONE      guibg=#222822
 hi DiffChange           gui=NONE        guifg=NONE      guibg=#292229

@@ -28,7 +28,7 @@ let g:undotree_SplitWidth=38
 " [ Color & Highlights ] {{{
 
 hi Conceal      term=reverse    cterm=none      ctermfg=237     ctermbg=none
-hi Cursor       term=reverse    cterm=none      ctermfg=234     ctermbg=252
+hi Cursor       term=reverse    cterm=none      ctermfg=15      ctermbg=252
 hi CursorLine   term=underline  cterm=none      ctermfg=none    ctermbg=235
 hi DiffAdd      term=none       cterm=none      ctermfg=2       ctermbg=22
 hi DiffChange   term=underline  cterm=none      ctermfg=5       ctermbg=53
