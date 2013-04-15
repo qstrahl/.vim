@@ -220,8 +220,8 @@ nn <Leader>gs :<C-U>Gstatus<CR>
 nn <Leader>n :<C-U>NERDTreeToggle<CR>
 
 " Manipulate quickfix/location lists
-nn yqq :<C-U>copen<CR>
-nn yqw :<C-U>lopen<CR>
+nn yqq :<C-U>botright copen<CR>
+nn yqw :<C-U>botright lopen<CR>
 nn dqq :<C-U>cclose<CR>
 nn dqw :<C-U>lclose<CR>
 nn cqq :<C-U>exe 'cnewer' v:count1<CR>
@@ -284,8 +284,8 @@ augroup END
 
 augroup QuickFixOpenList
     au!
-    au QuickfixCmdPost [^l]* cwindow
-    au QuickfixCmdPost l* lwindow
+    au QuickfixCmdPost [^l]* botright cwindow
+    au QuickfixCmdPost l* botright lwindow
 augroup END
 
 augroup MkdirOnWrite
