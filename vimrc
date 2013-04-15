@@ -86,7 +86,6 @@ se lcs+=extends:»
 se lcs+=nbsp:¬
 se lcs+=precedes:«
 se lcs+=tab:˫-
-se lcs+=trail:_
 se list
 se ls=2
 se mouse=a
