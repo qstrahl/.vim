@@ -96,7 +96,7 @@ se sc
 se shm=atTAI
 se siso=1
 se sj=1
-se so=1
+se so=0
 se ss=1
 se wic
 se wim=longest:full,full
