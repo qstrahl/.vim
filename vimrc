@@ -191,6 +191,20 @@ function! s:Gdiff(count)
     endif
 endfunction
 
+function! s:QfCmdPost()
+    if len(getqflist())
+        botright copen
+        wincmd p
+    endif
+endfunction
+
+function! s:LocCmdPost()
+    if len(getloclist(0))
+        rightbelow lopen
+        wincmd p
+    endif
+endfunction
+
 " [ Maps ] {{{
 
 let mapleader='\'
@@ -284,8 +298,8 @@ augroup END
 
 augroup QuickFixOpenList
     au!
-    au QuickfixCmdPost [^l]* botright cwindow
-    au QuickfixCmdPost l* botright lwindow
+    au QuickfixCmdPost [^l]* call s:QfCmdPost()
+    au QuickfixCmdPost l* call s:LocCmdPost()
 augroup END
 
 augroup MkdirOnWrite
