@@ -234,18 +234,6 @@ nn <Leader>gs :<C-U>Gstatus<CR>
 " Toggle NERDTree
 nn <Leader>n :<C-U>NERDTreeToggle<CR>
 
-" Manipulate quickfix/location lists
-nn yqq :<C-U>botright copen<CR>
-nn yqw :<C-U>botright lopen<CR>
-nn dqq :<C-U>cclose<CR>
-nn dqw :<C-U>lclose<CR>
-nn cqq :<C-U>exe 'cnewer' v:count1<CR>
-nn cqQ :<C-U>exe 'colder' v:count1<CR>
-nn cQQ :<C-U>exe 'colder' v:count1<CR>
-nn cqw :<C-U>exe 'lnewer' v:count1<CR>
-nn cqW :<C-U>exe 'lolder' v:count1<CR>
-nn cQW :<C-U>exe 'lolder' v:count1<CR>
-
 " Toggle Tagbar
 nn <Leader>t :<C-U>TagbarToggle<CR>
 
