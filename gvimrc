@@ -32,6 +32,7 @@ hi StatusLine           gui=NONE        guifg=#414141   guibg=#000000
 hi TabLine              gui=underline   guifg=#808080   guibg=#404040
 hi TabLineFill          gui=underline   guifg=#808080   guibg=#000000
 hi TabLineSel           gui=NONE        guifg=#ffffff   guibg=#808080
+hi Title                gui=NONE        guifg=NONE      guibg=NONE
 hi VertSplit            gui=NONE        guifg=#000000   guibg=#000000
 hi Visual               gui=NONE        guifg=NONE      guibg=#414141
 hi WildMenu             gui=NONE        guifg=#ffffff   guibg=#000000

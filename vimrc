@@ -49,6 +49,7 @@ hi StatusLine   term=reverse    cterm=none      ctermfg=239     ctermbg=0
 hi TabLine      term=underline  cterm=underline ctermfg=240     ctermbg=235
 hi TabLineFill  term=underline  cterm=underline ctermfg=240     ctermbg=0
 hi TabLineSel   term=reverse    cterm=none      ctermfg=15      ctermbg=240
+hi Title        term=none       cterm=none      ctermfg=none    ctermbg=none
 hi VertSplit    term=none       cterm=none      ctermfg=0       ctermbg=0
 hi Visual       term=reverse    cterm=none      ctermfg=none    ctermbg=240
 hi WildMenu     term=none       cterm=none      ctermfg=15      ctermbg=0
