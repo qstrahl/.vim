@@ -134,8 +134,7 @@ se bs=2
 se hid
 se hi=1000
 se ml
-se notimeout
-se ttimeout
+se noto
 se vop-=options
 se vop-=folds
 
@@ -254,6 +253,16 @@ no [ov :<C-U>set virtualedit=all<CR>
 no ]ov :<C-U>set virtualedit=<CR>
 no [om :<C-U>Matchmaker<CR>
 no ]om :<C-U>Matchmaker!<CR>
+
+" Map control+arrow keys for terminal
+no <Esc>Oa <C-Up>
+no <Esc>Ob <C-Down>
+no <Esc>Oc <C-Right>
+no <Esc>Od <C-Left>
+no! <Esc>Oa <C-Up>
+no! <Esc>Ob <C-Down>
+no! <Esc>Oc <C-Right>
+no! <Esc>Od <C-Left>
 
 " }}}
 
