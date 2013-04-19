@@ -1,6 +1,16 @@
 "" vim: set fdm=marker:
 "" Author: Quinn Strahl
 
+"[ Init ]" {{{
+
+for dir in ["swap","undo","view"]
+    if empty(finddir(dir, expand('$HOME').'/.vim'))
+        call mkdir(expand('$HOME').'/.vim/'.dir, 'p')
+    endif
+endfor
+
+"}}}
+
 filet plugin indent on
 syntax on
 
@@ -110,6 +120,17 @@ se spr
 
 "}}}
 
+"[ Special Files & Directories ] {{{
+
+se bdir=~/.vim/backup
+se dir=~/.vim/swap
+se tags=./tags;,./TAGS;
+se udf
+se udir=~/.vim/undo
+se vdir=~/.vim/view
+
+"}}}
+
 "[ Vim Behaviour ]" {{{
 
 se ar
@@ -120,10 +141,8 @@ se inex=substitute(v:fname,'^/\\+','','')
 se ml
 se noto
 se path=./;,./**
-se tags=./tags;,./TAGS;
 se ttimeout
 se ttm=0
-se udf
 
 "}}}
 
@@ -215,7 +234,7 @@ endfunction
 let mapleader='\'
 
 "" Pull the line under the cursor into the command line
-cno <expr> <C-R><C-L> getline('.')
+cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
 
 "" Text object meaning 'a fold'
 vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
@@ -281,6 +300,11 @@ augroup END
 augroup MkdirOnWrite
     au!
     au BufWritePre,FileWritePre ?* silent! call mkdir(expand('%:h'), 'p')
+augroup END
+
+augroup UpdateBex
+    au!
+    au BufWritePre * let &bex=strftime(".%F.%T.backup")
 augroup END
 
 "}}}

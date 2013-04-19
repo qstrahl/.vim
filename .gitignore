@@ -1,3 +1,6 @@
-view/*
+/backup
+/swap
+/undo
+/view
 .*
 !.gitignore
