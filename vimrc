@@ -1,41 +1,38 @@
-" vim: set fdm=marker:
-" Author: Quinn Strahl
+"" vim: set fdm=marker:
+"" Author: Quinn Strahl
 
 filet plugin indent on
 syntax on
 
-" [ Bundles ] {{{
+"[ Bundles ]" {{{
 
-" Load everything with Pathogen
+"" Load everything with Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
-" bundle/matchmaker
-hi MatchMaker   term=none       cterm=none      ctermfg=none    ctermbg=237
-
-" bundle/powerline
+"" bundle/powerline
 let g:Powerline_symbols='fancy'
 
-" bundle/surround
+"" bundle/surround
 let g:surround_indent=1
 
-" bundle/undotree
+"" bundle/undotree
 let g:undotree_SplitWidth=38
 
-" }}}
+"}}}
 
-" [ Color & Highlights ] {{{
+"[ Color & Highlights ]" {{{
 
 hi Conceal      term=reverse    cterm=none      ctermfg=237     ctermbg=none
 hi Cursor       term=reverse    cterm=none      ctermfg=15      ctermbg=252
 hi CursorLine   term=underline  cterm=none      ctermfg=none    ctermbg=235
-hi DiffAdd      term=none       cterm=none      ctermfg=2       ctermbg=22
-hi DiffChange   term=underline  cterm=none      ctermfg=5       ctermbg=53
+hi DiffAdd      term=none       cterm=none      ctermfg=none    ctermbg=22
+hi DiffChange   term=underline  cterm=none      ctermfg=none    ctermbg=53
 hi DiffDelete   term=reverse    cterm=none      ctermfg=1       ctermbg=52
 hi DiffText     term=reverse    cterm=none      ctermfg=15      ctermbg=5
-hi FoldColumn   term=none       cterm=none      ctermfg=15      ctermbg=240
-hi Folded       term=none       cterm=none      ctermfg=15      ctermbg=240
+hi FoldColumn   term=none       cterm=none      ctermfg=249     ctermbg=240
+hi Folded       term=none       cterm=none      ctermfg=249     ctermbg=240
 hi IncSearch    term=underline  cterm=none      ctermfg=252     ctermbg=4
 hi NonText      term=reverse    cterm=none      ctermfg=237     ctermbg=none
 hi Normal       term=none       cterm=none      ctermfg=252     ctermbg=234
@@ -51,31 +48,32 @@ hi TabLineFill  term=underline  cterm=underline ctermfg=240     ctermbg=0
 hi TabLineSel   term=reverse    cterm=none      ctermfg=15      ctermbg=240
 hi Title        term=none       cterm=none      ctermfg=none    ctermbg=none
 hi VertSplit    term=none       cterm=none      ctermfg=0       ctermbg=0
-hi Visual       term=reverse    cterm=none      ctermfg=none    ctermbg=240
+hi Visual       term=reverse    cterm=none      ctermfg=none    ctermbg=236
 hi WildMenu     term=none       cterm=none      ctermfg=15      ctermbg=0
 
 se bg=dark
 se smc=0
 
-" }}}
+"}}}
 
-" [ Folds ] {{{
+"[ Folds ]" {{{
 
 se fdm=marker
 se fdo=insert,mark,quickfix,search,tag,undo
+se fdls=99
 
-" }}}
+"}}}
 
-" [ Search ] {{{
+"[ Search ]" {{{
 
 se hls
 se ic
 se is
 se scs
 
-" }}}
+"}}}
 
-" [ User Interface ] {{{
+"[ User Interface ]" {{{
 
 se fcs+=diff:\\
 se fcs+=fold:-
@@ -86,11 +84,9 @@ se lcs+=eol:$
 se lcs+=extends:»
 se lcs+=nbsp:¬
 se lcs+=precedes:«
-se lcs+=tab:˫-
-se list
+se lcs+=tab:ͱ⋯
 se ls=2
 se mouse=a
-se nowrap
 se report=0
 se ru
 se sc
@@ -103,67 +99,74 @@ se wic
 se wim=longest:full,full
 se wmnu
 
-" }}}
+"}}}
 
-" [ Windows ] {{{
+"[ Windows ]" {{{
 
 se wmw=0
 se wmh=0
 se sb
 se spr
 
-" }}}
+"}}}
 
-" [ Special Files & Directories ] {{{
-
-se bdir=~/.vim/backup
-se bk
-se dir=~/.vim/swap
-se udf
-se udir=~/.vim/undo
-se vdir=~/.vim/view
-
-se tags=./tags;,./TAGS;
-
-" }}}
-
-" [ Vim Behaviour ] {{{
+"[ Vim Behaviour ]" {{{
 
 se ar
 se bs=2
-se hid
 se hi=1000
+se hid
+se inex=substitute(v:fname,'^/\\+','','')
 se ml
 se noto
-se vop-=options
-se vop-=folds
+se path=./;,./**
+se tags=./tags;,./TAGS;
+se ttimeout
+se ttm=0
+se udf
 
-" }}}
+"}}}
 
-" [ Insert Completion ] {{{
+"[ Keycodes ] {{{
+
+set <C-Left>=Od
+set <C-Right>=Oc
+set <S-Down>=[b
+set <S-Up>=[a
+set <xDown>=Ob
+set <xUp>=Oa
+
+"}}}
+
+"[ Insert Completion ]" {{{
 
 se cot+=menuone
 se cot+=longest
 se cpt=.,w,i,t
 se ph=13
 
-" }}}
+"}}}
 
-" [ Formatting Options ] {{{
+"[ Formatting Options ]" {{{
 
-se fo-=t
-se fo+=r
-se fo+=n
-se fo+=l
+se fo =
+se fo+=a
+se fo+=c
 se fo+=j
-se tw=80
+se fo+=l
+se fo+=n
+se fo+=o
+se fo+=q
+se fo+=r
+se fo+=t
+se fo+=w
+se tw=78
 
-" }}}
+"}}}
 
-" [ Indentation & Tabs ] {{{
+"[ Indentation & Tabs ]" {{{
 
 se ai
-se ci
 se et
 se si
 se sr
@@ -171,9 +174,9 @@ se sta
 se sts=8
 se sw=4
 
-" }}}
+"}}}
 
-" [ Functions ] {{{
+"[ Functions ]" {{{
 
 function! s:Gedit(count)
     if a:count
@@ -205,93 +208,68 @@ function! s:LocCmdPost()
     endif
 endfunction
 
-" [ Maps ] {{{
+"}}}
+
+"[ Maps ]" {{{
 
 let mapleader='\'
 
-" Toggle BreakpointWindow (mnemonic: breakpoint browse)
-nn <Leader>bb :<C-U>BreakpointWindow<CR>
+"" Pull the line under the cursor into the command line
+cno <expr> <C-R><C-L> getline('.')
 
-" Open Gblame
-nn <Leader>gb :<C-U>Gblame<CR>
-
-" Go to Conflicts
-nn <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>
-
-" View Gdiff
-nn <Leader>gd :<C-U>call <SID>Gdiff(v:count)<CR>
-
-" Go to file in working tree
-nn <Leader>ge :<C-U>call <SID>Gedit(v:count)<CR>
-
-" View Glog
-nn <Leader>gl :<C-U>Gllog<CR>
-
-" View Gstatus
-nn <Leader>gs :<C-U>Gstatus<CR>
-
-" Toggle NERDTree
-nn <Leader>n :<C-U>NERDTreeToggle<CR>
-
-" Toggle Tagbar
-nn <Leader>t :<C-U>TagbarToggle<CR>
-
-" Toggle Undotree
-nn <Leader>u :<C-U>UndotreeToggle<CR>
-
-" Clear search highlighting
-nn <Leader>/ :<C-U>noh<CR>
-
-" Text object meaning "a fold"
+"" Text object meaning 'a fold'
 vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 
-" Unimpaired-style mappings for custom settings
-no [oz :<C-U>Autofold<CR>
-no ]oz :<C-U>Autofold!<CR>
-no [ov :<C-U>set virtualedit=all<CR>
-no ]ov :<C-U>set virtualedit=<CR>
-no [om :<C-U>Matchmaker<CR>
-no ]om :<C-U>Matchmaker!<CR>
+"" Unimpaired-style toggles
+nno [oz :<C-U>Autofold<CR>
+nno ]oz :<C-U>Autofold!<CR>
+nno [ov :<C-U>set virtualedit=all<CR>
+nno ]ov :<C-U>set virtualedit=<CR>
+nno [om :<C-U>Matchmaker<CR>
+nno ]om :<C-U>Matchmaker!<CR>
 
-" Map control+arrow keys for terminal
-no <Esc>Oa <C-Up>
-no <Esc>Ob <C-Down>
-no <Esc>Oc <C-Right>
-no <Esc>Od <C-Left>
-no! <Esc>Oa <C-Up>
-no! <Esc>Ob <C-Down>
-no! <Esc>Oc <C-Right>
-no! <Esc>Od <C-Left>
+"" Toggle BreakpointWindow (mnemonic: breakpoint browse)
+nno <Leader>bb :<C-U>BreakpointWindow<CR>
 
-" }}}
+"" Open Gblame
+nno <Leader>gb :<C-U>Gblame<CR>
 
-" [ Autocommands ] {{{
+"" Go to Conflicts
+nno <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>
 
-" automatically make and load views
-augroup Autoview
-    au!
-    au BufRead ?* sil! loadview
-    au BufWrite ?* sil! mkview!
-augroup END
+"" View Gdiff
+nno <Leader>gd :<C-U>call <SID>Gdiff(v:count)<CR>
 
-" automatically close preview window after completion is done
+"" Go to file in working tree
+nno <Leader>ge :<C-U>call <SID>Gedit(v:count)<CR>
+
+"" View Glog
+nno <Leader>gl :<C-U>Gllog<CR>
+
+"" View Gstatus
+nno <Leader>gs :<C-U>Gstatus<CR>
+
+"" Toggle NERDTree
+nno <Leader>n :<C-U>NERDTreeToggle<CR>
+
+"" Toggle Tagbar
+nno <Leader>t :<C-U>TagbarToggle<CR>
+
+"" Toggle Undotree
+nno <Leader>u :<C-U>UndotreeToggle<CR>
+
+"" Clear search highlighting
+nno <Leader>/ :<C-U>noh<CR>
+
+"}}}
+
+"[ Autocommands ]" {{{
+
+"" automatically close preview window after completion is done
 augroup AutoPclose
     au!
     au CompleteDone * pclose!
-augroup END
-
-" highlight the cursor line in the active window
-" augroup CursorHighlight
-"     au!
-"     au VimEnter,WinEnter,BufWinEnter * if &buftype != 'quickfix' | setl cul | endif
-"     au WinLeave * setl nocul
-" augroup END
-
-" you fold when and only when I tell you to fold
-augroup DisableFolding
-    au!
-    au BufWinEnter * set nofen
 augroup END
 
 augroup QuickFixOpenList
@@ -305,4 +283,4 @@ augroup MkdirOnWrite
     au BufWritePre,FileWritePre ?* silent! call mkdir(expand('%:h'), 'p')
 augroup END
 
-" }}}
+"}}}

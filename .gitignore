@@ -1,7 +1,3 @@
-backup/*
-sessions/*
-swap/*
 view/*
-undo/*
-.netrwhist
-!empty
+.*
+!.gitignore
