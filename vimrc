@@ -1,5 +1,5 @@
-"" vim: set fdm=marker:
-"" Author: Quinn Strahl
+" vim: set fdm=marker:
+"Author: Quinn Strahl"
 
 filet plugin indent on
 syntax on
@@ -16,21 +16,24 @@ endfor
 
 "[ Bundles ]" {{{
 
-"" Load everything with Pathogen
+"Load everything with Pathogen"
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
-"" bundle/powerline
+"bundle/nerdtree"
+let NERDTreeHijackNetrw=0
+
+"bundle/powerline"
 let g:Powerline_symbols='fancy'
 
-"" bundle/surround
+"bundle/surround"
 let g:surround_indent=1
 
-"" bundle/undotree
+"bundle/undotree"
 let g:undotree_SplitWidth=38
 
-"" bundle/vdebug
+"bundle/vdebug"
 au VimEnter * sign define breakpt text=◆- linehl=DbgBreakLine texthl=DbgBreakText
 au VimEnter * sign define current text=▶ linehl=DbgCurLine texthl=DbgCurText
 
@@ -242,14 +245,14 @@ endfunction
 
 let mapleader='\'
 
-"" Pull the line under the cursor into the command line
+"Pull the line under the cursor into the command line"
 cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
 
-"" Text object meaning 'a fold'
+"Text object meaning 'a fold'"
 vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 
-"" Unimpaired-style toggles
+"Unimpaired-style toggles"
 nno [oz :<C-U>Autofold<CR>
 nno ]oz :<C-U>Autofold!<CR>
 nno [ov :<C-U>set virtualedit=all<CR>
@@ -257,37 +260,37 @@ nno ]ov :<C-U>set virtualedit=<CR>
 nno [om :<C-U>Matchmaker<CR>
 nno ]om :<C-U>Matchmaker!<CR>
 
-"" Toggle BreakpointWindow (mnemonic: breakpoint browse)
+"Toggle BreakpointWindow (mnemonic: breakpoint browse)"
 nno <Leader>bb :<C-U>BreakpointWindow<CR>
 
-"" Open Gblame
+"Open Gblame"
 nno <Leader>gb :<C-U>Gblame<CR>
 
-"" Go to Conflicts
+"Go to Conflicts"
 nno <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>
 
-"" View Gdiff
+"View Gdiff"
 nno <Leader>gd :<C-U>call <SID>Gdiff(v:count)<CR>
 
-"" Go to file in working tree
+"Go to file in working tree"
 nno <Leader>ge :<C-U>call <SID>Gedit(v:count)<CR>
 
-"" View Glog
+"View Glog"
 nno <Leader>gl :<C-U>Gllog<CR>
 
-"" View Gstatus
+"View Gstatus"
 nno <Leader>gs :<C-U>Gstatus<CR>
 
-"" Toggle NERDTree
+"Toggle NERDTree"
 nno <Leader>n :<C-U>NERDTreeToggle<CR>
 
-"" Toggle Tagbar
+"Toggle Tagbar"
 nno <Leader>t :<C-U>TagbarToggle<CR>
 
-"" Toggle Undotree
+"Toggle Undotree"
 nno <Leader>u :<C-U>UndotreeToggle<CR>
 
-"" Clear search highlighting
+"Clear search highlighting"
 nno <Leader>/ :<C-U>noh<CR>
 
 "}}}
