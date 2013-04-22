@@ -30,6 +30,10 @@ let g:surround_indent=1
 "" bundle/undotree
 let g:undotree_SplitWidth=38
 
+"" bundle/vdebug
+au VimEnter * sign define breakpt text=◆- linehl=DbgBreakLine texthl=DbgBreakText
+au VimEnter * sign define current text=▶ linehl=DbgCurLine texthl=DbgCurText
+
 "}}}
 
 "[ Color & Highlights ]" {{{
@@ -37,12 +41,16 @@ let g:undotree_SplitWidth=38
 hi Conceal      term=reverse    cterm=none      ctermfg=237     ctermbg=none
 hi Cursor       term=reverse    cterm=none      ctermfg=15      ctermbg=252
 hi CursorLine   term=underline  cterm=none      ctermfg=none    ctermbg=235
+hi DbgBreakLine term=reverse    cterm=none      ctermfg=none    ctermbg=none
+hi DbgBreakText term=none       cterm=none      ctermfg=33      ctermbg=none
+hi DbgCurLine   term=none       cterm=none      ctermfg=none    ctermbg=24
+hi DbgCurText   term=none       cterm=none      ctermfg=38       ctermbg=24
 hi DiffAdd      term=none       cterm=none      ctermfg=none    ctermbg=22
 hi DiffChange   term=underline  cterm=none      ctermfg=none    ctermbg=53
 hi DiffDelete   term=reverse    cterm=none      ctermfg=1       ctermbg=52
 hi DiffText     term=reverse    cterm=none      ctermfg=15      ctermbg=5
-hi FoldColumn   term=none       cterm=none      ctermfg=249     ctermbg=240
-hi Folded       term=none       cterm=none      ctermfg=249     ctermbg=240
+hi FoldColumn   term=none       cterm=none      ctermfg=246     ctermbg=237
+hi Folded       term=none       cterm=none      ctermfg=246     ctermbg=237
 hi IncSearch    term=underline  cterm=none      ctermfg=252     ctermbg=4
 hi NonText      term=reverse    cterm=none      ctermfg=237     ctermbg=none
 hi Normal       term=none       cterm=none      ctermfg=252     ctermbg=234
@@ -51,6 +59,7 @@ hi PmenuSel     term=underline  cterm=none      ctermfg=15      ctermbg=33
 hi PmenuSbar    term=none       cterm=none      ctermfg=31      ctermbg=31
 hi PmenuThumb   term=reverse    cterm=none      ctermfg=250     ctermbg=250
 hi Search       term=reverse    cterm=none      ctermfg=15      ctermbg=27
+hi SignColumn   term=none       cterm=none      ctermfg=none    ctermbg=none
 hi SpecialKey   term=reverse    cterm=none      ctermfg=14      ctermbg=23
 hi StatusLine   term=reverse    cterm=none      ctermfg=239     ctermbg=0
 hi TabLine      term=underline  cterm=underline ctermfg=240     ctermbg=235
@@ -177,7 +186,6 @@ se fo+=n
 se fo+=o
 se fo+=q
 se fo+=r
-se fo+=t
 se fo+=w
 se tw=78
 
