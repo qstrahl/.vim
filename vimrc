@@ -56,6 +56,7 @@ hi FoldColumn   term=none       cterm=none      ctermfg=246     ctermbg=237
 hi Folded       term=none       cterm=none      ctermfg=246     ctermbg=237
 hi IncSearch    term=underline  cterm=none      ctermfg=252     ctermbg=4
 hi NonText      term=reverse    cterm=none      ctermfg=237     ctermbg=none
+hi LineNr       term=bold       cterm=none      ctermfg=239     ctermbg=none
 hi Normal       term=none       cterm=none      ctermfg=252     ctermbg=234
 hi Pmenu        term=reverse    cterm=none      ctermfg=250     ctermbg=25
 hi PmenuSel     term=underline  cterm=none      ctermfg=15      ctermbg=33
