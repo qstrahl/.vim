@@ -1,18 +1,18 @@
 "" vim: set fdm=marker:
 "" Author: Quinn Strahl
 
+filet plugin indent on
+syntax on
+
 "[ Init ]" {{{
 
-for dir in ["swap","undo","view"]
+for dir in ["backup","swap","undo","view"]
     if empty(finddir(dir, expand('$HOME').'/.vim'))
         call mkdir(expand('$HOME').'/.vim/'.dir, 'p')
     endif
 endfor
 
 "}}}
-
-filet plugin indent on
-syntax on
 
 "[ Bundles ]" {{{
 
