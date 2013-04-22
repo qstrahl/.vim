@@ -146,7 +146,8 @@ se ar
 se bs=2
 se hi=1000
 se hid
-se inex=substitute(v:fname,'^/\\+','','')
+se inex=substitute(substitute(v:fname,'\\','/','g'),'^/\\+','','')
+se isf+=\
 se ml
 se noto
 se path=./;,./**
@@ -293,7 +294,6 @@ nno <Leader>/ :<C-U>noh<CR>
 
 "[ Autocommands ]" {{{
 
-"" automatically close preview window after completion is done
 augroup AutoPclose
     au!
     au CompleteDone * pclose!
@@ -313,6 +313,11 @@ augroup END
 augroup UpdateBex
     au!
     au BufWritePre * let &bex=strftime(".%F.%T.backup")
+augroup END
+
+augroup SyntaxSuffixesAdd
+    au!
+    au! BufAdd ?* exe 'set sua+=.'.expand('<afile>:e')
 augroup END
 
 "}}}
