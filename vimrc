@@ -44,10 +44,11 @@ au VimEnter * sign define current text=▶ linehl=DbgCurLine texthl=DbgCurText
 hi Conceal      term=reverse    cterm=none      ctermfg=237     ctermbg=none
 hi Cursor       term=reverse    cterm=none      ctermfg=15      ctermbg=252
 hi CursorLine   term=underline  cterm=none      ctermfg=none    ctermbg=235
+hi CursorLineNR term=bold       cterm=none      ctermfg=242     ctermbg=235
 hi DbgBreakLine term=reverse    cterm=none      ctermfg=none    ctermbg=none
 hi DbgBreakText term=none       cterm=none      ctermfg=33      ctermbg=none
 hi DbgCurLine   term=none       cterm=none      ctermfg=none    ctermbg=24
-hi DbgCurText   term=none       cterm=none      ctermfg=38       ctermbg=24
+hi DbgCurText   term=none       cterm=none      ctermfg=38      ctermbg=24
 hi DiffAdd      term=none       cterm=none      ctermfg=none    ctermbg=22
 hi DiffChange   term=underline  cterm=none      ctermfg=none    ctermbg=53
 hi DiffDelete   term=reverse    cterm=none      ctermfg=1       ctermbg=52
@@ -56,7 +57,7 @@ hi FoldColumn   term=none       cterm=none      ctermfg=246     ctermbg=237
 hi Folded       term=none       cterm=none      ctermfg=246     ctermbg=237
 hi IncSearch    term=underline  cterm=none      ctermfg=252     ctermbg=4
 hi NonText      term=reverse    cterm=none      ctermfg=237     ctermbg=none
-hi LineNr       term=bold       cterm=none      ctermfg=239     ctermbg=none
+hi LineNr       term=none       cterm=none      ctermfg=239     ctermbg=none
 hi Normal       term=none       cterm=none      ctermfg=252     ctermbg=234
 hi Pmenu        term=reverse    cterm=none      ctermfg=250     ctermbg=25
 hi PmenuSel     term=underline  cterm=none      ctermfg=15      ctermbg=33

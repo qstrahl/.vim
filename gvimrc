@@ -13,6 +13,7 @@ hi MatchMaker           gui=NONE        guifg=NONE      guibg=#585858
 hi Conceal      gui=NONE        guifg=#414141   guibg=NONE
 hi Cursor       gui=NONE        guifg=#1b1b1b   guibg=#ffffff
 hi CursorLine   gui=NONE        guifg=NONE      guibg=#282828
+hi CursorLineNR gui=NONE        guifg=#808080   guibg=#282828
 hi DbgBreakLine gui=NONE        guifg=NONE      guibg=NONE
 hi DbgBreakText gui=NONE        guifg=#1080ff   guibg=NONE
 hi DbgCurLine   gui=NONE        guifg=NONE      guibg=#1080ff
