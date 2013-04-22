@@ -65,7 +65,7 @@ hi PmenuThumb   term=reverse    cterm=none      ctermfg=250     ctermbg=250
 hi Search       term=reverse    cterm=none      ctermfg=15      ctermbg=27
 hi SignColumn   term=none       cterm=none      ctermfg=none    ctermbg=none
 hi SpecialKey   term=reverse    cterm=none      ctermfg=14      ctermbg=23
-hi StatusLine   term=reverse    cterm=none      ctermfg=239     ctermbg=0
+hi StatusLine   term=reverse    cterm=none      ctermfg=243     ctermbg=236
 hi StatusLineNC term=reverse    cterm=none      ctermfg=0       ctermbg=0
 hi TabLine      term=underline  cterm=underline ctermfg=240     ctermbg=235
 hi TabLineFill  term=underline  cterm=underline ctermfg=240     ctermbg=0
@@ -73,7 +73,7 @@ hi TabLineSel   term=reverse    cterm=none      ctermfg=15      ctermbg=240
 hi Title        term=none       cterm=none      ctermfg=none    ctermbg=none
 hi VertSplit    term=none       cterm=none      ctermfg=0       ctermbg=0
 hi Visual       term=reverse    cterm=none      ctermfg=none    ctermbg=236
-hi WildMenu     term=none       cterm=none      ctermfg=15      ctermbg=0
+hi WildMenu     term=none       cterm=none      ctermfg=190     ctermbg=236
 
 se bg=dark
 se smc=0

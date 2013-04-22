@@ -34,7 +34,7 @@ hi PmenuThumb   gui=NONE        guifg=#cccccc   guibg=#cccccc
 hi Search       gui=NONE        guifg=#ffffff   guibg=#6677ff
 hi SignColumn   gui=NONE        guifg=NONE      guibg=NONE
 hi SpecialKey   gui=NONE        guifg=#00ffff   guibg=#106060
-hi StatusLine   gui=NONE        guifg=#414141   guibg=#000000
+hi StatusLine   gui=NONE        guifg=#909090   guibg=#303030
 hi StatusLineNC gui=NONE        guifg=#000000   guibg=#000000
 hi TabLine      gui=underline   guifg=#808080   guibg=#404040
 hi TabLineFill  gui=underline   guifg=#808080   guibg=#000000
@@ -42,7 +42,7 @@ hi TabLineSel   gui=NONE        guifg=#ffffff   guibg=#808080
 hi Title        gui=NONE        guifg=NONE      guibg=NONE
 hi VertSplit    gui=NONE        guifg=#000000   guibg=#000000
 hi Visual       gui=NONE        guifg=NONE      guibg=#303030
-hi WildMenu     gui=NONE        guifg=#ffffff   guibg=#000000
+hi WildMenu     gui=NONE        guifg=#ffff00   guibg=#303030
 
 se bg=dark
 
