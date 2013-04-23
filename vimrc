@@ -78,6 +78,7 @@ hi Title        term=none       cterm=none      ctermfg=none    ctermbg=none
 hi VertSplit    term=none       cterm=none      ctermfg=0       ctermbg=0
 hi Visual       term=reverse    cterm=none      ctermfg=none    ctermbg=236
 hi WildMenu     term=none       cterm=none      ctermfg=190     ctermbg=236
+hi! link CursorColumn CursorLine
 
 se bg=dark
 se smc=0
