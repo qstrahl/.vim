@@ -21,6 +21,9 @@ runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
+"bundle/fugitive"
+au User Fugitive let &l:path=fugitive#repo().tree().'/**,'.fugitive#repo().tree().'/;'
+
 "bundle/nerdtree"
 let NERDTreeHijackNetrw=0
 
@@ -156,7 +159,7 @@ se inex=substitute(substitute(v:fname,'\\','/','g'),'^/\\+','','')
 se isf+=\
 se ml
 se noto
-se path=./;,./**
+se path=./;,./**,**
 se ttimeout
 se ttm=0
 
@@ -323,7 +326,7 @@ augroup END
 
 augroup SyntaxSuffixesAdd
     au!
-    au! BufAdd ?* exe 'set sua+=.'.expand('<afile>:e')
+    au BufAdd ?* exe 'set sua+=.'.expand('<afile>:e')
 augroup END
 
 "}}}
