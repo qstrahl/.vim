@@ -309,6 +309,12 @@ augroup AutoPclose
     au CompleteDone * pclose!
 augroup END
 
+augroup CmdWindowIgnoreComepleteDone
+    au!
+    au CmdWinEnter * set ei+=CompleteDone
+    au CmdWinLeave * set ei-=CompleteDone
+augroup END
+
 augroup QuickFixOpenList
     au!
     au QuickfixCmdPost [^l]* call s:QfCmdPost()
