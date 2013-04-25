@@ -27,9 +27,6 @@ au User Fugitive let &l:path=fugitive#repo().tree().'/**,'.fugitive#repo().tree(
 "bundle/nerdtree"
 let NERDTreeHijackNetrw=0
 
-"bundle/powerline"
-let g:Powerline_symbols='fancy'
-
 "bundle/surround"
 let g:surround_indent=1
 
