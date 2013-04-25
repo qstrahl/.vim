@@ -70,6 +70,6 @@
 [submodule "bundle/phpcomplete"]
 	path = bundle/phpcomplete
 	url = git://github.com/shawncplus/phpcomplete.vim.git
-[submodule "bundle/powerline"]
-	path = bundle/powerline
+[submodule "powerline"]
+	path = powerline
 	url = git://github.com/Lokaltog/powerline.git
