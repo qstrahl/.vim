@@ -48,7 +48,7 @@ au VimEnter * sign define current text=▶ linehl=DbgCurLine texthl=DbgCurText
 hi Conceal      term=reverse    cterm=none      ctermfg=237     ctermbg=none
 hi Cursor       term=reverse    cterm=none      ctermfg=15      ctermbg=252
 hi CursorLine   term=underline  cterm=none      ctermfg=none    ctermbg=235
-hi CursorLineNR term=bold       cterm=none      ctermfg=242     ctermbg=235
+hi CursorLineNR term=bold       cterm=bold      ctermfg=242     ctermbg=235
 hi DbgBreakLine term=reverse    cterm=none      ctermfg=none    ctermbg=none
 hi DbgBreakText term=none       cterm=none      ctermfg=33      ctermbg=none
 hi DbgCurLine   term=none       cterm=none      ctermfg=none    ctermbg=24
@@ -59,12 +59,12 @@ hi DiffDelete   term=reverse    cterm=none      ctermfg=1       ctermbg=52
 hi DiffText     term=reverse    cterm=none      ctermfg=15      ctermbg=5
 hi FoldColumn   term=none       cterm=none      ctermfg=246     ctermbg=237
 hi Folded       term=none       cterm=none      ctermfg=246     ctermbg=237
-hi IncSearch    term=underline  cterm=none      ctermfg=252     ctermbg=4
+hi IncSearch    term=underline  cterm=bold      ctermfg=252     ctermbg=4
 hi NonText      term=reverse    cterm=none      ctermfg=237     ctermbg=none
 hi LineNr       term=none       cterm=none      ctermfg=239     ctermbg=none
 hi Normal       term=none       cterm=none      ctermfg=252     ctermbg=234
 hi Pmenu        term=reverse    cterm=none      ctermfg=250     ctermbg=25
-hi PmenuSel     term=underline  cterm=none      ctermfg=15      ctermbg=33
+hi PmenuSel     term=underline  cterm=bold      ctermfg=15      ctermbg=33
 hi PmenuSbar    term=none       cterm=none      ctermfg=31      ctermbg=31
 hi PmenuThumb   term=reverse    cterm=none      ctermfg=250     ctermbg=250
 hi Search       term=reverse    cterm=none      ctermfg=15      ctermbg=27
@@ -74,11 +74,11 @@ hi StatusLine   term=reverse    cterm=none      ctermfg=243     ctermbg=236
 hi StatusLineNC term=reverse    cterm=none      ctermfg=0       ctermbg=0
 hi TabLine      term=underline  cterm=underline ctermfg=240     ctermbg=235
 hi TabLineFill  term=underline  cterm=underline ctermfg=240     ctermbg=0
-hi TabLineSel   term=reverse    cterm=none      ctermfg=15      ctermbg=240
+hi TabLineSel   term=reverse    cterm=bold      ctermfg=15      ctermbg=240
 hi Title        term=none       cterm=none      ctermfg=none    ctermbg=none
 hi VertSplit    term=none       cterm=none      ctermfg=0       ctermbg=0
 hi Visual       term=reverse    cterm=none      ctermfg=none    ctermbg=236
-hi WildMenu     term=none       cterm=none      ctermfg=190     ctermbg=236
+hi WildMenu     term=none       cterm=bold      ctermfg=190     ctermbg=236
 hi! link CursorColumn CursorLine
 
 se bg=dark
