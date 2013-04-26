@@ -49,12 +49,6 @@ se bg=dark
 
 " }}}
 
-" [ Font Options ] {{{
-
-se gfn=Terminus\ 9
-
-" }}}
-
 " [ GUI Options ] {{{
 
 se go =

@@ -12,6 +12,10 @@ for dir in ["backup","swap","undo","view"]
     endif
 endfor
 
+if &term =~? 'xterm'
+    set t_Co=256
+endif
+
 "}}}
 
 "[ Bundles ]" {{{
@@ -34,7 +38,7 @@ let g:surround_indent=1
 let g:undotree_SplitWidth=38
 
 "bundle/vdebug"
-au VimEnter * sign define breakpt text=◆- linehl=DbgBreakLine texthl=DbgBreakText
+au VimEnter * sign define breakpt text=◆ linehl=DbgBreakLine texthl=DbgBreakText
 au VimEnter * sign define current text=▶ linehl=DbgCurLine texthl=DbgCurText
 
 "}}}
