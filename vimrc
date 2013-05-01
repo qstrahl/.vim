@@ -249,7 +249,7 @@ endfunction
 
 "}}}
 
-"[ Maps ]" {{{
+"[ Mappings ]" {{{
 
 let mapleader='\'
 
