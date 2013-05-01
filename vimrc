@@ -217,22 +217,6 @@ se sw=4
 
 "[ Functions ]" {{{
 
-function! s:Gedit(count)
-    if a:count
-        exe 'Gedit ~'.a:count
-    else
-        exe 'Gedit'
-    endif
-endfunction
-
-function! s:Gdiff(count)
-    if a:count
-        exe 'Gdiff ~'.a:count
-    else
-        exe 'Gdiff'
-    endif
-endfunction
-
 function! s:QfCmdPost()
     if len(getqflist())
         botright copen
@@ -260,7 +244,7 @@ cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
 vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 
-"Unimpaired-style toggles"
+"Custom unimpaired-style toggles"
 nno [oz :<C-U>Autofold<CR>
 nno ]oz :<C-U>Autofold!<CR>
 nno [ov :<C-U>set virtualedit=all<CR>
@@ -268,31 +252,35 @@ nno ]ov :<C-U>set virtualedit=<CR>
 nno [om :<C-U>Matchmaker<CR>
 nno ]om :<C-U>Matchmaker!<CR>
 
-"Toggle BreakpointWindow (mnemonic: breakpoint browse)"
-nno <Leader>bb :<C-U>BreakpointWindow<CR>
-
-"Gblame the current file"
+"View Git Blame of current file"
 nno <C-G><C-B> :<C-U>Gblame<CR>
 nno <C-G>b :<C-U>Gblame<CR>
 
-"Go to Git Conflicts"
+"Find Git Conflicts"
 nno <C-G>c :<C-U>Ggrep '^<<<<<<<'<CR>
 
-"View Gdiff"
-nno <C-G><C-D> :<C-U>call <SID>Gdiff(v:count)<CR>
-nno <C-G>d :<C-U>call <SID>Gdiff(v:count)<CR>
+"View Git Diff of current file"
+nno <C-G><C-D> :<C-U>Gdiff ~<C-R>=v:count<CR><CR>
+nno <C-G>d :<C-U>Gdiff ~<C-R>=v:count<CR><CR>
 
-"Go to file in working tree"
-nno <C-G><C-E> :<C-U>call <SID>Gedit(v:count)<CR>
-nno <C-G>e :<C-U>call <SID>Gedit(v:count)<CR>
+"Shortcut for :Gedit"
+nno <C-G><C-E> :<C-U>Gedit ~<C-R>=v:count<CR><CR>
+nno <C-G>e :<C-U>Gedit ~<C-R>=v:count<CR><CR>
 
-"View Glog"
-nno <C-G><C-L> :<C-U>Gllog<CR>
-nno <C-G>l :<C-U>Gllog<CR>
+"View Git Log"
+nno <C-G><C-L> :<C-U>Git log<CR>
+nno <C-G>l :<C-U>Git log<CR>
 
-"View Gstatus"
+"Shortcut for :Gllog (mnemonic: Git File)"
+nno <C-G><C-F> :<C-U>Gllog<CR>
+nno <C-G>f :<C-U>Gllog<CR>
+
+"Git Status"
 nno <C-G><C-S> :<C-U>Gstatus<CR>
 nno <C-G>s :<C-U>Gstatus<CR>
+
+"Toggle BreakpointWindow (mnemonic: Breakpoint Browse)"
+nno <Leader>bb :<C-U>BreakpointWindow<CR>
 
 "Toggle NERDTree"
 nno <Leader>n :<C-U>NERDTreeToggle<CR>
