@@ -105,8 +105,11 @@ se scs
 
 "[ User Interface ]" {{{
 
-se fcs+=diff:\\
+se fcs =
+se fcs+=diff:╲
 se fcs+=fold:-
+se fcs+=stl:\ 
+se fcs+=stlnc:\ 
 se fcs+=vert:\ 
 se lcs =
 se lcs+=conceal:?
@@ -114,7 +117,7 @@ se lcs+=eol:$
 se lcs+=extends:»
 se lcs+=nbsp:¬
 se lcs+=precedes:«
-se lcs+=tab:ͱ⋯
+se lcs+=tab:├─
 se ls=2
 se mouse=a
 se report=0
