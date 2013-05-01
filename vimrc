@@ -271,23 +271,28 @@ nno ]om :<C-U>Matchmaker!<CR>
 "Toggle BreakpointWindow (mnemonic: breakpoint browse)"
 nno <Leader>bb :<C-U>BreakpointWindow<CR>
 
-"Open Gblame"
-nno <Leader>gb :<C-U>Gblame<CR>
+"Gblame the current file"
+nno <C-G><C-B> :<C-U>Gblame<CR>
+nno <C-G>b :<C-U>Gblame<CR>
 
-"Go to Conflicts"
-nno <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>
+"Go to Git Conflicts"
+nno <C-G>c :<C-U>Ggrep '^<<<<<<<'<CR>
 
 "View Gdiff"
-nno <Leader>gd :<C-U>call <SID>Gdiff(v:count)<CR>
+nno <C-G><C-D> :<C-U>call <SID>Gdiff(v:count)<CR>
+nno <C-G>d :<C-U>call <SID>Gdiff(v:count)<CR>
 
 "Go to file in working tree"
-nno <Leader>ge :<C-U>call <SID>Gedit(v:count)<CR>
+nno <C-G><C-E> :<C-U>call <SID>Gedit(v:count)<CR>
+nno <C-G>e :<C-U>call <SID>Gedit(v:count)<CR>
 
 "View Glog"
-nno <Leader>gl :<C-U>Gllog<CR>
+nno <C-G><C-L> :<C-U>Gllog<CR>
+nno <C-G>l :<C-U>Gllog<CR>
 
 "View Gstatus"
-nno <Leader>gs :<C-U>Gstatus<CR>
+nno <C-G><C-S> :<C-U>Gstatus<CR>
+nno <C-G>s :<C-U>Gstatus<CR>
 
 "Toggle NERDTree"
 nno <Leader>n :<C-U>NERDTreeToggle<CR>
