@@ -263,12 +263,12 @@ nno <C-G>b :<C-U>Gblame<CR>
 nno <C-G>c :<C-U>Ggrep '^<<<<<<<'<CR>
 
 "View Git Diff of current file"
-nno <C-G><C-D> :<C-U>Gdiff ~<C-R>=v:count<CR><CR>
-nno <C-G>d :<C-U>Gdiff ~<C-R>=v:count<CR><CR>
+nno <C-G><C-D> :<C-U>Gdiff<C-R>=v:count ? ' ~'.v:count : ''<CR><CR>
+nno <C-G>d :<C-U>Gdiff<C-R>=v:count ? ' ~'.v:count : ''<CR><CR>
 
 "Shortcut for :Gedit"
-nno <C-G><C-E> :<C-U>Gedit ~<C-R>=v:count<CR><CR>
-nno <C-G>e :<C-U>Gedit ~<C-R>=v:count<CR><CR>
+nno <C-G><C-E> :<C-U>Gedit<C-R>=v:count ? ' ~'.v:count : ''<CR><CR>
+nno <C-G>e :<C-U>Gedit<C-R>=v:count ? ' ~'.v:count : ''<CR><CR>
 
 "View Git Log"
 nno <C-G><C-L> :<C-U>Git log<CR>
