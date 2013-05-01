@@ -26,7 +26,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "bundle/fugitive"
-au User Fugitive let &l:path=fugitive#repo().tree().'/**,'.fugitive#repo().tree().'/;'
+au User Fugitive let &l:path='./;'.fugitive#repo().tree().','.fugitive#repo().tree().'/**,'.fugitive#repo().tree().'/;'
 
 "bundle/nerdtree"
 let NERDTreeHijackNetrw=0
