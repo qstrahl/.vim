@@ -218,24 +218,6 @@ se sw=4
 
 "}}}
 
-"[ Functions ]" {{{
-
-function! s:QfCmdPost()
-    if len(getqflist())
-        botright copen
-        wincmd p
-    endif
-endfunction
-
-function! s:LocCmdPost()
-    if len(getloclist(0))
-        rightbelow lopen
-        wincmd p
-    endif
-endfunction
-
-"}}}
-
 "[ Mappings ]" {{{
 
 let mapleader='\'
@@ -263,12 +245,12 @@ nno <C-G>b :<C-U>Gblame<CR>
 nno <C-G>c :<C-U>Ggrep '^<<<<<<<'<CR>
 
 "View Git Diff of current file"
-nno <C-G><C-D> :<C-U>Gdiff<C-R>=v:count ? ' ~'.v:count : ''<CR><CR>
-nno <C-G>d :<C-U>Gdiff<C-R>=v:count ? ' ~'.v:count : ''<CR><CR>
+nno <C-G><C-D> :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>
+nno <C-G>d :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>
 
 "Shortcut for :Gedit"
-nno <C-G><C-E> :<C-U>Gedit<C-R>=v:count ? ' ~'.v:count : ''<CR><CR>
-nno <C-G>e :<C-U>Gedit<C-R>=v:count ? ' ~'.v:count : ''<CR><CR>
+nno <C-G><C-E> :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>
+nno <C-G>e :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>
 
 "View Git Log"
 nno <C-G><C-L> :<C-U>Git log<CR>
@@ -314,8 +296,8 @@ augroup END
 
 augroup QuickFixOpenList
     au!
-    au QuickfixCmdPost [^l]* call s:QfCmdPost()
-    au QuickfixCmdPost l* call s:LocCmdPost()
+    au QuickfixCmdPost [^l]* if len(getqflist()) | botright copen | wincmd p
+    au QuickfixCmdPost l* if len(getloclist(0)) | rightbelow lopen | wincmd p
 augroup END
 
 augroup MkdirOnWrite
