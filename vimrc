@@ -192,6 +192,7 @@ se ph=13
 
 "[ Formatting Options ]" {{{
 
+se flp=^\\s*\\(\\d\\+[\\]:.)}\\t\ ]\\\|[\\*\\-]\\)\\s*
 se fo =
 se fo+=a
 se fo+=c
