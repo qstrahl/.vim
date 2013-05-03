@@ -143,7 +143,7 @@ se spr
 
 "}}}
 
-"[ Special Files & Directories ] {{{
+"[ Special Files & Directories ]" {{{
 
 se bdir=~/.vim/backup
 se dir=~/.vim/swap
@@ -170,7 +170,7 @@ se ttm=0
 
 "}}}
 
-"[ Keycodes ] {{{
+"[ Keycodes ]" {{{
 
 set <C-Left>=Od
 set <C-Right>=Oc
