@@ -76,7 +76,7 @@ hi TabLine      term=underline  cterm=underline ctermfg=240     ctermbg=235
 hi TabLineFill  term=underline  cterm=underline ctermfg=240     ctermbg=0
 hi TabLineSel   term=reverse    cterm=bold      ctermfg=15      ctermbg=240
 hi Title        term=none       cterm=none      ctermfg=none    ctermbg=none
-hi VertSplit    term=none       cterm=none      ctermfg=0       ctermbg=0
+hi VertSplit    term=none       cterm=none      ctermfg=236     ctermbg=0
 hi Visual       term=reverse    cterm=none      ctermfg=none    ctermbg=236
 hi WildMenu     term=none       cterm=bold      ctermfg=190     ctermbg=236
 hi! link CursorColumn CursorLine
@@ -110,7 +110,7 @@ se fcs+=diff:╲
 se fcs+=fold:-
 se fcs+=stl:\ 
 se fcs+=stlnc:\ 
-se fcs+=vert:\ 
+se fcs+=vert:┃
 se lcs =
 se lcs+=conceal:?
 se lcs+=eol:$
