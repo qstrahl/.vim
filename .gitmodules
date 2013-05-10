@@ -4,9 +4,6 @@
 [submodule "bundle/php-syntax"]
 	path = bundle/php-syntax
 	url = git://github.com/StanAngeloff/php.vim.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = git://github.com/ervandew/supertab.git
 [submodule "bundle/abolish"]
 	path = bundle/abolish
 	url = git://github.com/tpope/vim-abolish.git
@@ -39,7 +36,7 @@
 	url = git://github.com/mbbill/undotree.git
 [submodule "bundle/matchit"]
 	path = bundle/matchit
-	url = git@github.com:qstrahl/vim-matchit.git
+	url = git://github.com/perrywky/vim-matchit.git
 [submodule "bundle/characterize"]
 	path = bundle/characterize
 	url = git://github.com/tpope/vim-characterize.git
@@ -55,15 +52,6 @@
 [submodule "bundle/autofold"]
 	path = bundle/autofold
 	url = git@github.com:qstrahl/vim-autofold.git
-[submodule "bundle/tabcmd"]
-	path = bundle/tabcmd
-	url = git@github.com:qstrahl/vim-tabcmd.git
-[submodule "bundle/staq"]
-	path = bundle/staq
-	url = git@github.com:qstrahl/vim-staq.git
-[submodule "bundle/fixation"]
-	path = bundle/fixation
-	url = git@github.com:qstrahl/vim-fixation.git
 [submodule "bundle/matchmaker"]
 	path = bundle/matchmaker
 	url = git@github.com:qstrahl/vim-matchmaker.git
