@@ -220,9 +220,34 @@ se sw=4
 
 "}}}
 
+"[ Functions ]" {{{
+
+" Set preview window height to &previewheight, then equalize other windows
+function! s:CustomWincmdEquals()
+    try
+        let w = winnr()
+        wincmd P
+        exe &previewheight.'wincmd _'
+        exe w.'wincmd w'
+    catch /^E441:/
+        break
+    finally
+        return "\<C-W>=" . (mode() ==# visualmode() ? 'gv' : '')
+    endtry
+endfunction
+
+" }}}
+
 "[ Mappings ]" {{{
 
 let mapleader='\'
+
+" nno <special> <expr> <Plug>CustomwincmdEquals <SID>CustomWincmdEquals()
+" vno <special> <expr> <Plug>CustomwincmdEquals <SID>CustomWincmdEquals()
+
+"Override the default <C-W>= mapping
+" nno <special> <C-W>= <Plug>CustomwincmdEquals
+" vno <special> <C-W>= <Plug>CustomwincmdEquals
 
 "Pull the line under the cursor into the command line"
 cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
