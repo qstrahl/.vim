@@ -185,6 +185,7 @@ set <xUp>=Oa
 
 se cot+=menuone
 se cot+=longest
+se cot-=preview
 se cpt=.,w,i,t
 se ph=13
 
@@ -283,17 +284,6 @@ nno <Leader>/ :<C-U>noh<CR>
 "}}}
 
 "[ Autocommands ]" {{{
-
-augroup AutoPclose
-    au!
-    au CompleteDone * pclose!
-augroup END
-
-augroup CmdWindowIgnoreComepleteDone
-    au!
-    au CmdWinEnter * set ei+=CompleteDone
-    au CmdWinLeave * set ei-=CompleteDone
-augroup END
 
 augroup QuickFixOpenList
     au!
