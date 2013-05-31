@@ -164,7 +164,7 @@ se inex=substitute(substitute(v:fname,'\\','/','g'),'^/\\+','','')
 se isf+=\
 se ml
 se noto
-se path=./;,./**,**
+se path=./**,**,./;,;
 se ttimeout
 se ttm=0
 
