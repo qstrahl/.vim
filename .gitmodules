@@ -58,9 +58,6 @@
 [submodule "bundle/phpcomplete"]
 	path = bundle/phpcomplete
 	url = git://github.com/shawncplus/phpcomplete.vim.git
-[submodule "powerline"]
-	path = powerline
-	url = git://github.com/Lokaltog/powerline.git
 [submodule "bundle/synergy"]
 	path = bundle/synergy
 	url = git@github.com:qstrahl/vim-synergy.git
