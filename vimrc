@@ -318,7 +318,9 @@ augroup END
 
 augroup MkdirOnWrite
     au!
-    au BufWritePre,FileWritePre ?* silent! call mkdir(expand('%:h'), 'p')
+    au BufWritePre,FileWritePre ?*
+        \ if expand('<afile>') !~? '^[a-z0-9]\+:\/\/' |
+            \ silent! call mkdir(expand('<afile>:h'), 'p')
 augroup END
 
 augroup UpdateBex
