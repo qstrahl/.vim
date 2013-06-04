@@ -297,6 +297,11 @@ nno <Leader>/ :<C-U>noh<CR>
 
 "[ Autocommands ]" {{{
 
+augroup HelpWindows
+    au!
+    au BufEnter * if &buftype ==# 'help' | nno <buffer> q <C-W>q
+augroup END
+
 augroup QuickFixOpenList
     au!
     au QuickfixCmdPost [^l]* if len(getqflist()) | botright copen | wincmd p
