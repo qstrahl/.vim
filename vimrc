@@ -51,49 +51,50 @@ let g:undotree_SplitWidth=38
 "bundle/vdebug"
 augroup CustomVdebugConfig
     au!
-    au VimEnter *
-        \ sign define breakpt text=◆ linehl=DbgBreakLine texthl=DbgBreakText |
-        \ sign define current text=▶ linehl=DbgCurLine texthl=DbgCurText
+    au User VdebugPost
+        \ exe 'sign define breakpt text=◆' |
+        \ exe 'sign define current text=▶' |
+        \ hi clear DbgBreakptLine DbgBreakptSign DbgCurrentLine DbgCurrentSign
 augroup END
+hi DbgBreakptLine       cterm=none      ctermfg=none    ctermbg=none
+hi DbgBreakptSign       cterm=none      ctermfg=33      ctermbg=none
+hi DbgCurrentLine       cterm=none      ctermfg=none    ctermbg=24
+hi DbgCurrentSign       cterm=none      ctermfg=38      ctermbg=24
 
 "}}}
 
 "[ Color & Highlights ]" {{{
 
-hi Conceal      cterm=none      ctermfg=237     ctermbg=none
-hi Cursor       cterm=none      ctermfg=0       ctermbg=255
-hi CursorLine   cterm=none      ctermfg=none    ctermbg=235
-hi CursorLineNr cterm=bold      ctermfg=242     ctermbg=235
-hi DbgBreakLine cterm=none      ctermfg=none    ctermbg=none
-hi DbgBreakText cterm=none      ctermfg=33      ctermbg=none
-hi DbgCurLine   cterm=none      ctermfg=none    ctermbg=24
-hi DbgCurText   cterm=none      ctermfg=38      ctermbg=24
-hi DiffAdd      cterm=none      ctermfg=none    ctermbg=22
-hi DiffChange   cterm=none      ctermfg=none    ctermbg=53
-hi DiffDelete   cterm=none      ctermfg=1       ctermbg=52
-hi DiffText     cterm=none      ctermfg=15      ctermbg=5
-hi FoldColumn   cterm=none      ctermfg=246     ctermbg=237
-hi Folded       cterm=none      ctermfg=246     ctermbg=237
-hi IncSearch    cterm=bold      ctermfg=252     ctermbg=4
-hi NonText      cterm=none      ctermfg=237     ctermbg=none
-hi LineNr       cterm=none      ctermfg=239     ctermbg=none
-hi Normal       cterm=none      ctermfg=252     ctermbg=234
-hi Pmenu        cterm=none      ctermfg=27      ctermbg=18
-hi PmenuSel     cterm=bold      ctermfg=33      ctermbg=20
-hi PmenuSbar    cterm=none      ctermfg=none    ctermbg=17
-hi PmenuThumb   cterm=none      ctermfg=250     ctermbg=26
-hi Search       cterm=none      ctermfg=15      ctermbg=27
-hi SignColumn   cterm=none      ctermfg=none    ctermbg=none
-hi SpecialKey   cterm=none      ctermfg=14      ctermbg=23
-hi StatusLine   cterm=none      ctermfg=242     ctermbg=0
-hi StatusLineNC cterm=none      ctermfg=236     ctermbg=0
-hi TabLine      cterm=none      ctermfg=236     ctermbg=0
-hi TabLineFill  cterm=none      ctermfg=0       ctermbg=0
-hi TabLineSel   cterm=none      ctermfg=242     ctermbg=0
-hi Title        cterm=bold      ctermfg=none    ctermbg=none
-hi VertSplit    cterm=none      ctermfg=236     ctermbg=0
-hi Visual       cterm=none      ctermfg=none    ctermbg=238
-hi WildMenu     cterm=bold      ctermfg=255     ctermbg=0
+hi Conceal              cterm=none      ctermfg=237     ctermbg=none
+hi Cursor               cterm=none      ctermfg=0       ctermbg=255
+hi CursorLine           cterm=none      ctermfg=none    ctermbg=235
+hi CursorLineNr         cterm=bold      ctermfg=242     ctermbg=235
+hi DiffAdd              cterm=none      ctermfg=none    ctermbg=22
+hi DiffChange           cterm=none      ctermfg=none    ctermbg=53
+hi DiffDelete           cterm=none      ctermfg=1       ctermbg=52
+hi DiffText             cterm=none      ctermfg=15      ctermbg=5
+hi FoldColumn           cterm=none      ctermfg=246     ctermbg=237
+hi Folded               cterm=none      ctermfg=246     ctermbg=237
+hi IncSearch            cterm=bold      ctermfg=252     ctermbg=4
+hi NonText              cterm=none      ctermfg=237     ctermbg=none
+hi LineNr               cterm=none      ctermfg=239     ctermbg=none
+hi Normal               cterm=none      ctermfg=252     ctermbg=234
+hi Pmenu                cterm=none      ctermfg=27      ctermbg=18
+hi PmenuSel             cterm=bold      ctermfg=33      ctermbg=20
+hi PmenuSbar            cterm=none      ctermfg=none    ctermbg=17
+hi PmenuThumb           cterm=none      ctermfg=250     ctermbg=26
+hi Search               cterm=none      ctermfg=15      ctermbg=27
+hi SignColumn           cterm=none      ctermfg=none    ctermbg=none
+hi SpecialKey           cterm=none      ctermfg=14      ctermbg=23
+hi StatusLine           cterm=none      ctermfg=242     ctermbg=0
+hi StatusLineNC         cterm=none      ctermfg=236     ctermbg=0
+hi TabLine              cterm=none      ctermfg=236     ctermbg=0
+hi TabLineFill          cterm=none      ctermfg=0       ctermbg=0
+hi TabLineSel           cterm=none      ctermfg=242     ctermbg=0
+hi Title                cterm=bold      ctermfg=none    ctermbg=none
+hi VertSplit            cterm=none      ctermfg=236     ctermbg=0
+hi Visual               cterm=none      ctermfg=none    ctermbg=238
+hi WildMenu             cterm=bold      ctermfg=255     ctermbg=0
 hi! link CursorColumn CursorLine
 
 se bg=dark
