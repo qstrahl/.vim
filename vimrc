@@ -26,7 +26,18 @@ call pathogen#infect()
 call pathogen#helptags()
 
 "bundle/fugitive"
-au User Fugitive let &l:path=fugitive#repo().tree().'/**,'.fugitive#repo().tree().'/;'
+augroup CustomFugitiveConfig
+    au!
+    au User Fugitive
+        \ let &l:path=fugitive#repo().tree().'/**,'.fugitive#repo().tree().'/;' |
+        \ nno <buffer> <Leader>gb :<C-U>Gblame<CR> |
+        \ nno <buffer> <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR> |
+        \ nno <buffer> <Leader>gd :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR> |
+        \ nno <buffer> <Leader>ge :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR> |
+        \ nno <buffer> <Leader>gl :<C-U>Git log<CR> |
+        \ nno <buffer> <Leader>gf :<C-U>Gllog<CR> |
+        \ nno <buffer> <Leader>gs :<C-U>Gstatus<CR>
+augroup END
 
 "bundle/nerdtree"
 let NERDTreeHijackNetrw=0
@@ -38,8 +49,11 @@ let g:surround_indent=1
 let g:undotree_SplitWidth=38
 
 "bundle/vdebug"
-au VimEnter * sign define breakpt text=◆ linehl=DbgBreakLine texthl=DbgBreakText
-au VimEnter * sign define current text=▶ linehl=DbgCurLine texthl=DbgCurText
+augroup CustomVdebugConfig
+    au!
+    au VimEnter * sign define breakpt text=◆ linehl=DbgBreakLine texthl=DbgBreakText
+    au VimEnter * sign define current text=▶ linehl=DbgCurLine texthl=DbgCurText
+augroup END
 
 "}}}
 
@@ -263,33 +277,6 @@ nno [ov :<C-U>set virtualedit=all<CR>
 nno ]ov :<C-U>set virtualedit=<CR>
 nno [om :<C-U>Matchmaker<CR>
 nno ]om :<C-U>Matchmaker!<CR>
-
-"View Git Blame of current file"
-nno <C-G><C-B> :<C-U>Gblame<CR>
-nno <C-G>b :<C-U>Gblame<CR>
-
-"Find Git Conflicts"
-nno <C-G>c :<C-U>Ggrep '^<<<<<<<'<CR>
-
-"View Git Diff of current file"
-nno <C-G><C-D> :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>
-nno <C-G>d :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>
-
-"Shortcut for :Gedit"
-nno <C-G><C-E> :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>
-nno <C-G>e :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>
-
-"View Git Log"
-nno <C-G><C-L> :<C-U>Git log<CR>
-nno <C-G>l :<C-U>Git log<CR>
-
-"Shortcut for :Gllog (mnemonic: Git File)"
-nno <C-G><C-F> :<C-U>Gllog<CR>
-nno <C-G>f :<C-U>Gllog<CR>
-
-"Git Status"
-nno <C-G><C-S> :<C-U>Gstatus<CR>
-nno <C-G>s :<C-U>Gstatus<CR>
 
 "Toggle BreakpointWindow (mnemonic: Breakpoint Browse)"
 nno <Leader>bb :<C-U>BreakpointWindow<CR>
