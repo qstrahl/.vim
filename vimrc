@@ -51,8 +51,9 @@ let g:undotree_SplitWidth=38
 "bundle/vdebug"
 augroup CustomVdebugConfig
     au!
-    au VimEnter * sign define breakpt text=◆ linehl=DbgBreakLine texthl=DbgBreakText
-    au VimEnter * sign define current text=▶ linehl=DbgCurLine texthl=DbgCurText
+    au VimEnter *
+        \ sign define breakpt text=◆ linehl=DbgBreakLine texthl=DbgBreakText |
+        \ sign define current text=▶ linehl=DbgCurLine texthl=DbgCurText
 augroup END
 
 "}}}
