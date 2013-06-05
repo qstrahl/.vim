@@ -229,7 +229,6 @@ se tw=78
 se ai
 se et
 se si
-se sr
 se sta
 se sts=8
 se sw=4
