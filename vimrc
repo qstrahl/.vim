@@ -299,9 +299,9 @@ nno <Leader>/ :<C-U>noh<CR>
 
 "[ Autocommands ]" {{{
 
-augroup HelpWindows
+augroup SpecialWindowMaps
     au!
-    au BufEnter * if &buftype ==# 'help' | nno <buffer> q <C-W>q
+    au BufEnter * if &buftype =~# '\(help\|quickfix\)' | nno <buffer> q <C-W>q
 augroup END
 
 augroup QuickFixOpenList
