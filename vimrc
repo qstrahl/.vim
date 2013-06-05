@@ -301,13 +301,21 @@ nno <Leader>/ :<C-U>noh<CR>
 
 augroup SpecialWindowMaps
     au!
-    au BufEnter * if &buftype =~# '\(help\|quickfix\)' | nno <buffer> q <C-W>q
+    au BufEnter *
+        \ if &buftype =~# '\(help\|quickfix\)' |
+            \ nno <buffer> q <C-W>q
 augroup END
 
 augroup QuickFixOpenList
     au!
-    au QuickfixCmdPost [^l]* if len(getqflist()) | botright copen | wincmd p
-    au QuickfixCmdPost l* if len(getloclist(0)) | rightbelow lopen | wincmd p
+    au QuickfixCmdPost [^l]*
+        \ if len(getqflist()) |
+            \ botright copen |
+            \ wincmd p
+    au QuickfixCmdPost l*
+        \ if len(getloclist(0)) |
+            \ rightbelow lopen |
+            \ wincmd p
 augroup END
 
 augroup MkdirOnWrite
