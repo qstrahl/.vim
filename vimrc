@@ -34,7 +34,7 @@ augroup CustomFugitiveConfig
         \ nno <buffer> <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR> |
         \ nno <buffer> <Leader>gd :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR> |
         \ nno <buffer> <Leader>ge :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR> |
-        \ nno <buffer> <Leader>gl :<C-U>Git log<CR> |
+        \ nno <buffer> <Leader>gl :<C-U>Git log <Bar> less<CR> |
         \ nno <buffer> <Leader>gf :<C-U>Gllog<CR> |
         \ nno <buffer> <Leader>gs :<C-U>Gstatus<CR>
 augroup END
