@@ -61,3 +61,6 @@
 [submodule "bundle/synergy"]
 	path = bundle/synergy
 	url = git@github.com:qstrahl/vim-synergy.git
+[submodule "bundle/lumberjack"]
+	path = bundle/lumberjack
+	url = git@github.com:qstrahl/vim-lumberjack.git
