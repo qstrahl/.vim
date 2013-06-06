@@ -175,7 +175,6 @@ se vdir=~/.vim/view
 se ar
 se bs=2
 se hi=1000
-se hid
 se inex=substitute(substitute(v:fname,'\\','/','g'),'^/\\+','','')
 se isf+=\
 se ml
