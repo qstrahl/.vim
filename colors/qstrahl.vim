@@ -5,8 +5,10 @@ if exists("syntax_on")
 endif
 let g:colors_name = "qstrahl"
 
+" Normal has to come first
 hi Normal               cterm=none      ctermfg=252     ctermbg=234
 
+" Built-in highlight groups
 hi Comment              cterm=italic    ctermfg=243     ctermbg=none
 hi Conceal              cterm=none      ctermfg=237     ctermbg=none
 hi Cursor               cterm=none      ctermfg=0       ctermbg=255
@@ -38,3 +40,9 @@ hi VertSplit            cterm=none      ctermfg=236     ctermbg=0
 hi Visual               cterm=none      ctermfg=none    ctermbg=238
 hi WildMenu             cterm=bold      ctermfg=255     ctermbg=0
 hi! link CursorColumn CursorLine
+
+" Vdebug highlight groups
+hi DbgBreakptLine       cterm=none      ctermfg=none    ctermbg=none
+hi DbgBreakptSign       cterm=none      ctermfg=33      ctermbg=none
+hi DbgCurrentLine       cterm=none      ctermfg=none    ctermbg=24
+hi DbgCurrentSign       cterm=none      ctermfg=38      ctermbg=24

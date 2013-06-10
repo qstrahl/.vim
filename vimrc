@@ -57,10 +57,6 @@ augroup CustomVdebugConfig
         \ exe 'sign define current text=▶' |
         \ hi clear DbgBreakptLine DbgBreakptSign DbgCurrentLine DbgCurrentSign
 augroup END
-hi DbgBreakptLine       cterm=none      ctermfg=none    ctermbg=none
-hi DbgBreakptSign       cterm=none      ctermfg=33      ctermbg=none
-hi DbgCurrentLine       cterm=none      ctermfg=none    ctermbg=24
-hi DbgCurrentSign       cterm=none      ctermfg=38      ctermbg=24
 
 "}}}
 
