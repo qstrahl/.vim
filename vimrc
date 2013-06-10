@@ -189,12 +189,12 @@ se ttm=0
 
 "[ Keycodes ]" {{{
 
-set <C-Left>=Od
-set <C-Right>=Oc
-set <S-Down>=[b
-set <S-Up>=[a
-set <xDown>=Ob
-set <xUp>=Oa
+silent! exe "set <C-Left>=\<Esc>Od"
+silent! exe "set <C-Right>=\<Esc>Oc"
+silent! exe "set <S-Down>=\<Esc>[b"
+silent! exe "set <S-Up>=\<Esc>[a"
+silent! exe "set <xDown>=\<Esc>Ob"
+silent! exe "set <xUp>=\<Esc>Oa"
 
 "}}}
 
