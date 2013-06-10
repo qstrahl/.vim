@@ -220,6 +220,9 @@ endfunction
 
 let mapleader='\'
 
+" Make Y consistent with C and D
+nno Y y$
+
 nno <silent> <Plug>CustomwincmdEquals @=<SID>CustomWincmdEquals(0)<CR>
 vno <silent> <Plug>CustomwincmdEquals @=<SID>CustomWincmdEquals(1)<CR>
 
