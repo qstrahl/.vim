@@ -30,12 +30,12 @@ augroup CustomFugitiveConfig
     au!
     au User Fugitive
         \ let &l:path=fugitive#repo().tree().'/**,'.fugitive#repo().tree().'/;' |
-        \ nno <buffer> <Leader>gb :<C-U>Gblame<CR> |
-        \ nno <buffer> <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR> |
-        \ nno <buffer> <Leader>gd :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR> |
-        \ nno <buffer> <Leader>ge :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR> |
-        \ nno <buffer> <Leader>gl :<C-U>Gpedit! log<CR><C-W>P |
-        \ nno <buffer> <Leader>gf :<C-U>Gllog<CR> |
+        \ nno <buffer> <Leader>gb :<C-U>Gblame<CR>|
+        \ nno <buffer> <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>|
+        \ nno <buffer> <Leader>gd :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>|
+        \ nno <buffer> <Leader>ge :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>|
+        \ nno <buffer> <Leader>gl :<C-U>Gpedit! log<CR><C-W>P|
+        \ nno <buffer> <Leader>gf :<C-U>Gllog<CR>|
         \ nno <buffer> <Leader>gs :<C-U>Gstatus<CR>
 augroup END
 
