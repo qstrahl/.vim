@@ -1,5 +1,5 @@
 " vim: set fdm=marker:
-"Author: Quinn Strahl"
+" Author: Quinn Strahl
 
 filet plugin indent on
 syntax on
