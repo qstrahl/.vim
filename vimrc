@@ -296,4 +296,9 @@ augroup SyntaxSuffixesAdd
     au BufAdd ?* exe 'set sua+=.'.expand('<afile>:e')
 augroup END
 
+augroup EqualWindowsOnResize
+    au!
+    au VimResized * wincmd =
+augroup END
+
 "}}}
