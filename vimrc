@@ -122,7 +122,7 @@ se spr
 
 se bdir=~/.vim/backup
 se dir=~/.vim/swap
-se tags=./tags;,./TAGS;
+se tags=./tags;,.git/tags;
 se udf
 se udir=~/.vim/undo
 se vdir=~/.vim/view
