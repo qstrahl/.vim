@@ -2,90 +2,119 @@
 	path = bundle/fugitive
 	update = rebase
 	url = git://github.com/tpope/vim-fugitive.git
+	branch = master
 [submodule "bundle/php-syntax"]
 	path = bundle/php-syntax
 	update = rebase
 	url = git://github.com/StanAngeloff/php.vim.git
+	branch = master
 [submodule "bundle/abolish"]
 	path = bundle/abolish
 	update = rebase
 	url = git://github.com/tpope/vim-abolish.git
+	branch = master
 [submodule "bundle/unimpaired"]
 	path = bundle/unimpaired
 	update = rebase
 	url = git://github.com/tpope/vim-unimpaired.git
+	branch = master
 [submodule "bundle/surround"]
 	path = bundle/surround
 	update = rebase
 	url = git://github.com/tpope/vim-surround.git
+	branch = master
 [submodule "bundle/repeat"]
 	path = bundle/repeat
 	update = rebase
 	url = git://github.com/tpope/vim-repeat.git
+	branch = master
 [submodule "bundle/commentary"]
 	path = bundle/commentary
 	update = rebase
 	url = git://github.com/tpope/vim-commentary.git
+	branch = master
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	update = rebase
 	url = git://github.com/majutsushi/tagbar.git
+	branch = master
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	update = rebase
 	url = git://github.com/scrooloose/nerdtree.git
+	branch = master
 [submodule "bundle/vdebug"]
 	path = bundle/vdebug
 	update = rebase
 	url = git@github.com:joonty/vdebug.git
+	branch = dev
 [submodule "bundle/pathogen"]
 	path = bundle/pathogen
 	update = rebase
 	url = git://github.com/tpope/vim-pathogen.git
+	branch = master
 [submodule "bundle/undotree"]
 	path = bundle/undotree
 	update = rebase
 	url = git://github.com/mbbill/undotree.git
+	branch = master
 [submodule "bundle/matchit"]
 	path = bundle/matchit
 	update = rebase
 	url = git://github.com/perrywky/vim-matchit.git
+	branch = master
 [submodule "bundle/characterize"]
 	path = bundle/characterize
 	update = rebase
 	url = git://github.com/tpope/vim-characterize.git
+	branch = master
 [submodule "bundle/sleuth"]
 	path = bundle/sleuth
 	update = rebase
 	url = git://github.com/tpope/vim-sleuth.git
+	branch = master
 [submodule "bundle/eunuch"]
 	path = bundle/eunuch
 	update = rebase
 	url = git://github.com/tpope/vim-eunuch.git
+	branch = master
 [submodule "bundle/php-indent"]
 	path = bundle/php-indent
 	update = rebase
 	url = git://github.com/2072/PHP-Indenting-for-VIm.git
+	branch = master
 [submodule "bundle/autofold"]
 	path = bundle/autofold
 	update = rebase
 	url = git@github.com:qstrahl/vim-autofold.git
+	branch = master
 [submodule "bundle/matchmaker"]
 	path = bundle/matchmaker
 	update = rebase
 	url = git@github.com:qstrahl/vim-matchmaker.git
+	branch = master
 [submodule "bundle/phpcomplete"]
 	path = bundle/phpcomplete
 	update = rebase
 	url = git://github.com/shawncplus/phpcomplete.vim.git
+	branch = master
 [submodule "bundle/synergy"]
 	path = bundle/synergy
 	update = rebase
 	url = git@github.com:qstrahl/vim-synergy.git
+	branch = master
 [submodule "bundle/lumberjack"]
 	path = bundle/lumberjack
 	update = rebase
 	url = git@github.com:qstrahl/vim-lumberjack.git
+	branch = master
 [submodule "bundle/vim-javascript"]
 	path = bundle/vim-javascript
+	update = rebase
 	url = https://github.com/pangloss/vim-javascript.git
+	branch = master
+[submodule "bundle/youcompleteme"]
+	path = bundle/youcompleteme
+	update = rebase
+	url = https://github.com/Valloric/YouCompleteMe.git
+	branch = master
