@@ -219,6 +219,13 @@ let mapleader='\'
 " Make Y consistent with C and D
 nno Y y$
 
+" Override default diff normal commands to allow count (specifying buffer)
+nno do :<C-U>exe 'diffget' v:count ? v:count : ''<CR>
+nno dp :<C-U>exe 'diffput' v:count ? v:count : ''<CR>
+
+" Add a shortcut to :diffupdate
+nno du :<C-U>diffupdate<CR>
+
 nno <silent> <Plug>CustomwincmdEquals @=<SID>CustomWincmdEquals(0)<CR>
 vno <silent> <Plug>CustomwincmdEquals @=<SID>CustomWincmdEquals(1)<CR>
 
