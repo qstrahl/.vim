@@ -40,6 +40,11 @@ augroup CustomFugitiveConfig
         \ nno <buffer> <Leader>gs :<C-U>Gstatus<CR>
 augroup END
 
+"bundle/indentguides
+let g:indent_guides_auto_colors=0
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_default_mapping=''
+
 "bundle/nerdtree"
 let NERDTreeHijackNetrw=0
 

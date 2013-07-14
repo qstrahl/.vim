@@ -1,12 +1,12 @@
-set background=dark
 highlight clear
 if exists("syntax_on")
     syntax reset
 endif
-let g:colors_name = "qstrahl"
 
 " Normal has to come first
 hi Normal               cterm=none              ctermfg=252     ctermbg=234
+
+set background=dark
 
 " Built-in highlight groups
 hi Comment              cterm=italic            ctermfg=243     ctermbg=none
@@ -49,3 +49,9 @@ hi DbgBreakptLine       cterm=none              ctermfg=none    ctermbg=none
 hi DbgBreakptSign       cterm=none              ctermfg=33      ctermbg=none
 hi DbgCurrentLine       cterm=none              ctermfg=none    ctermbg=24
 hi DbgCurrentSign       cterm=none              ctermfg=38      ctermbg=24
+
+" Indent Guides highlight groups
+hi IndentGuidesOdd      cterm=none              ctermfg=none    ctermbg=none
+hi IndentGuidesEven     cterm=none              ctermfg=none    ctermbg=235
+
+let g:colors_name = "qstrahl"
