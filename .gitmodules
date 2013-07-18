@@ -120,5 +120,6 @@
 	branch = master
 [submodule "bundle/indent-guides"]
 	path = bundle/indent-guides
+	update = rebase
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
 	branch = master
