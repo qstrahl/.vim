@@ -20,9 +20,12 @@ hi DiffDelete           cterm=none              ctermfg=1       ctermbg=52
 hi DiffText             cterm=none              ctermfg=15      ctermbg=5
 hi FoldColumn           cterm=none              ctermfg=246     ctermbg=237
 hi Folded               cterm=italic            ctermfg=246     ctermbg=237
+hi Function             cterm=none              ctermfg=74      ctermbg=none
+hi Identifier           cterm=none              ctermfg=none    ctermbg=none
 hi IncSearch            cterm=italic            ctermfg=fg      ctermbg=4
-hi NonText              cterm=none              ctermfg=237     ctermbg=none
 hi LineNr               cterm=none              ctermfg=239     ctermbg=none
+hi Noise                cterm=none              ctermfg=242     ctermbg=none
+hi NonText              cterm=none              ctermfg=237     ctermbg=none
 hi Pmenu                cterm=none              ctermfg=27      ctermbg=18
 hi PmenuSel             cterm=bold              ctermfg=15      ctermbg=20
 hi PmenuSbar            cterm=none              ctermfg=none    ctermbg=17
