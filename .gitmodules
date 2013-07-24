@@ -113,11 +113,6 @@
 	update = rebase
 	url = https://github.com/pangloss/vim-javascript.git
 	branch = master
-[submodule "bundle/youcompleteme"]
-	path = bundle/youcompleteme
-	update = rebase
-	url = https://github.com/Valloric/YouCompleteMe.git
-	branch = master
 [submodule "bundle/indent-guides"]
 	path = bundle/indent-guides
 	update = rebase
