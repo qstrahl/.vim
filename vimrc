@@ -3,6 +3,7 @@
 
 filet plugin indent on
 syntax on
+syntax sync fromstart
 colorscheme qstrahl
 
 "[ Init ]" {{{
