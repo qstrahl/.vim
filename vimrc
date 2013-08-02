@@ -1,12 +1,12 @@
-" vim: set fdm=marker:
-" Author: Quinn Strahl
+"" vim: set fdm=marker:
+"" Author: Quinn Strahl
 
 filet plugin indent on
 syntax on
 syntax sync fromstart
 colorscheme qstrahl
 
-"[ Init ]" {{{
+"" [ Init ] {{{
 
 for dir in ["backup","swap","undo","view"]
     if empty(finddir(dir, expand('$HOME').'/.vim'))
@@ -18,16 +18,16 @@ if &term =~? 'xterm'
     set t_Co=256
 endif
 
-"}}}
+"" }}}
 
-"[ Bundles ]" {{{
+"" [ Bundles ] {{{
 
-"Load everything with Pathogen"
+"" Load everything with Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
-"bundle/fugitive"
+"" bundle/fugitive
 augroup CustomFugitiveConfig
     au!
     au User Fugitive
@@ -41,25 +41,25 @@ augroup CustomFugitiveConfig
         \ nno <buffer> <Leader>gs :<C-U>Gstatus<CR>
 augroup END
 
-"bundle/indentguides"
+"" bundle/indentguides
 let g:indent_guides_auto_colors=0
-" let g:indent_guides_enable_on_vim_startup=1
+"" let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_default_mapping=''
 augroup IndentGuidesCustom
     au!
     au Syntax * IndentGuidesEnable
 augroup END
 
-"bundle/nerdtree"
+"" bundle/nerdtree
 let NERDTreeHijackNetrw=0
 
-"bundle/surround"
+"" bundle/surround
 let g:surround_indent=1
 
-"bundle/undotree"
+"" bundle/undotree
 let g:undotree_SplitWidth=38
 
-"bundle/vdebug"
+"" bundle/vdebug
 augroup CustomVdebugConfig
     au!
     au User VdebugPost
@@ -68,26 +68,26 @@ augroup CustomVdebugConfig
         \ hi clear DbgBreakptLine DbgBreakptSign DbgCurrentLine DbgCurrentSign
 augroup END
 
-"}}}
+"" }}}
 
-"[ Folds ]" {{{
+"" [ Folds ] {{{
 
 se fdm=marker
 se fdo=insert,mark,quickfix,search,tag,undo
 se fdls=99
 
-"}}}
+"" }}}
 
-"[ Search ]" {{{
+"" [ Search ] {{{
 
 se hls
 se ic
 se is
 se scs
 
-"}}}
+"" }}}
 
-"[ User Interface ]" {{{
+"" [ User Interface ] {{{
 
 se fcs =
 se fcs+=diff:╲
@@ -117,18 +117,18 @@ se wic
 se wim=longest:full,full
 se wmnu
 
-"}}}
+"" }}}
 
-"[ Windows ]" {{{
+"" [ Windows ] {{{
 
 se wmw=0
 se wmh=0
 se sb
 se spr
 
-"}}}
+"" }}}
 
-"[ Special Files & Directories ]" {{{
+"" [ Special Files & Directories ] {{{
 
 se bdir=~/.vim/backup
 se dir=~/.vim/swap
@@ -137,9 +137,9 @@ se udf
 se udir=~/.vim/undo
 se vdir=~/.vim/view
 
-"}}}
+"" }}}
 
-"[ Vim Behaviour ]" {{{
+"" [ Vim Behaviour ] {{{
 
 se ar
 se bs=2
@@ -153,9 +153,9 @@ se path=./**,**,./;,;
 se ttimeout
 se ttm=0
 
-"}}}
+"" }}}
 
-"[ Keycodes ]" {{{
+"" [ Keycodes ] {{{
 
 silent! exe "set <C-Left>=\<Esc>Od"
 silent! exe "set <C-Right>=\<Esc>Oc"
@@ -164,9 +164,9 @@ silent! exe "set <S-Up>=\<Esc>[a"
 silent! exe "set <xDown>=\<Esc>Ob"
 silent! exe "set <xUp>=\<Esc>Oa"
 
-"}}}
+"" }}}
 
-"[ Insert Completion ]" {{{
+"" [ Insert Completion ] {{{
 
 se cot+=menuone
 se cot+=longest
@@ -174,9 +174,9 @@ se cot-=preview
 se cpt=.,w,i,t
 se ph=13
 
-"}}}
+"" }}}
 
-"[ Formatting Options ]" {{{
+"" [ Formatting Options ] {{{
 
 se flp=^\\s*\\(\\d\\+[\\]:.)}\\t\ ]\\\|[\\*\\-]\\)\\s*
 se fo =
@@ -191,9 +191,9 @@ se fo+=r
 se fo+=w
 se tw=78
 
-"}}}
+"" }}}
 
-"[ Indentation & Tabs ]" {{{
+"" [ Indentation & Tabs ] {{{
 
 se ai
 se et
@@ -202,11 +202,11 @@ se sta
 se sts=8
 se sw=4
 
-"}}}
+"" }}}
 
-"[ Functions ]" {{{
+"" [ Functions ] {{{
 
-" Set preview window height to &previewheight, then equalize other windows
+"" Set preview window height to &previewheight, then equalize other windows
 function! s:CustomWincmdEquals(visual)
     try
         let w = winnr()
@@ -220,37 +220,37 @@ function! s:CustomWincmdEquals(visual)
     endtry
 endfunction
 
-" }}}
+"" }}}
 
-"[ Mappings ]" {{{
+"" [ Mappings ] {{{
 
 let mapleader='\'
 
-" Make Y consistent with C and D
+"" Make Y consistent with C and D
 nno Y y$
 
-" Override default diff normal commands to allow count (specifying buffer)
+"" Override default diff normal commands to allow count (specifying buffer)
 nno do :<C-U>exe 'diffget' v:count ? v:count : ''<CR>
 nno dp :<C-U>exe 'diffput' v:count ? v:count : ''<CR>
 
-" Add a shortcut to :diffupdate
+"" Add a shortcut to :diffupdate
 nno du :<C-U>diffupdate<CR>
 
 nno <silent> <Plug>CustomwincmdEquals @=<SID>CustomWincmdEquals(0)<CR>
 vno <silent> <Plug>CustomwincmdEquals @=<SID>CustomWincmdEquals(1)<CR>
 
-"Override the default <C-W>= mapping
+"" Override the default <C-W>= mapping
 nmap <C-W>= <Plug>CustomwincmdEquals
 vmap <C-W>= <Plug>CustomwincmdEquals
 
-"Pull the line under the cursor into the command line"
+"" Pull the line under the cursor into the command line
 cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
 
-"Text object meaning 'a fold'"
+"" Text object meaning 'a fold'
 vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 
-"Custom unimpaired-style toggles"
+"" Custom unimpaired-style toggles
 nno [oz :<C-U>Autofold<CR>
 nno ]oz :<C-U>Autofold!<CR>
 nno [ov :<C-U>set virtualedit=all<CR>
@@ -258,27 +258,27 @@ nno ]ov :<C-U>set virtualedit=<CR>
 nno [om :<C-U>Matchmaker<CR>
 nno ]om :<C-U>Matchmaker!<CR>
 
-"Toggle BreakpointWindow (mnemonic: Breakpoint Browse)"
+"" Toggle BreakpointWindow (mnemonic: Breakpoint Browse)
 nno <Leader>bb :<C-U>BreakpointWindow<CR>
 
-"Toggle NERDTree"
+"" Toggle NERDTree
 nno <Leader>n :<C-U>NERDTreeToggle<CR>
 
-"Toggle Tagbar"
+"" Toggle Tagbar
 nno <Leader>t :<C-U>TagbarToggle<CR>
 
-"Toggle Undotree"
+"" Toggle Undotree
 nno <Leader>u :<C-U>UndotreeToggle<CR>
 
-"Clear search highlighting"
+"" Clear search highlighting
 nno <Leader>/ :<C-U>noh<CR>
 
-" Display info about highlight group under cursor
+"" Display info about highlight group under cursor
 nno <Leader>h :<C-U>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-"}}}
+"" }}}
 
-"[ Autocommands ]" {{{
+"" [ Autocommands ] {{{
 
 augroup SpecialWindowMaps
     au!
@@ -321,4 +321,4 @@ augroup EqualWindowsOnResize
     au VimResized * wincmd =
 augroup END
 
-"}}}
+"" }}}
