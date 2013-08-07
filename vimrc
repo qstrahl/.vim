@@ -257,6 +257,8 @@ nno [ov :<C-U>set virtualedit=all<CR>
 nno ]ov :<C-U>set virtualedit=<CR>
 nno [om :<C-U>Matchmaker<CR>
 nno ]om :<C-U>Matchmaker!<CR>
+nno [ows :<C-U>set wrapscan<CR>
+nno ]ows :<C-U>set nowrapscan<CR>
 
 "" Toggle BreakpointWindow (mnemonic: Breakpoint Browse)
 nno <Leader>bb :<C-U>BreakpointWindow<CR>
