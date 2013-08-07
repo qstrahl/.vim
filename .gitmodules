@@ -112,7 +112,7 @@
 	path = bundle/vim-javascript
 	update = rebase
 	url = https://github.com/pangloss/vim-javascript.git
-	branch = beta
+	branch = develop
 [submodule "bundle/indent-guides"]
 	path = bundle/indent-guides
 	update = rebase
