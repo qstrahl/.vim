@@ -92,7 +92,7 @@
 	path = bundle/matchmaker
 	update = rebase
 	url = git@github.com:qstrahl/vim-matchmaker.git
-	branch = master
+	branch = develop
 [submodule "bundle/phpcomplete"]
 	path = bundle/phpcomplete
 	update = rebase
