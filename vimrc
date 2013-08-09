@@ -47,7 +47,7 @@ let g:indent_guides_auto_colors=0
 let g:indent_guides_default_mapping=''
 augroup IndentGuidesCustom
     au!
-    au Syntax * IndentGuidesEnable
+    au BufWinEnter * IndentGuidesEnable
 augroup END
 
 "" bundle/nerdtree
