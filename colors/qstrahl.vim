@@ -21,7 +21,6 @@ hi DiffText             cterm=none              ctermfg=15      ctermbg=5
 hi FoldColumn           cterm=none              ctermfg=246     ctermbg=237
 hi Folded               cterm=italic            ctermfg=246     ctermbg=237
 hi Function             cterm=none              ctermfg=14      ctermbg=none
-hi Identifier           cterm=none              ctermfg=none    ctermbg=none
 hi IncSearch            cterm=italic            ctermfg=fg      ctermbg=4
 hi LineNr               cterm=none              ctermfg=239     ctermbg=none
 hi Noise                cterm=none              ctermfg=242     ctermbg=none
