@@ -126,6 +126,7 @@ se sj=1
 se smc=0
 se so=999
 se ss=1
+se stl=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 se wic
 se wim=longest:full,full
 se wmnu
