@@ -101,7 +101,7 @@ se sj=1
 se smc=0
 se so=999
 se ss=1
-se stl=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+se stl=%<%f\ %{MyFugitiveStatusLine()}%{isdirectory(expand('%'))?'[D]':''}%h%m%r%=%-14.(%l,%c%V%)\ %P
 se wic
 se wim=longest:full,full
 se wmnu
@@ -198,6 +198,15 @@ se sw=4
 "" }}}
 
 "" [ Functions ] {{{
+
+"" Custom fugitive statusline
+function! MyFugitiveStatusLine()
+    if fugitive#head() != ''
+        return '⌥ '.fugitive#head(7).' '
+    else
+        return ''
+    endif
+endfunction
 
 "" Set preview window height to &previewheight, then equalize other windows
 function! s:CustomWincmdEquals(visual)
