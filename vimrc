@@ -285,7 +285,8 @@ augroup SpecialWindowMaps
     au!
     au BufEnter *
         \ if &buftype =~# '\(help\|quickfix\)' |
-            \ nno <buffer> q <C-W>q
+            \ nno <buffer> q <C-W>q|
+        \ endif
 augroup END
 
 augroup QuickFixOpenList
@@ -294,10 +295,12 @@ augroup QuickFixOpenList
         \ if len(getqflist()) |
             \ botright copen |
             \ wincmd p
+        \ endif
     au QuickfixCmdPost l*
         \ if len(getloclist(0)) |
             \ rightbelow lopen |
             \ wincmd p
+        \ endif
 augroup END
 
 augroup MkdirOnWrite
@@ -305,6 +308,7 @@ augroup MkdirOnWrite
     au BufWritePre,FileWritePre ?*
         \ if expand('<afile>') !~? '^[a-z0-9]\+:\/\/' |
             \ silent! call mkdir(expand('<afile>:h'), 'p')
+        \ endif
 augroup END
 
 augroup UpdateBex
@@ -314,7 +318,7 @@ augroup END
 
 augroup SyntaxSuffixesAdd
     au!
-    au BufAdd ?* exe 'set sua+=.'.expand('<afile>:e')
+    au BufAdd ?* exe 'set sua+=.'.expand('<amatch>:e')
 augroup END
 
 augroup EqualWindowsOnResize
