@@ -18,19 +18,6 @@ if &term =~? 'xterm'
     set t_Co=256
 endif
 
-augroup NetrwKludges
-    au!
-    "" Make Vim silently handle editing directories (has to happen before plugins)
-    au BufReadCmd *
-        \ sil exe "sil doau BufReadPre" fnameescape(expand("<afile>")) |
-        \ if isdirectory(expand('<afile>')) |
-            \ sil exe ":Explore" expand('<afile>') |
-        \ else |
-            \ sil exe "e" expand('<afile>') |
-        \ endif |
-        \ sil exe "sil doau BufReadPost" fnameescape(expand("<afile>"))
-augroup END
-
 "" }}}
 
 "" [ Bundles ] {{{
@@ -325,12 +312,6 @@ augroup END
 augroup StartVimInDirectory
     au!
     au VimEnter * if expand('<afile>') == '' | Explore
-augroup END
-
-augroup DoNotListDirectoryBuffers
-    au!
-    "" Don't list directory buffers
-    au BufAdd * if isdirectory(expand('<afile>')) | setlocal nobuflisted
 augroup END
 
 "" }}}
