@@ -54,9 +54,6 @@ augroup CustomFugitiveConfig
         \ nno <buffer> <Leader>gs :<C-U>Gstatus<CR>
 augroup END
 
-"" bundle/nerdtree
-let NERDTreeHijackNetrw=0
-
 "" bundle/surround
 let g:surround_indent=1
 
@@ -267,9 +264,6 @@ nno ]ows :<C-U>set nowrapscan<CR>
 
 "" Toggle BreakpointWindow (mnemonic: Breakpoint Browse)
 nno <Leader>bb :<C-U>BreakpointWindow<CR>
-
-"" Toggle NERDTree
-nno <Leader>n :<C-U>NERDTreeToggle<CR>
 
 "" Toggle Tagbar
 nno <Leader>t :<C-U>TagbarToggle<CR>
