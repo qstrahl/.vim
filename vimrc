@@ -142,6 +142,10 @@ se tm=500
 se ttimeout
 se ttm=0
 
+"" netrw configuration
+let g:netrw_list_hide='\(^\|\s\s\)\zs\.\S\+'
+let g:netrw_banner=0
+
 "" }}}
 
 "" [ Keycodes ] {{{
