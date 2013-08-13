@@ -32,6 +32,7 @@ augroup CustomFugitiveConfig
     au!
     au User Fugitive
         \ let &l:path=fugitive#repo().tree().'/**,'.fugitive#repo().tree().'/;' |
+        \ se stl=%<%f\ %{MyFugitiveStatusLine()}%{isdirectory(expand('%'))?'[D]':''}%h%m%r%=%-14.(%l,%c%V%)\ %P|
         \ nno <buffer> <Leader>gb :<C-U>Gblame<CR>|
         \ nno <buffer> <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>|
         \ nno <buffer> <Leader>gd :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>|
@@ -101,7 +102,7 @@ se sj=1
 se smc=0
 se so=999
 se ss=1
-se stl=%<%f\ %{MyFugitiveStatusLine()}%{isdirectory(expand('%'))?'[D]':''}%h%m%r%=%-14.(%l,%c%V%)\ %P
+se stl=%<%f\ %{isdirectory(expand('%'))?'[D]':''}%h%m%r%=%-14.(%l,%c%V%)\ %P
 se wic
 se wim=longest:full,full
 se wmnu
@@ -294,12 +295,12 @@ augroup QuickFixOpenList
     au QuickfixCmdPost [^l]*
         \ if len(getqflist()) |
             \ botright copen |
-            \ wincmd p
+            \ wincmd p |
         \ endif
     au QuickfixCmdPost l*
         \ if len(getloclist(0)) |
             \ rightbelow lopen |
-            \ wincmd p
+            \ wincmd p |
         \ endif
 augroup END
 
@@ -307,7 +308,7 @@ augroup MkdirOnWrite
     au!
     au BufWritePre,FileWritePre ?*
         \ if expand('<afile>') !~? '^[a-z0-9]\+:\/\/' |
-            \ silent! call mkdir(expand('<afile>:h'), 'p')
+            \ silent! call mkdir(expand('<afile>:h'), 'p') |
         \ endif
 augroup END
 
