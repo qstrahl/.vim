@@ -120,7 +120,7 @@ se spr
 "" [ Special Files & Directories ] {{{
 
 se bdir=~/.vim/backup
-se dir=~/.vim/swap
+se dir=~/.vim/swap//
 se tags=./tags;,.git/tags;
 se udf
 se udir=~/.vim/undo
