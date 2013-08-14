@@ -331,4 +331,10 @@ augroup StartVimInDirectory
     au VimEnter * if expand('<afile>') == '' | Explore
 augroup END
 
+augroup NetrwDirectoryBuffers
+    au!
+    " Netrw starts adding [No Name] buffers without this if 'hidden' is set
+    au BufAdd * if isdirectory(expand('<afile>')) | se bufhidden=unload | endif
+augroup END
+
 "" }}}
