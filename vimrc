@@ -94,7 +94,6 @@ se lcs+=tab:├─
 se ls=2
 se mouse=a
 se report=0
-se ru
 se sc
 se shm=atTAI
 se siso=1
