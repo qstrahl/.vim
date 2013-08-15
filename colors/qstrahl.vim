@@ -46,6 +46,7 @@ hi WildMenu             cterm=bold              ctermfg=15      ctermbg=0
 hi StlBufNum            cterm=none              ctermfg=15      ctermbg=0
 hi StlFileHead          cterm=none              ctermfg=24      ctermbg=0
 hi StlFileTail          cterm=none              ctermfg=32      ctermbg=0
+hi StlFileNew           cterm=none              ctermfg=15      ctermbg=0
 hi StlIconModified      cterm=none              ctermfg=3       ctermbg=0
 hi StlIconUnmodified    cterm=none              ctermfg=2       ctermbg=0
 hi StlIconUnmodifiable  cterm=none              ctermfg=1       ctermbg=0
