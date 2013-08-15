@@ -52,9 +52,9 @@ hi StlIconUnmodified    cterm=none              ctermfg=2       ctermbg=0
 hi StlIconUnmodifiable  cterm=none              ctermfg=1       ctermbg=0
 hi StlFugitiveHead      cterm=none              ctermfg=44      ctermbg=0
 hi StlFlagBrackets      cterm=none              ctermfg=243     ctermbg=0
-hi StlFlagBufType       cterm=underline         ctermfg=121     ctermbg=0
-hi StlFlagPreview       cterm=underline         ctermfg=171     ctermbg=0
-hi StlFlagReadOnly      cterm=underline         ctermfg=209     ctermbg=0
+hi StlFlagBufType       cterm=none              ctermfg=121     ctermbg=0
+hi StlFlagPreview       cterm=none              ctermfg=171     ctermbg=0
+hi StlFlagReadOnly      cterm=none              ctermfg=209     ctermbg=0
 hi StlLine              cterm=none              ctermfg=15      ctermbg=0
 hi StlLineComma         cterm=none              ctermfg=243     ctermbg=0
 hi StlColumn            cterm=none              ctermfg=248     ctermbg=0
