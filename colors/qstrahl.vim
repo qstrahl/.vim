@@ -42,6 +42,23 @@ hi Todo                 cterm=bold,italic       ctermfg=243     ctermbg=none
 hi VertSplit            cterm=none              ctermfg=236     ctermbg=0
 hi Visual               cterm=none              ctermfg=none    ctermbg=238
 hi WildMenu             cterm=bold              ctermfg=255     ctermbg=0
+
+hi StlBufNum            cterm=none              ctermfg=15      ctermbg=0
+hi StlFileHead          cterm=none              ctermfg=24      ctermbg=0
+hi StlFileTail          cterm=none              ctermfg=32      ctermbg=0
+hi StlIconModified      cterm=none              ctermfg=3       ctermbg=0
+hi StlIconUnmodified    cterm=none              ctermfg=2       ctermbg=0
+hi StlIconUnmodifiable  cterm=none              ctermfg=1       ctermbg=0
+hi StlFugitiveHead      cterm=none              ctermfg=44      ctermbg=0
+hi StlFlagBrackets      cterm=none              ctermfg=243     ctermbg=0
+hi StlFlagBufType       cterm=underline         ctermfg=121     ctermbg=0
+hi StlFlagPreview       cterm=underline         ctermfg=171     ctermbg=0
+hi StlFlagReadOnly      cterm=underline         ctermfg=209     ctermbg=0
+hi StlLine              cterm=none              ctermfg=15      ctermbg=0
+hi StlLineComma         cterm=none              ctermfg=243     ctermbg=0
+hi StlColumn            cterm=none              ctermfg=248     ctermbg=0
+hi StlScrollPercent     cterm=none              ctermfg=15      ctermbg=0
+
 hi! link CursorColumn CursorLine
 
 " TODO: not suck

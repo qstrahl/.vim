@@ -32,7 +32,6 @@ augroup CustomFugitiveConfig
     au!
     au User Fugitive
         \ let &l:path=fugitive#repo().tree().'/**,'.fugitive#repo().tree().'/;' |
-        \ se stl=%<%f\ %{MyFugitiveStatusLine()}%{isdirectory(expand('%'))?'[D]':''}%h%m%r%=%-14.(%l,%c%V%)\ %P|
         \ nno <buffer> <Leader>gb :<C-U>Gblame<CR>|
         \ nno <buffer> <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>|
         \ nno <buffer> <Leader>gd :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>|
@@ -81,7 +80,7 @@ se scs
 se fcs =
 se fcs+=diff:╲
 se fcs+=fold:┈
-se fcs+=stl:\ 
+se fcs+=stl:-
 se fcs+=stlnc:\ 
 se fcs+=vert:\ 
 se lcs =
@@ -101,7 +100,7 @@ se sj=1
 se smc=0
 se so=999
 se ss=1
-se stl=%<%f\ %{isdirectory(expand('%'))?'[D]':''}%h%m%r%=%-14.(%l,%c%V%)\ %P
+se stl=%!MyStatusLine()
 se wic
 se wim=longest:full,full
 se wmnu
@@ -199,13 +198,33 @@ se sw=4
 
 "" [ Functions ] {{{
 
-"" Custom fugitive statusline
-function! MyFugitiveStatusLine()
-    if fugitive#head() != ''
-        return '⌥ '.fugitive#head(7).' '
-    else
-        return ''
-    endif
+"" Custom statusline
+function! MyStatusLine()
+    let l:stl=''
+    let l:stl.='%<%#StlBufNum# %-3.n%*'
+    let l:stl.='%(%#StlFileHead#%{expand("%:~:.:h")=="."||empty(expand("%:~:.:h"))?"":expand("%:~:.:h")."/"}%*%)'
+    let l:stl.='%(%#StlFileTail#%{!empty(expand("%"))?expand("%:t").(isdirectory(expand("%"))?"/":""):""}%*%)'
+    let l:stl.='%(%#StlFileNew#%{empty(expand("%"))?"[new]":""}%*%)'
+    let l:stl.='%( %#StlIconModified#%{&modified?"+":""}%*%)'
+    let l:stl.='%( %#StlIconUnmodified#%{!&modified && &modifiable?"✓":""}%*%)'
+    let l:stl.='%( %#StlIconUnmodifiable#%{!&modifiable?"✗":""}%*%)'
+    let l:stl.='%( %#StlFugitiveHead#%{fugitive#head()}%*%)'
+    let l:stl.=' %='
+    let l:stl.='%( %#StlFlagBrackets#[%*'
+    let l:stl.='%(%#StlFlagBufType#%{'
+    let l:stl.='&buftype=="help"?"H":'
+    let l:stl.='&buftype=="quickfix"?"Q":" "'
+    let l:stl.='}%*%)'
+    let l:stl.='%#StlFlagPreview#%{&previewwindow?"P":" "}%*'
+    let l:stl.='%#StlFlagReadOnly#%{&readonly?"R":" "}%*'
+    let l:stl.='%#StlFlagBrackets#]%*%)'
+    let l:stl.=' %-14.('
+    let l:stl.='%#StlLine#%l%*'
+    let l:stl.='%#StlLineComma#,%*'
+    let l:stl.='%#StlColumn#%c%*'
+    let l:stl.=' %)'
+    let l:stl.=' %#StlScrollPercent#%P%* '
+    return l:stl
 endfunction
 
 "" Set preview window height to &previewheight, then equalize other windows
