@@ -120,4 +120,6 @@
 	branch = master
 [submodule "bundle/vim-scala"]
 	path = bundle/vim-scala
+	update = rebase
 	url = https://github.com/derekwyatt/vim-scala.git
+	branch = master
