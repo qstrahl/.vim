@@ -129,3 +129,8 @@
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
+[submodule "bundle/vim-exchange"]
+	path = bundle/vim-exchange
+	update = rebase
+	url = https://github.com/tommcdo/vim-exchange.git
+	branch = master
