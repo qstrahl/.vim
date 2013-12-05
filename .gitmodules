@@ -125,9 +125,13 @@
 	branch = master
 [submodule "bundle/vim-lion"]
 	path = bundle/vim-lion
+	update = rebase
+	branch = master
 	url = https://github.com/tommcdo/vim-lion.git
 [submodule "bundle/syntastic"]
 	path = bundle/syntastic
+	update = rebase
+	branch = master
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "bundle/vim-exchange"]
 	path = bundle/vim-exchange
