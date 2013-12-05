@@ -126,3 +126,6 @@
 [submodule "bundle/vim-lion"]
 	path = bundle/vim-lion
 	url = https://github.com/tommcdo/vim-lion.git
+[submodule "bundle/syntastic"]
+	path = bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
