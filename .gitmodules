@@ -123,3 +123,6 @@
 	update = rebase
 	url = https://github.com/derekwyatt/vim-scala.git
 	branch = master
+[submodule "bundle/vim-lion"]
+	path = bundle/vim-lion
+	url = https://github.com/tommcdo/vim-lion.git
