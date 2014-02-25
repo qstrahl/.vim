@@ -143,3 +143,8 @@
 	url = https://github.com/kchmck/vim-coffee-script.git
 	update = rebase
 	branch = master
+[submodule "bundle/vim-projectile"]
+	path = bundle/vim-projectile
+	url = https://github.com/tpope/vim-projectile.git
+	update = rebase
+	branch = master
