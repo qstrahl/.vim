@@ -8,15 +8,13 @@ colorscheme qstrahl
 
 "" [ Init ] {{{
 
+let $IN_VIM=1
+
 for dir in ["backup","swap","undo","view"]
     if empty(finddir(dir, expand('$HOME').'/.vim'))
         call mkdir(expand('$HOME').'/.vim/'.dir, 'p')
     endif
 endfor
-
-if &term =~? 'xterm'
-    set t_Co=256
-endif
 
 "" }}}
 
@@ -31,14 +29,13 @@ call pathogen#helptags()
 augroup CustomFugitiveConfig
     au!
     au User Fugitive
-        \ let &l:path=fugitive#repo().tree().'/**,'.fugitive#repo().tree().'/;' |
         \ nno <buffer> <Leader>gb :<C-U>Gblame<CR>|
-        \ nno <buffer> <Leader>gc :<C-U>Ggrep '^<<<<<<<'<CR>|
         \ nno <buffer> <Leader>gd :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>|
         \ nno <buffer> <Leader>ge :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>|
-        \ nno <buffer> <Leader>gl :<C-U>Gpedit! log<CR><C-W>P|
-        \ nno <buffer> <Leader>gf :<C-U>Gllog<CR>|
-        \ nno <buffer> <Leader>gs :<C-U>Gstatus<CR>
+        \ nno <buffer> <Leader>gl :<C-U>Glog --<CR>|
+        \ nno <buffer> <Leader>gr :<C-U>Glog<CR>|
+        \ nno <buffer> <Leader>gs :<C-U>Gstatus<CR>|
+        \ au BufEnter <buffer> if exists(':Glcd') | Glcd | endif
 augroup END
 
 "" bundle/surround
@@ -77,13 +74,15 @@ se scs
 
 "" [ User Interface ] {{{
 
-noh
 se fcs =
 se fcs+=diff:╲
-se fcs+=fold:━
-se fcs+=stl:-
+se fcs+=fold:┈
+se fcs+=stl:\ 
 se fcs+=stlnc:\ 
 se fcs+=vert:\ 
+" se fcs+=stl:━
+" se fcs+=stlnc:─
+" se fcs+=vert:│
 se lcs =
 se lcs+=conceal:?
 se lcs+=eol:$
@@ -92,7 +91,7 @@ se lcs+=nbsp:¬
 se lcs+=precedes:«
 se lcs+=tab:├─
 se ls=2
-se mouse=a
+se mouse=
 se report=0
 se sc
 se shm=atTAI
@@ -101,7 +100,9 @@ se sj=1
 se smc=0
 se so=999
 se ss=1
+se stal=2
 se stl=%!MyStatusLine()
+se tal=%!MyTabLine()
 se wic
 se wim=longest:full,full
 se wmnu
@@ -132,39 +133,37 @@ se vdir=~/.vim/view
 
 se ar
 se bs=2
+se cb=
 se hi=1000
 se hid
 se inex=substitute(substitute(v:fname,'\\','/','g'),'^/\\+','','')
 se isf+=\
+se lz
 se ml
-se path=./**,**,./;,;
+se path=.,,./*,*,./*/*,*/*,./*/*/*,*/*/*,./*/*/*/*,*/*/*/*,./*/*/*/*/*,*/*/*/*/*,./*/*/*/*/*/*,*/*/*/*/*/*,./*/*/*/*/*/*/*,*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,./*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*,*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*/*
+se re=1
+se timeout
+se nottimeout
 se tm=500
-se ttimeout
 se ttm=0
 
 "" netrw configuration
+
 let g:netrw_list_hide='\(^\|\s\s\)\zs\.\S\+'
 let g:netrw_banner=0
-
-"" }}}
-
-"" [ Keycodes ] {{{
-
-silent! exe "set <C-Left>=\<Esc>Od"
-silent! exe "set <C-Right>=\<Esc>Oc"
-silent! exe "set <S-Down>=\<Esc>[b"
-silent! exe "set <S-Up>=\<Esc>[a"
-silent! exe "set <xDown>=\<Esc>Ob"
-silent! exe "set <xUp>=\<Esc>Oa"
+let g:netrw_alto='splitbelow'
+let g:netrw_altv='splitright'
+let g:netrw_use_errorwindow=0
+let g:netrw_bufsettings = 'noma nomod nonu nobl nowrap ro bh=unload'
+let g:netrw_keepdir = 0
 
 "" }}}
 
 "" [ Insert Completion ] {{{
 
 se cot+=menuone
-se cot+=longest
 se cot-=preview
-se cpt=.,w,i,t
+se cpt=.,w,k,s,i,d,t
 se ph=13
 
 "" }}}
@@ -182,7 +181,7 @@ se fo+=o
 se fo+=q
 se fo+=r
 se fo+=w
-se tw=78
+se tw=120
 
 "" }}}
 
@@ -199,37 +198,92 @@ se sw=4
 
 "" [ Functions ] {{{
 
+"" Custom tabline
+function! MyTabLine()
+    let s = ''
+    let s .= '%#TabLine#'
+    let s .= '%<'
+    let s .= '%(%{fnamemodify(getcwd(),":~")} %)'
+    let s .= '%(⌥ %{exists("b:git_dir")?fugitive#head(7):""} %)'
+    let s .= '%='
+    let s .= '%([%{tabpagenr("$")>1?tabpagenr()."/".tabpagenr("$"):""}]%)'
+    return s
+endfunction
+
 "" Custom statusline
 function! MyStatusLine()
-    let l:stl=''
-    let l:stl.='%<%#StlBufNum# %-3.n%*'
-    let l:stl.='%(%#StlFileHead#%{expand("%:~:.:h")=="."||empty(expand("%:~:.:h"))?"":expand("%:~:.:h")."/"}%*%)'
-    let l:stl.='%(%#StlFileTail#%{!empty(expand("%"))?expand("%:t").(isdirectory(expand("%"))?"/":""):""}%*%)'
-    let l:stl.='%(%#StlFileNew#%{empty(expand("%"))?"[new]":""}%*%)'
-    let l:stl.='%( %#StlIconModified#%{&modified?"+":""}%*%)'
-    let l:stl.='%( %#StlIconUnmodified#%{!&modified && &modifiable?"✓":""}%*%)'
-    let l:stl.='%( %#StlIconUnmodifiable#%{!&modifiable?"✗":""}%*%)'
-    let l:stl.='%( %#StlFugitiveHead#%{fugitive#head()}%*%)'
-    let l:stl.=' %='
-    let l:stl.='%( %#StlFlagBrackets#[%*'
-    let l:stl.='%(%#StlFlagBufType#%{'
-    let l:stl.='&buftype=="help"?"H":'
-    let l:stl.='&buftype=="quickfix"?"Q":" "'
-    let l:stl.='}%*%)'
-    let l:stl.='%#StlFlagPreview#%{&previewwindow?"P":" "}%*'
-    let l:stl.='%#StlFlagReadOnly#%{&readonly?"R":" "}%*'
-    let l:stl.='%#StlFlagBrackets#]%*%)'
-    let l:stl.=' %-14.('
-    let l:stl.='%#StlLine#%l%*'
-    let l:stl.='%#StlLineComma#,%*'
-    let l:stl.='%#StlColumn#%c%*'
-    let l:stl.=' %)'
-    let l:stl.=' %#StlScrollPercent#%P%* '
-    return l:stl
+    let s = ''
+    let s .= '%('
+    let s .= '%{&buftype !~ "help\\|quickfix" && !&previewwindow ? ">" : ""}'
+    let s .= '%{&buftype=="help"?"?":""}'
+    let s .= '%{&buftype=="quickfix"?MyQuickfixIndicator(bufnr("%")):""}'
+    let s .= '%{&previewwindow?"#":""}'
+    let s .= ' %)'
+    let s .= '%<'
+    let s .= '%{MyBufferName(bufnr("%"))}'
+    let s .= '%( ⌥ %{MyGitCommit(bufnr("%"))}%)'
+    let s .= '%( %{&modified?"+":""}%)'
+    let s .= '%( %{!&modified && &modifiable?"✓":""}%)'
+    let s .= '%( %{!&modifiable||&readonly?"⚓":""}%)'
+    let s .= '%='
+    let s .= ' %l,%c%V'
+    return s
+endfunction
+
+function! MyBufferName(buf)
+    let name = bufname(a:buf)
+
+    if &buftype == 'quickfix'
+        let name = exists('w:quickfix_title') ? w:quickfix_title : '[Quickfix List]'
+    elseif name == ''
+        let name = '[No Name]'
+    else
+        try
+            let buf = fugitive#buffer(a:buf)
+            let repo = buf.repo()
+            let path = buf.path()
+            let tree = repo.tree()
+
+            if strlen(tree . '/' . path)
+                let name = tree . '/' . path
+            endif
+        catch /^fugitive:/
+            "" That's okay
+        endtry
+    endif
+
+    return strlen(fnamemodify(name, ':~:.')) ? fnamemodify(name, ':~:.') : fnamemodify(name, ':~')
+endfunction
+
+function! MyGitCommit(buf)
+    try
+        let commit = fugitive#buffer(a:buf).containing_commit()
+        return commit == ':' ? 'HEAD' : commit == 'HEAD' ? '' : strpart(commit, 0, 7)
+    catch /^fugitive:/
+        return ''
+    endtry
+endfunction
+
+function! MyQuickfixIndicator(bufnr)
+  redir => buffers
+  silent ls
+  redir END
+
+  let nr = a:bufnr
+  for buf in split(buffers, '\n')
+    if match(buf, '\v^\s*'.nr) > -1
+      if match(buf, '\[Quickfix List\]') > -1
+        return '!'
+      else
+        return '&'
+      endif
+    endif
+  endfor
+  return ''
 endfunction
 
 "" Set preview window height to &previewheight, then equalize other windows
-function! s:CustomWincmdEquals(visual)
+function! s:MyWincmdEquals(visual)
     try
         let w = winnr()
         wincmd P
@@ -244,26 +298,37 @@ endfunction
 
 "" }}}
 
+"" [ Commands ] {{{
+
+
+"" }}}
+
 "" [ Mappings ] {{{
 
 let mapleader='\'
+
+"" normal ~ in insert mode with ^~
+ino <C-@> <C-o>~
+
+"" Q closes windows; who needs Ex mode?
+nno Q <C-W>c
 
 "" Make Y consistent with C and D
 nno Y y$
 
 "" Override default diff normal commands to allow count (specifying buffer)
-nno do :<C-U>exe 'diffget' v:count ? v:count : ''<CR>
-nno dp :<C-U>exe 'diffput' v:count ? v:count : ''<CR>
+nno do :<C-U>exe 'diffget' v:count ? get(filter(tabpagebuflist(), 'getbufvar(bufname(v:val), "&diff")'), v:count) : '' '<Bar> diffupdate'<CR>
+nno dp :<C-U>exe 'diffput' v:count ? get(filter(tabpagebuflist(), 'getbufvar(bufname(v:val), "&diff")'), v:count) : '' '<Bar> diffupdate'<CR>
 
 "" Add a shortcut to :diffupdate
 nno du :<C-U>diffupdate<CR>
 
-nno <silent> <Plug>CustomwincmdEquals @=<SID>CustomWincmdEquals(0)<CR>
-vno <silent> <Plug>CustomwincmdEquals @=<SID>CustomWincmdEquals(1)<CR>
+nno <silent> <Plug>MyWincmdEquals @=<SID>MyWincmdEquals(0)<CR>
+vno <silent> <Plug>MyWincmdEquals @=<SID>MyWincmdEquals(1)<CR>
 
 "" Override the default <C-W>= mapping
-nmap <C-W>= <Plug>CustomwincmdEquals
-vmap <C-W>= <Plug>CustomwincmdEquals
+nmap <C-W>= <Plug>MyWincmdEquals
+vmap <C-W>= <Plug>MyWincmdEquals
 
 "" Pull the line under the cursor into the command line
 cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
@@ -301,15 +366,12 @@ nno <Leader>h :<C-U>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 
 "" [ Autocommands ] {{{
 
-augroup SpecialWindowMaps
-    au!
-    au BufEnter *
-        \ if &buftype =~# '\(help\|quickfix\)' |
-            \ nno <buffer> q <C-W>q|
-        \ endif
+augroup MyProjectile
+  au!
+  au User ProjectileActivate nnoremap ga :<C-U>A<CR>
 augroup END
 
-augroup QuickFixOpenList
+augroup QuickfixOpenList
     au!
     au QuickfixCmdPost [^l]*
         \ if len(getqflist()) |
@@ -351,10 +413,14 @@ augroup StartVimInDirectory
     au VimEnter * if expand('<afile>') == '' | Explore
 augroup END
 
-augroup NetrwDirectoryBuffers
-    au!
-    " Netrw starts adding [No Name] buffers without this if 'hidden' is set
-    au BufAdd * if isdirectory(expand('<afile>')) | se bufhidden=unload | endif
+augroup ExploreMappings
+  au!
+  au BufWinEnter * if !(&ft == 'netrw' || &ft =~# 'git.*') |
+      \ nno <buffer> - :<C-U>Explore %:p:h <Bar> wincmd =<CR>|
+      \ nno <buffer> g- :<C-U>Sexplore %:p:h <Bar> wincmd =<CR>|
+      \ nno <buffer> g<Bar> :<C-U>Sexplore! %:p:h <Bar> wincmd =<CR>|
+      \ nno <buffer> g+ :<C-U>Texplore %:p:h<CR>|
+  \ endif
 augroup END
 
 "" }}}
