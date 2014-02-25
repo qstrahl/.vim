@@ -148,3 +148,8 @@
 	url = https://github.com/tpope/vim-projectile.git
 	update = rebase
 	branch = master
+[submodule "bundle/vim-dispatch"]
+	path = bundle/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+	update = rebase
+	branch = master
