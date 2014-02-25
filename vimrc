@@ -78,7 +78,7 @@ se cuc
 se cul
 se fcs =
 se fcs+=diff:╲
-se fcs+=fold:┈
+se fcs+=fold:╌
 se fcs+=stl:\ 
 se fcs+=stlnc:\ 
 se fcs+=vert:\ 
