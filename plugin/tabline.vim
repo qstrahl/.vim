@@ -15,7 +15,7 @@ function! s:MyTabLine()
     let s .= '%#TabLine#'
     let s .= '%<'
     let s .= '%(%{fnamemodify(getcwd(),":~")} %)'
-    let s .= '%(⌥ %{exists("b:git_dir")?fugitive#head(7):""} %)'
+    let s .= '%(%#TblGit#⌥ %{exists("b:git_dir")?fugitive#head(7):""}%#TabLine# %)'
     let s .= '%='
     let s .= '%([%{tabpagenr("$")>1?tabpagenr()."/".tabpagenr("$"):""}]%)'
     return s
