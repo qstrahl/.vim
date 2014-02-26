@@ -72,4 +72,7 @@ hi StlModified                                  ctermfg=228     ctermbg=0
 hi StlSaved                                     ctermfg=10      ctermbg=0
 hi StlReadOnly                                  ctermfg=215     ctermbg=0
 
+"" Custom tabline highlight groups
+hi TblGit               cterm=bold              ctermfg=110     ctermbg=0
+
 let g:colors_name = "qstrahl"
