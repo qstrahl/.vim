@@ -50,9 +50,26 @@ hi DbgCurrentLine       cterm=none              ctermfg=none    ctermbg=24
 hi DbgCurrentSign       cterm=none              ctermfg=38      ctermbg=24
 
 "" MatchParen
-hi MatchParen           cterm=none              ctermfg=none    ctermbg=237
+hi MatchParen           cterm=none              ctermfg=0       ctermbg=15
+
+"" Syntastic
+hi SyntasticError                               ctermfg=15      ctermbg=1
+hi SyntasticWarning                             ctermfg=0       ctermbg=215
+hi SyntasticErrorSign   cterm=bold              ctermfg=1       ctermbg=none
+hi SyntasticWarningSign cterm=bold              ctermfg=215     ctermbg=none
+hi link SyntasticStyleErrorSign SyntasticErrorSign
+hi link SyntasticStyleWarningSign SyntasticWarningSign
 
 "" Highlight links
 hi! link CursorColumn CursorLine
+
+"" Custom statusline highlight groups
+hi StlHelp              cterm=bold              ctermfg=45      ctermbg=0
+hi StlQuickfix          cterm=bold              ctermfg=85      ctermbg=0
+hi StlPreview           cterm=bold              ctermfg=177     ctermbg=0
+hi StlGit                                       ctermfg=110     ctermbg=0
+hi StlModified                                  ctermfg=228     ctermbg=0
+hi StlSaved                                     ctermfg=10      ctermbg=0
+hi StlReadOnly                                  ctermfg=215     ctermbg=0
 
 let g:colors_name = "qstrahl"
