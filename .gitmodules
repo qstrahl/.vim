@@ -153,3 +153,8 @@
 	url = https://github.com/tpope/vim-dispatch.git
 	update = rebase
 	branch = master
+[submodule "bundle/vim-json"]
+	path = bundle/vim-json
+	url = https://github.com/leshill/vim-json.git
+	update = rebase
+	branch = master
