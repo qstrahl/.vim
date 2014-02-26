@@ -103,8 +103,6 @@ se smc=0
 se so=999
 se ss=1
 se stal=2
-se stl=%!MyStatusLine()
-se tal=%!MyTabLine()
 se wic
 se wim=longest:full,full
 se wmnu
@@ -199,90 +197,6 @@ se sw=4
 "" }}}
 
 "" [ Functions ] {{{
-
-"" Custom tabline
-function! MyTabLine()
-    let s = ''
-    let s .= '%#TabLine#'
-    let s .= '%<'
-    let s .= '%(%{fnamemodify(getcwd(),":~")} %)'
-    let s .= '%(⌥ %{exists("b:git_dir")?fugitive#head(7):""} %)'
-    let s .= '%='
-    let s .= '%([%{tabpagenr("$")>1?tabpagenr()."/".tabpagenr("$"):""}]%)'
-    return s
-endfunction
-
-"" Custom statusline
-function! MyStatusLine()
-    let s = ''
-    let s .= '%('
-    let s .= '%{&buftype !~ "help\\|quickfix" && !&previewwindow ? ">" : ""}'
-    let s .= '%{&buftype=="help"?"?":""}'
-    let s .= '%{&buftype=="quickfix"?MyQuickfixIndicator(bufnr("%")):""}'
-    let s .= '%{&previewwindow?"#":""}'
-    let s .= ' %)'
-    let s .= '%<'
-    let s .= '%{MyBufferName(bufnr("%"))}'
-    let s .= '%( ⌥ %{MyGitCommit(bufnr("%"))}%)'
-    let s .= '%( %{&modified?"+":""}%)'
-    let s .= '%( %{!&modified && &modifiable?"✓":""}%)'
-    let s .= '%( %{!&modifiable||&readonly?"⚓":""}%)'
-    let s .= '%='
-    let s .= ' %l,%c%V'
-    return s
-endfunction
-
-function! MyBufferName(buf)
-    let name = bufname(a:buf)
-
-    if &buftype == 'quickfix'
-        let name = exists('w:quickfix_title') ? w:quickfix_title : '[Quickfix List]'
-    elseif name == ''
-        let name = '[No Name]'
-    else
-        try
-            let buf = fugitive#buffer(a:buf)
-            let repo = buf.repo()
-            let path = buf.path()
-            let tree = repo.tree()
-
-            if strlen(tree . '/' . path)
-                let name = tree . '/' . path
-            endif
-        catch /^fugitive:/
-            "" That's okay
-        endtry
-    endif
-
-    return strlen(fnamemodify(name, ':~:.')) ? fnamemodify(name, ':~:.') : fnamemodify(name, ':~')
-endfunction
-
-function! MyGitCommit(buf)
-    try
-        let commit = fugitive#buffer(a:buf).containing_commit()
-        return commit == ':' ? 'HEAD' : commit == 'HEAD' ? '' : strpart(commit, 0, 7)
-    catch /^fugitive:/
-        return ''
-    endtry
-endfunction
-
-function! MyQuickfixIndicator(bufnr)
-  redir => buffers
-  silent ls
-  redir END
-
-  let nr = a:bufnr
-  for buf in split(buffers, '\n')
-    if match(buf, '\v^\s*'.nr) > -1
-      if match(buf, '\[Quickfix List\]') > -1
-        return '!'
-      else
-        return '&'
-      endif
-    endif
-  endfor
-  return ''
-endfunction
 
 "" Set preview window height to &previewheight, then equalize other windows
 function! s:MyWincmdEquals(visual)
@@ -413,16 +327,6 @@ augroup END
 augroup StartVimInDirectory
     au!
     au VimEnter * if expand('<afile>') == '' | Explore
-augroup END
-
-augroup ExploreMappings
-  au!
-  au BufWinEnter * if !(&ft == 'netrw' || &ft =~# 'git.*') |
-      \ nno <buffer> - :<C-U>Explore %:p:h <Bar> wincmd =<CR>|
-      \ nno <buffer> g- :<C-U>Sexplore %:p:h <Bar> wincmd =<CR>|
-      \ nno <buffer> g<Bar> :<C-U>Sexplore! %:p:h <Bar> wincmd =<CR>|
-      \ nno <buffer> g+ :<C-U>Texplore %:p:h<CR>|
-  \ endif
 augroup END
 
 "" }}}
