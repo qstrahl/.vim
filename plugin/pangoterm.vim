@@ -11,8 +11,9 @@ set <xUp>=[1;5A
 set <C-J>=[106;5u
 set <C-H>=[104;5u
 
-" <C-R><C-=>
+" <C-=>
 map! <C-R>[61;5u <C-R>=
+map <C-W>[61;5u <C-W>=
 
 " map [127;5u B
 " map! [127;5u 
