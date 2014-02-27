@@ -239,8 +239,8 @@ nno dp :<C-U>exe 'diffput' v:count ? get(filter(tabpagebuflist(), 'getbufvar(buf
 "" Add a shortcut to :diffupdate
 nno du :<C-U>diffupdate<CR>
 
-nno <silent> <Plug>MyWincmdEquals @=<SID>MyWincmdEquals(0)<CR>
-vno <silent> <Plug>MyWincmdEquals @=<SID>MyWincmdEquals(1)<CR>
+nno <expr> <silent> <Plug>MyWincmdEquals <SID>MyWincmdEquals(0)
+vno <expr> <silent> <Plug>MyWincmdEquals <SID>MyWincmdEquals(1)
 
 "" Override the default <C-W>= mapping
 nmap <C-W>= <Plug>MyWincmdEquals
