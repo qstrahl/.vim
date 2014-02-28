@@ -158,3 +158,8 @@
 	url = https://github.com/leshill/vim-json.git
 	update = rebase
 	branch = master
+[submodule "bundle/vim-ocd"]
+	path = bundle/vim-ocd
+	url = git@github.com:qstrahl/vim-ocd.git
+	update = rebase
+	branch = master
