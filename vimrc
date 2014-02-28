@@ -74,8 +74,6 @@ se scs
 
 "" [ User Interface ] {{{
 
-se cuc
-se cul
 se fcs =
 se fcs+=diff:╲
 se fcs+=fold:╌
