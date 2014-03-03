@@ -44,12 +44,12 @@ function! s:MyBufferName(buf)
     return strlen(fnamemodify(name, ':~:.')) ? fnamemodify(name, ':~:.') : fnamemodify(name, ':~')
 endfunction
 
-function! s:MyQuickfixIndicator(bufnr)
+function! s:MyQuickfixIndicator(buf)
   redir => buffers
   silent ls
   redir END
 
-  let nr = a:bufnr
+  let nr = bufnr(a:buf)
   for buf in split(buffers, '\n')
     if match(buf, '\v^\s*'.nr) > -1
       if match(buf, '\[Quickfix List\]') > -1
@@ -66,12 +66,12 @@ function! s:MyStatusLine()
     let s = ''
     let s .= '%('
     let s .= '%#StlHelp#%{&buftype=="help"?"H":""}%*'
-    let s .= '%#StlQuickfix#%{&buftype=="quickfix"?' . s:sid . 'MyQuickfixIndicator(bufnr("%")):""}%*'
+    let s .= '%#StlQuickfix#%{&buftype=="quickfix"?' . s:sid . 'MyQuickfixIndicator("%"):""}%*'
     let s .= '%#StlPreview#%{&previewwindow?"P":""}%*'
     let s .= ' %)'
     let s .= '%<'
-    let s .= '%{' . s:sid . 'MyBufferName(bufnr("%"))}'
-    let s .= '%#StlGit#%( ⌥ %{' . s:sid . 'MyGitCommit(bufnr("%"))}%)%*'
+    let s .= '%{' . s:sid . 'MyBufferName("%")}'
+    let s .= '%#StlGit#%( ⌥ %{' . s:sid . 'MyGitCommit("%")}%)%*'
     let s .= '%#StlModified#%( %{&modified?"+":""}%)%*'
     let s .= '%#StlSaved#%( %{!&modified && &modifiable?"✓":""}%)%*'
     " let s .= '%#StlReadOnly#%( %{!&modifiable||&readonly?"⚓":""}%)%*'
