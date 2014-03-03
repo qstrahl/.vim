@@ -10,6 +10,7 @@ set <xDown>=[1;5B
 set <xUp>=[1;5A
 set <C-J>=[106;5u
 set <C-H>=[104;5u
+set <C-I>=[105;5u
 
 " <C-=>
 map! <C-R>[61;5u <C-R>=
