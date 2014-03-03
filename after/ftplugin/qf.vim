@@ -21,3 +21,4 @@ autocmd Syntax <buffer> call s:defineSyntax()
 hi link qfFugitiveFileName qfFileName
 hi link qfFugitiveSeparator Normal
 hi link qfFugitiveHash Identifier
+hi link qfLineNr Number
