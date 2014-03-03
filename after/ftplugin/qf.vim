@@ -12,6 +12,7 @@ function! s:defineSyntax()
     syn match qfFugitiveSeparator +/+ contained conceal cchar=: nextgroup=qfFugitiveFileName
     syn match qfFugitiveFileName +[^/|][^|]*+ contained nextgroup=qfLineNr
     syn region qfLineNr matchgroup=Delimiter start=/|/ end=/|/ skip=/\\\(\\\\\)*/ contained contains=qfError
+    syn match qfFileName /^[^|]*/ nextgroup=qfLineNr
     syn clear qfSeparator
 endfunction
 
