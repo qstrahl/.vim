@@ -33,7 +33,7 @@ function! s:MyBufferName(buf)
             let path = buf.path()
             let tree = repo.tree()
 
-            if strlen(tree . '/' . path)
+            if strlen(path)
                 let name = tree . '/' . path
             endif
         catch /^fugitive:/
