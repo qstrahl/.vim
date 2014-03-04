@@ -222,6 +222,11 @@ endfunction
 
 let mapleader='\'
 
+"" Explore!
+noremap \e :<C-U>Explore<CR>
+noremap \se :<C-U>Sexplore<CR>
+noremap \ve :<C-U>Vexplore<CR>
+
 "" normal ~ in insert mode with ^~
 ino <C-@> <C-o>~
 
