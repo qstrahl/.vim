@@ -154,6 +154,7 @@ let g:netrw_altv='splitright'
 let g:netrw_use_errorwindow=0
 let g:netrw_bufsettings = 'noma nomod nonu nobl nowrap ro bh=unload'
 let g:netrw_keepdir = 0
+let g:netrw_browsex_viewer = 'xdg-open'
 
 "" }}}
 
