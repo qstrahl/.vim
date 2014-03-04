@@ -11,10 +11,12 @@ set <xUp>=[1;5A
 set <C-J>=[106;5u
 set <C-H>=[104;5u
 set <C-I>=[105;5u
+set <C-^>=[54;5u
 
-" <C-=>
 map! <C-R>[61;5u <C-R>=
 map <C-W>[61;5u <C-W>=
+map <C-W>[43;5u <C-W>+
+map <C-W>[45;5u <C-W>-
 
 " map [127;5u B
 " map! [127;5u 
