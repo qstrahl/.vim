@@ -26,15 +26,14 @@ function! s:MyBufferName(buf)
         let name = exists('w:quickfix_title') ? w:quickfix_title : '[Quickfix List]'
     elseif name == ''
         let name = '[No Name]'
+    elseif len(getbufvar(a:buf, 'git_args'))
+      let name = join(['!git'] + getbufvar(a:buf, 'git_args'), ' ')
     else
         try
-            let buf = fugitive#buffer(a:buf)
-            let repo = buf.repo()
-            let path = buf.path()
-            let tree = repo.tree()
+            let path = fugitive#buffer().path()
 
             if strlen(path)
-                let name = tree . '/' . path
+                return path
             endif
         catch /^fugitive:/
             "" That's okay
