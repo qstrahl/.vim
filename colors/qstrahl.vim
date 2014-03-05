@@ -14,10 +14,10 @@ hi Conceal              cterm=none              ctermfg=237     ctermbg=none
 hi Cursor               cterm=none              ctermfg=0       ctermbg=15 
 hi CursorLine           cterm=none              ctermfg=none    ctermbg=235
 hi CursorLineNr         cterm=bold              ctermfg=242     ctermbg=235
-hi DiffAdd              cterm=none              ctermfg=10      ctermbg=22
-hi DiffChange           cterm=none              ctermfg=215     ctermbg=94
-hi DiffDelete           cterm=none              ctermfg=9       ctermbg=52
-hi DiffText             cterm=none              ctermfg=15      ctermbg=172
+hi DiffAdd              cterm=none              ctermfg=none    ctermbg=22
+hi DiffChange           cterm=none              ctermfg=none    ctermbg=94
+hi DiffDelete           cterm=none              ctermfg=none    ctermbg=52
+hi DiffText             cterm=none              ctermfg=none    ctermbg=130
 hi FoldColumn           cterm=none              ctermfg=246     ctermbg=237
 hi Folded               cterm=italic            ctermfg=246     ctermbg=237
 hi Function             cterm=none              ctermfg=14      ctermbg=none
