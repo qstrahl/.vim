@@ -10,11 +10,21 @@ if !exists('s:sid')
   silent let s:sid = s:SID()
 endif
 
+function! s:MyDirName()
+  try
+    let dir = fugitive#repo().tree()
+  catch /^fugitive:/
+    let dir = getcwd()
+  endtry
+
+  return fnamemodify(dir, ':~')
+endfunction
+
 function! s:MyTabLine()
     let s = ''
     let s .= '%#TabLine#'
     let s .= '%<'
-    let s .= '%(%{fnamemodify(getcwd(),":~")} %)'
+    let s .= '%(%{' . s:sid . 'MyDirName()} %)'
     let s .= '%(%#TblGit#⌥ %{exists("b:git_dir")?fugitive#head(7):""}%#TabLine# %)'
     let s .= '%='
     let s .= '%([%{tabpagenr("$")>1?tabpagenr()."/".tabpagenr("$"):""}]%)'
