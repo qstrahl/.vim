@@ -225,7 +225,10 @@ let mapleader='\'
 "" Explore!
 noremap \e :<C-U>Explore<CR>
 noremap \se :<C-U>Sexplore<CR>
-noremap \ve :<C-U>Vexplore<CR>
+noremap \ve :<C-U>Vexplore!<CR>
+
+"" Start new line (without touching current line) from Insert Mode
+ino <A-CR> <C-\><C-N>o
 
 "" normal ~ in insert mode with ^~
 ino <C-@> <C-o>~
