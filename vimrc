@@ -336,4 +336,9 @@ augroup StartVimInDirectory
     au VimEnter * if expand('<afile>') == '' | Explore
 augroup END
 
+augroup AlwaysSyncFromStart
+  au!
+  au Syntax * syn sync fromstart
+augroup END
+
 "" }}}
