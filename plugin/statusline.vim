@@ -19,6 +19,18 @@ function! s:MyGitCommit(buf)
     endtry
 endfunction
 
+function! s:FilterGitArgs(arg)
+    return a:arg !~# '\v^(--no-pager|--show-number|--contents|-)$'
+endfunction
+
+function! s:TransformGitArgs(arg)
+    if a:arg =~# '\v^[[:xdigit:]]{40}$'
+      return strpart(a:arg, 0, 7)
+    else
+      return a:arg
+    endif
+endfunction
+
 function! s:MyBufferName(buf)
     let name = bufname(a:buf)
 
@@ -27,7 +39,7 @@ function! s:MyBufferName(buf)
     elseif name == ''
         let name = '[No Name]'
     elseif len(getbufvar(a:buf, 'git_args'))
-      let name = join(['!git'] + getbufvar(a:buf, 'git_args'), ' ')
+      let name = join(['!git'] + map(filter(getbufvar(a:buf, 'git_args'), s:sid . 'FilterGitArgs(v:val)'), s:sid . 'TransformGitArgs(v:val)'), ' ')
     else
         try
             let path = fugitive#buffer().path()
