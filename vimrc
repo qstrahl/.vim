@@ -44,6 +44,9 @@ let g:surround_indent=1
 "" bundle/undotree
 let g:undotree_SplitWidth=38
 
+"" bundle/commentary
+let g:commentary_map_backslash=0
+
 "" bundle/vdebug
 augroup CustomVdebugConfig
     au!
