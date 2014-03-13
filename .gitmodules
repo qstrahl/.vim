@@ -163,3 +163,8 @@
 	url = git@github.com:qstrahl/vim-ocd.git
 	update = rebase
 	branch = master
+[submodule "bundle/dentures"]
+	path = bundle/dentures
+	url = git@github.com:qstrahl/vim-dentures.git
+	update = rebase
+	branch = master
