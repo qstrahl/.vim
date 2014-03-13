@@ -341,7 +341,7 @@ augroup END
 
 augroup AlwaysSyncFromStart
   au!
-  au Syntax * syn sync fromstart
+  au Syntax * syn sync clear | syn sync fromstart
 augroup END
 
 "" }}}
