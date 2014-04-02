@@ -344,8 +344,8 @@ augroup StartVimInDirectory
 augroup END
 
 augroup AlwaysSyncFromStart
-  au!
-  au Syntax * syn sync clear | syn sync fromstart
+    au!
+    au Syntax * syn sync clear | syn sync fromstart
 augroup END
 
 "" }}}
