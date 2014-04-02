@@ -13,6 +13,7 @@ set <C-H>=[104;5u
 set <C-I>=[105;5u
 set <C-^>=[54;5u
 set <A-CR>=
+set <C-_>=[45;5u
 
 map! <C-R>[61;5u <C-R>=
 map <C-W>[61;5u <C-W>=
