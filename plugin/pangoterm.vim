@@ -20,10 +20,5 @@ map <C-W>[61;5u <C-W>=
 map <C-W>[43;5u <C-W>+
 map <C-W>[45;5u <C-W>-
 
-" Hack to shoehorn <C-BS> into Vim...
-set <xLeft>=[127;5u
-noremap! <xLeft> <C-W>
-noremap <xLeft> B
-
 " map [127;5u B
 " map! [127;5u 
