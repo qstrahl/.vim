@@ -168,3 +168,8 @@
 	url = git@github.com:qstrahl/vim-dentures.git
 	update = rebase
 	branch = master
+[submodule "bundle/netrw"]
+	path = bundle/netrw
+	update = rebase
+	branch = master
+	url = https://github.com/eiginn/netrw.git
