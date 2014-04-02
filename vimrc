@@ -226,9 +226,10 @@ endfunction
 let mapleader='\'
 
 "" Explore!
-nnoremap \e :<C-U>Explore<CR>
-nnoremap \se :<C-U>Sexplore<CR>
-nnoremap \ve :<C-U>Vexplore!<CR>
+nnoremap - :<C-U>Explore<CR>
+nnoremap _ :<C-U>Hexplore<CR>
+nnoremap <Bar> :<C-U>Vexplore!<CR>
+nnoremap + :<C-U>Texplore<CR>
 
 "" Convenience mapping - to :Explore
 nnoremap - :<C-U>Explore<CR>
