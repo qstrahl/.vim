@@ -226,9 +226,12 @@ endfunction
 let mapleader='\'
 
 "" Explore!
-noremap \e :<C-U>Explore<CR>
-noremap \se :<C-U>Sexplore<CR>
-noremap \ve :<C-U>Vexplore!<CR>
+nnoremap \e :<C-U>Explore<CR>
+nnoremap \se :<C-U>Sexplore<CR>
+nnoremap \ve :<C-U>Vexplore!<CR>
+
+"" Convenience mapping - to :Explore
+nnoremap - :<C-U>Explore<CR>
 
 "" Start new line (without touching current line) from Insert Mode
 ino <A-CR> <C-\><C-N>o
