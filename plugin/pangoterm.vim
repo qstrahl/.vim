@@ -2,6 +2,10 @@ set t_Co=256
 set t_ZH=[3m
 set t_ZR=[23m
 
+set <Up>=OA
+set <Down>=OB
+set <Right>=OC
+set <Left>=OD
 set <C-Left>=[1;5D
 set <C-Right>=[1;5C
 set <S-Down>=[1;2B
