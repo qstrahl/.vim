@@ -227,12 +227,9 @@ let mapleader='\'
 
 "" Explore!
 nnoremap - :<C-U>Explore<CR>
-nnoremap _ :<C-U>Hexplore<CR>
-nnoremap <Bar> :<C-U>Vexplore!<CR>
+nnoremap _ :<C-U>sp +Explore<CR>
+nnoremap <Bar> :<C-U>vsp +Explore!<CR>
 nnoremap + :<C-U>Texplore<CR>
-
-"" Convenience mapping - to :Explore
-nnoremap - :<C-U>Explore<CR>
 
 "" Start new line (without touching current line) from Insert Mode
 ino <A-CR> <C-\><C-N>o
