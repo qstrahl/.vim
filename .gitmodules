@@ -38,11 +38,6 @@
 	update = rebase
 	url = git://github.com/majutsushi/tagbar.git
 	branch = master
-[submodule "bundle/vdebug"]
-	path = bundle/vdebug
-	update = rebase
-	url = git@github.com:joonty/vdebug.git
-	branch = dev
 [submodule "bundle/pathogen"]
 	path = bundle/pathogen
 	update = rebase
