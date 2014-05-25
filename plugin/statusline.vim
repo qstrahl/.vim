@@ -34,7 +34,9 @@ endfunction
 function! s:MyBufferName(buf)
   let name = bufname(a:buf)
 
-  if &buftype == 'quickfix'
+  if &ft == 'netrw' && exists('b:netrw_curdir')
+    let name = b:netrw_curdir
+  elseif &buftype == 'quickfix'
     let name = exists('w:quickfix_title') ? w:quickfix_title : '[Quickfix List]'
   elseif name == ''
     let name = '[No Name]'
@@ -42,10 +44,10 @@ function! s:MyBufferName(buf)
     let name = join(['!git'] + map(filter(getbufvar(a:buf, 'git_args'), s:sid . 'FilterGitArgs(v:val)'), s:sid . 'TransformGitArgs(v:val)'), ' ')
   else
     try
-      let path = fugitive#buffer().path()
-
-      if strlen(path)
-        return path
+      if fugitive#buffer().type() ==# 'commit'
+        let name = fugitive#buffer().repo().tree()
+      else
+        let name = fugitive#buffer().path()
       endif
     catch /^fugitive:/
       "" That's okay
@@ -73,19 +75,39 @@ function! s:MyQuickfixIndicator(buf)
   return ''
 endfunction
 
+function! s:MyGitIndicator (buf)
+  try
+    let c = get({
+      \ 'blob': '',
+      \ 'commit': 'C',
+      \ 'directory': '',
+      \ 'file': '',
+      \ 'head': 'R',
+      \ 'index': 'I',
+      \ 'null': '',
+      \ 'tree': ''
+      \ }, fugitive#buffer(a:buf).type())
+
+    return empty(c) ? '' : c
+  catch /^fugitive:/
+    return ''
+  endtry
+endfunction
+
 function! s:MyStatusLine()
   let s = ''
   let s .= '%('
-  let s .= '%#StlHelp#%{&buftype=="help"?"H":""}%*'
-  let s .= '%#StlQuickfix#%{&buftype=="quickfix"?' . s:sid . 'MyQuickfixIndicator("%"):""}%*'
-  let s .= '%#StlPreview#%{&previewwindow?"P":""}%*'
+  let s .= '%{&previewwindow?"P":""}'
+  let s .= '%{&buftype=="help"?"H":""}'
+  let s .= '%{&buftype=="quickfix"?' . s:sid . 'MyQuickfixIndicator("%"):""}'
+  let s .= '%{' . s:sid . 'MyGitIndicator("%")}'
   let s .= ' %)'
   let s .= '%<'
   let s .= '%{' . s:sid . 'MyBufferName("%")}'
-  let s .= '%#StlGit#%( ⌥ %{' . s:sid . 'MyGitCommit("%")}%)%*'
-  let s .= '%#StlModified#%( %{&modified?"+":""}%)%*'
-  let s .= '%#StlSaved#%( %{!&modified && &modifiable?"✓":""}%)%*'
-  " let s .= '%#StlReadOnly#%( %{!&modifiable||&readonly?"⚓":""}%)%*'
+  let s .= '%( ⌥ %{' . s:sid . 'MyGitCommit("%")}%)'
+  let s .= '%( %{&modified?"+":""}%)'
+  let s .= '%( %{!&modified && &modifiable?"✓":""}%)'
+  " let s .= '%( %{!&modifiable||&readonly?"⚓":""}%)'
   let s .= '%='
   let s .= ' %l,%c%V'
   return s

@@ -4,7 +4,9 @@
 filet plugin indent on
 syntax on
 syntax sync fromstart
-colorscheme qstrahl
+
+set bg=dark
+colorscheme solarized
 
 "" [ Init ] {{{
 
@@ -24,19 +26,6 @@ endfor
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
-
-"" bundle/fugitive
-augroup CustomFugitiveConfig
-    au!
-    au User Fugitive
-        \ nno <buffer> <Leader>gb :<C-U>Gblame<CR>|
-        \ nno <buffer> <Leader>gd :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>|
-        \ nno <buffer> <Leader>ge :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>|
-        \ nno <buffer> <Leader>gl :<C-U>Glog --<CR>|
-        \ nno <buffer> <Leader>gr :<C-U>Glog<CR>|
-        \ nno <buffer> <Leader>gs :<C-U>Gstatus<CR>|
-        \ au BufEnter <buffer> if exists(':Glcd') | Glcd | endif
-augroup END
 
 "" bundle/surround
 let g:surround_indent=1
@@ -77,9 +66,11 @@ se scs
 
 "" [ User Interface ] {{{
 
+se nocul nocuc
 se fcs =
 se fcs+=diff:\ 
-se fcs+=fold:╌
+" se fcs+=fold:╌
+se fcs+=fold:\ 
 se fcs+=stl:\ 
 se fcs+=stlnc:\ 
 se fcs+=vert:\ 
@@ -89,12 +80,13 @@ se fcs+=vert:\
 se lcs =
 se lcs+=conceal:?
 se lcs+=eol:$
-" se lcs+=extends:»
+se lcs+=extends:…
 se lcs+=nbsp:¬
-se lcs+=precedes:«
+se lcs+=precedes:…
 se lcs+=tab:├─
 se ls=2
 se mouse=ar
+se nu
 se report=0
 se sc
 se shm=atTAI
@@ -147,17 +139,6 @@ se timeout
 se nottimeout
 se tm=500
 se ttm=0
-
-"" netrw configuration
-
-let g:netrw_list_hide='\(^\|\s\s\)\zs\.\S\+'
-let g:netrw_banner=0
-let g:netrw_alto='splitbelow'
-let g:netrw_altv='splitright'
-let g:netrw_use_errorwindow=0
-let g:netrw_bufsettings = 'noma nomod nonu nobl nowrap ro bh=unload'
-let g:netrw_keepdir = 1
-let g:netrw_browsex_viewer = 'xdg-open'
 
 "" }}}
 
@@ -224,6 +205,10 @@ endfunction
 "" [ Mappings ] {{{
 
 let mapleader='\'
+
+"" Map ' and g' to ` and g`
+nnoremap ' `
+nnoremap g' g`
 
 "" Explore!
 nnoremap - :<C-U>Explore<CR>
@@ -343,6 +328,11 @@ augroup END
 augroup AlwaysSyncFromStart
     au!
     au Syntax * syn sync clear | syn sync fromstart
+augroup END
+
+augroup MyCmdWin
+  au!
+  au CmdWinEnter * setlocal nonumber
 augroup END
 
 "" }}}

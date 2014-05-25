@@ -4,24 +4,26 @@ if exists("syntax_on")
 endif
 
 "" Normal has to come first
-hi Normal               cterm=none              ctermfg=250     ctermbg=234
+hi Normal               cterm=none              ctermfg=none    ctermbg=none
 
 set background=dark
 
 "" Built-in highlight groups
-hi Comment              cterm=italic            ctermfg=243     ctermbg=none
-hi Conceal              cterm=none              ctermfg=237     ctermbg=none
-hi Cursor               cterm=none              ctermfg=0       ctermbg=15 
-hi CursorLine           cterm=none              ctermfg=none    ctermbg=235
-hi CursorLineNr         cterm=bold              ctermfg=242     ctermbg=235
-hi DiffAdd              cterm=none              ctermfg=none    ctermbg=22
-hi DiffChange           cterm=none              ctermfg=none    ctermbg=94
-hi DiffDelete           cterm=none              ctermfg=none    ctermbg=52
-hi DiffText             cterm=none              ctermfg=none    ctermbg=130
-hi FoldColumn           cterm=none              ctermfg=246     ctermbg=237
-hi Folded               cterm=italic            ctermfg=246     ctermbg=237
-hi Function             cterm=none              ctermfg=14      ctermbg=none
-hi IncSearch            cterm=italic            ctermfg=fg      ctermbg=4
+hi Comment              cterm=italic            ctermfg=15      ctermbg=none
+hi Conceal              cterm=none              ctermfg=15      ctermbg=none
+hi Constant             cterm=none              ctermfg=13      ctermbg=none
+" hi Cursor               cterm=none              ctermfg=255     ctermbg=255  
+hi CursorLine           cterm=none              ctermfg=none    ctermbg=7
+hi CursorLineNr         cterm=none              ctermfg=15      ctermbg=7
+hi DiffAdd              cterm=none              ctermfg=none    ctermbg=2
+hi DiffChange           cterm=none              ctermfg=none    ctermbg=6
+hi DiffDelete           cterm=none              ctermfg=none    ctermbg=1
+hi DiffText             cterm=none              ctermfg=255     ctermbg=14
+hi FoldColumn           cterm=none              ctermfg=15      ctermbg=7
+hi Folded               cterm=italic            ctermfg=15      ctermbg=7
+hi! link Function Identifier
+hi Identifier           cterm=bold              ctermfg=11      ctermbg=none
+hi IncSearch            cterm=italic            ctermfg=none    ctermbg=4
 hi LineNr               cterm=none              ctermfg=239     ctermbg=none
 hi Noise                cterm=none              ctermfg=242     ctermbg=none
 hi NonText              cterm=none              ctermfg=237     ctermbg=none
@@ -32,6 +34,7 @@ hi PmenuThumb           cterm=none              ctermfg=0       ctermbg=255
 hi Search               cterm=none              ctermfg=15      ctermbg=27
 hi SignColumn           cterm=none              ctermfg=none    ctermbg=none
 hi SpecialKey           cterm=none              ctermfg=14      ctermbg=23
+hi Statement            cterm=none              ctermfg=3       ctermbg=none
 hi StatusLine           cterm=none              ctermfg=255     ctermbg=0
 hi StatusLineNC         cterm=none              ctermfg=248     ctermbg=0
 hi TabLine              cterm=bold              ctermfg=255     ctermbg=0
@@ -62,11 +65,13 @@ hi link SyntasticStyleWarningSign SyntasticWarningSign
 
 "" Highlight links
 hi! link CursorColumn CursorLine
+hi! link Visual CursorLine
 
 "" Custom statusline highlight groups
 hi StlHelp              cterm=bold              ctermfg=45      ctermbg=0
 hi StlQuickfix          cterm=bold              ctermfg=85      ctermbg=0
 hi StlPreview           cterm=bold              ctermfg=177     ctermbg=0
+hi StlGitObject         cterm=bold              ctermfg=110     ctermbg=0
 hi StlGit                                       ctermfg=110     ctermbg=0
 hi StlModified                                  ctermfg=228     ctermbg=0
 hi StlSaved                                     ctermfg=10      ctermbg=0

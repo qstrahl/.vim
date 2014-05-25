@@ -25,7 +25,7 @@ function! s:MyTabLine()
     let s .= '%#TabLine#'
     let s .= '%<'
     let s .= '%(%{' . s:sid . 'MyDirName()} %)'
-    let s .= '%(%#TblGit#⌥ %{exists("b:git_dir")?fugitive#head(7):""}%#TabLine# %)'
+    let s .= '%(⌥ %{exists("b:git_dir")?fugitive#head(7):""} %)'
     let s .= '%='
     let s .= '%([%{tabpagenr("$")>1?tabpagenr()."/".tabpagenr("$"):""}]%)'
     return s
