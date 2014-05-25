@@ -76,12 +76,12 @@
 [submodule "bundle/autofold"]
 	path = bundle/autofold
 	update = rebase
-	url = git@github.com:qstrahl/vim-autofold.git
+	url = https://github.com/qstrahl/vim-autofold.git
 	branch = master
 [submodule "bundle/matchmaker"]
 	path = bundle/matchmaker
 	update = rebase
-	url = git@github.com:qstrahl/vim-matchmaker.git
+	url = https://github.com/qstrahl/vim-matchmaker.git
 	branch = develop
 [submodule "bundle/phpcomplete"]
 	path = bundle/phpcomplete
@@ -91,12 +91,12 @@
 [submodule "bundle/synergy"]
 	path = bundle/synergy
 	update = rebase
-	url = git@github.com:qstrahl/vim-synergy.git
+	url = https://github.com/qstrahl/vim-synergy.git
 	branch = master
 [submodule "bundle/lumberjack"]
 	path = bundle/lumberjack
 	update = rebase
-	url = git@github.com:qstrahl/vim-lumberjack.git
+	url = https://github.com/qstrahl/vim-lumberjack.git
 	branch = master
 [submodule "bundle/vim-javascript"]
 	path = bundle/vim-javascript
@@ -155,12 +155,12 @@
 	branch = master
 [submodule "bundle/vim-ocd"]
 	path = bundle/vim-ocd
-	url = git@github.com:qstrahl/vim-ocd.git
+	url = https://github.com/qstrahl/vim-ocd.git
 	update = rebase
 	branch = master
 [submodule "bundle/dentures"]
 	path = bundle/dentures
-	url = git@github.com:qstrahl/vim-dentures.git
+	url = https://github.com/qstrahl/vim-dentures.git
 	update = rebase
 	branch = master
 [submodule "bundle/netrw"]
@@ -168,3 +168,8 @@
 	update = rebase
 	branch = master
 	url = https://github.com/eiginn/netrw.git
+[submodule "bundle/less"]
+	path = bundle/less
+	url = https://github.com/groenewege/vim-less.git
+	branch = master
+	update = rebase
