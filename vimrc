@@ -86,7 +86,7 @@ se lcs+=precedes:…
 se lcs+=tab:├─
 se ls=2
 se mouse=ar
-se nu
+se nonu
 se report=0
 se sc
 se shm=atTAI
