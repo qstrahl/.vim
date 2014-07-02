@@ -173,3 +173,8 @@
 	url = https://github.com/groenewege/vim-less.git
 	branch = master
 	update = rebase
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim.git
+	branch = master
+	update = rebase
