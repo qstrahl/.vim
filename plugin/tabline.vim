@@ -1,3 +1,5 @@
+finish " disabled
+
 function! s:SID ()
   let l:scripts = ""
   redir => l:scripts
