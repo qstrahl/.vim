@@ -1,5 +1,4 @@
 setl nowrap
-setl statusline&
 setl nocuc nocul
 setl conceallevel=2
 setl concealcursor=nvic
