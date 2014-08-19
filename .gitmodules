@@ -183,6 +183,11 @@
 	url = https://github.com/bling/vim-airline.git
 	branch = master
 	update = rebase
+[submodule "bundle/vdebug"]
+	path = bundle/vdebug
+	url = git@github.com:joonty/vdebug.git
+	branch = master
+	update = rebase
 [submodule "bundle/argumentative"]
 	path = bundle/argumentative
 	url = https://github.com/PeterRincker/vim-argumentative.git
