@@ -183,3 +183,8 @@
 	url = https://github.com/bling/vim-airline.git
 	branch = master
 	update = rebase
+[submodule "bundle/targets"]
+	path = bundle/targets
+	url = https://github.com/wellle/targets.vim.git
+	branch = master
+	update = rebase
