@@ -4,7 +4,7 @@ setl conceallevel=2
 setl concealcursor=nvic
 
 function! s:defineSyntax()
-    syn match qfFugitivePrefix ?^fugitive://.\{-}//? containedin=qfFileName conceal cchar=⌥ nextgroup=qfFugitiveHash
+    syn match qfFugitivePrefix ?^fugitive://.\{-}//? containedin=qfFileName conceal cchar= nextgroup=qfFugitiveHash
     syn match qfFugitiveHash +[[:xdigit:]]*+ contained contains=qfFugitiveLongHash nextgroup=@qfFugitiveAfterHash
     syn match qfFugitiveLongHash /[[:xdigit:]]\{7}\zs[[:xdigit:]]*\ze/ contained conceal
     syn cluster qfFugitiveAfterHash contains=qfFugitiveSeparator,qfFugitiveFileName,qfLineNr
