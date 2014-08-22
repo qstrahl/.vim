@@ -35,3 +35,20 @@ function! qstrahl#modified (...)
     return ''
   endif
 endfunction
+
+function! qstrahl#titlestring (...)
+  let buf = get(a:, 1, '')
+  let sep = ' - '
+
+  let name = qstrahl#bufname(buf)
+
+  let title = name
+
+  if fnamemodify(name, ':t') != getbufvar(buf, 'netrw_curdir')
+    let title .= sep . fnamemodify(getcwd(), ':t')
+  endif
+
+  let title .= sep . 'Vim'
+  
+  return title
+endfunction
