@@ -18,3 +18,20 @@ function! qstrahl#bufname (...)
 
   return name
 endfunction
+
+function! qstrahl#modified (...)
+  let buf = get(a:, 1, '')
+  let modifiable = getbufvar(buf, '&modifiable')
+  
+  if !modifiable
+    return ''
+  endif
+
+  let modified = getbufvar(buf, '&modified')
+
+  if modified
+    return '*'
+  else
+    return ''
+  endif
+endfunction
