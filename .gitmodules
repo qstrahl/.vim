@@ -198,3 +198,8 @@
 	url = https://github.com/wellle/targets.vim.git
 	branch = master
 	update = rebase
+[submodule "bundle/tern"]
+	path = bundle/tern
+	url = https://github.com/marijnh/tern_for_vim.git
+	branch = master
+	update = rebase
