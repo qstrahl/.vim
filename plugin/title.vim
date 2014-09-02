@@ -1,1 +1,1 @@
-set titlestring=Vim:\ (%{fnamemodify(getcwd(),':t')})\ %{qstrahl#bufname('')}%(\ %m%)
+set titlestring=%{qstrahl#titlestring()}
