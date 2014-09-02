@@ -43,6 +43,7 @@ function! qstrahl#titlestring (...)
   let name = qstrahl#bufname(buf)
 
   let title = name
+  let title .= qstrahl#modified(buf)
 
   if fnamemodify(name, ':t') != getbufvar(buf, 'netrw_curdir')
     let title .= sep . fnamemodify(getcwd(), ':t')
