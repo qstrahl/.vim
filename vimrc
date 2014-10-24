@@ -322,11 +322,6 @@ augroup EqualWindowsOnResize
     au VimResized * wincmd =
 augroup END
 
-augroup StartVimInDirectory
-    au!
-    au VimEnter * if expand('<afile>') == '' | Explore
-augroup END
-
 augroup AlwaysSyncFromStart
     au!
     au Syntax * syn sync clear | syn sync fromstart
