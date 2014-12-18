@@ -322,11 +322,6 @@ augroup EqualWindowsOnResize
     au VimResized * wincmd =
 augroup END
 
-augroup AlwaysSyncFromStart
-    au!
-    au Syntax * syn sync clear | syn sync fromstart
-augroup END
-
 augroup MyCmdWin
   au!
   au CmdWinEnter * setlocal nonumber
