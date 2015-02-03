@@ -3,3 +3,5 @@ let java_minlines = 50
 let java_highlight_all = 1
 " let java_highlight_functions = "indent"
 let java_highlight_functions = "style"
+
+setlocal tabstop=2
