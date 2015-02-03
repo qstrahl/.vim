@@ -198,3 +198,8 @@
 	url = https://github.com/wellle/targets.vim.git
 	branch = master
 	update = rebase
+[submodule "bundle/bisectly"]
+	path = bundle/bisectly
+	url = https://github.com/dahu/bisectly.git
+	branch = master
+	update = rebase
