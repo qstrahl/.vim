@@ -296,7 +296,7 @@ augroup END
 
 augroup UpdateBex
     au!
-    au BufWritePre * let &bex=strftime(".%F.%T.backup")
+    au BufWritePre * let &bex=strftime(".%F.%T.vimbackup")
 augroup END
 
 augroup SyntaxSuffixesAdd
