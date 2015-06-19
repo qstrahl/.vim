@@ -286,20 +286,6 @@ augroup MyProjectile
   au User ProjectileActivate nnoremap ga :<C-U>A<CR>
 augroup END
 
-augroup QuickfixOpenList
-    au!
-    au QuickfixCmdPost [^l]*
-        \ if len(getqflist()) |
-            \ botright copen |
-            \ wincmd p |
-        \ endif
-    au QuickfixCmdPost l*
-        \ if len(getloclist(0)) |
-            \ rightbelow lopen |
-            \ wincmd p |
-        \ endif
-augroup END
-
 augroup MkdirOnWrite
     au!
     au BufWritePre,FileWritePre ?*
