@@ -206,6 +206,9 @@ endfunction
 
 let mapleader='\'
 
+"" Make <Backspace> operate on [count] like <Delete> does
+noremap <expr> <BS> v:count ? "<Del>" : "<BS>"
+
 "" Map ' and g' to ` and g`
 nnoremap ' `
 nnoremap g' g`
