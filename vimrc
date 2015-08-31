@@ -30,9 +30,6 @@ call pathogen#helptags()
 "" bundle/surround
 let g:surround_indent=1
 
-"" bundle/undotree
-let g:undotree_SplitWidth=38
-
 "" bundle/commentary
 let g:commentary_map_backslash=0
 
@@ -267,9 +264,6 @@ nno <Leader>bb :<C-U>BreakpointWindow<CR>
 
 "" Toggle Tagbar
 nno <Leader>t :<C-U>TagbarToggle<CR>
-
-"" Toggle Undotree
-nno <Leader>u :<C-U>UndotreeToggle<CR>
 
 "" Clear search highlighting
 nno <Leader>/ :<C-U>noh<CR>
