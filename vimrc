@@ -133,7 +133,7 @@ se isf+=\
 se lz
 se ml
 se path=**
-se re=1
+se re=0
 se timeout
 se nottimeout
 se tm=500
