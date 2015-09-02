@@ -1,6 +1,6 @@
 "" Don't want to get variable type mismatches
-unlet g:ctrlp_custom_ignore
-unlet g:ctrlp_user_command
+silent unlet g:ctrlp_custom_ignore
+silent unlet g:ctrlp_user_command
 
 let g:ctrlp_cache_dir = $HOME . '/.vim/cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0
