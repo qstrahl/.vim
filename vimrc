@@ -210,8 +210,8 @@ let mapleader='\'
 noremap <expr> <BS> v:count ? "<Del>" : "<BS>"
 
 "" Map ' and g' to ` and g`
-nnoremap ' `
-nnoremap g' g`
+noremap ' `
+noremap g' g`
 
 "" Explore!
 nnoremap - :<C-U>Explore<CR>
