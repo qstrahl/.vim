@@ -3,7 +3,7 @@
 
 function! s:SafeSearch ()
   augroup SafeSearch
-    autocmd CursorMoved,CursorMovedI,InsertEnter,CursorHold,CursorHoldI,CmdWinEnter,CmdWinLeave * call <SID>Teardown()
+    autocmd CursorMoved,CursorMovedI,InsertEnter,CursorHold,CursorHoldI,CmdWinEnter,CmdWinLeave,WinEnter,WinLeave * call <SID>Teardown()
   augroup END
   return '/'
 endfunction
