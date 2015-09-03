@@ -21,9 +21,9 @@ call pathogen#helptags()
 set background=dark
 colorscheme solarized
 hi Comment      cterm=italic
-hi StatusLine   cterm=none              ctermbg=12      ctermfg=0
-hi StatusLineNC cterm=none              ctermbg=12      ctermfg=0
-hi VertSplit    cterm=none              ctermbg=12      ctermfg=0
+hi StatusLine   cterm=none              ctermbg=8       ctermfg=10
+hi StatusLineNC cterm=none              ctermbg=8       ctermfg=10
+hi VertSplit    cterm=none              ctermbg=8       ctermfg=10
 
 "" [ Folds ] {{{
 
@@ -45,7 +45,7 @@ se scs
 "" [ User Interface ] {{{
 
 se nocul nocuc
-set fillchars=diff:\ ,fold:\ ,stl:\ ,stlnc:\ ,vert:\ 
+set fillchars=diff:\ ,fold:\ ,stl:━,stlnc:━,vert:┃
 set listchars=conceal:?,eol:$,extends:…,nbsp:¬,precedes:…,tab:├─
 se ls=2
 se mouse=ar
