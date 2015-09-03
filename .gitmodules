@@ -203,3 +203,6 @@
 	url = https://github.com/dahu/bisectly.git
 	branch = master
 	update = rebase
+[submodule "bundle/vim-asterisk"]
+	path = bundle/vim-asterisk
+	url = https://github.com/haya14busa/vim-asterisk.git
