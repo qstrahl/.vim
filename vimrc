@@ -52,6 +52,7 @@ se mouse=ar
 se nonu
 se nowrap
 se report=0
+se ruler
 se sc
 se shm=atTAI
 se siso=1
