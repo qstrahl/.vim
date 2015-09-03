@@ -151,6 +151,9 @@ se sw=4
 
 let mapleader='\'
 
+"" Q closes windows; who needs Ex mode?
+nno Q <C-W>c
+
 "" Make <Backspace> operate on [count] like <Delete> does
 noremap <expr> <BS> v:count ? "<Del>" : "<BS>"
 
