@@ -5,11 +5,6 @@ filet plugin indent on
 syntax on
 syntax sync fromstart
 
-set bg=dark
-colorscheme solarized
-
-"" [ Init ] {{{
-
 let $IN_VIM=1
 
 for dir in ["backup","swap","undo","view"]
@@ -18,31 +13,17 @@ for dir in ["backup","swap","undo","view"]
     endif
 endfor
 
-"" }}}
-
-"" [ Bundles ] {{{
-
 "" Load everything with Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
-"" bundle/surround
-let g:surround_indent=1
-
-"" bundle/commentary
-let g:commentary_map_backslash=0
-
-"" bundle/vdebug
-augroup CustomVdebugConfig
-    au!
-    au User VdebugPost
-        \ exe 'sign define breakpt text=◆' |
-        \ exe 'sign define current text=▶' |
-        \ hi clear DbgBreakptLine DbgBreakptSign DbgCurrentLine DbgCurrentSign
-augroup END
-
-"" }}}
+set background=dark
+colorscheme solarized
+hi Comment      cterm=italic
+hi StatusLine   cterm=none              ctermbg=12      ctermfg=0
+hi StatusLineNC cterm=none              ctermbg=12      ctermfg=0
+hi VertSplit    cterm=none              ctermbg=12      ctermfg=0
 
 "" [ Folds ] {{{
 
@@ -64,23 +45,8 @@ se scs
 "" [ User Interface ] {{{
 
 se nocul nocuc
-se fcs =
-se fcs+=diff:\ 
-" se fcs+=fold:╌
-se fcs+=fold:\ 
-se fcs+=stl:\ 
-se fcs+=stlnc:\ 
-se fcs+=vert:\ 
-" se fcs+=stl:━
-" se fcs+=stlnc:─
-" se fcs+=vert:│
-se lcs =
-se lcs+=conceal:?
-se lcs+=eol:$
-se lcs+=extends:…
-se lcs+=nbsp:¬
-se lcs+=precedes:…
-se lcs+=tab:├─
+set fillchars=diff:\ ,fold:\ ,stl:\ ,stlnc:\ ,vert:\ 
+set listchars=conceal:?,eol:$,extends:…,nbsp:¬,precedes:…,tab:├─
 se ls=2
 se mouse=ar
 se nonu
@@ -180,29 +146,6 @@ se sw=4
 
 "" }}}
 
-"" [ Functions ] {{{
-
-"" Set preview window height to &previewheight, then equalize other windows
-function! s:MyWincmdEquals(visual)
-    try
-        let w = winnr()
-        wincmd P
-        exe &previewheight.'wincmd _'
-        exe w.'wincmd w'
-    catch /^E441:/
-        continue
-    finally
-        return "\<C-W>=" . (a:visual ? 'gv' : '')
-    endtry
-endfunction
-
-"" }}}
-
-"" [ Commands ] {{{
-
-
-"" }}}
-
 "" [ Mappings ] {{{
 
 let mapleader='\'
@@ -214,21 +157,6 @@ noremap <expr> <BS> v:count ? "<Del>" : "<BS>"
 noremap ' `
 noremap g' g`
 
-"" Explore!
-nnoremap - :<C-U>Explore<CR>
-nnoremap _ :<C-U>sp +Explore<CR>
-nnoremap <Bar> :<C-U>vsp +Explore!<CR>
-nnoremap + :<C-U>Texplore<CR>
-
-"" Start new line (without touching current line) from Insert Mode
-ino <A-CR> <C-\><C-N>o
-
-"" normal ~ in insert mode with ^~
-ino <C-@> <C-o>~
-
-"" Q closes windows; who needs Ex mode?
-nno Q <C-W>c
-
 "" Make Y consistent with C and D
 nno Y y$
 
@@ -238,13 +166,6 @@ nno dp :<C-U>exe 'diffput' v:count ? get(filter(tabpagebuflist(), 'getbufvar(buf
 
 "" Add a shortcut to :diffupdate
 nno du :<C-U>diffupdate<CR>
-
-nno <expr> <silent> <Plug>MyWincmdEquals <SID>MyWincmdEquals(0)
-vno <expr> <silent> <Plug>MyWincmdEquals <SID>MyWincmdEquals(1)
-
-"" Override the default <C-W>= mapping
-nmap <C-W>= <Plug>MyWincmdEquals
-vmap <C-W>= <Plug>MyWincmdEquals
 
 "" Pull the line under the cursor into the command line
 cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
@@ -279,37 +200,17 @@ nno <Leader>h :<C-U>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 
 "" [ Autocommands ] {{{
 
-augroup MyProjectile
+augroup MyAutocmds
   au!
-  au User ProjectileActivate nnoremap ga :<C-U>A<CR>
-augroup END
-
-augroup MkdirOnWrite
-    au!
-    au BufWritePre,FileWritePre ?*
-        \ if expand('<afile>') !~? '^[a-z0-9]\+:\/\/' |
-            \ silent! call mkdir(expand('<afile>:h'), 'p') |
-        \ endif
-augroup END
-
-augroup UpdateBex
-    au!
-    au BufWritePre * let &bex=strftime(".%F.%T.vimbackup")
-augroup END
-
-augroup SyntaxSuffixesAdd
-    au!
-    au BufAdd ?* exe 'set sua+=.'.expand('<amatch>:e')
-augroup END
-
-augroup EqualWindowsOnResize
-    au!
-    au VimResized * wincmd =
-augroup END
-
-augroup MyCmdWin
-  au!
+  au BufWritePre,FileWritePre ?*
+    \ if expand('<afile>') !~? '^[a-z0-9]\+:\/\/' |
+        \ silent! call mkdir(expand('<afile>:h'), 'p') |
+    \ endif
+  au BufWritePre * let &bex=strftime(".%F.%T.vimbackup")
+  au BufAdd ?* exe 'set sua+=.'.expand('<amatch>:e')
+  au VimResized * wincmd =
   au CmdWinEnter * setlocal nonumber
+  au BufWinEnter * if &previewwindow  | set winfixwidth winfixheight | endif
 augroup END
 
 "" }}}
