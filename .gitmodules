@@ -178,11 +178,6 @@
 	url = https://github.com/ctrlpvim/ctrlp.vim.git
 	branch = master
 	update = rebase
-[submodule "bundle/airline"]
-	path = bundle/airline
-	url = https://github.com/bling/vim-airline.git
-	branch = master
-	update = rebase
 [submodule "bundle/vdebug"]
 	path = bundle/vdebug
 	url = git@github.com:joonty/vdebug.git
