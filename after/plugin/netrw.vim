@@ -12,3 +12,5 @@ nnoremap <Leader>e      :<C-U>Explore<CR>
 nnoremap <Leader>se     :<C-U>sp +Explore<CR>
 nnoremap <Leader>ve     :<C-U>vsp +Explore!<CR>
 nnoremap <Leader>te     :<C-U>Texplore<CR>
+
+setglobal nonumber
