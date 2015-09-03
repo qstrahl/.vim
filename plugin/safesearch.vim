@@ -5,12 +5,13 @@ function! s:SafeSearch ()
   augroup SafeSearch
     autocmd CursorMoved,CursorMovedI,InsertEnter,CursorHold,CursorHoldI,CmdWinEnter,CmdWinLeave,WinEnter,WinLeave * call <SID>Teardown()
   augroup END
+  let s:pattern = @/
   return '/'
 endfunction
 
 function! s:Teardown()
   call histdel('search', -1)
-  let @/ = histget('search', -1)
+  let @/ = s:pattern
   augroup SafeSearch
     autocmd!
   augroup END
