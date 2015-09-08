@@ -8,9 +8,9 @@ let g:netrw_keepdir = 1
 let g:netrw_browsex_viewer = 'xdg-open'
 let g:netrw_winsize = 0
 
-nnoremap <Leader>e      :<C-U>Explore<CR>
-nnoremap <Leader>se     :<C-U>sp +Explore<CR>
-nnoremap <Leader>ve     :<C-U>vsp +Explore!<CR>
-nnoremap <Leader>te     :<C-U>Texplore<CR>
+nnoremap -      :<C-U>Explore<CR>
+nnoremap _      :<C-U>sp +Explore<CR>
+nnoremap <Bar>  :<C-U>vsp +Explore!<CR>
+nnoremap +      :<C-U>Texplore<CR>
 
 setglobal nonumber
