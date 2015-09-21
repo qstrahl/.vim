@@ -152,6 +152,12 @@ se sw=4
 
 let mapleader='\'
 
+noremap ` ge
+noremap ~ gE
+onoremap ` ge
+onoremap ~ gE
+noremap U ~
+
 "" Q closes windows; who needs Ex mode?
 nno Q <C-W>c
 
