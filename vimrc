@@ -165,13 +165,6 @@ noremap g' g`
 "" Make Y consistent with C and D
 nno Y y$
 
-"" Override default diff normal commands to allow count (specifying buffer)
-nno do :<C-U>exe 'diffget' v:count ? get(filter(tabpagebuflist(), 'getbufvar(bufname(v:val), "&diff")'), v:count) : '' '<Bar> diffupdate'<CR>
-nno dp :<C-U>exe 'diffput' v:count ? get(filter(tabpagebuflist(), 'getbufvar(bufname(v:val), "&diff")'), v:count) : '' '<Bar> diffupdate'<CR>
-
-"" Add a shortcut to :diffupdate
-nno du :<C-U>diffupdate<CR>
-
 "" Pull the line under the cursor into the command line
 cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
 
