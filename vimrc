@@ -12,7 +12,6 @@ endfor
 "" Load everything with Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
-call pathogen#helptags()
 
 filet plugin indent on
 syntax on
