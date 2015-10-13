@@ -1,10 +1,6 @@
 "" vim: set fdm=marker:
 "" Author: Quinn Strahl
 
-filet plugin indent on
-syntax on
-syntax sync fromstart
-
 let $IN_VIM=1
 
 for dir in ["backup","swap","undo","view"]
@@ -17,6 +13,10 @@ endfor
 runtime bundle/pathogen/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
+
+filet plugin indent on
+syntax on
+syntax sync fromstart
 
 set background=dark
 colorscheme solarized
