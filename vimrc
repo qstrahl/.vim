@@ -20,8 +20,8 @@ syntax sync fromstart
 set background=dark
 colorscheme solarized
 hi Comment      cterm=italic
-hi StatusLine   cterm=none              ctermbg=8       ctermfg=10
-hi StatusLineNC cterm=none              ctermbg=8       ctermfg=10
+hi StatusLine   cterm=bold              ctermbg=8       ctermfg=10
+hi StatusLineNC cterm=bold              ctermbg=8       ctermfg=10
 hi VertSplit    cterm=none              ctermbg=8       ctermfg=10
 hi WildMenu     cterm=bold              ctermbg=8       ctermfg=15
 
