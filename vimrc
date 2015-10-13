@@ -104,7 +104,7 @@ se re=0
 se timeout
 se nottimeout
 se tm=500
-se ttm=0
+se ttm=20
 se ve=all
 
 "" }}}
