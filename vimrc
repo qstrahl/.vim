@@ -151,6 +151,7 @@ se sw=4
 
 let mapleader='\'
 
+"" Backtick is ge, U is tilde
 noremap ` ge
 noremap ~ gE
 onoremap ` ge
