@@ -1,2 +1,2 @@
-se fdm=syntax
+set fdm=syntax
 au Syntax <buffer> syn clear jsFutureKeys 
