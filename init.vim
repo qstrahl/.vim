@@ -1,14 +1,6 @@
 "" vim: set fdm=marker:
 "" Author: Quinn Strahl
 
-let $IN_VIM=1
-
-for dir in ["backup","swap","undo","view"]
-    if empty(finddir(dir, expand('$HOME').'/.vim'))
-        call mkdir(expand('$HOME').'/.vim/'.dir, 'p')
-    endif
-endfor
-
 "" Load everything with Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
@@ -78,12 +70,10 @@ se spr
 
 "" [ Special Files & Directories ] {{{
 
-se bdir=~/.vim/backup
-se dir=~/.vim/swap//
 se tags=./tags;,.git/tags;
 se udf
-se udir=~/.vim/undo
-se vdir=~/.vim/view
+let s:datadir = $XDG_DATA_HOME ? $XDG_DATA_HOME : ($HOME . '/.local/share')
+let &udir = s:datadir . '/nvim/undo'
 
 "" }}}
 
@@ -218,3 +208,10 @@ augroup MyAutocmds
 augroup END
 
 "" }}}
+
+"" Make important directories if they don't exist
+for dir in [&bdir,&dir,&udir,&vdir]
+    if empty(finddir(dir))
+        call mkdir(dir, 'p')
+    endif
+endfor
