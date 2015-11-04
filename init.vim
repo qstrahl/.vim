@@ -156,6 +156,9 @@ noremap U ~
 "" Q closes windows; who needs Ex mode?
 nno Q <C-W>c
 
+"" Make <C-w>0 set a window's width to precisely as wide as the longest line in the buffer
+nnoremap <expr> <C-w>0 max(map(getbufline('%',1,'$'),'len(v:val)'))."\<lt>C-w>\<Bar>"
+
 "" Make <Backspace> operate on [count] like <Delete> does
 noremap <expr> <BS> v:count ? "<Del>" : "<BS>"
 
