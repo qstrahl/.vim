@@ -9,7 +9,6 @@ function! MyJavascriptFormatter (lnum, count)
     let l:options += [ &expandtab ? '-s ' . &shiftwidth : '-t' ]
     let l:options += [ '-w ' . &textwidth ]
     let l:options += [ '-q' ]
-    let l:options += [ '-b "expand"' ]
     let l:options += [ '-f -' ]
         
     silent exe a:lnum . ',+' . (a:count - 1) . '!js-beautify ' . join(l:options, ' ')
