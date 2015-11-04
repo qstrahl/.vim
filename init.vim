@@ -5,6 +5,14 @@
 let s:datadir = ($XDG_DATA_HOME ? $XDG_DATA_HOME : $HOME) . '/.local/share/nvim'
 let s:confdir = ($XDG_CONFIG_HOME ? $XDG_CONFIG_HOME : $HOME) . '/.config/nvim'
 
+"" Syntastic {{{
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_error_symbol  = '✖'
+let g:syntastic_style_error_symbol  = '✖'
+let g:syntastic_warning_symbol  = '❢'
+let g:syntastic_style_warning_symbol  = '❢'
+"" }}}
+
 filetype off
 
 "" Load everything with Pathogen
@@ -22,6 +30,12 @@ hi StatusLine   cterm=bold              ctermbg=8       ctermfg=10
 hi StatusLineNC cterm=bold              ctermbg=8       ctermfg=10
 hi VertSplit    cterm=none              ctermbg=8       ctermfg=10
 hi WildMenu     cterm=bold              ctermbg=8       ctermfg=15
+
+hi! link SignColumn FoldColumn
+hi SyntasticErrorSign cterm=none ctermbg=0 ctermfg=1
+hi SyntasticStyleErrorSign cterm=none ctermbg=0 ctermfg=1
+hi SyntasticWarningSign cterm=none ctermbg=0 ctermfg=3
+hi SyntasticStyleWarningSign cterm=none ctermbg=0 ctermfg=3
 
 "" [ Folds ] {{{
 
