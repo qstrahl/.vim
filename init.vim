@@ -5,6 +5,15 @@
 let s:datadir = ($XDG_DATA_HOME ? $XDG_DATA_HOME : $HOME) . '/.local/share/nvim'
 let s:confdir = ($XDG_CONFIG_HOME ? $XDG_CONFIG_HOME : $HOME) . '/.config/nvim'
 
+"" UltiSnips {{{
+let g:UltiSnipsUsePythonVersion         = 2
+let g:UltiSnipsSnippetsDir              = s:confdir . '/UltiSnips'
+let g:UltiSnipsExpandTrigger            = '<Tab>'
+let g:UltiSnipsListSnippets             = '<C-s>'
+let g:UltiSnipsJumpForwardTrigger       = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger      = '<S-Tab>'
+"" }}}
+
 "" Syntastic {{{
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_error_symbol  = '✖'
@@ -232,7 +241,7 @@ augroup END
 "" }}}
 
 "" Make important directories if they don't exist
-for dir in [&bdir,&dir,&udir,&vdir]
+for dir in [&bdir,&dir,&udir,&vdir,g:UltiSnipsSnippetsDir]
     if empty(finddir(dir))
         call mkdir(dir, 'p')
     endif
