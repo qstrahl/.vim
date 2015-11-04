@@ -1,6 +1,10 @@
 "" vim: set fdm=marker:
 "" Author: Quinn Strahl
 
+"" I can't believe I have to do this
+let s:datadir = ($XDG_DATA_HOME ? $XDG_DATA_HOME : $HOME) . '/.local/share/nvim'
+let s:confdir = ($XDG_CONFIG_HOME ? $XDG_CONFIG_HOME : $HOME) . '/.config/nvim'
+
 "" Load everything with Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
@@ -72,7 +76,6 @@ se spr
 
 se tags=./tags;,.git/tags;
 se udf
-let s:datadir = $XDG_DATA_HOME ? $XDG_DATA_HOME : ($HOME . '/.local/share')
 let &udir = s:datadir . '/nvim/undo'
 
 "" }}}
