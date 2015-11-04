@@ -5,11 +5,13 @@
 let s:datadir = ($XDG_DATA_HOME ? $XDG_DATA_HOME : $HOME) . '/.local/share/nvim'
 let s:confdir = ($XDG_CONFIG_HOME ? $XDG_CONFIG_HOME : $HOME) . '/.config/nvim'
 
+filetype off
+
 "" Load everything with Pathogen
 runtime bundle/pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
-filet plugin indent on
+filetype plugin indent on
 syntax on
 syntax sync fromstart
 
