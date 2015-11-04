@@ -201,12 +201,18 @@
 [submodule "bundle/vim-asterisk"]
 	path = bundle/vim-asterisk
 	url = https://github.com/haya14busa/vim-asterisk.git
+	branch = master
+	update = rebase
 [submodule "bundle/vim-colors-solarized"]
 	path = bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+	branch = master
+	update = rebase
 [submodule "bundle/delimitMate"]
 	path = bundle/delimitMate
 	url = https://github.com/Raimondi/delimitMate.git
+	branch = master
+	update = rebase
 [submodule "bundle/ultisnips"]
 	path = bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
