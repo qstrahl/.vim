@@ -16,7 +16,7 @@ let g:UltiSnipsJumpBackwardTrigger      = '<S-Tab>'
 "" }}}
 
 "" Syntastic {{{
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 2
 let g:syntastic_error_symbol  = '✖'
 let g:syntastic_style_error_symbol  = '✖'
 let g:syntastic_warning_symbol  = '❢'
