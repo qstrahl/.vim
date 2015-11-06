@@ -223,3 +223,13 @@
 	url = https://github.com/honza/vim-snippets.git
 	branch = master
 	update = rebase
+[submodule "bundle/tern_for_vim"]
+	path = bundle/tern_for_vim
+	url = https://github.com/ternjs/tern_for_vim.git
+	branch = master
+	update = rebase
+[submodule "bundle/YouCompleteMe"]
+	path = bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git
+	branch = master
+	update = rebase

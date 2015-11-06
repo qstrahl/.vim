@@ -22,6 +22,17 @@ let g:syntastic_warning_symbol  = '❢'
 let g:syntastic_style_warning_symbol  = '❢'
 "" }}}
 
+"" YouCompleteMe {{{
+let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_previous_completion = []
+let g:ycm_key_invoke_completion = ''
+let g:ycm_min_num_of_chars_for_completion = 1
+"" }}}
+
+"" tern_for_vim {{{
+let g:tern_show_signature_in_pum = 1
+"" }}}
+
 filetype off
 
 "" Load everything with Pathogen
