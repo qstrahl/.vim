@@ -3,7 +3,7 @@
 
 "" I can't believe I have to do this
 let s:datadir = ($XDG_DATA_HOME ? $XDG_DATA_HOME : $HOME) . '/.local/share/nvim'
-let s:confdir = ($XDG_CONFIG_HOME ? $XDG_CONFIG_HOME : $HOME) . '/.config/nvim'
+let s:confdir = expand('<sfile>:h')
 
 "" UltiSnips {{{
 let g:UltiSnipsUsePythonVersion         = 2
