@@ -7,6 +7,7 @@ let s:confdir = ($XDG_CONFIG_HOME ? $XDG_CONFIG_HOME : $HOME) . '/.config/nvim'
 
 "" UltiSnips {{{
 let g:UltiSnipsUsePythonVersion         = 2
+let g:UltiSnipsEditSplit                = 'context'
 let g:UltiSnipsSnippetsDir              = s:confdir . '/UltiSnips'
 let g:UltiSnipsExpandTrigger            = '<Tab>'
 let g:UltiSnipsListSnippets             = '<C-s>'
