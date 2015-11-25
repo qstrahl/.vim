@@ -34,10 +34,26 @@ let g:ycm_min_num_of_chars_for_completion = 2
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
+
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
 "" }}}
 
 "" tern_for_vim {{{
 let g:tern_show_signature_in_pum = 1
+
+function! BuildTern(info)
+    if a:info.status == 'installed' || a:info.force
+        !npm install
+    endif
+endfunction
 "" }}}
 
 "" exchange {{{
@@ -46,9 +62,49 @@ let g:exchange_indent = 1
 
 filetype off
 
-"" Load everything with Pathogen
-runtime bundle/pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+"" Plugin management courtesy of vim-plug
+source ~/.config/nvim/vim-plug/plug.vim
+call plug#begin(confdir . '/bundle')
+
+Plug 'junegunn/vim-plug', { 'dir': confdir. '/vim-plug' }
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'mbbill/undotree'
+Plug 'perrywky/vim-matchit'
+Plug 'tpope/vim-characterize'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-eunuch'
+Plug 'qstrahl/vim-matchmaker'
+Plug 'qstrahl/vim-synergy'
+Plug 'pangloss/vim-javascript', { 'branch': 'develop' }
+Plug 'othree/html5.vim'
+Plug 'tommcdo/vim-lion'
+Plug 'scrooloose/syntastic'
+Plug 'tommcdo/vim-exchange'
+Plug 'kchmck/vim-coffee-script'
+Plug 'tpope/vim-projectile'
+Plug 'tpope/vim-dispatch'
+Plug 'leshill/vim-json'
+Plug 'qstrahl/vim-ocd'
+Plug 'qstrahl/vim-dentures'
+Plug 'eiginn/netrw'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'PeterRincker/vim-argumentative'
+Plug 'wellle/targets.vim'
+Plug 'dahu/bisectly'
+Plug 'haya14busa/vim-asterisk'
+Plug 'altercation/vim-colors-solarized'
+Plug 'Raimondi/delimitMate'
+Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+Plug 'sickill/vim-pasta'
+
+call plug#end()
 
 filetype plugin indent on
 syntax on
