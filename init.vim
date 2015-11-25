@@ -4,6 +4,7 @@
 "" I can't believe I have to do this
 let datadir = ($XDG_DATA_HOME ? $XDG_DATA_HOME : $HOME) . '/.local/share/nvim'
 let confdir = expand('<sfile>:h')
+let initfile = expand('<sfile>')
 
 "" UltiSnips {{{
 let g:UltiSnipsUsePythonVersion         = 2
