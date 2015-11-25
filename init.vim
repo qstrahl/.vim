@@ -40,6 +40,10 @@ let g:ycm_seed_identifiers_with_syntax = 1
 let g:tern_show_signature_in_pum = 1
 "" }}}
 
+"" exchange {{{
+let g:exchange_indent = 1
+"" }}}
+
 filetype off
 
 "" Load everything with Pathogen
