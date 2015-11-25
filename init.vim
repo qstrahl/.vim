@@ -243,6 +243,11 @@ command! Tconfig exe 'tabedit' expand(initfile)
 
 "" [ Autocommands ] {{{
 
+augroup AutoSource
+  autocmd!
+  autocmd FileWritePost init.vim,{indent,autoload,plugin}/*.vim source <afile>
+augroup END
+
 augroup MyAutocmds
   au!
   au BufWritePre,FileWritePre ?*
