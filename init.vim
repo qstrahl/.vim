@@ -195,6 +195,10 @@ nno Q <C-W>c
 "" Make <C-w>0 set a window's width to precisely as wide as the longest line in the buffer
 nnoremap <expr> <C-w>0 max(map(getbufline('%',1,'$'),'len(v:val)'))."\<lt>C-w>\<Bar>"
 
+"" Make insert mode <C-y> and <C-e> do entire WORDs at a time
+imap <expr> <C-y> substitute(getline(line('.')-1)[col('.')-1:],'\s\+\zs.*','','')
+imap <expr> <C-e> substitute(getline(line('.')+1)[col('.')-1:],'\s\+\zs.*','','')
+
 "" Make <Backspace> operate on [count] like <Delete> does
 noremap <expr> <BS> v:count ? "<Del>" : "<BS>"
 
