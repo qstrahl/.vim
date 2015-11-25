@@ -192,8 +192,12 @@ noremap U ~
 "" Q closes windows; who needs Ex mode?
 nno Q <C-W>c
 
-"" Make <C-w>0 set a window's width to precisely as wide as the longest line in the buffer
-nnoremap <expr> <C-w>0 max(map(getbufline('%',1,'$'),'len(v:val)'))."\<lt>C-w>\<Bar>"
+"" Make <c-w>| and <c-w>_ cap out at the contained buffer's width and height by default
+nnoremap <expr><silent> <C-w><Bar> (v:count ? v:count : max(map(getbufline('%',1,'$'),'len(v:val)')))."\<C-w>\<Bar>"
+nnoremap <expr><silent> <C-w><C-\> (v:count ? v:count : max(map(getbufline('%',1,'$'),'len(v:val)')))."\<C-w>\<Bar>"
+nnoremap <expr><silent> <C-w>_ (v:count ? v:count : line('$'))."\<C-w>_"
+nnoremap <expr><silent> <C-w><C-_> (v:count ? v:count : line('$'))."\<C-w>_"
+nnoremap <expr><silent> <C-w>= "<C-w>=<C-w>P".&previewheight."<C-w>_<C-w>p"
 
 "" Make insert mode <C-y> and <C-e> do entire WORDs at a time
 imap <expr> <C-y> substitute(getline(line('.')-1)[col('.')-1:],'\s\+\zs.*','','')
