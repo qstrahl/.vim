@@ -222,6 +222,10 @@ nno ]om :<C-U>Matchmaker!<CR>
 nno [ows :<C-U>set wrapscan<CR>
 nno ]ows :<C-U>set nowrapscan<CR>
 
+"" Clear formatting whitespace on the current line / selected region
+nnoremap <silent> <Leader>w :s/\(^\s*\)\@<! \{2,}/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>
+vnoremap <silent> <Leader>w :s/\%V\(^\s*\)\@<! \{2,}\%V/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>gv
+
 "" Toggle BreakpointWindow (mnemonic: Breakpoint Browse)
 nno <Leader>bb :<C-U>BreakpointWindow<CR>
 
