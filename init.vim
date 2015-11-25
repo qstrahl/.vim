@@ -236,6 +236,11 @@ nno <Leader>h :<C-U>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 
 "" }}}
 
+command! Config exe 'edit' expand(initfile)
+command! Sconfig exe 'split' expand(initfile)
+command! Vconfig exe 'vsplit' expand(initfile)
+command! Tconfig exe 'tabedit' expand(initfile)
+
 "" [ Autocommands ] {{{
 
 augroup MyAutocmds
