@@ -80,7 +80,7 @@ se scs
 
 se nocul nocuc
 set fillchars=diff:\ ,fold:\ ,stl:━,stlnc:━,vert:┃
-set listchars=conceal:?,eol:$,extends:…,nbsp:¬,precedes:…,tab:├─
+set listchars=conceal:?,eol:$,extends:…,nbsp:¬,precedes:…,tab:▏\ 
 se ls=2
 se mouse=ar
 se nonu
