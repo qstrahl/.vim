@@ -103,6 +103,7 @@ se wmnu
 
 "" [ Windows ] {{{
 
+set previewheight=15
 se wmw=0
 se wmh=0
 se sb
