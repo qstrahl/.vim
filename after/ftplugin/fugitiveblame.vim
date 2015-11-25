@@ -1,1 +1,2 @@
 set winfixwidth
+set cursorline
