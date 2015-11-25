@@ -10,10 +10,10 @@ let initfile = expand('<sfile>')
 let g:UltiSnipsUsePythonVersion         = 2
 let g:UltiSnipsEditSplit                = 'context'
 let g:UltiSnipsSnippetsDir              = confdir . '/UltiSnips'
-let g:UltiSnipsExpandTrigger            = '<Tab>'
+let g:UltiSnipsExpandTrigger            = '<Plug>(UltiSnipsExpandTrigger)'
 let g:UltiSnipsListSnippets             = '<C-s>'
-let g:UltiSnipsJumpForwardTrigger       = '<Tab>'
-let g:UltiSnipsJumpBackwardTrigger      = '<S-Tab>'
+let g:UltiSnipsJumpForwardTrigger       = '<Plug>(UltiSnipsJumpForwardTrigger)'
+let g:UltiSnipsJumpBackwardTrigger      = '<Plug>(UltiSnipsJumpBackwardTrigger)'
 "" }}}
 
 "" Syntastic {{{
