@@ -1,11 +1,11 @@
 augroup QuickfixAutoOpen
     au!
-    au QuickfixCmdPost [^l]*
+    au QuickfixCmdPost make,grep,grepadd,vimgrep,vimgrepadd,cscope,cfile,cgetfile,caddfile,helpgrep,cexpr
         \ if len(getqflist()) > 1 |
             \ botright copen |
             \ wincmd p |
         \ endif
-    au QuickfixCmdPost l*
+    au QuickfixCmdPost lhelpgrep,laddfile,lgetfile,lfile,lvimgrepadd,lvimgrep,lgrepadd,lgrep,lmake,lexpr
         \ if len(getloclist(0)) > 1 |
             \ rightbelow lopen |
             \ wincmd p |
