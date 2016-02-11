@@ -18,4 +18,4 @@ function! s:Teardown()
 endfunction
 
 noremap <expr> <Plug>(SafeSearch) <SID>SafeSearch()
-map gj <Plug>(SafeSearch)
+map go <Plug>(SafeSearch)
