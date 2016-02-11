@@ -262,7 +262,6 @@ nnoremap <expr><silent> <C-w><Bar> (v:count ? v:count : max(map(getbufline('%',1
 nnoremap <expr><silent> <C-w><C-\> (v:count ? v:count : max(map(getbufline('%',1,'$'),'len(v:val)')))."\<C-w>\<Bar>"
 nnoremap <expr><silent> <C-w>_ (v:count ? v:count : line('$'))."\<C-w>_"
 nnoremap <expr><silent> <C-w><C-_> (v:count ? v:count : line('$'))."\<C-w>_"
-nnoremap <expr><silent> <C-w>= "<C-w>=<C-w>P".&previewheight."<C-w>_<C-w>p"
 
 "" Make insert mode <C-y> and <C-e> do entire WORDs at a time
 imap <expr> <C-y> substitute(getline(line('.')-1)[col('.')-1:],'\s\+\zs.*','','')
