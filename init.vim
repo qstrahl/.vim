@@ -321,7 +321,7 @@ command! Tconfig exe 'tabedit' expand(initfile)
 
 augroup AutoSource
   autocmd!
-  autocmd FileWritePost init.vim,{indent,autoload,plugin}/*.vim source <afile>
+  autocmd BufWritePost init.vim,*/{autoload,indent,plugin}/*.vim silent! if fugitive#buffer().type() ==# 'file' | source <afile> | endif
 augroup END
 
 augroup MyAutocmds
