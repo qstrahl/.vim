@@ -6,6 +6,10 @@ let datadir = ($XDG_DATA_HOME ? $XDG_DATA_HOME : $HOME) . '/.local/share/nvim'
 let confdir = expand('<sfile>:h')
 let initfile = expand('<sfile>')
 
+"" Eclim {{{
+let g:EclimCompletionMethod = 'omnifunc'
+"" }}}
+
 "" UltiSnips {{{
 let g:UltiSnipsUsePythonVersion         = 2
 let g:UltiSnipsEditSplit                = 'context'
@@ -103,6 +107,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'sickill/vim-pasta'
+Plug 'dansomething/vim-eclim'
 
 call plug#end()
 
