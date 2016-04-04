@@ -5,3 +5,12 @@ let java_highlight_all = 1
 let java_highlight_functions = "style"
 
 setlocal tabstop=2
+
+autocmd User ProjectionistActivate call s:activate()
+
+function! s:activate() abort
+  for [root, value] in projectionist#query('classpath')
+    let syntastic_java_javac_classpath = value
+    break
+  endfor
+endfunction
