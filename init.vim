@@ -54,9 +54,9 @@ endfunction
 let g:tern_show_signature_in_pum = 1
 
 function! BuildTern(info)
-    if a:info.status == 'installed' || a:info.force
-        !npm install
-    endif
+  if a:info.status == 'installed' || a:info.force
+    !npm install
+  endif
 endfunction
 "" }}}
 
