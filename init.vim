@@ -269,8 +269,8 @@ nnoremap <expr><silent> <C-w>_ (v:count ? v:count : line('$'))."\<C-w>_"
 nnoremap <expr><silent> <C-w><C-_> (v:count ? v:count : line('$'))."\<C-w>_"
 
 "" Make insert mode <C-y> and <C-e> do entire WORDs at a time
-imap <expr> <C-y> substitute(getline(line('.')-1)[col('.')-1:],'\s\+\zs.*','','')
-imap <expr> <C-e> substitute(getline(line('.')+1)[col('.')-1:],'\s\+\zs.*','','')
+inoremap <expr> <C-y> substitute(getline(line('.')-1)[col('.')-1:],'\s\+\zs.*','','')
+inoremap <expr> <C-e> substitute(getline(line('.')+1)[col('.')-1:],'\s\+\zs.*','','')
 
 "" Make <Backspace> operate on [count] like <Delete> does
 noremap <expr> <BS> v:count ? "<Del>" : "<BS>"
