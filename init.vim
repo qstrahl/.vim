@@ -8,6 +8,7 @@ let initfile = expand('<sfile>')
 
 "" Eclim {{{
 let g:EclimCompletionMethod = 'omnifunc'
+let g:EclimFileTypeValidate = 0
 "" }}}
 
 "" UltiSnips {{{
