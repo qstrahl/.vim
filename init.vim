@@ -317,10 +317,7 @@ nno <Leader>h :<C-U>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 
 "" }}}
 
-command! Config exe 'edit' expand($MYVIMRC)
-command! Sconfig exe 'split' expand($MYVIMRC)
-command! Vconfig exe 'vsplit' expand($MYVIMRC)
-command! Tconfig exe 'tabedit' expand($MYVIMRC)
+command! Config tabedit $MYVIMRC
 
 "" [ Autocommands ] {{{
 
