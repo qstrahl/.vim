@@ -9,6 +9,10 @@ let confdir = expand('<sfile>:h')
 let g:ctrlp_by_filename = 1
 "" }}}
 
+"" Deoplete {{{
+let g:deoplete#enable_at_startup = 1
+"" }}}
+
 "" Eclim {{{
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimFileTypeValidate = 0
@@ -32,26 +36,6 @@ let g:syntastic_style_error_symbol  = '✖'
 let g:syntastic_warning_symbol  = '❢'
 let g:syntastic_style_warning_symbol  = '❢'
 let g:syntastic_ignore_files = ['/test/spec/']
-"" }}}
-
-"" YouCompleteMe {{{
-let g:ycm_key_list_select_completion = []
-let g:ycm_key_list_previous_completion = []
-let g:ycm_key_invoke_completion = ''
-let g:ycm_min_num_of_chars_for_completion = 2
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-let g:ycm_complete_in_comments = 1
-let g:ycm_seed_identifiers_with_syntax = 1
-
-function! BuildYCM(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  if a:info.status == 'installed' || a:info.force
-    !./install.py
-  endif
-endfunction
 "" }}}
 
 "" tern_for_vim {{{
@@ -109,9 +93,9 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
-Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
 Plug 'sickill/vim-pasta'
 Plug 'dansomething/vim-eclim'
+Plug 'Shougo/deoplete.nvim'
 
 call plug#end()
 
