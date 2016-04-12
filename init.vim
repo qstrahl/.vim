@@ -4,7 +4,6 @@
 "" I can't believe I have to do this
 let datadir = ($XDG_DATA_HOME ? $XDG_DATA_HOME : $HOME) . '/.local/share/nvim'
 let confdir = expand('<sfile>:h')
-let initfile = expand('<sfile>')
 
 "" Eclim {{{
 let g:EclimCompletionMethod = 'omnifunc'
@@ -318,10 +317,10 @@ nno <Leader>h :<C-U>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 
 "" }}}
 
-command! Config exe 'edit' expand(initfile)
-command! Sconfig exe 'split' expand(initfile)
-command! Vconfig exe 'vsplit' expand(initfile)
-command! Tconfig exe 'tabedit' expand(initfile)
+command! Config exe 'edit' expand($MYVIMRC)
+command! Sconfig exe 'split' expand($MYVIMRC)
+command! Vconfig exe 'vsplit' expand($MYVIMRC)
+command! Tconfig exe 'tabedit' expand($MYVIMRC)
 
 "" [ Autocommands ] {{{
 
