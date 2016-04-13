@@ -3,4 +3,4 @@ if exists('current_compiler')
 endif
 let current_compiler = 'activator'
 CompilerSet makeprg=activator
-CompilerSet efm=%C[error]\ %m,%E[error]\ %m,%-Z%.%#,%-G%m
+CompilerSet efm=%C[error]\ %m,%E[error]\ %m,%-G%m,%-G%p
