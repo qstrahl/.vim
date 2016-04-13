@@ -306,7 +306,7 @@ nno <Leader>h :<C-U>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 
 "" }}}
 
-command! Config tabedit $MYVIMRC
+command! Config keepalt -1tabedit $MYVIMRC
 
 "" [ Autocommands ] {{{
 
