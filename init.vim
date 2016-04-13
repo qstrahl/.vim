@@ -5,10 +5,6 @@
 let datadir = ($XDG_DATA_HOME ? $XDG_DATA_HOME : $HOME) . '/.local/share/nvim'
 let confdir = expand('<sfile>:h')
 
-"" CtrlP {{{
-let g:ctrlp_by_filename = 1
-"" }}}
-
 "" Deoplete {{{
 let g:deoplete#enable_at_startup = 1
 "" }}}
