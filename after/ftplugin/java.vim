@@ -6,11 +6,28 @@ let java_highlight_functions = "style"
 
 setlocal tabstop=2
 
-autocmd User ProjectionistActivate call s:activate()
+if !exists('*s:SetJavaClasspath')
+  function! s:SetJavaClasspath (id, data, event)
+    if a:event == 'stdout'
+      let b:classpath .= join(a:data, '')
+    elseif !a:data && strlen(b:classpath)
+      let g:syntastic_java_javac_classpath = b:classpath
+    endif
+  endfunction
+endif
 
-function! s:activate() abort
-  for [root, value] in projectionist#query('classpath')
-    let syntastic_java_javac_classpath = value
-    break
-  endfor
-endfunction
+if exists('*jobstart') && executable('activator')
+  if !exists('b:classpath')
+    let b:classpath = ''
+
+    autocmd WinEnter <buffer> if strlen(b:classpath) | let g:syntastic_java_javac_classpath = b:classpath | endif
+
+    call jobstart('activator "export test:full-classpath"', {
+      \ 'on_stdout': function('s:SetJavaClasspath'),
+      \ 'on_exit'  : function('s:SetJavaClasspath'),
+      \ 'pty'      : 1
+    \ })
+  elseif strlen(b:classpath)
+    let g:syntastic_java_javac_classpath = b:classpath
+  endif
+endif
