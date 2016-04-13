@@ -12,6 +12,9 @@ let g:deoplete#enable_at_startup = 1
 "" Eclim {{{
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimFileTypeValidate = 0
+let g:EclimJavaValidate = 0
+let g:EclimJavascriptValidate = 0
+let g:EclimBaseDir = confdir . '/bundle/vim-eclim'
 "" }}}
 
 "" UltiSnips {{{
@@ -90,7 +93,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'sickill/vim-pasta'
-Plug 'dansomething/vim-eclim'
+Plug 'dansomething/vim-eclim', { 'rtp': 'eclim' }
 Plug 'Shougo/deoplete.nvim'
 
 call plug#end()
