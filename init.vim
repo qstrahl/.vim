@@ -57,7 +57,6 @@ filetype off
 source ~/.config/nvim/vim-plug/plug.vim
 call plug#begin(confdir . '/bundle')
 
-Plug 'junegunn/vim-plug', { 'dir': confdir. '/vim-plug' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
