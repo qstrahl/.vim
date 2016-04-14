@@ -147,7 +147,7 @@ se sj=1
 se smc=0
 se so=999
 se ss=1
-se stal=1
+se stal=2
 se wic
 se wim=longest:full,full
 se wmnu
