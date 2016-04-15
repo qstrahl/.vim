@@ -10,7 +10,11 @@ function! s:AutoWindow (opencmd, closecmd, listfn, ...)
   if listlen
     exe a:opencmd min([ listlen, 10 ])
     wincmd p
+    echohl MoreMsg
+    echo listlen 'results' | echohl None
   else
     exe a:closecmd
+    echohl WarningMsg
+    echo 'No results' | echohl None
   endif
 endfunction
