@@ -1,4 +1,4 @@
-augroup QuickfixAutoOpen
+augroup QuickfixAutoWindow
   au!
   au QuickfixCmdPost [^l]* call s:AutoWindow('botright copen', 'cclose', 'getqflist')
   au QuickfixCmdPost l* call s:AutoWindow('rightbelow lopen', 'lclose', 'getloclist', 0)
