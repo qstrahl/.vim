@@ -51,6 +51,7 @@ let g:exchange_indent = 1
 filetype off
 
 "" Plugin management courtesy of vim-plug
+let g:plug_window = '-tabnew'
 source ~/.config/nvim/vim-plug/plug.vim
 call plug#begin(confdir . '/bundle')
 
