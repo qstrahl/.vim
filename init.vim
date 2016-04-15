@@ -12,6 +12,7 @@ let g:deoplete#enable_at_startup = 1
 "" Eclim {{{
 let g:EclimCompletionMethod = 'omnifunc'
 let g:EclimFileTypeValidate = 0
+let g:EclimShowCurrentError = 0
 "" }}}
 
 "" UltiSnips {{{
