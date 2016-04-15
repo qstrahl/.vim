@@ -20,6 +20,12 @@ let g:EclimFileTypeValidate = 0
 let g:EclimShowCurrentError = 0
 "" }}}
 
+"" Netrw {{{
+"" just disable the damn thing
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
+"" }}}
+
 "" UltiSnips {{{
 let g:UltiSnipsUsePythonVersion         = 2
 let g:UltiSnipsEditSplit                = 'context'
@@ -85,7 +91,6 @@ Plug 'tpope/vim-dispatch'
 Plug 'leshill/vim-json'
 Plug 'qstrahl/vim-ocd'
 Plug 'qstrahl/vim-dentures'
-Plug 'eiginn/netrw'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'wellle/targets.vim'
