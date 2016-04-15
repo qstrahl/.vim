@@ -2,6 +2,7 @@ augroup QuickfixAutoOpen
   au!
   au QuickfixCmdPost [^l]* call s:AutoWindow('botright copen', 'cclose', 'getqflist')
   au QuickfixCmdPost l* call s:AutoWindow('rightbelow lopen', 'lclose', 'getloclist', 0)
+  au WinEnter * if &buftype == 'quickfix' && len(tabpagebuflist()) == 1 | close | endif
 augroup END
 
 function! s:AutoWindow (opencmd, closecmd, listfn, ...)
