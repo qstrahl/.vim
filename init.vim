@@ -320,7 +320,7 @@ command! Config keepalt -1tabedit $MYVIMRC
 
 augroup AutoSource
   autocmd!
-  autocmd BufWritePost init.vim,*/{autoload,plugin}/*.vim silent! if fugitive#buffer().type() ==# 'file' | source <afile> | endif
+  autocmd BufWritePost init.vim,*/{autoload,plugin}/*.vim silent! if filereadable(expand('<afile>')) | source <afile> | endif
 augroup END
 
 augroup MyAutocmds
