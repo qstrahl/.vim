@@ -103,6 +103,7 @@ Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'sickill/vim-pasta'
 Plug 'dansomething/vim-eclim'
 Plug 'Shougo/deoplete.nvim'
+Plug 'justinmk/vim-dirvish'
 
 call plug#end()
 
