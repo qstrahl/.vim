@@ -2,7 +2,7 @@ augroup QuickfixAutoWindow
   au!
   au QuickfixCmdPost [^l]* call s:AutoWindow('botright copen', 'cclose', 'getqflist')
   au QuickfixCmdPost l* call s:AutoWindow('rightbelow lopen', 'lclose', 'getloclist', 0)
-  au QuitPre * silent! lclose | if winnr('$') == 2 | silent! cclose | endif
+  au QuitPre * call s:QuitPre()
 augroup END
 
 function! s:AutoWindow (opencmd, closecmd, listfn, ...)
@@ -17,5 +17,14 @@ function! s:AutoWindow (opencmd, closecmd, listfn, ...)
     exe a:closecmd
     echohl WarningMsg
     echo 'No results' | echohl None
+  endif
+endfunction
+
+function! s:QuitPre ()
+  if &buftype != 'quickfix'
+    silent! lclose
+    if winnr('$') == 2
+      silent! cclose
+    endif
   endif
 endfunction
