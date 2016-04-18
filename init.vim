@@ -32,7 +32,7 @@ let g:UltiSnipsJumpBackwardTrigger      = '<Plug>(UltiSnipsJumpBackwardTrigger)'
 "" }}}
 
 "" Syntastic {{{
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_loc_list_height = 4
 let g:syntastic_error_symbol  = '✖'
 let g:syntastic_style_error_symbol  = '✖'
