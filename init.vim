@@ -199,6 +199,7 @@ se nottimeout
 se tm=500
 se ttm=20
 se ve=all
+set viewoptions-=options
 
 "" }}}
 
