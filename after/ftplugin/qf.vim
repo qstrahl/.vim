@@ -1,7 +1,7 @@
-setl nowrap
-setl nocuc nocul
-setl conceallevel=2
-setl concealcursor=nvic
+setlocal nowrap
+setlocal nocuc nocul
+setlocal conceallevel=2
+setlocal concealcursor=nvic
 
 function! s:defineSyntax()
     syn match qfFugitivePrefix ?^fugitive://.\{-}//? containedin=qfFileName conceal nextgroup=qfFugitiveHash
