@@ -1,5 +1,5 @@
 setlocal nowrap
-setlocal nocuc nocul
+setlocal cursorline nocursorcolumn
 setlocal conceallevel=2
 setlocal concealcursor=nvic
 
