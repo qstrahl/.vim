@@ -252,7 +252,7 @@ onoremap ~ gE
 noremap U ~
 
 "" Q closes windows; who needs Ex mode?
-nno Q <C-W>c
+nnoremap Q <C-W>q
 
 "" Make <c-w>| and <c-w>_ cap out at the contained buffer's width and height by default
 nnoremap <expr><silent> <C-w><Bar> (v:count ? v:count : max(map(getbufline('%',1,'$'),'len(v:val)')))."\<C-w>\<Bar>"
