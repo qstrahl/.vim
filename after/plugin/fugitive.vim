@@ -12,6 +12,6 @@ function! s:DoStuff ()
   nnoremap <buffer> <Leader>gs :<C-U>Gstatus<CR>
 
   if !isdirectory(resolve(expand('%:p')))
-    Glcd
+    exe 'tcd' fugitive#repo().tree()
   endif
 endfunction
