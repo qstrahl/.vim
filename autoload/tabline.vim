@@ -30,5 +30,10 @@ function! tabline#render ()
 endfunction
 
 function! tabline#label (tab)
-  return fnamemodify(getcwd(-1, a:tab), ':t')
+  let wins = tabpagewinnr(a:tab, '$')
+
+  let label = wins > 1 ? wins . ' ' : ''
+  let label .= fnamemodify(getcwd(-1, a:tab), ':t')
+
+  return label
 endfunction
