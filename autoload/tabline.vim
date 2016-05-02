@@ -23,8 +23,8 @@ function! tabline#render ()
     let tabline .= ' %{tabline#label(' . tab . ')} '
   endfor
 
-  let tabline .= '%#TabLineFill#'
-  let tabline .= '%=%XX'
+  let tabline .= '%#TabLineFill#%T'
+  let tabline .= '%=%#TabLine#%999XX'
 
   return tabline
 endfunction
