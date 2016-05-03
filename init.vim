@@ -310,6 +310,10 @@ nno <Leader>h :<C-U>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 
 "" }}}
 
+"" [ Abbreviations ] {{{
+cabbrev tabe -tabe
+"" }}}
+
 command! Config keepalt -1tabedit $MYVIMRC
 
 "" [ Autocommands ] {{{
