@@ -1,7 +1,6 @@
 augroup CustomFugitiveConfig
   autocmd!
   autocmd User Fugitive call s:DoStuff()
-  autocmd TabNewEntered * silent! exe 'tcd' fugitive#repo().tree()
 augroup END
 
 function! s:DoStuff ()
@@ -11,5 +10,12 @@ function! s:DoStuff ()
   nnoremap <buffer> <Leader>gl :<C-U>Glog --<CR>
   nnoremap <buffer> <Leader>gr :<C-U>Glog<CR>
   nnoremap <buffer> <Leader>gs :<C-U>Gstatus<CR>
-  exe 'tcd' fugitive#repo().tree()
+
+  autocmd BufWinEnter <buffer> exe s:ChangeDir()
+
+  exe s:ChangeDir()
+endfunction
+
+function! s:ChangeDir ()
+  return tabpagewinnr(tabpagenr(), '$') == 1 ? 'Gtcd' : 'Glcd'
 endfunction
