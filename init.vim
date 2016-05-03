@@ -114,10 +114,6 @@ hi VertSplit    cterm=none              ctermbg=8       ctermfg=10
 hi WildMenu     cterm=bold              ctermbg=8       ctermfg=15
 
 hi! link SignColumn FoldColumn
-hi SyntasticErrorSign cterm=none ctermbg=0 ctermfg=1
-hi SyntasticStyleErrorSign cterm=none ctermbg=0 ctermfg=1
-hi SyntasticWarningSign cterm=none ctermbg=0 ctermfg=3
-hi SyntasticStyleWarningSign cterm=none ctermbg=0 ctermfg=3
 hi clear Title
 
 "" [ Folds ] {{{
