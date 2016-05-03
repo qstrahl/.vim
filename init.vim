@@ -105,17 +105,6 @@ call plug#end()
 filetype plugin indent on
 syntax on
 
-set background=dark
-colorscheme solarized
-hi Comment      cterm=italic
-hi StatusLine   cterm=bold              ctermbg=8       ctermfg=10
-hi StatusLineNC cterm=bold              ctermbg=8       ctermfg=10
-hi VertSplit    cterm=none              ctermbg=8       ctermfg=10
-hi WildMenu     cterm=bold              ctermbg=8       ctermfg=15
-
-hi! link SignColumn FoldColumn
-hi clear Title
-
 "" [ Folds ] {{{
 
 se fdm=marker
@@ -332,6 +321,8 @@ augroup MyAutocmds
   au BufWinEnter * if &previewwindow  | set winfixwidth winfixheight | endif
   au BufWritePost,BufLeave,WinLeave,QuitPre ?* silent! mkview!
   au BufWinEnter ?* silent! loadview
+  autocmd ColorScheme * hi! link SignColumn FoldColumn
+  autocmd ColorScheme * silent! exe 'runtime! after/colors/' . expand('<amatch>') . '.vim'
 augroup END
 
 "" }}}
@@ -342,3 +333,7 @@ for dir in [&bdir,&dir,&udir,&vdir,g:UltiSnipsSnippetsDir]
     call mkdir(dir, 'p')
   endif
 endfor
+
+set background=dark
+colorscheme solarized
+exe 'doautocmd ColorScheme' g:colors_name
