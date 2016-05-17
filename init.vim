@@ -31,16 +31,6 @@ let g:UltiSnipsJumpForwardTrigger       = '<Plug>(UltiSnipsJumpForwardTrigger)'
 let g:UltiSnipsJumpBackwardTrigger      = '<Plug>(UltiSnipsJumpBackwardTrigger)'
 "" }}}
 
-"" Syntastic {{{
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_loc_list_height = 4
-let g:syntastic_error_symbol  = '✖'
-let g:syntastic_style_error_symbol  = '✖'
-let g:syntastic_warning_symbol  = '❢'
-let g:syntastic_style_warning_symbol  = '❢'
-let g:syntastic_ignore_files = ['/test/spec/']
-"" }}}
-
 "" tern_for_vim {{{
 let g:tern_show_signature_in_pum = 1
 
