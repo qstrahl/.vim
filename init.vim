@@ -231,10 +231,10 @@ noremap U ~
 nnoremap Q <C-W>q
 
 "" Make <c-w>| and <c-w>_ cap out at the contained buffer's width and height by default
-nnoremap <expr><silent> <C-w><Bar> (v:count ? v:count : max(map(getbufline('%',1,'$'),'len(v:val)')))."\<C-w>\<Bar>"
-nnoremap <expr><silent> <C-w><C-\> (v:count ? v:count : max(map(getbufline('%',1,'$'),'len(v:val)')))."\<C-w>\<Bar>"
-nnoremap <expr><silent> <C-w>_ (v:count ? v:count : line('$'))."\<C-w>_"
-nnoremap <expr><silent> <C-w><C-_> (v:count ? v:count : line('$'))."\<C-w>_"
+nnoremap <expr><silent> <C-w><Bar> (v:count ? v:count : max(map(getline(1,'$'),'virtcol([v:key+1,"$"])'))-1)."\<C-w>\<Bar>"
+nnoremap <expr><silent> <C-w><C-\> (v:count ? v:count : max(map(getline(1,'$'),'virtcol([v:key+1,"$"])'))-1)."\<C-w>\<Bar>"
+nnoremap <expr><silent> <C-w>_ (v:count ? v:count : float2nr(ceil(eval(join(map(getline(1,'$'),'max([winwidth(0),virtcol([v:key+1,"$"])])'),'+'))/str2float(winwidth(0).'.0'))))."\<C-w>_"
+nnoremap <expr><silent> <C-w><C-_> (v:count ? v:count : float2nr(ceil(eval(join(map(getline(1,'$'),'max([winwidth(0),virtcol([v:key+1,"$"])])'),'+'))/str2float(winwidth(0).'.0'))))."\<C-w>_"
 
 "" Make insert mode <C-y> and <C-e> do entire WORDs at a time
 inoremap <expr> <C-y> substitute(getline(line('.')-1)[col('.')-1:],'\s\+\zs.*','','')
