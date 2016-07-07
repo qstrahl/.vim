@@ -1,7 +1,7 @@
 augroup CustomFugitiveConfig
   autocmd!
   autocmd User Fugitive call s:DoStuff()
-  autocmd VimEnter * if tabpagenr('$') > 1 | tabdo call fugitive#detect(@%) | tabfirst | endif
+  autocmd VimEnter * if tabpagenr('$') > 1 | exe 'tabdo call fugitive#detect(@%)' | tabfirst | endif
 augroup END
 
 function! s:DoStuff ()
