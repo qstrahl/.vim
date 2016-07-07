@@ -12,11 +12,5 @@ function! s:DoStuff ()
   nnoremap <buffer> <Leader>gr :<C-U>Glog<CR>
   nnoremap <buffer> <Leader>gs :<C-U>Gstatus<CR>
 
-  autocmd BufWinEnter <buffer> exe s:ChangeDir()
-
-  exe s:ChangeDir()
-endfunction
-
-function! s:ChangeDir ()
-  return tabpagewinnr(tabpagenr(), '$') == 1 ? 'Gtcd' : 'Glcd'
+  autocmd BufWinEnter,BufEnter <buffer> Glcd | if exists(':Gtcd') | Gtcd | endif
 endfunction
