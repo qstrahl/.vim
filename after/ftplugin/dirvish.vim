@@ -5,7 +5,6 @@ silent! call ProjectionistDetect(resolve(expand('%:p')))
 silent! sort ir :\v[^/]+$:
 
 "" Delete the first entry (".,", the parent directory)
-silent! delete _
 
 "" Force an undo point
 let &undolevels = &undolevels
