@@ -9,4 +9,7 @@ noremap <silent> <buffer> <C-]> :JavaSearchContext -a edit<CR>
 noremap <silent> <buffer> <C-w>] :JavaSearchContext -a sp<CR>
 noremap <silent> <buffer> <C-w><C-]> :JavaSearchContext -a sp<CR>
 
+noremap <silent> <buffer> <Leader>i :JavaImport<cR>
+noremap <silent> <buffer> <Leader>o :JavaImportOrganize<cR>
+
 setlocal tabstop=2
