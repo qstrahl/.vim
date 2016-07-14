@@ -5,3 +5,6 @@ if &ft != 'php'
     setl isk+=-
     setl tw=0
 endif
+
+"" Desperate attempt to get around eclim's zealous-as-fuck settings
+autocmd BufEnter <buffer> setlocal omnifunc=
