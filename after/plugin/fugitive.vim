@@ -1,7 +1,7 @@
 augroup CustomFugitiveConfig
   autocmd!
   autocmd User Fugitive call s:DoStuff()
-  autocmd VimEnter * if tabpagenr('$') > 1 | exe 'tabdo call fugitive#detect(@%)' | tabfirst | endif
+  autocmd VimEnter * if tabpagenr('$') > 1 | exe 'tabdo call fugitive#detect(@%) | tabnext' tabpagenr() | endif
 augroup END
 
 function! s:DoStuff ()
@@ -12,5 +12,7 @@ function! s:DoStuff ()
   nnoremap <buffer> <Leader>gr :<C-U>Glog<CR>
   nnoremap <buffer> <Leader>gs :<C-U>Gstatus<CR>
 
-  autocmd BufWinEnter,BufEnter <buffer> Glcd | if exists(':Gtcd') | Gtcd | endif
+  Glcd
+  Gtcd
+  autocmd BufWinEnter,BufEnter <buffer> Glcd | Gtcd
 endfunction
