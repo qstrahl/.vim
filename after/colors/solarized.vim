@@ -4,4 +4,5 @@ hi StatusLineNC cterm=bold              ctermbg=8       ctermfg=10
 hi VertSplit    cterm=none              ctermbg=8       ctermfg=10
 hi WildMenu     cterm=bold              ctermbg=8       ctermfg=15
 hi TabLineSel   cterm=reverse
+hi Folded       cterm=none
 hi clear Title
