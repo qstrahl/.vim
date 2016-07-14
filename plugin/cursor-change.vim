@@ -1,8 +1,8 @@
-if $COLORTERM !~? 'rxvt' || !executable('echo') || !filewritable('/dev/tty')
+if $COLORTERM !~? '\vrxvt|xterm' || !executable('echo') || !filewritable('/dev/tty')
   finish
 endif
 
-augroup MyRxvt
+augroup MyCursorChange
   autocmd!
 
   "" Set cursor to blinking bar while in insert mode
