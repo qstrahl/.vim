@@ -18,4 +18,7 @@ if empty(b:syntastic_checkers)
     unlet b:syntastic_checkers
 endif
 
-au Syntax <buffer> syn clear jsFutureKeys 
+augroup MyJavascript
+    autocmd!
+    autocmd Syntax <buffer> syn clear jsFutureKeys 
+augroup END
