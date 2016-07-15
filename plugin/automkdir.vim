@@ -5,7 +5,9 @@ augroup END
 
 function! s:MakeDirs ()
   "" Make important directories if they don't exist
-  for dir in [&bdir,&dir,&udir,&vdir,g:UltiSnipsSnippetsDir]
+  let dirs = eval(join(map([&bdir,&dir,&udir], 'split(v:val,",")'), '+'))
+  let dirs += [&vdir,g:UltiSnipsSnippetsDir]
+  for dir in dirs
     if empty(finddir(dir))
       call mkdir(dir, 'p')
     endif
