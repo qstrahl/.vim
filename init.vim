@@ -49,6 +49,11 @@ let g:EclimShowCurrentError = 0
 let g:exchange_indent = 1
 "" }}}
 
+"" javascipt {{{
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+"" }}}
+
 "" neomake {{{
 " augroup MyNeomake
 "   autocmd!
