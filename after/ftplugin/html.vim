@@ -7,4 +7,7 @@ if &ft != 'php'
 endif
 
 "" Desperate attempt to get around eclim's zealous-as-fuck settings
-autocmd BufEnter <buffer> setlocal omnifunc=
+augroup MyHtml
+    autocmd!
+    autocmd BufEnter <buffer> setlocal omnifunc=
+augroup END
