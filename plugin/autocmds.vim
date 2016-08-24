@@ -22,7 +22,7 @@ augroup MyAutocmds
   au VimResized * wincmd =
   au CmdWinEnter * setlocal nonumber
   au BufWinEnter * if &previewwindow | set winfixwidth winfixheight | endif
-  au BufWritePost,BufLeave,WinLeave,QuitPre ?* silent! mkview!
+  au BufUnload ?* silent! mkview!
   au BufWinEnter ?* silent! loadview
   autocmd ColorScheme * hi! link SignColumn FoldColumn
   autocmd ColorScheme * silent! exe 'runtime! after/colors/' . expand('<amatch>') . '.vim'
