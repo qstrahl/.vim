@@ -21,7 +21,7 @@ augroup MyAutocmds
   au BufAdd ?*.* exe 'set sua+=.'.expand('<amatch>:e')
   au VimResized * wincmd =
   au CmdWinEnter * setlocal nonumber
-  au BufWinEnter * if &previewwindow  | set winfixwidth winfixheight | endif
+  au BufWinEnter * if &previewwindow | set winfixwidth winfixheight | endif
   au BufWritePost,BufLeave,WinLeave,QuitPre ?* silent! mkview!
   au BufWinEnter ?* silent! loadview
   autocmd ColorScheme * hi! link SignColumn FoldColumn
