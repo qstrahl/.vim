@@ -1,3 +1,4 @@
+setlocal bufhidden=unload
 silent! call fugitive#detect(@%)
 silent! call ProjectionistDetect(resolve(expand('%:p'))) 
 
