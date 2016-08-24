@@ -6,13 +6,19 @@ function! MyJavascriptFormatter (lnum, count)
     endif
 
     let l:options = []
+    if &filetype =~# '\v^html\d?$'
+        let l:options += [ '--type html' ]
+    endif
+    let l:options += [ '-l ' . indent(a:lnum) ]
     let l:options += [ &expandtab ? '-s ' . &shiftwidth : '-t' ]
     let l:options += [ '-w ' . &textwidth ]
     let l:options += [ '-q' ]
     let l:options += [ '-f -' ]
         
-    silent exe a:lnum . ',+' . (a:count - 1) . '!js-beautify ' . join(l:options, ' ')
-    undojoin | silent exe "'[,']retab!"
+    keepjumps silent exe a:lnum . ',+' . (a:count - 1) . '!js-beautify ' . join(l:options, ' ')
+    keepjumps undojoin | keepjumps silent exe "'[,']retab!"
+    keepjumps undojoin | keepjumps silent exe "normal! '[V']="
+    exe "normal \<C-o>\<C-o>\<C-i>"
 endfunction
 
 if executable('js-beautify')
