@@ -19,4 +19,7 @@ augroup MyAutocmds
   au BufWinEnter ?* silent! loadview
   autocmd ColorScheme * hi! link SignColumn FoldColumn
   autocmd ColorScheme * silent! exe 'runtime! after/colors/' . expand('<amatch>') . '.vim'
+
+  "" I REALLY fucking hate eclim
+  " au BufWinEnter * autocmd! eclim_refresh_files
 augroup END

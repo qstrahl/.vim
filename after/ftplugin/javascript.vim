@@ -23,5 +23,5 @@ augroup MyJavascript
     autocmd Syntax <buffer> syn clear jsFutureKeys 
 
     "" Holy shit I hate eclim
-    autocmd BufEnter <buffer> autocmd! eclim_javascript
+    " autocmd BufEnter <buffer> autocmd! eclim_javascript
 augroup END

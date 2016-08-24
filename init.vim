@@ -128,7 +128,7 @@ Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
 Plug 'sickill/vim-pasta'
-Plug 'dansomething/vim-eclim'
+" Plug 'dansomething/vim-eclim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'justinmk/vim-dirvish'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
