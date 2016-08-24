@@ -18,7 +18,7 @@ augroup MyAutocmds
         \ silent! call mkdir(expand('<afile>:h'), 'p') |
     \ endif
   au BufWritePre * let &bex=strftime(".%F.%T.vimbackup")
-  au BufAdd ?* exe 'set sua+=.'.expand('<amatch>:e')
+  au BufAdd ?*.* exe 'set sua+=.'.expand('<amatch>:e')
   au VimResized * wincmd =
   au CmdWinEnter * setlocal nonumber
   au BufWinEnter * if &previewwindow  | set winfixwidth winfixheight | endif
