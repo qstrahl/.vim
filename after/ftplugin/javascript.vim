@@ -20,7 +20,7 @@ endif
 
 augroup MyJavascript
     autocmd!
-    autocmd Syntax <buffer> syn clear jsFutureKeys 
+    autocmd Syntax <buffer> syn clear jsFutureKeys
 
     "" Holy shit I hate eclim
     " autocmd BufEnter <buffer> autocmd! eclim_javascript
