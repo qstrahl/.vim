@@ -1,10 +1,12 @@
-function! g:OpenScratchBuffer ()
-  let l:command = ":\<C-U>"
-  let l:command .= 'new +'
-  let l:command .= escape('setlocal buftype=nofile bufhidden=hide noswapfile tw=80', ' ')
-  let l:command .= "\<CR>"
-
-  return l:command
+function! s:config ()
+  setlocal buftype=nofile
+  setlocal bufhidden=hide
+  setlocal noswapfile
+  setlocal textwidth=80
+  call setbufvar('%', '&filetype', getbufvar('#', '&filetype'))
 endfunction
 
-nnoremap <expr> <silent> <Leader>s g:OpenScratchBuffer()
+augroup ScratchBuffer
+  autocmd!
+  autocmd BufWinEnter * if expand('<afile>') ==# '' | call s:config() | endif
+augroup END
