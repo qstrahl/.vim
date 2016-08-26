@@ -25,3 +25,5 @@ augroup MyJavascript
     "" Holy shit I hate eclim
     " autocmd BufEnter <buffer> autocmd! eclim_javascript
 augroup END
+
+let b:deoplete_sources = [ 'omni' ]
