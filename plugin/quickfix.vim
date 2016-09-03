@@ -8,7 +8,7 @@ augroup END
 function! s:AutoWindow (opencmd, closecmd, listfn, ...)
   let list = call(function(a:listfn), a:000)
   let listlen = len(list)
-  if listlen > 1
+  if listlen > 0
     exe a:opencmd min([ listlen, 10 ])
     wincmd p
   else
