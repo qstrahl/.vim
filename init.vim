@@ -54,6 +54,10 @@ let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
 "" }}}
 
+"" jsx {{{
+let g:jsx_ext_required = 0
+"" }}}
+
 "" neomake {{{
 " augroup MyNeomake
 "   autocmd!
@@ -111,6 +115,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-eunuch'
 Plug 'qstrahl/vim-matchmaker'
 Plug 'pangloss/vim-javascript', { 'branch': 'develop' }
+Plug 'mxw/vim-jsx'
 Plug 'othree/html5.vim'
 Plug 'tommcdo/vim-lion'
 Plug 'neomake/neomake'
