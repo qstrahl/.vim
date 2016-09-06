@@ -13,8 +13,22 @@ function! s:Do(op)
 endfunction
 
 function! s:activate()
+
+  "" set compiler
+  for [root, value] in projectionist#query('compiler')
+    if !empty(value)
+      let compiler = value
+      silent! exe 'compiler' compiler
+      unlet root value
+      break
+    endif
+  endfor
+
+  "" set makeprg / enable automake
   for [root, value] in projectionist#query('make')
     if !empty(value)
+      let makeprg = value
+      call setbufvar('%', '&makeprg', makeprg)
       augroup AutoMake
         autocmd!
         autocmd AutoMake BufWritePost <buffer> if file_readable(expand('%:p')) | silent! lmake! %:p:S | endif
@@ -23,4 +37,5 @@ function! s:activate()
       break
     endif
   endfor
+
 endfunction
