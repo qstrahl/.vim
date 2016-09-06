@@ -13,6 +13,5 @@ function! s:DoStuff ()
   nnoremap <buffer> <Leader>gs :<C-U>Gstatus<CR>
 
   Glcd
-  Gtcd
-  autocmd BufWinEnter,BufEnter <buffer> Glcd | Gtcd
+  autocmd BufWinEnter <buffer> Glcd
 endfunction
