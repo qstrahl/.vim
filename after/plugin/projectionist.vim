@@ -14,6 +14,19 @@ endfunction
 
 function! s:activate()
 
+  "" set options
+  for [root, options] in projectionist#query('options')
+    for [key, val] in items(options)
+      if getbufvar('%', '&'.key) !=# val
+        call setbufvar('%', '&'.key, val)
+        unlet key val
+      endif
+    endfor
+
+    unlet root options
+    break
+  endfor
+
   "" set compiler
   for [root, compiler] in projectionist#query('compiler')
     silent! exe 'compiler' compiler
