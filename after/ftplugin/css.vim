@@ -1,3 +1,3 @@
-if &ft != 'php'
-    setl isk+=-
+if &ft ==# 'css'
+  setlocal iskeyword+=-
 endif

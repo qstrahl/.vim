@@ -137,6 +137,7 @@ Plug 'sickill/vim-pasta'
 Plug 'Shougo/deoplete.nvim'
 Plug 'justinmk/vim-dirvish'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
+Plug 'JulesWang/css.vim' | Plug 'hail2u/vim-css3-syntax'
 
 call plug#end()
 
