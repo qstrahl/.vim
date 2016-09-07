@@ -15,13 +15,10 @@ endfunction
 function! s:activate()
 
   "" set compiler
-  for [root, value] in projectionist#query('compiler')
-    if !empty(value)
-      let compiler = value
-      silent! exe 'compiler' compiler
-      unlet root value
-      break
-    endif
+  for [root, compiler] in projectionist#query('compiler')
+    silent! exe 'compiler' compiler
+    unlet root compiler
+    break
   endfor
 
 endfunction
