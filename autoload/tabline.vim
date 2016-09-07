@@ -31,7 +31,7 @@ endfunction
 
 function! tabline#label (tab)
   let wins = tabpagewinnr(a:tab, '$')
-  let dir = getcwd(0, a:tab)
+  let dir = getcwd(tabpagewinnr(a:tab), a:tab)
 
   let label = ''
   let label .= fnamemodify(dir, ':t')
