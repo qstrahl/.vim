@@ -24,18 +24,4 @@ function! s:activate()
     endif
   endfor
 
-  "" set makeprg / enable automake
-  for [root, value] in projectionist#query('make')
-    if !empty(value)
-      let makeprg = value
-      call setbufvar('%', '&makeprg', makeprg)
-      augroup AutoMake
-        autocmd!
-        autocmd AutoMake BufWritePost <buffer> if file_readable(expand('%:p')) | silent! lmake! %:p:S | endif
-      augroup END
-      unlet root value
-      break
-    endif
-  endfor
-
 endfunction
