@@ -1,7 +1,7 @@
 let s:maxheight = 10
 
-let s:signs = { 'e': 'error', 'w': 'warning' }
-let s:deafult_sign = 'info'
+let s:signs = { 'e': 'error', 'w': 'warning', 'i': 'info', 'm': 'msg' }
+let s:default_sign = 'error'
 
 sign define error text=✖ texthl=SignError
 sign define warning text=• texthl=SignWarning
