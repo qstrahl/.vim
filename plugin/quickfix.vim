@@ -1,5 +1,16 @@
 let s:maxheight = 10
 
+let s:signs = { 'e': 'error', 'w': 'warning' }
+let s:deafult_sign = 'info'
+
+sign define error text=✖ texthl=SignError
+sign define warning text=• texthl=SignWarning
+sign define info text=ℹ texthl=SignInfo
+
+hi SignError ctermfg=1 ctermbg=0
+hi SignWarning ctermfg=3 ctermbg=0
+hi SignInfo ctermfg=4 ctermbg=0
+
 augroup QuickfixAutoWindow
   au!
   au QuickfixCmdPost [^l]* call s:AutoWindow('botright copen', 'cclose', 'getqflist')
@@ -20,11 +31,30 @@ function! s:AutoWindow (opencmd, closecmd, listfn, ...)
   let list = call(function(a:listfn), a:000)
   let listlen = len(list)
   if listlen > 0
+    call s:AutoSigns(list)
     exe a:opencmd min([ listlen, s:maxheight ])
     wincmd p
   else
+    exe 'sign unplace * buffer='.bufnr('%')
     exe a:closecmd
   endif
+endfunction
+
+function! s:AutoSigns (list)
+  for item in a:list
+    exe 'sign unplace * buffer=' . item.bufnr
+    unlet item
+  endfor
+
+  let id = 5000
+  for item in a:list
+    let id += 1
+    let line = get(item, 'lnum')
+    let name = get(s:signs, tolower(get(item, 'type')), s:default_sign)
+    let buffer = get(item, 'bufnr')
+    let g:foo = 'sign place '.(id).' line='.(line).' name='.(name).' buffer='.(buffer)
+    exe g:foo
+  endfor
 endfunction
 
 function! s:QuitPre ()
