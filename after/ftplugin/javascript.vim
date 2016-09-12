@@ -26,4 +26,4 @@ augroup MyJavascript
     " autocmd BufEnter <buffer> autocmd! eclim_javascript
 augroup END
 
-let b:deoplete_sources = [ 'omni' ]
+let b:deoplete_sources = [ 'omni', 'buffer' ]
