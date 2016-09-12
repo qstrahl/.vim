@@ -4,10 +4,6 @@ augroup ProjectionistEvents
   autocmd User ProjectionistActivate call s:activate()
 augroup END
 
-augroup AutoMake
-  autocmd!
-augroup END
-
 function! s:Do(op)
   silent! call function(&ft.'#'.a:op)()
 endfunction
