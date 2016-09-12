@@ -139,6 +139,7 @@ Plug 'justinmk/vim-dirvish'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'elixir-lang/vim-elixir'
 
 call plug#end()
 
