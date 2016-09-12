@@ -27,3 +27,4 @@ augroup MyJavascript
 augroup END
 
 let b:deoplete_sources = [ 'omni', 'buffer' ]
+let b:deoplete_omni_patterns = '[^. *\t]\.\w*'
