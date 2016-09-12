@@ -30,11 +30,17 @@ function! tabline#render ()
 endfunction
 
 function! tabline#label (tab)
-  let wins = tabpagewinnr(a:tab, '$')
-  let dir = getcwd(tabpagewinnr(a:tab), a:tab)
+  let win = tabpagewinnr(a:tab)
+  let bufs = tabpagebuflist(a:tab)
+  let buf = bufs[win - 1]
 
-  let label = ''
-  let label .= fnamemodify(dir, ':t')
+  try
+    let dir = fugitive#buffer(buf).repo().tree()
+  catch /^fugitive/
+    let dir = getbufvar(buf, 'projectionist_file', getcwd(win, a:tab))
+  endtry
+
+  let label = fnamemodify(dir, ':t')
 
   return label
 endfunction
