@@ -12,6 +12,10 @@ function! s:DoStuff ()
   nnoremap <buffer> <Leader>gr :<C-U>Glog<CR>
   nnoremap <buffer> <Leader>gs :<C-U>Gstatus<CR>
 
-  Glcd
-  autocmd BufWinEnter <buffer> Glcd
+  if exists(':Glcd')
+    augroup AutoGlcd
+      autocmd!
+      autocmd BufWinEnter <buffer> Glcd
+    augroup END
+  endif
 endfunction
