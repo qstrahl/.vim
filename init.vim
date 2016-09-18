@@ -76,11 +76,21 @@ let g:loaded_netrwPlugin = 1
 "" tern {{{
 let g:tern_show_signature_in_pum = 1
 
-function! BuildTern(info)
+function! BuildTernForVim(info)
   if a:info.status == 'installed' || a:info.force
     !npm install
   endif
 endfunction
+
+function! BuildDeopleteTern(info)
+  if a:info.status == 'installed' || a:info.force
+    !npm install -g tern
+  endif
+endfunction
+
+ " Use tern_for_vim.
+let g:tern#command = ["tern"]
+let g:tern#arguments = ["--persistent"]
 "" }}}
 
 "" ultisnips {{{
@@ -131,7 +141,8 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'ternjs/tern_for_vim', { 'do': function('BuildTern') }
+Plug 'ternjs/tern_for_vim', { 'do': function('BuildTernForVim') }
+Plug 'carlitux/deoplete-ternjs', { 'do': function('BuildDeopleteTern') }
 Plug 'sickill/vim-pasta'
 " Plug 'dansomething/vim-eclim'
 Plug 'Shougo/deoplete.nvim'
