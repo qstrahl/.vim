@@ -1,22 +1,3 @@
-"" Automatically source vim files when written
-augroup AutoSource
-  autocmd!
-  autocmd BufWritePost init.vim,*/{autoload,plugin}/*.vim silent! call s:Source(expand('<afile>'))
-augroup END
-
-function! s:Source (file)
-  let file = fnamemodify(resolve(resolve(a:file)), ':p')
-  if filereadable(file)
-    exe 'source' file
-  endif
-endfunction
-
-function! s:AutoMake (file)
-  if file_readable(a:file) && !empty(getbufvar(a:file, '&l:makeprg'))
-    exe 'silent! lmake!' fnamemodify(a:file, ':S')
-  endif
-endfunction
-
 augroup MyAutocmds
   au!
   au BufWritePre,FileWritePre ?*
@@ -32,7 +13,6 @@ augroup MyAutocmds
   au BufWinEnter ?* silent! loadview
   autocmd ColorScheme * hi! link SignColumn FoldColumn
   autocmd ColorScheme * silent! exe 'runtime! after/colors/' . expand('<amatch>') . '.vim'
-  " autocmd BufWritePost * call s:AutoMake(expand('<afile>:p'))
 
   "" I REALLY fucking hate eclim
   " au BufWinEnter * autocmd! eclim_refresh_files
