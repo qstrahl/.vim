@@ -1,3 +1,10 @@
+"" make dirvish buffers BufWinEnter and BufWinLeave like normal buffers
+exe 'doautocmd BufWinEnter' bufnr('%')
+augroup DirvishBufWinLeave
+  autocmd! BufWinLeave <buffer>
+  autocmd BufUnload <buffer> doautocmd BufWinLeave expand('<abuf>')
+augroup END
+
 setlocal bufhidden=unload
 silent! call fugitive#detect(@%)
 silent! call ProjectionistDetect(resolve(expand('%:p'))) 
