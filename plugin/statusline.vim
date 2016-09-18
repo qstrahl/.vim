@@ -1,31 +1,22 @@
-finish " disabled
-
-function! s:SID ()
-  let l:scripts = ""
-  redir => l:scripts
-  scriptnames
-  redir END
-  return "\<SNR>" . matchstr(split(l:scripts, '\n')[-1], '^\s*\zs\d\+\ze') . "_"
-endfunction
-
-if !exists('s:sid')
-  silent let s:sid = s:SID()
-endif
-
-function! s:MyGitCommit(buf)
+function! statusline#MyGitCommit(buf)
+  if &buftype ==# 'quickfix\|help'
+    return ''
+  endif
+  let commit = ''
   try
     let commit = fugitive#buffer(a:buf).containing_commit()
-    return commit == ':' ? 'HEAD' : commit == 'HEAD' ? '' : strpart(commit, 0, 7)
+    let commit = commit ==# ':' ? 'HEAD' : commit ==# 'HEAD' ? fugitive#head(7) : strpart(commit, 0, 7)
   catch /^fugitive:/
     return ''
   endtry
+  return !empty(commit) ? '⑂ ' . commit : ''
 endfunction
 
-function! s:FilterGitArgs(arg)
-  return a:arg !~# '\v^(--no-pager|--show-number|--contents|-)$'
+function! statusline#FilterGitArgs(arg)
+  return a:arg !~# '\v^(--no-pager|--show-number|--contents|-n|--no-color|--git-dir=\f+|-)$'
 endfunction
 
-function! s:TransformGitArgs(arg)
+function! statusline#TransformGitArgs(arg)
   if a:arg =~# '\v^[[:xdigit:]]{40}$'
     return strpart(a:arg, 0, 7)
   else
@@ -33,62 +24,85 @@ function! s:TransformGitArgs(arg)
   endif
 endfunction
 
-function! s:MyBufferName(buf)
-  let name = bufname(a:buf)
+function! statusline#customrev(part)
+  try
+    let buf = fugitive#buffer()
+    let type = buf.type()
+    let rev = buf.rev()
+    let path = buf.path()
+    let repo = buf.repo()
+    let dir = fnamemodify(repo.tree(), ':~')
 
-  if &ft == 'netrw' && exists('b:netrw_curdir')
-    let name = b:netrw_curdir
-  elseif &buftype == 'quickfix'
+    if type == 'file'
+      let matches = [rev, '', path]
+    elseif type == 'directory'
+      let matches = [rev, '', empty(path) ? dir . '/' : path . '/']
+    elseif type  == 'index'
+      let matches = [rev, '', path]
+    else
+      let matches = matchlist(rev, '\v^%(:?([0-9a-f]*))%(:(\f*))?$')
+      if matches[1] == '0'
+        let matches[1] = 'HEAD'
+      endif
+      let matches[2] = empty(matches[2]) ? dir : matches[2]
+    endif
+
+    return get(matches, a:part, '')
+  catch /./
+    return ''
+  endtry
+endfunction
+
+function! statusline#MyBufferName()
+  let name = bufname('%')
+
+  if &buftype ==# 'help'
+    return expand('%:t')
+  elseif &buftype ==# 'quickfix'
+    let name = substitute(w:quickfix_title, '\s*--git-dir=\f\+\s*--no-pager', '', '')
+    let name = substitute(name, '\s*--no-color', '', '')
+    return name
+  endif
+
+  if &buftype == 'quickfix'
     let name = exists('w:quickfix_title') ? w:quickfix_title : '[Quickfix List]'
   elseif name == ''
     let name = '[No Name]'
-  elseif len(getbufvar(a:buf, 'git_args'))
-    let name = join(['!git'] + map(filter(getbufvar(a:buf, 'git_args'), s:sid . 'FilterGitArgs(v:val)'), s:sid . 'TransformGitArgs(v:val)'), ' ')
-  else
-    try
-      if fugitive#buffer().type() ==# 'commit'
-        let name = fugitive#buffer().repo().tree()
-      else
-        let name = fugitive#buffer().path()
-      endif
-    catch /^fugitive:/
-      "" That's okay
-    endtry
   endif
 
   return strlen(fnamemodify(name, ':~:.')) ? fnamemodify(name, ':~:.') : fnamemodify(name, ':~')
 endfunction
 
-function! s:MyQuickfixIndicator(buf)
+function! statusline#qfindicator()
   redir => buffers
-  silent ls
+  silent ls!
   redir END
 
-  let nr = bufnr(a:buf)
+  let nr = bufnr('%')
   for buf in split(buffers, '\n')
     if match(buf, '\v^\s*'.nr) > -1
       if match(buf, '\[Quickfix List\]') > -1
-        return 'Q'
+        return 'qflist'
       else
-        return 'L'
+        return 'loclist'
       endif
     endif
   endfor
   return ''
 endfunction
 
-function! s:MyGitIndicator (buf)
+function! statusline#gitindicator()
   try
     let c = get({
       \ 'blob': '',
-      \ 'commit': 'C',
+      \ 'commit': 'commit',
       \ 'directory': '',
       \ 'file': '',
-      \ 'head': 'R',
-      \ 'index': 'I',
+      \ 'head': 'head',
+      \ 'index': 'index',
       \ 'null': '',
       \ 'tree': ''
-      \ }, fugitive#buffer(a:buf).type())
+      \ }, fugitive#buffer('%').type())
 
     return empty(c) ? '' : c
   catch /^fugitive:/
@@ -96,23 +110,41 @@ function! s:MyGitIndicator (buf)
   endtry
 endfunction
 
-function! s:MyStatusLine()
-  let s = ''
-  let s .= '%('
-  let s .= '%{&previewwindow?"P":""}'
-  let s .= '%{&buftype=="help"?"H":""}'
-  let s .= '%{&buftype=="quickfix"?' . s:sid . 'MyQuickfixIndicator("%"):""}'
-  let s .= '%{' . s:sid . 'MyGitIndicator("%")}'
-  let s .= ' %)'
-  let s .= '%<'
-  let s .= '%{' . s:sid . 'MyBufferName("%")}'
-  let s .= '%( ⌥ %{' . s:sid . 'MyGitCommit("%")}%)'
-  let s .= '%( %{&modified?"+":""}%)'
-  let s .= '%( %{!&modified && &modifiable?"✓":""}%)'
-  " let s .= '%( %{!&modifiable||&readonly?"⚓":""}%)'
-  let s .= '%='
-  let s .= ' %l,%c%V'
-  return s
+let s:indicators = ''
+let s:indicators .= '%('
+let s:indicators .= '%{&previewwindow?"[preview]":""}'
+let s:indicators .= '%{&buftype=="help"?"[help]":""}'
+let s:indicators .= '%([%{&buftype=="quickfix"?statusline#qfindicator():""}]%)'
+let s:indicators .= '%([%{statusline#gitindicator()}]%)'
+let s:indicators .= ' %)'
+let s:indicators .= '%<'
+
+let s:icons = ''
+let s:icons .= '%(%{&modified?"+":""}%)'
+let s:icons .= '%(%{&buftype=~#"quickfix\\|help"?"":!&modifiable||&readonly?"⚓":""}%)'
+
+let s:name = '%(%{statusline#MyBufferName()}%)'
+
+let s:gitname = '%{statusline#customrev(2)} '
+let s:gitrev = '%(⑂ %{statusline#customrev(1)[0:6]} %)'
+
+let s:ruler = '%= %l,%c%V'
+
+function! statusline#default(...)
+  let parts = [ s:indicators ] + (a:0 ? a:000 : [ s:name, ' ' ]) + [ s:icons, s:ruler ]
+  return join(parts, '')
 endfunction
 
-exe 'se stl=%!' . s:sid . 'MyStatusLine()'
+function! statusline#git()
+  return statusline#default(s:gitname, s:gitrev)
+endfunction
+
+" hi User1 ctermbg=0 ctermfg=4
+" hi User2 ctermbg=0 ctermfg=2
+
+setglobal statusline=%!statusline#default()
+
+augroup CustomStatusLine
+  autocmd!
+  autocmd User Fugitive setlocal statusline=%!statusline#git()
+augroup END
