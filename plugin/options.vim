@@ -23,7 +23,7 @@ se scs
 "" [ User Interface ] {{{
 
 se nocul nocuc
-set fillchars=diff:\ ,fold:┄,stl:━,stlnc:━,vert:┃
+set fillchars=diff:\ ,stl:\ ,stlnc:\ ,vert:\ ,fold:┄
 set listchars=conceal:?,eol:$,extends:…,nbsp:¬,precedes:…,tab:▏\ 
 se ls=2
 se mouse=ar
