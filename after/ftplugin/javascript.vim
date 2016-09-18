@@ -26,5 +26,6 @@ augroup MyJavascript
     " autocmd BufEnter <buffer> autocmd! eclim_javascript
 augroup END
 
-let b:deoplete_sources = [ 'omni', 'buffer' ]
-let b:deoplete_omni_patterns = '[^. *\t]\.\w*'
+let b:deoplete_sources = [ 'ternjs', 'buffer' ]
+let b:deoplete_member_prefix_patterns = '\.'
+" let b:deoplete_omni_patterns = '[^. *\t]\.\w*'
