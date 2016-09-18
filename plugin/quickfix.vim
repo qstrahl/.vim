@@ -31,11 +31,11 @@ function! s:AutoWindow (opencmd, closecmd, listfn, ...)
   let list = call(function(a:listfn), a:000)
   let listlen = len(list)
   if listlen > 0
-    call s:AutoSigns(list)
+    " call s:AutoSigns(list)
     exe a:opencmd min([ listlen, s:maxheight ])
     wincmd p
   else
-    exe 'sign unplace * buffer='.bufnr('%')
+    " exe 'sign unplace * buffer='.bufnr('%')
     exe a:closecmd
   endif
 endfunction
