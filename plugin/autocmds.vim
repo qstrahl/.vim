@@ -8,7 +8,7 @@ augroup MyAutocmds
   au BufAdd ?*.* exe 'set sua+=.'.expand('<amatch>:e')
   au CmdWinEnter * setlocal nonumber
   au BufWinEnter * if &previewwindow | set winfixwidth winfixheight | endif
-  au BufUnload ?* silent! mkview!
+  au BufUnload,BufWinLeave ?* silent! mkview!
   au BufWinEnter ?* silent! loadview
   autocmd ColorScheme * hi! link SignColumn FoldColumn
   autocmd ColorScheme * silent! exe 'runtime! after/colors/' . expand('<amatch>') . '.vim'
