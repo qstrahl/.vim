@@ -141,6 +141,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'elixir-lang/vim-elixir'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 
