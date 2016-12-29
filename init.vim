@@ -113,7 +113,7 @@ Plug 'tpope/vim-characterize'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-eunuch'
 Plug 'qstrahl/vim-matchmaker'
-Plug 'pangloss/vim-javascript', { 'branch': 'develop' }
+Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'othree/html5.vim'
 Plug 'tommcdo/vim-lion'
