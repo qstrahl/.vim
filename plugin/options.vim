@@ -67,7 +67,7 @@ let &udir = datadir . '/nvim/undo'
 
 se ar
 se bs=2
-se cb=
+se cb=unnamedplus
 se dip+=vertical,iwhite,foldcolumn:0
 se hi=1000
 se hid
