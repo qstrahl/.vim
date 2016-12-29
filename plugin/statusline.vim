@@ -1,3 +1,5 @@
+finish
+
 function! statusline#MyGitCommit(buf)
   if &buftype ==# 'quickfix\|help'
     return ''

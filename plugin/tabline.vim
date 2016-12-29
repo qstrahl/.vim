@@ -1,3 +1,5 @@
+finish
+
 function! tabline#dirname (buf, win, tab)
   try
     let dir = fugitive#buffer(a:buf).repo().tree()
