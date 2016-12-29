@@ -15,4 +15,9 @@ function! s:DoStuff ()
       autocmd BufWinEnter <buffer> Glcd
     augroup END
   endif
+
+  "" FZF integration
+  if exists(':GitFiles')
+    nmap <buffer> <C-P> :<C-U>GitFiles<CR>
+  endif
 endfunction

@@ -5,21 +5,6 @@ filetype off
 
 let confdir = expand('<sfile>:h')
 
-"" ctrlp {{{
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_custom_ignore = '\v[\/](coverage|dist|node_modules|bower_components|vendor)$'
-let g:ctrlp_user_command = 'git ls-files -c -o --exclude-standard 2>/dev/null || find %s -type f 2>/dev/null'
-let g:ctrlp_map =''
-nmap <C-p> <Plug>(ctrlp)
-" let g:ctrlp_user_command = {
-"   \ 'types': {
-"     \ 1: ['.git', 'git ls-files -c -o --exclude-standard'],
-"   \ },
-"   \ 'fallback': 'find %s -type f',
-"   \ 'ignore': 1
-"   \ }
-"" }}}
-
 "" deoplete {{{
 let g:deoplete#enable_at_startup = 1
 "" }}}
@@ -47,6 +32,10 @@ let g:EclimShowCurrentError = 0
 
 "" exchange {{{
 let g:exchange_indent = 1
+"" }}}
+
+"" fzf {{{
+nmap <C-P> :<C-U>Files<CR>
 "" }}}
 
 "" javascipt {{{
@@ -134,7 +123,6 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-projectionist'
 Plug 'leshill/vim-json'
 Plug 'qstrahl/vim-dentures'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'wellle/targets.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'haya14busa/vim-asterisk'
@@ -151,6 +139,8 @@ Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'elixir-lang/vim-elixir'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
