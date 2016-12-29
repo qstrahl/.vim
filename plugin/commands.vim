@@ -1,1 +1,1 @@
-command! Config exe 'keepalt -tabedit' fnamemodify($MYVIMRC, ':p:h')
+command! Config exe 'keepalt -tabedit' resolve($MYVIMRC)
