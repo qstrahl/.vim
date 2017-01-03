@@ -48,6 +48,10 @@ let g:javascript_plugin_ngdoc = 1
 let g:jsx_ext_required = 0
 "" }}}
 
+"" localvimrc {{{
+let g:localvimrc_ask = 0
+"" }}}
+
 "" neomake {{{
 " augroup MyNeomake
 "   autocmd!
@@ -143,6 +147,7 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'jparise/vim-graphql'
+Plug 'embear/vim-localvimrc'
 
 call plug#end()
 
