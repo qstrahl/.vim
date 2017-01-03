@@ -1,7 +1,7 @@
 let mapleader='\'
 
 "" gm makes
-nnoremap gm :<C-U>silent lmake %:p:S<CR>
+nnoremap gm :<C-U>Neomake<CR>
 
 "" Backtick is ge, U is tilde
 noremap ` ge
