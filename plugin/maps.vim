@@ -1,5 +1,9 @@
 let mapleader='\'
 
+"" I like the home row
+noremap! <C-j> <C-n>
+noremap! <C-k> <C-p>
+
 "" gm makes
 nnoremap gm :<C-U>Neomake<CR>
 
