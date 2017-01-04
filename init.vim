@@ -1,6 +1,8 @@
 " vim: set foldmethod=marker:
 " Author: Quinn Strahl
 
+let config_dir = expand('<sfile>:h')
+
 " I guess neovim needs this?
 if has('nvim') | runtime! plugin/python_setup.vim | endif
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
@@ -80,14 +82,10 @@ let g:UltiSnipsJumpForwardTrigger       = '<Plug>(UltiSnipsJumpForwardTrigger)'
 let g:UltiSnipsJumpBackwardTrigger      = '<Plug>(UltiSnipsJumpBackwardTrigger)'
 " }}}
 
-" Plugin management courtesy of vim-plug {{{
-
-" Source custom plugins first
-runtime! plugin/*.vim
-
+" load plugins! {{{
 let g:plug_window = '-tabnew'
-source ~/.config/nvim/vim-plug/plug.vim
-call plug#begin(expand('<sfile>:h').'/bundle')
+exe 'source' config_dir . '/vim-plug/plug.vim'
+call plug#begin(config_dir . '/bundle')
 
 Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-abolish'
@@ -138,7 +136,6 @@ Plug 'tpope/vim-ragtag'
 Plug 'romainl/vim-qf'
 
 call plug#end()
-
 " }}}
 
 " options {{{
