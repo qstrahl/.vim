@@ -165,6 +165,7 @@ set scrolloff=999
 set shiftwidth=2
 set sidescroll=1
 set smartcase
+set softtabstop=8
 set splitbelow
 set splitright
 set textwidth=120
