@@ -1,4 +1,4 @@
-" vim: set fdm=marker:
+" vim: set foldmethod=marker:
 " Author: Quinn Strahl
 
 " I guess neovim needs this?
