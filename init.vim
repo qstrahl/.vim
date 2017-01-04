@@ -37,11 +37,6 @@ let g:jsx_ext_required = 0
 let g:localvimrc_ask = 0
 " }}}
 " neomake {{{
-" augroup MyNeomake
-"   autocmd!
-"   autocmd BufWritePost * Neomake
-" augroup END
-
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = g:neomake_javascript_enabled_makers
 let g:neomake_open_list = 2
@@ -187,9 +182,6 @@ let mapleader='\'
 "" I like the home row
 noremap! <C-j> <C-n>
 noremap! <C-k> <C-p>
-
-"" gm makes
-nnoremap gm :<C-U>Neomake<CR>
 
 "" Backtick is ge, U is tilde
 noremap ` ge
