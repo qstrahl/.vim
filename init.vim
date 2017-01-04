@@ -1,9 +1,6 @@
 " vim: set fdm=marker:
 " Author: Quinn Strahl
 
-" I honestly don't know why this needs to be done. Plugin managers always say to do this
-filetype off
-
 " I guess neovim needs this?
 if has('nvim') | runtime! plugin/python_setup.vim | endif
 
@@ -147,10 +144,6 @@ Plug 'romainl/vim-qf'
 call plug#end()
 
 " }}}
-
-" Plugin managers say I need to do this after loading plugins and stuff. Why? Who knows
-filetype plugin indent on
-syntax on
 
 " options {{{
 set clipboard=unnamedplus
