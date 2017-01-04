@@ -48,6 +48,10 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = g:neomake_javascript_enabled_makers
 let g:neomake_open_list = 2
 let g:neomake_remove_invalid_entries = 1
+let g:neomake_error_sign =   { 'text': '✖' }
+let g:neomake_warning_sign = { 'text': '!' }
+let g:neomake_info_sign =    { 'text': 'ℹ' }
+let g:neomake_message_sign = { 'text': '➤' }
 " }}}
 " netrw {{{
 " just disable the damn thing
