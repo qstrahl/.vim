@@ -6,10 +6,10 @@ hi Comment      cterm=italic
 " hi TabLine      cterm=none              ctermbg=0       ctermfg=fg
 " hi TabLineSel   cterm=none              ctermbg=8       ctermfg=fg
 " hi TabLineFill  cterm=none              ctermbg=0       ctermfg=fg
-hi NeomakeErrorSign   ctermfg=1  ctermbg=0
-hi NeomakeWarningSign ctermfg=9  ctermbg=0
-hi NeomakeInfoSign    ctermfg=4  ctermbg=0
-hi NeomakeMessageSign ctermfg=fg ctermbg=0
+hi NeomakeErrorSign   cterm=bold ctermfg=1  ctermbg=0
+hi NeomakeWarningSign cterm=bold ctermfg=9  ctermbg=0
+hi NeomakeInfoSign    cterm=bold ctermfg=4  ctermbg=0
+hi NeomakeMessageSign cterm=bold ctermfg=fg ctermbg=0
 hi! link Folded Comment
 " hi clear Title
 
