@@ -1,15 +1,16 @@
-"" vim: set fdm=marker:
-"" Author: Quinn Strahl
+" vim: set fdm=marker:
+" Author: Quinn Strahl
 
+" I honestly don't know why this needs to be done. Plugin managers always say to do this
 filetype off
 
-let confdir = expand('<sfile>:h')
+" I guess neovim needs this?
+if has('nvim') | runtime! plugin/python_setup.vim | endif
 
-"" deoplete {{{
+" deoplete {{{
 let g:deoplete#enable_at_startup = 1
-"" }}}
-
-"" dirvish {{{
+" }}}
+" dirvish {{{
 augroup DirvishOnStart
   autocmd!
   autocmd VimEnter * if !argc() && !&modified | exe 'Dirvish' | endif
@@ -19,40 +20,25 @@ nmap - <Plug>(dirvish_up)
 nmap _ <C-W>s<Plug>(dirvish_up)
 nmap \| <C-W>v<Plug>(dirvish_up)
 nmap + :<C-U>-tabedit %<CR><Plug>(dirvish_up)
-"" }}}
-
-"" eclim {{{
-let g:EclimCompletionMethod = 'omnifunc'
-let g:EclimFileTypeValidate = 0
-let g:EclimJavaValidate = 0
-let g:EclimJavascriptValidate = 0
-let g:EclimHtmlValidate = 0
-let g:EclimShowCurrentError = 0
-"" }}}
-
-"" exchange {{{
+" }}}
+" exchange {{{
 let g:exchange_indent = 1
-"" }}}
-
-"" fzf {{{
+" }}}
+" fzf {{{
 nmap <C-P> :<C-U>Files<CR>
 let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
-"" }}}
-
-"" javascipt {{{
+" }}}
+" javascript {{{
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
-"" }}}
-
-"" jsx {{{
+" }}}
+" jsx {{{
 let g:jsx_ext_required = 0
-"" }}}
-
-"" localvimrc {{{
+" }}}
+" localvimrc {{{
 let g:localvimrc_ask = 0
-"" }}}
-
-"" neomake {{{
+" }}}
+" neomake {{{
 " augroup MyNeomake
 "   autocmd!
 "   autocmd BufWritePost * Neomake
@@ -62,15 +48,13 @@ let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = g:neomake_javascript_enabled_makers
 let g:neomake_open_list = 2
 let g:neomake_remove_invalid_entries = 1
-"" }}}
-
-"" netrw {{{
-"" just disable the damn thing
+" }}}
+" netrw {{{
+" just disable the damn thing
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
-"" }}}
-
-"" tern {{{
+" }}}
+" tern {{{
 let g:tern_show_signature_in_pum = 1
 
 function! BuildTernForVim(info)
@@ -85,31 +69,30 @@ function! BuildDeopleteTern(info)
   endif
 endfunction
 
- " Use tern_for_vim.
+" Use tern_for_vim.
 let g:tern#command = ["tern"]
 let g:tern#arguments = ["--persistent"]
-"" }}}
-
-"" ultisnips {{{
+" }}}
+" ultisnips {{{
 let g:UltiSnipsUsePythonVersion         = 2
 let g:UltiSnipsEditSplit                = 'context'
-let g:UltiSnipsSnippetsDir              = confdir . '/UltiSnips'
+let g:UltiSnipsSnippetsDir              = expand('<sfile>:h') . '/UltiSnips'
 let g:UltiSnipsExpandTrigger            = '<Plug>(UltiSnipsExpandTrigger)'
 let g:UltiSnipsListSnippets             = '<C-s>'
 let g:UltiSnipsJumpForwardTrigger       = '<Plug>(UltiSnipsJumpForwardTrigger)'
 let g:UltiSnipsJumpBackwardTrigger      = '<Plug>(UltiSnipsJumpBackwardTrigger)'
-"" }}}
+" }}}
 
-"" Source custom plugins first
+" Plugin management courtesy of vim-plug {{{
+
+" Source custom plugins first
 runtime! plugin/*.vim
-
-"" Plugin management courtesy of vim-plug
 
 let g:plug_window = '-tabnew'
 source ~/.config/nvim/vim-plug/plug.vim
 call plug#begin(expand('<sfile>:h').'/bundle')
 
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-surround'
@@ -140,7 +123,6 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': function('BuildTernForVim') }
 Plug 'carlitux/deoplete-ternjs', { 'do': function('BuildDeopleteTern') }
 Plug 'sickill/vim-pasta'
-" Plug 'dansomething/vim-eclim'
 Plug 'Shougo/deoplete.nvim'
 Plug 'justinmk/vim-dirvish'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
@@ -151,14 +133,148 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'jparise/vim-graphql'
 Plug 'embear/vim-localvimrc'
+Plug 'guns/vim-sexp' | Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'tpope/vim-scriptease'
+Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-ragtag'
+Plug 'romainl/vim-qf'
 
 call plug#end()
 
+" }}}
+
+" Plugin managers say I need to do this after loading plugins and stuff. Why? Who knows
 filetype plugin indent on
 syntax on
 
-"" Colorscheme
+" options {{{
+set clipboard=unnamedplus
+set complete=i,d,b,u,t
+set completeopt=menu,menuone
+set diffopt=filler,vertical,iwhite,foldcolumn:0
+set expandtab
+set fillchars=diff:\ ,stl:\ ,stlnc:\ ,vert:\ ,fold:┄
+set foldopen=insert,mark,quickfix,search,tag,undo
+set formatoptions=acjlnoqrw
+set hidden
+set ignorecase
+set includeexpr=substitute(substitute(v:fname,'\\','/','g'),'^/\\+','','')
+set lazyredraw
+set listchars=conceal:?,eol:$,extends:…,nbsp:¬,precedes:…,tab:▏\ 
+set mouse=ar
+set nowrap
+set path=**
+set pumheight=13
+set report=0
+set ruler
+set scrolloff=999
+set shiftwidth=2
+set sidescroll=1
+set smartcase
+set splitbelow
+set splitright
+set textwidth=120
+set timeoutlen=500
+set undofile
+set viewoptions=folds,cursor
+set virtualedit=all
+set wildignorecase
+set wildmode=longest:full,full
+set winminheight=0
+" }}}
+" maps {{{
+let mapleader='\'
 
+"" I like the home row
+noremap! <C-j> <C-n>
+noremap! <C-k> <C-p>
+
+"" gm makes
+nnoremap gm :<C-U>Neomake<CR>
+
+"" Backtick is ge, U is tilde
+noremap ` ge
+noremap ~ gE
+onoremap ` ge
+onoremap ~ gE
+noremap U ~
+
+"" Q closes windows; who needs Ex mode?
+nnoremap Q <C-W>q
+
+"" Make <c-w>| and <c-w>_ cap out at the contained buffer's width and height by default
+nnoremap <expr><silent> <C-w><Bar> (v:count ? v:count : max(map(getline(1,'$'),'virtcol([v:key+1,"$"])'))-1)."\<C-w>\<Bar>"
+nnoremap <expr><silent> <C-w><C-\> (v:count ? v:count : max(map(getline(1,'$'),'virtcol([v:key+1,"$"])'))-1)."\<C-w>\<Bar>"
+nnoremap <expr><silent> <C-w>_ (v:count ? v:count : float2nr(ceil(eval(join(map(getline(1,'$'),'max([winwidth(0),virtcol([v:key+1,"$"])])'),'+'))/str2float(winwidth(0).'.0'))))."\<C-w>_"
+nnoremap <expr><silent> <C-w><C-_> (v:count ? v:count : float2nr(ceil(eval(join(map(getline(1,'$'),'max([winwidth(0),virtcol([v:key+1,"$"])])'),'+'))/str2float(winwidth(0).'.0'))))."\<C-w>_"
+
+"" Make insert mode <C-y> and <C-e> do entire WORDs at a time
+inoremap <expr> <C-y> substitute(getline(line('.')-1)[col('.')-1:],'\s\+\zs.*','','')
+inoremap <expr> <C-e> substitute(getline(line('.')+1)[col('.')-1:],'\s\+\zs.*','','')
+
+"" Make <Backspace> operate on [count] like <Delete> does
+noremap <expr> <BS> v:count ? "<Del>" : "<BS>"
+
+"" Map ' and g' to ` and g`
+noremap ' `
+noremap g' g`
+
+"" Make Y consistent with C and D
+nno Y y$
+
+"" Pull the line under the cursor into the command line
+cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
+
+"" Text object meaning 'a fold'
+vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
+ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
+
+"" Custom unimpaired-style toggles
+nno [oz :<C-U>Autofold<CR>
+nno ]oz :<C-U>Autofold!<CR>
+nno [ov :<C-U>set virtualedit=all<CR>
+nno ]ov :<C-U>set virtualedit=<CR>
+nno [om :<C-U>Matchmaker<CR>
+nno ]om :<C-U>Matchmaker!<CR>
+nno [ows :<C-U>set wrapscan<CR>
+nno ]ows :<C-U>set nowrapscan<CR>
+
+"" Clear formatting whitespace on the current line / selected region
+nnoremap <silent> <Leader>w :s/\(^\s*\)\@<! \{2,}/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>
+vnoremap <silent> <Leader>w :s/\%V\(^\s*\)\@<! \{2,}\%V/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>gv
+
+"" Toggle BreakpointWindow (mnemonic: Breakpoint Browse)
+nno <Leader>bb :<C-U>BreakpointWindow<CR>
+
+"" Toggle Tagbar
+nno <Leader>t :<C-U>TagbarToggle<CR>
+
+"" Clear search highlighting
+nno <Leader>/ :<C-U>noh<CR>
+
+"" Display info about highlight group under cursor
+nno <Leader>h :<C-U>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+" }}}
+" commands {{{
+command! Config exe 'keepalt -tabedit' resolve($MYVIMRC)
+" }}}
+" autocmds {{{
+augroup MyAutocmds
+  autocmd!
+  autocmd BufWritePre * let &bex=strftime(".%F.%T.vimbackup")
+  autocmd BufAdd ?*.* exe 'set sua+=.'.expand('<amatch>:e')
+  autocmd CmdWinEnter * setlocal nonumber
+  autocmd BufWinEnter * if &previewwindow | set winfixwidth winfixheight | endif
+  autocmd BufUnload,BufWinLeave ?* silent! mkview!
+  autocmd BufWinEnter ?* silent! loadview
+  autocmd ColorScheme * hi! link SignColumn FoldColumn
+  autocmd ColorScheme * silent! exe 'runtime! after/colors/' . expand('<amatch>') . '.vim'
+  autocmd BufWritePost * Neomake
+augroup END
+" }}}
+" colorscheme {{{
 set background=dark
 colorscheme solarized
 exe 'doautocmd ColorScheme' g:colors_name
+" }}}
