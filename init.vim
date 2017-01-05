@@ -2,9 +2,6 @@
 " Author: Quinn Strahl
 
 let config_dir = expand('<sfile>:h')
-
-" I guess neovim needs this?
-if has('nvim') | runtime! plugin/python_setup.vim | endif
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " delimitMate {{{
