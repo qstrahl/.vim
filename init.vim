@@ -261,7 +261,6 @@ augroup MyAutocmds
   autocmd BufWinEnter * if &previewwindow | set winfixheight | endif
   autocmd BufWinLeave,TabLeave ?* mkview
   autocmd BufWinEnter ?* silent! loadview
-  autocmd ColorScheme * hi! link SignColumn FoldColumn
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd BufWritePost * Neomake
   autocmd VimResized * wincmd =

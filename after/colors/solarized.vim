@@ -11,6 +11,7 @@ hi NeomakeWarningSign cterm=bold ctermfg=9  ctermbg=0
 hi NeomakeInfoSign    cterm=bold ctermfg=4  ctermbg=0
 hi NeomakeMessageSign cterm=bold ctermfg=fg ctermbg=0
 hi! link Folded Comment
+hi! link SignColumn FoldColumn
 " hi clear Title
 
 hi TabLine cterm=none
