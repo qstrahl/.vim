@@ -24,3 +24,4 @@ hi StatusLineNC cterm=none
 hi VertSplit ctermbg=0 ctermfg=0
 
 hi WildMenu cterm=bold ctermfg=15
+hi QuickFixLine cterm=bold
