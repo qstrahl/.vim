@@ -154,6 +154,7 @@ set foldopen=insert,mark,quickfix,search,tag,undo
 set formatoptions=acjlnoqrw
 set hidden
 set ignorecase
+set inccommand=nosplit
 set includeexpr=substitute(substitute(v:fname,'\\','/','g'),'^/\\+','','')
 set lazyredraw
 set listchars=conceal:?,eol:$,extends:…,nbsp:¬,precedes:…,tab:▏\ 
