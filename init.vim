@@ -262,7 +262,7 @@ augroup MyAutocmds
   autocmd BufWinLeave,TabLeave ?* mkview
   autocmd BufWinEnter ?* silent! loadview
   autocmd ColorScheme * hi! link SignColumn FoldColumn
-  autocmd ColorScheme * silent! exe 'runtime! after/colors/' . expand('<amatch>') . '.vim'
+  autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd BufWritePost * Neomake
 augroup END
 " }}}
