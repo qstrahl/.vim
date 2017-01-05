@@ -255,8 +255,8 @@ command! Config exe 'keepalt -tabedit' resolve($MYVIMRC)
 " autocmds {{{
 augroup MyAutocmds
   autocmd!
-  autocmd BufWritePre * let &bex=strftime(".%F.%T.vimbackup")
-  autocmd BufAdd ?*.* exe 'set sua+=.'.expand('<amatch>:e')
+  autocmd BufWritePre * let &backupext=strftime(".%F.%T.vimbackup")
+  autocmd BufAdd ?*.* exe 'set suffixesadd+=.'.expand('<amatch>:e')
   autocmd CmdWinEnter * setlocal nonumber
   autocmd BufWinEnter * if &previewwindow | set winfixwidth winfixheight | endif
   autocmd BufWinLeave,TabLeave ?* mkview
