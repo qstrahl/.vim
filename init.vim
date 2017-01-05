@@ -258,7 +258,7 @@ augroup MyAutocmds
   autocmd BufWritePre * let &backupext=strftime(".%F.%T.vimbackup")
   autocmd BufAdd ?*.* exe 'set suffixesadd+=.'.expand('<amatch>:e')
   autocmd CmdWinEnter * setlocal nonumber
-  autocmd BufWinEnter * if &previewwindow | set winfixwidth winfixheight | endif
+  autocmd BufWinEnter * if &previewwindow | set winfixheight | endif
   autocmd BufWinLeave,TabLeave ?* mkview
   autocmd BufWinEnter ?* silent! loadview
   autocmd ColorScheme * hi! link SignColumn FoldColumn
