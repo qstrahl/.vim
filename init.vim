@@ -152,6 +152,7 @@ set completeopt=menu,menuone
 set diffopt=filler,vertical,iwhite,foldcolumn:0
 set expandtab
 set fillchars=diff:\ ,stl:\ ,stlnc:\ ,vert:\ ,fold:┄
+set foldlevelstart=99
 set foldopen=insert,mark,quickfix,search,tag,undo
 set formatoptions=acjlnoqrw
 set hidden
