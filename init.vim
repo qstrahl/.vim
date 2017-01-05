@@ -265,6 +265,7 @@ augroup MyAutocmds
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd BufWritePost * Neomake
   autocmd VimResized * wincmd =
+  autocmd BufWritePost *.vim silent Runtime <afile>
 augroup END
 " }}}
 " colorscheme {{{
