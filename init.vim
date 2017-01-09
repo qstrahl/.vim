@@ -184,8 +184,10 @@ set winminheight=0
 let mapleader='\'
 
 "" I like the home row
-noremap! <C-j> <C-n>
-noremap! <C-k> <C-p>
+inoremap <C-j> <C-n>
+inoremap <C-k> <C-p>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
 
 "" Backtick is ge, U is tilde
 noremap ` ge
