@@ -266,6 +266,7 @@ augroup MyAutocmds
   autocmd BufWinEnter ?* silent! loadview
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd BufWritePost * Neomake
+  autocmd User NeomakeFinished silent! exe 'lopen' min([10, len(getloclist(0))]) '| wincmd p'
   autocmd VimResized * wincmd =
   autocmd BufWritePost *.vim silent Runtime <afile>
   autocmd WinEnter * if &buftype == 'quickfix' | setlocal cursorline | endif
