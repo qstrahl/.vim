@@ -45,7 +45,6 @@ let g:localvimrc_ask = 0
 " neomake {{{
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_jsx_enabled_makers = g:neomake_javascript_enabled_makers
-let g:neomake_open_list = 2
 let g:neomake_remove_invalid_entries = 1
 let g:neomake_error_sign =   { 'text': '✖' }
 let g:neomake_warning_sign = { 'text': '!' }
@@ -59,18 +58,6 @@ let g:loaded_netrwPlugin = 1
 " }}}
 " tern {{{
 let g:tern_show_signature_in_pum = 1
-
-function! BuildTernForVim(info)
-  if a:info.status == 'installed' || a:info.force
-    !npm install
-  endif
-endfunction
-
-function! BuildDeopleteTern(info)
-  if a:info.status == 'installed' || a:info.force
-    !npm install -g tern
-  endif
-endfunction
 
 " Use tern_for_vim.
 let g:tern#command = ["tern"]
@@ -119,10 +106,10 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'ternjs/tern_for_vim', { 'do': function('BuildTernForVim') }
-Plug 'carlitux/deoplete-ternjs', { 'do': function('BuildDeopleteTern') }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 Plug 'sickill/vim-pasta'
 Plug 'Shougo/deoplete.nvim'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 Plug 'justinmk/vim-dirvish'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'cakebaker/scss-syntax.vim'
