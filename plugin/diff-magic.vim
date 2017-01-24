@@ -41,8 +41,3 @@ nmap dp <Plug>(Diffput)
 "" Add visual mode mappings
 vmap <C-o> <Plug>(Diffget)
 vmap <C-p> <Plug>(Diffput)
-
-augroup MyDiffMagic
-  autocmd!
-  autocmd InsertLeave,TextChanged * if &diff | diffupdate | endif
-augroup END
