@@ -252,7 +252,7 @@ augroup MyAutocmds
   autocmd BufWinLeave,TabLeave ?* mkview
   autocmd BufWinEnter ?* silent! loadview
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
-  autocmd BufWritePost * Neomake
+  autocmd BufWritePost * if empty(&buftype) | Neomake | endif
   autocmd User NeomakeFinished silent! exe 'lopen' min([10, len(getloclist(0))]) '| wincmd p'
   autocmd VimResized * wincmd =
   autocmd BufWritePost *.vim silent Runtime <afile>
