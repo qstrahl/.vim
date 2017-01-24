@@ -183,6 +183,9 @@ onoremap ` ge
 onoremap ~ gE
 noremap U ~
 
+"" I hate typing
+nnoremap du <C-U>:diffupdate<CR>
+
 "" Q closes windows; who needs Ex mode?
 nnoremap Q <C-W>q
 
