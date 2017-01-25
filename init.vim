@@ -255,7 +255,7 @@ augroup MyAutocmds
   autocmd BufWinLeave,TabLeave ?* mkview
   autocmd BufWinEnter ?* silent! loadview
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
-  autocmd BufWritePost * if empty(&buftype) | Neomake | endif
+  autocmd BufWritePost * if file_readable("<abuf>") | Neomake | endif
   autocmd VimResized * wincmd =
   autocmd BufWritePost *.vim silent Runtime <afile>
   autocmd WinEnter * if &buftype == 'quickfix' | setlocal cursorline | endif
