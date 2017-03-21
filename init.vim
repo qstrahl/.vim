@@ -176,6 +176,23 @@ inoremap <C-k> <C-p>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 
+"" If lines wrap, swap 'screenwise' and 'linewise' movement keys
+noremap <expr> j &wrap ? 'gj' : 'j'
+noremap <expr> k &wrap ? 'gk' : 'k'
+noremap <expr> 0 &wrap ? 'g0' : '0'
+noremap <expr> ^ &wrap ? 'g^' : '^'
+noremap <expr> <Home> &wrap ? 'g<Home>' : '<Home>'
+noremap <expr> $ &wrap ? 'g$' : '$'
+noremap <expr> <End> &wrap ? 'g<End>' : '<End>'
+
+noremap <expr> gj &wrap ? 'j' : 'gj'
+noremap <expr> gk &wrap ? 'k' : 'gk'
+noremap <expr> g0 &wrap ? '0' : 'g0'
+noremap <expr> g^ &wrap ? '^' : 'g^'
+noremap <expr> g<Home> &wrap ? '<Home>' : 'g<Home>'
+noremap <expr> g$ &wrap ? '$' : 'g$'
+noremap <expr> g<End> &wrap ? '<End>' : 'g<End>'
+
 "" Backtick is ge, U is tilde
 noremap ` ge
 noremap ~ gE
