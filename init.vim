@@ -120,6 +120,8 @@ Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-ragtag'
 Plug 'romainl/vim-qf'
+Plug 'stephenway/postcss.vim'
+Plug 'leafgarland/typescript-vim'
 
 call plug#end()
 " }}}
