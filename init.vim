@@ -130,41 +130,33 @@ call plug#end()
 
 " options {{{
 set clipboard=unnamedplus
-set complete=i,d,b,u,t
 set completeopt=menu,menuone
 set diffopt=filler,vertical,iwhite,foldcolumn:0
 set expandtab
-set fillchars=diff:\ ,stl:\ ,stlnc:\ ,vert:\ ,fold:┄
-set foldlevelstart=99
-set foldopen=insert,mark,quickfix,search,tag,undo
-set formatoptions=acjlnoqrw
+set fillchars=diff:\ ,stl:\ ,stlnc:\ ,vert:\ ,fold:-
+set guicursor=
+      \n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,
+      \a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,
+      \sm:block-blinkwait175-blinkoff150-blinkon175
 set hidden
 set ignorecase
 set inccommand=nosplit
-set includeexpr=substitute(substitute(v:fname,'\\','/','g'),'^/\\+','','')
-set lazyredraw
-set listchars=conceal:?,eol:$,extends:…,nbsp:¬,precedes:…,tab:▏\ 
-set mouse=ar
 set nowrap
 set path=**
 set pumheight=13
 set report=0
-set ruler
 set scrolloff=999
 set shiftwidth=2
-set sidescroll=1
 set smartcase
 set softtabstop=8
 set splitbelow
 set splitright
 set textwidth=120
-set timeoutlen=500
 set undofile
 set viewoptions=folds,cursor
 set virtualedit=all
 set wildignorecase
 set wildmode=longest:full,full
-set winminheight=0
 " }}}
 " maps {{{
 let mapleader='\'
