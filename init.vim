@@ -227,6 +227,9 @@ vnoremap <silent> <Leader>w :s/\%V\(^\s*\)\@<! \{2,}\%V/ /ge<Bar>call histdel("s
 
 "" Clear search highlighting
 nno <Leader>/ :<C-U>noh<CR>
+
+"" Map for configuring fast
+noremap <Leader>c :Config<CR>
 " }}}
 " commands {{{
 command! Config exe 'keepalt -tabedit' resolve($MYVIMRC)
