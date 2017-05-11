@@ -1,5 +1,2 @@
-setl tw=72
-setl fo+=t
-setl cul
-setl nonu
-setl nolist
+setlocal textwidth=72
+setlocal formatoptions+=t
