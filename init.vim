@@ -122,6 +122,7 @@ Plug 'tpope/vim-ragtag'
 Plug 'romainl/vim-qf'
 Plug 'stephenway/postcss.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'AndrewRadev/splitjoin.vim'
 
 call plug#end()
 " }}}
