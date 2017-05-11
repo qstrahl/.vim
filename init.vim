@@ -246,9 +246,6 @@ nno <Leader>t :<C-U>TagbarToggle<CR>
 
 "" Clear search highlighting
 nno <Leader>/ :<C-U>noh<CR>
-
-"" Display info about highlight group under cursor
-nno <Leader>h :<C-U>echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 " }}}
 " commands {{{
 command! Config exe 'keepalt -tabedit' resolve($MYVIMRC)
