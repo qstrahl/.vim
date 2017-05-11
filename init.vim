@@ -123,6 +123,7 @@ Plug 'romainl/vim-qf'
 Plug 'stephenway/postcss.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'AndrewRadev/splitjoin.vim'
+Plug 'vim-scripts/restore_view.vim'
 
 call plug#end()
 " }}}
@@ -267,8 +268,6 @@ augroup MyAutocmds
   autocmd BufAdd ?*.* exe 'set suffixesadd+=.'.expand('<amatch>:e')
   autocmd CmdWinEnter * setlocal nonumber
   autocmd BufWinEnter * if &previewwindow | set winfixheight | endif
-  autocmd BufWinLeave,TabLeave ?* mkview
-  autocmd BufWinEnter ?* silent! loadview
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd BufWritePost * if file_readable("<abuf>") | Neomake | endif
   autocmd VimResized * wincmd =
