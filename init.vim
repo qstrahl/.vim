@@ -153,6 +153,7 @@ set path=**
 set pumheight=13
 set report=0
 set scrolloff=999
+set shell=sh
 set shiftwidth=2
 set smartcase
 set softtabstop=8
