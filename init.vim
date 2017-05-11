@@ -2,6 +2,7 @@
 " Author: Quinn Strahl
 
 let config_dir = expand('<sfile>:h')
+let mapleader=' '
 
 " delimitMate {{{
 let g:delimitMate_expand_cr = 1
@@ -167,8 +168,6 @@ set wildignorecase
 set wildmode=longest:full,full
 " }}}
 " maps {{{
-let mapleader='\'
-
 "" I like the home row
 inoremap <C-j> <C-n>
 inoremap <C-k> <C-p>
