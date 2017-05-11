@@ -275,8 +275,6 @@ augroup MyAutocmds
   autocmd BufWritePost * if file_readable("<abuf>") | Neomake | endif
   autocmd VimResized * wincmd =
   autocmd BufWritePost *.vim silent Runtime <afile>
-  autocmd WinEnter * if &buftype == 'quickfix' | setlocal cursorline | endif
-  autocmd WinLeave * if &buftype == 'quickfix' | setlocal nocursorline | endif
 augroup END
 " }}}
 " colorscheme {{{
