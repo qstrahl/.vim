@@ -1,4 +1,4 @@
-setlocal conceallevel=2 concealcursor=nvic nowrap number
+setlocal number cursorline conceallevel=2 concealcursor=nvic
 
 function! s:defineSyntax()
   syn match qfFugitivePrefix ?^fugitive://.\{-}//? containedin=qfFileName conceal nextgroup=qfFugitiveHash
