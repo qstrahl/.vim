@@ -5,9 +5,9 @@ augroup CustomFugitiveConfig
 augroup END
 
 function! s:DoStuff ()
-  nnoremap <buffer> gd :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>
-  nnoremap <buffer> ge :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>
-  nnoremap <buffer> gs :<C-U>Gstatus<CR>
+  nnoremap <buffer> <Leader>d :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>
+  nnoremap <buffer> <Leader>e :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>
+  nnoremap <buffer> <Leader>s :<C-U>Gstatus<CR>
 
   if exists(':Glcd')
     augroup AutoGlcd
@@ -18,6 +18,6 @@ function! s:DoStuff ()
 
   "" FZF integration
   if exists(':GitFiles')
-    nmap <buffer> <C-P> :<C-U>GitFiles<CR>
+    nmap <buffer> <Leader>g :<C-U>GitFiles<CR>
   endif
 endfunction

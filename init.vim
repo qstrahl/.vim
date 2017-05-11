@@ -24,7 +24,7 @@ nmap + :<C-U>-tabedit %<CR><Plug>(dirvish_up)
 let g:exchange_indent = 1
 " }}}
 " fzf {{{
-nmap <C-P> :<C-U>Files<CR>
+nmap <Leader>f :<C-U>Files<CR>
 let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
 " }}}
 " javascript {{{
@@ -222,8 +222,8 @@ vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
 
 "" Clear formatting whitespace on the current line / selected region
-nnoremap <silent> <Leader>w :s/\(^\s*\)\@<! \{2,}/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>
-vnoremap <silent> <Leader>w :s/\%V\(^\s*\)\@<! \{2,}\%V/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>gv
+nnoremap <silent> <Leader><Space> :s/\(^\s*\)\@<! \{2,}/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>
+vnoremap <silent> <Leader><Space> :s/\%V\(^\s*\)\@<! \{2,}\%V/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>gv
 
 "" Clear search highlighting
 nno <Leader>/ :<C-U>noh<CR>
