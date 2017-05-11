@@ -242,6 +242,7 @@ augroup MyAutocmds
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd BufWritePost * if file_readable("<abuf>") | Neomake | endif
   autocmd VimResized * wincmd =
+  autocmd TextChanged,TextChangedI,InsertLeave * diffupdate
 augroup END
 " }}}
 " colorscheme {{{
