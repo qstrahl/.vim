@@ -256,14 +256,10 @@ command! Config exe 'keepalt -tabedit' resolve($MYVIMRC)
 " autocmds {{{
 augroup MyAutocmds
   autocmd!
-  autocmd BufWritePre * let &backupext=strftime(".%F.%T.vimbackup")
   autocmd BufAdd ?*.* exe 'set suffixesadd+=.'.expand('<amatch>:e')
-  autocmd CmdWinEnter * setlocal nonumber
-  autocmd BufWinEnter * if &previewwindow | set winfixheight | endif
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd BufWritePost * if file_readable("<abuf>") | Neomake | endif
   autocmd VimResized * wincmd =
-  autocmd BufWritePost *.vim silent Runtime <afile>
 augroup END
 " }}}
 " colorscheme {{{
