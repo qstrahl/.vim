@@ -2,7 +2,6 @@
 " Author: Quinn Strahl
 
 let config_dir = expand('<sfile>:h')
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " delimitMate {{{
 let g:delimitMate_expand_cr = 1
