@@ -50,6 +50,9 @@ let g:neomake_message_sign = { 'text': '➤' }
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 " }}}
+" restore_view {{{
+let g:skipview_files = ['COMMIT_EDITMSG', '\.git/\(\f*/\)*index']
+" }}}
 " tern {{{
 let g:tern_show_signature_in_pum = 1
 
