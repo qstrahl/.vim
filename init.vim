@@ -14,11 +14,6 @@ let g:delimitMate_balance_matchpairs = 1
 let g:deoplete#enable_at_startup = 1
 " }}}
 " dirvish {{{
-augroup DirvishOnStart
-  autocmd!
-  autocmd VimEnter * if !argc() && !&modified | exe 'Dirvish' | endif
-augroup END
-
 nmap - <Plug>(dirvish_up)
 nmap _ <C-W>s<Plug>(dirvish_up)
 nmap \| <C-W>v<Plug>(dirvish_up)
