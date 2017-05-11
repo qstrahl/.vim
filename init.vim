@@ -53,6 +53,10 @@ let g:loaded_netrwPlugin = 1
 " restore_view {{{
 let g:skipview_files = ['COMMIT_EDITMSG', '\.git/\(\f*/\)*index']
 " }}}
+" sensible {{{
+"" Prevents sensible from mapping to include diffupdate which is very slow for me
+noremap <C-L> <C-L>
+" }}}
 " tern {{{
 let g:tern_show_signature_in_pum = 1
 
