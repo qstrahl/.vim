@@ -14,7 +14,7 @@ highlight TabLineFill           cterm=none
 
 highlight StatusLine            cterm=none
 highlight StatusLineNC          cterm=none
-highlight VertSplit                             ctermbg=bg
+highlight VertSplit                             ctermbg=bg      ctermfg=0
 highlight WildMenu              cterm=bold                      ctermfg=15
 
 highlight QuickFixLine          cterm=bold
