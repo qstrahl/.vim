@@ -144,7 +144,7 @@ set clipboard=unnamedplus
 set completeopt=menu,menuone
 set diffopt=filler,vertical,iwhite,foldcolumn:0
 set expandtab
-set fillchars=diff:\ ,stl:\ ,stlnc:\ ,vert:\ ,fold:-
+set fillchars=diff:\ ,fold:-,vert:┃
 set foldlevelstart=99
 set guicursor=
       \n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,
