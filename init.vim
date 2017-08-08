@@ -74,7 +74,7 @@ let g:UltiSnipsUsePythonVersion         = 2
 let g:UltiSnipsEditSplit                = 'context'
 let g:UltiSnipsSnippetsDir              = expand('<sfile>:h') . '/UltiSnips'
 let g:UltiSnipsExpandTrigger            = '<Plug>(UltiSnipsExpandTrigger)'
-let g:UltiSnipsListSnippets             = '<C-s>'
+let g:UltiSnipsListSnippets             = '<Plug>(UltiSnipsListSnippetsTrigger)'
 let g:UltiSnipsJumpForwardTrigger       = '<Plug>(UltiSnipsJumpForwardTrigger)'
 let g:UltiSnipsJumpBackwardTrigger      = '<Plug>(UltiSnipsJumpBackwardTrigger)'
 " }}}
