@@ -19,7 +19,16 @@ highlight WildMenu              cterm=bold                      ctermfg=15
 
 highlight QuickFixLine          cterm=bold
 
-highlight NeomakeErrorSign      cterm=bold      ctermbg=0       ctermfg=1 
-highlight NeomakeWarningSign    cterm=bold      ctermbg=0       ctermfg=9 
-highlight NeomakeInfoSign       cterm=bold      ctermbg=0       ctermfg=4 
-highlight NeomakeMessageSign    cterm=bold      ctermbg=0       ctermfg=fg
+highlight ErrorSign             cterm=bold      ctermbg=0       ctermfg=1 
+highlight StyleErrorSign        cterm=none      ctermbg=0       ctermfg=1 
+highlight WarningSign           cterm=bold      ctermbg=0       ctermfg=3 
+highlight StyleWarningSign      cterm=none      ctermbg=0       ctermfg=3 
+highlight InfoSign              cterm=bold      ctermbg=0       ctermfg=4 
+highlight MessageSign           cterm=bold      ctermbg=0       ctermfg=fg
+
+highlight! link ALEErrorSign            ErrorSign
+highlight! link ALEWarningSign          WarningSign
+highlight! link ALEStyleErrorSign       StyleErrorSign
+highlight! link ALEStyleWarningSign     StyleWarningSign
+highlight! link ALEInfoSign             InfoSign
+highlight! link ALEMessageSign          MessageSign

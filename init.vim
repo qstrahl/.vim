@@ -7,6 +7,13 @@ let mapleader=' '
 "" old habits die hard
 map \ <Leader>
 
+"" ale {{{
+let g:ale_sign_error = '✕'
+let g:ale_sign_warning = '!'
+let g:ale_sign_info = 'i'
+let g:ale_sign_style_error = g:ale_sign_error 
+let g:ale_sign_style_warning = g:ale_sign_warning
+"" }}}
 " delimitMate {{{
 let g:delimitMate_expand_cr = 1
 let g:delimitMate_expand_space = 1
@@ -40,15 +47,6 @@ let g:jsx_ext_required = 0
 " }}}
 " localvimrc {{{
 let g:localvimrc_ask = 0
-" }}}
-" neomake {{{
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_jsx_enabled_makers = g:neomake_javascript_enabled_makers
-let g:neomake_remove_invalid_entries = 1
-let g:neomake_error_sign =   { 'text': '✖' }
-let g:neomake_warning_sign = { 'text': '!' }
-let g:neomake_info_sign =    { 'text': 'ℹ' }
-let g:neomake_message_sign = { 'text': '➤' }
 " }}}
 " netrw {{{
 " just disable the damn thing
@@ -100,7 +98,6 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'othree/html5.vim'
 Plug 'tommcdo/vim-lion'
-Plug 'neomake/neomake'
 Plug 'tommcdo/vim-exchange'
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-projectionist'
@@ -135,6 +132,7 @@ Plug 'stephenway/postcss.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'vim-scripts/restore_view.vim'
+Plug 'w0rp/ale'
 
 call plug#end()
 " }}}
@@ -244,7 +242,6 @@ augroup MyAutocmds
   autocmd!
   autocmd BufAdd ?*.* exe 'set suffixesadd+=.'.expand('<amatch>:e')
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
-  autocmd BufWritePost * if file_readable("<abuf>") | Neomake | endif
   autocmd VimResized * wincmd =
   autocmd TextChanged,TextChangedI,InsertLeave * silent! diffupdate
 augroup END
