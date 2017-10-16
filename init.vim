@@ -206,8 +206,8 @@ nno Y y$
 cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
 
 "" Text object meaning 'a fold'
-vno az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
-ono az :<C-U>se fen <Bar> silent! normal! V[zo]z<CR>
+vnoremap <expr> az &foldenable ? "V[zo]z" : ""
+onoremap <expr> az "<C-c>" . (&foldenable ? "V[zo]z" . v:operator : "")
 
 "" Clear formatting whitespace on the current line / selected region
 nnoremap <silent> <Leader><Space> :s/\(^\s*\)\@<! \{2,}/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>
