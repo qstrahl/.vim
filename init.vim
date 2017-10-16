@@ -27,9 +27,6 @@ let g:deoplete#enable_at_startup = 1
 " }}}
 " dirvish {{{
 nmap - <Plug>(dirvish_up)
-nmap _ <C-W>s<Plug>(dirvish_up)
-nmap \| <C-W>v<Plug>(dirvish_up)
-nmap + :<C-U>-tabedit %<CR><Plug>(dirvish_up)
 " }}}
 " exchange {{{
 let g:exchange_indent = 1
@@ -171,6 +168,11 @@ set wildignorecase
 set wildmode=longest:full,full
 " }}}
 " maps {{{
+"" I like splitting
+nnoremap _ <C-W>s
+nnoremap \| <C-W>v
+nnoremap <expr> +  "<C-W>s" . (v:count ? v:count : tabpagenr()) . "<C-W>T"
+
 "" I like the home row
 inoremap <C-j> <C-n>
 inoremap <C-k> <C-p>
