@@ -21,18 +21,18 @@ function! s:Diff (count)
 endfunction
 
 "" Define custom diffget/diffput commands with completion
-command! -complete=customlist,<SID>Complete -nargs=? -range Diffget     <line1>,<line2>diffget <args>|diffupdate
-command! -complete=customlist,<SID>Complete -nargs=? -range DGET        <line1>,<line2>diffget <args>|diffupdate
-command! -complete=customlist,<SID>Complete -nargs=? -range Dget        <line1>,<line2>diffget <args>|diffupdate
-command! -complete=customlist,<SID>Complete -nargs=? -range Diffput     <line1>,<line2>diffput <args>|diffupdate
-command! -complete=customlist,<SID>Complete -nargs=? -range DPUT        <line1>,<line2>diffput <args>|diffupdate
-command! -complete=customlist,<SID>Complete -nargs=? -range Dput        <line1>,<line2>diffput <args>|diffupdate
+command! -complete=customlist,<SID>Complete -nargs=? -range Diffget     <line1>,<line2>diffget <args>
+command! -complete=customlist,<SID>Complete -nargs=? -range DGET        <line1>,<line2>diffget <args>
+command! -complete=customlist,<SID>Complete -nargs=? -range Dget        <line1>,<line2>diffget <args>
+command! -complete=customlist,<SID>Complete -nargs=? -range Diffput     <line1>,<line2>diffput <args>
+command! -complete=customlist,<SID>Complete -nargs=? -range DPUT        <line1>,<line2>diffput <args>
+command! -complete=customlist,<SID>Complete -nargs=? -range Dput        <line1>,<line2>diffput <args>
 
 "" Define maps that interpret count as 1-based index among diffed windows
-nnoremap <expr> <Plug>(Diffget) <SID>Diff(v:count).'do'
-nnoremap <expr> <Plug>(Diffput) <SID>Diff(v:count).'dp'
-vnoremap <expr> <Plug>(Diffget) ':diffget '.<SID>Diff(v:count).'<Bar>diffupdate<CR>'
-vnoremap <expr> <Plug>(Diffput) ':diffput '.<SID>Diff(v:count).'<Bar>diffupdate<CR>'
+nnoremap <expr> <Plug>(Diffget) ':<C-U> normal! '.<SID>Diff(v:count).'do<CR>'
+nnoremap <expr> <Plug>(Diffput) ':<C-U> normal! '.<SID>Diff(v:count).'dp<CR>'
+vnoremap <expr> <Plug>(Diffget) ':diffget '.<SID>Diff(v:count).'<CR>'
+vnoremap <expr> <Plug>(Diffput) ':diffput '.<SID>Diff(v:count).'<CR>'
 
 "" Override default normal mode mappings
 nmap do <Plug>(Diffget)
