@@ -50,6 +50,10 @@ let g:localvimrc_ask = 0
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 " }}}
+" pandoc {{{
+let g:pandoc#syntax#conceal#urls = 1
+let g:pandoc#folding#fdc = 0
+" }}}
 " restore_view {{{
 let g:skipview_files = ['COMMIT_EDITMSG', '\.git/\(\f*/\)*index']
 " }}}
@@ -130,6 +134,8 @@ Plug 'leafgarland/typescript-vim'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'vim-scripts/restore_view.vim'
 Plug 'w0rp/ale'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'vim-pandoc/vim-pandoc'
 
 call plug#end()
 " }}}
