@@ -1,12 +1,13 @@
 highlight! link Folded Comment
 highlight! link SignColumn FoldColumn
 highlight! link Substitute IncSearch
-highlight! link DiffAdd DiffText
 
 highlight Comment               cterm=italic
 
 highlight DiffChange            cterm=none                      ctermfg=none
+highlight DiffAdd               cterm=none      ctermbg=0       ctermfg=none
 highlight DiffText              cterm=bold                      ctermfg=none
+highlight DiffDelete            cterm=none      ctermbg=bg      ctermfg=16
 
 highlight TabLine               cterm=none      ctermbg=0       ctermfg=11
 highlight TabLineSel            cterm=none      ctermbg=0       ctermfg=14
