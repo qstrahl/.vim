@@ -205,10 +205,10 @@ noremap ' `
 noremap g' g`
 
 "" Make Y consistent with C and D
-nno Y y$
+nnoremap Y y$
 
 "" Pull the line under the cursor into the command line
-cno <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
+cnoremap <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
 
 "" Text object meaning 'a fold'
 vnoremap <expr> az &foldenable ? "V[zo]z" : ""
@@ -219,7 +219,7 @@ nnoremap <silent> <Leader><Space> :s/\(^\s*\)\@<! \{2,}/ /ge<Bar>call histdel("s
 vnoremap <silent> <Leader><Space> :s/\%V\(^\s*\)\@<! \{2,}\%V/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>gv
 
 "" Clear search highlighting
-nno <Leader>/ :<C-U>noh<CR>
+nnoremap <Leader>/ :<C-U>noh<CR>
 
 "" Map for configuring fast
 noremap <Leader>c :Config<CR>
