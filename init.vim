@@ -136,6 +136,7 @@ Plug 'vim-scripts/restore_view.vim'
 Plug 'w0rp/ale'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
+Plug 'junegunn/gv.vim'
 
 call plug#end()
 " }}}
