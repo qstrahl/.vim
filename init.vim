@@ -35,6 +35,9 @@ let g:exchange_indent = 1
 nmap <Leader>f :<C-U>Files<CR>
 let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
 " }}}
+" GV {{{
+map <Leader>v :GV<CR>
+" }}}
 " javascript {{{
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_ngdoc = 1
