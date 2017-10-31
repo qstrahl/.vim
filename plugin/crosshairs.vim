@@ -1,7 +1,7 @@
 augroup Crosshairs
   autocmd!
-  autocmd WinLeave,BufWinLeave * call s:Remove()
-  autocmd WinEnter,BufWinEnter * call s:Restore()
+  autocmd BufLeave,WinLeave,BufWinLeave * call s:Remove()
+  autocmd BufEnter,WinEnter,BufWinEnter * call s:Restore()
 augroup END
 
 function! s:Remove()
