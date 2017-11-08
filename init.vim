@@ -25,6 +25,11 @@ let g:delimitMate_balance_matchpairs = 1
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
 " }}}
+" deoplete-ternjs {{{
+let g:deoplete#sources#ternjs#tern_bin = 'tern'
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#docs = 1
+"}}}
 " dirvish {{{
 nmap - <Plug>(dirvish_up)
 " }}}
@@ -64,12 +69,9 @@ let g:skipview_files = ['COMMIT_EDITMSG', '\.git/\(\f*/\)*index']
 "" Prevents sensible from mapping to include diffupdate which is very slow for me
 noremap <C-L> <C-L>
 " }}}
-" tern {{{
-let g:tern_show_signature_in_pum = 1
-
-" Use tern_for_vim.
-let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+" tern_for_vim {{{
+let g:tern#command = ['tern']
+let g:tern#arguments = ['--persistent']
 " }}}
 " ultisnips {{{
 let g:UltiSnipsUsePythonVersion         = 2
@@ -113,10 +115,10 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'altercation/vim-colors-solarized'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+Plug 'ternjs/tern_for_vim', { 'do': 'npm install -g tern' }
 Plug 'sickill/vim-pasta'
 Plug 'Shougo/deoplete.nvim'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'carlitux/deoplete-ternjs'
 Plug 'justinmk/vim-dirvish'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'cakebaker/scss-syntax.vim'
