@@ -29,9 +29,6 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#tern_bin = 'tern'
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#docs = 1
-"}}}
-" dirvish {{{
-nmap - <Plug>(dirvish_up)
 " }}}
 " exchange {{{
 let g:exchange_indent = 1
