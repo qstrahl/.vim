@@ -24,11 +24,14 @@ let g:delimitMate_balance_matchpairs = 1
 " }}}
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
-" }}}
-" deoplete-ternjs {{{
+let g:deoplete#sources = {}
+let g:deoplete#sources._ = ['ultisnips', 'buffer']
+let g:deoplete#sources#ultisnips#matchers = ['matcher_fuzzy']
+let g:deoplete#sources#ultisnips#min_pattern_length = 1
 let g:deoplete#sources#ternjs#tern_bin = 'tern'
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#min_pattern_length = 1
 " }}}
 " exchange {{{
 let g:exchange_indent = 1
