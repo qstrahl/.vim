@@ -74,10 +74,10 @@ let g:tern#arguments = ['--persistent']
 let g:UltiSnipsUsePythonVersion         = 2
 let g:UltiSnipsEditSplit                = 'context'
 let g:UltiSnipsSnippetsDir              = config_dir . '/UltiSnips'
-let g:UltiSnipsExpandTrigger            = '<Plug>(UltiSnipsExpandTrigger)'
+let g:UltiSnipsExpandTrigger            = '<Space><Space>'
 let g:UltiSnipsListSnippets             = '<Plug>(UltiSnipsListSnippetsTrigger)'
-let g:UltiSnipsJumpForwardTrigger       = '<Plug>(UltiSnipsJumpForwardTrigger)'
-let g:UltiSnipsJumpBackwardTrigger      = '<Plug>(UltiSnipsJumpBackwardTrigger)'
+let g:UltiSnipsJumpForwardTrigger       = '<Tab>'
+let g:UltiSnipsJumpBackwardTrigger      = '<S-Tab>'
 " }}}
 
 " load plugins! {{{
