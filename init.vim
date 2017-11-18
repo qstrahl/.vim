@@ -25,7 +25,7 @@ let g:delimitMate_balance_matchpairs = 1
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources = {}
-let g:deoplete#sources._ = ['ultisnips', 'buffer']
+let g:deoplete#sources._ = ['around', 'omni', 'ultisnips', 'buffer']
 let g:deoplete#sources#ultisnips#matchers = ['matcher_fuzzy']
 let g:deoplete#sources#ultisnips#min_pattern_length = 1
 let g:deoplete#sources#ternjs#tern_bin = 'tern'
