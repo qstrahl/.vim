@@ -220,8 +220,8 @@ vnoremap <expr> az &foldenable ? "V[zo]z" : ""
 onoremap <expr> az "<C-c>" . (&foldenable ? "V[zo]z" . v:operator : "")
 
 "" Clear formatting whitespace on the current line / selected region
-nnoremap <silent> <Leader><Space> :s/\(^\s*\)\@<! \{2,}/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>
-vnoremap <silent> <Leader><Space> :s/\%V\(^\s*\)\@<! \{2,}\%V/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>gv
+nnoremap <silent> <Leader>w :s/\(^\s*\)\@<! \{2,}/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>
+vnoremap <silent> <Leader>w :s/\%V\(^\s*\)\@<! \{2,}\%V/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>gv
 
 "" Clear search highlighting
 nnoremap <Leader>/ :<C-U>noh<CR>
