@@ -69,6 +69,9 @@ let g:skipview_files = ['COMMIT_EDITMSG', '\.git/\(\f*/\)*index']
 "" Prevents sensible from mapping to include diffupdate which is very slow for me
 noremap <C-L> <C-L>
 " }}}
+" solarized8 {{{
+let g:solarized_use16 = 1
+" }}}
 " tern_for_vim {{{
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
@@ -112,7 +115,7 @@ Plug 'qstrahl/vim-dentures'
 Plug 'wellle/targets.vim'
 Plug 'PeterRincker/vim-argumentative'
 Plug 'haya14busa/vim-asterisk'
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'Raimondi/delimitMate'
 Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install -g tern' }
@@ -244,6 +247,6 @@ augroup END
 " }}}
 " colorscheme {{{
 set background=dark
-colorscheme solarized
+colorscheme solarized8
 exe 'doautocmd ColorScheme' g:colors_name
 " }}}
