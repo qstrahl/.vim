@@ -239,6 +239,7 @@ augroup MyAutocmds
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd VimResized * wincmd =
   autocmd TextChanged,TextChangedI,InsertLeave * silent! diffupdate
+  autocmd Syntax * syntax sync fromstart
 augroup END
 " }}}
 " colorscheme {{{
