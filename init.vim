@@ -71,6 +71,7 @@ noremap <C-L> <C-L>
 " }}}
 " solarized8 {{{
 let g:solarized_use16 = 1
+let g:solarized_term_italics = 0
 " }}}
 " tern_for_vim {{{
 let g:tern#command = ['tern']
