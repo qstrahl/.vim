@@ -179,6 +179,9 @@ set wildignorecase
 set wildmode=longest:full,full
 " }}}
 " maps {{{
+"" Why would <C-BS> do anything other than <C-W> in insert mode?!
+inoremap <C-BS> <C-W>
+
 "" I like splitting
 nnoremap _ <C-W>s
 nnoremap \| <C-W>v
