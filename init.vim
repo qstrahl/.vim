@@ -183,6 +183,10 @@ set wildmode=longest:full,full
 vnoremap <expr> <C-D><C-O> ":" . (v:count ? v:count : '') . "diffget<CR>"
 vnoremap <expr> <C-D><C-P> ":" . (v:count ? v:count : '') . "diffput<CR>"
 
+"" sort visual selection
+vnoremap <Leader>s :sort<CR>
+vnoremap <Leader>S :sort n<CR>
+
 "" Why would <C-BS> do anything other than <C-W> in insert mode?!
 inoremap <C-BS> <C-W>
 
