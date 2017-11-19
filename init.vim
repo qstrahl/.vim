@@ -179,6 +179,10 @@ set wildignorecase
 set wildmode=longest:full,full
 " }}}
 " maps {{{
+"" visual diffget and diffput
+vnoremap <expr> <C-D><C-O> ":" . (v:count ? v:count : '') . "diffget<CR>"
+vnoremap <expr> <C-D><C-P> ":" . (v:count ? v:count : '') . "diffput<CR>"
+
 "" Why would <C-BS> do anything other than <C-W> in insert mode?!
 inoremap <C-BS> <C-W>
 
