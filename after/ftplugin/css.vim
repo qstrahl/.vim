@@ -1,5 +1,4 @@
 if &ft ==# 'css'
   setlocal iskeyword+=-
+  setlocal commentstring=/*%s*/
 endif
-
-setlocal commentstring=/*%s*/
