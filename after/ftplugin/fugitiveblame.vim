@@ -1,2 +1,2 @@
-set winfixwidth
-set cursorline
+setlocal winfixwidth
+setlocal cursorline
