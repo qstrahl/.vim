@@ -24,6 +24,8 @@ let g:delimitMate_balance_matchpairs = 1
 " }}}
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#docs = 1
 " }}}
 " exchange {{{
 let g:exchange_indent = 1
