@@ -173,6 +173,10 @@ set wildignorecase
 set wildmode=longest:full,full
 " }}}
 " maps {{{
+"" I'm slow to release shift :<
+map <S-Space> <Space>
+map! <S-Space> <Space>
+
 "" visual diffget and diffput
 vnoremap <expr> <C-D><C-O> ":" . (v:count ? v:count : '') . "diffget<CR>"
 vnoremap <expr> <C-D><C-P> ":" . (v:count ? v:count : '') . "diffput<CR>"
