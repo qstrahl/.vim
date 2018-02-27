@@ -71,15 +71,6 @@ let g:solarized_term_italics = 0
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 " }}}
-" ultisnips {{{
-let g:UltiSnipsUsePythonVersion         = 2
-let g:UltiSnipsEditSplit                = 'context'
-let g:UltiSnipsSnippetsDir              = config_dir . '/UltiSnips'
-let g:UltiSnipsExpandTrigger            = '<C-Space>'
-let g:UltiSnipsListSnippets             = '<Plug>(UltiSnipsListSnippetsTrigger)'
-let g:UltiSnipsJumpForwardTrigger       = '<Tab>'
-let g:UltiSnipsJumpBackwardTrigger      = '<S-Tab>'
-" }}}
 
 " load plugins! {{{
 let g:plug_window = '-tabnew'
@@ -112,7 +103,6 @@ Plug 'PeterRincker/vim-argumentative'
 Plug 'haya14busa/vim-asterisk'
 Plug 'lifepillar/vim-solarized8'
 Plug 'Raimondi/delimitMate'
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install -g tern' }
 Plug 'sickill/vim-pasta'
 Plug 'Shougo/deoplete.nvim'
