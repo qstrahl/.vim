@@ -141,6 +141,7 @@ set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff4
 set hidden
 set ignorecase
 set inccommand=nosplit
+set mouse=a
 set nowrap
 set path=**
 set pumheight=13
