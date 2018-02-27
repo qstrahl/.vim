@@ -137,6 +137,7 @@ set expandtab
 set fillchars=diff:╱,fold:-,vert:│
 set foldlevelstart=99
 set foldtext=foldtext#foldtext()
+set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250
 set hidden
 set ignorecase
 set inccommand=nosplit
