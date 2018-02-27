@@ -59,13 +59,8 @@ let g:pandoc#folding#fdc = 0
 " restore_view {{{
 let g:skipview_files = ['COMMIT_EDITMSG', '\.git/\(\f*/\)*index']
 " }}}
-" sensible {{{
-"" Prevents sensible from mapping to include diffupdate which is very slow for me
-noremap <C-L> <C-L>
-" }}}
 " solarized8 {{{
 let g:solarized_use16 = 1
-let g:solarized_term_italics = 0
 " }}}
 " tern_for_vim {{{
 let g:tern#command = ['tern']
@@ -197,14 +192,8 @@ onoremap ` ge
 onoremap ~ gE
 noremap U ~
 
-"" I hate typing
-nnoremap du <C-U>:diffupdate<CR>
-
 "" Q closes windows; who needs Ex mode?
 nnoremap Q <C-W>q
-
-"" Make <Backspace> operate on [count] like <Delete> does
-noremap <expr> <BS> v:count ? "<Del>" : "<BS>"
 
 "" Map ' and g' to ` and g`
 noremap ' `
