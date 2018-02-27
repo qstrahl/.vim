@@ -139,6 +139,7 @@ Plug 'w0rp/ale'
 Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'junegunn/gv.vim'
+Plug 'styled-components/vim-styled-components'
 
 call plug#end()
 " }}}
