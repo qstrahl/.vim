@@ -66,6 +66,12 @@ let g:solarized_use16 = 1
 let g:tern#command = ['tern']
 let g:tern#arguments = ['--persistent']
 " }}}
+" ultisnips {{{
+let g:UltiSnipsExpandTrigger = '<C-Space>'
+let g:UltiSnipsListSnippets = '<Nop>'
+let g:UltiSnipsJumpForwardTrigger = '<C-Space>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-S-Space>'
+" }}}
 
 " load plugins! {{{
 let g:plug_window = '-tabnew'
@@ -100,6 +106,8 @@ Plug 'lifepillar/vim-solarized8'
 Plug 'Raimondi/delimitMate'
 Plug 'ternjs/tern_for_vim', { 'do': 'npm install -g tern' }
 Plug 'sickill/vim-pasta'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim'
 Plug 'carlitux/deoplete-ternjs'
 Plug 'justinmk/vim-dirvish'
