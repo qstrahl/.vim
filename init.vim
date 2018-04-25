@@ -169,6 +169,10 @@ set wildignorecase
 set wildmode=longest:full,full
 " }}}
 " maps {{{
+"" tab completion
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-d>"
+
 "" I'm slow to release shift :<
 map <S-Space> <Space>
 map! <S-Space> <Space>
