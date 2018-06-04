@@ -21,6 +21,7 @@ let g:delimitMate_expand_inside_quotes = 1
 let g:delimitMate_insert_eol_marker = 0
 let g:delimitMate_jump_expansion = 1
 let g:delimitMate_balance_matchpairs = 1
+let g:delimitMate_excluded_regions = ""
 " }}}
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
