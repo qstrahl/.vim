@@ -181,6 +181,10 @@ map! <S-Space> <Space>
 vnoremap <expr> <C-D><C-O> ":" . (v:count ? v:count : '') . "diffget<CR>"
 vnoremap <expr> <C-D><C-P> ":" . (v:count ? v:count : '') . "diffput<CR>"
 
+"" toggle diffopt=iwhite a la vim-unimpaired
+nnoremap [w :<C-U>set diffopt+=iwhite<CR>
+nnoremap ]w :<C-U>set diffopt-=iwhite<CR>
+
 "" sort visual selection
 vnoremap <Leader>s :sort<CR>
 vnoremap <Leader>S :sort n<CR>
