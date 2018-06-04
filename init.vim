@@ -15,7 +15,7 @@ let g:ale_sign_style_error = g:ale_sign_error
 let g:ale_sign_style_warning = g:ale_sign_warning
 " }}}
 " delimitMate {{{
-let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_cr = 2
 let g:delimitMate_expand_space = 1
 let g:delimitMate_expand_inside_quotes = 1
 let g:delimitMate_insert_eol_marker = 0
