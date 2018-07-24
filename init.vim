@@ -79,6 +79,7 @@ let g:plug_window = '-tabnew'
 exe 'source' config_dir . '/vim-plug/plug.vim'
 call plug#begin(config_dir . '/bundle')
 
+Plug 'junegunn/vim-plug'
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-abolish'
