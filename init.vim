@@ -28,6 +28,9 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#docs = 1
 " }}}
+" diffchar  {{{
+let g:DiffPairVisible = 0
+" }}}
 " exchange {{{
 let g:exchange_indent = 1
 " }}}
@@ -135,6 +138,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'junegunn/gv.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'rickhowe/diffchar.vim'
 
 call plug#end()
 " }}}
