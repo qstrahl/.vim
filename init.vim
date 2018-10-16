@@ -150,7 +150,7 @@ call plug#end()
 " options {{{
 set clipboard=unnamedplus
 set completeopt=menu,menuone
-set diffopt=filler,vertical,foldcolumn:0
+set diffopt=filler,vertical,iwhite,foldcolumn:0
 set expandtab
 set fillchars=diff:╱,fold:-,vert:│
 set foldlevelstart=99
