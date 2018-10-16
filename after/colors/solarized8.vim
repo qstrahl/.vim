@@ -20,7 +20,7 @@ highlight WildMenu              cterm=bold                      ctermfg=15
 
 highlight QuickFixLine          cterm=bold
 
-highlight ErrorSign             cterm=bold      ctermbg=0       ctermfg=1 
+highlight ErrorSign             cterm=bold      ctermbg=0       ctermfg=1
 highlight StyleErrorSign        cterm=none      ctermbg=0       ctermfg=1 
 highlight WarningSign           cterm=bold      ctermbg=0       ctermfg=3 
 highlight StyleWarningSign      cterm=none      ctermbg=0       ctermfg=3 
