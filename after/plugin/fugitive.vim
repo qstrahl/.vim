@@ -7,7 +7,7 @@ augroup END
 function! s:DoStuff ()
   nnoremap <buffer> <Leader>d :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>
   nnoremap <buffer> <Leader>e :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>
-  nnoremap <buffer> <Leader>s :<C-U>Gstatus<CR>
+  nnoremap <buffer> <Leader>s :<C-U>botright Gstatus<CR>
 
   if exists(':Glcd')
     augroup AutoGlcd
