@@ -1,4 +1,11 @@
 function! foldtext#foldtext ()
+  "" Compute the number of lines folded
+  let folded = v:foldend - v:foldstart
+
+  if &diff
+    return v:folddashes . '[ ' . folded . ' ' . (folded == 1 ? 'line' : 'lines') . ' folded ]'
+  endif
+
   "" Get the character used for fold dashes
   let dash = v:folddashes[0]
 
@@ -28,14 +35,11 @@ function! foldtext#foldtext ()
     endif
   endfor
 
-  "" Compute the number of lines folded
-  let folded = v:foldend - v:foldstart
-
   "" Create a little comment about how many lines have been folded
   let comment = printf(&commentstring, ' ' . folded . ' ' . (folded == 1 ? 'line' : 'lines') . ' folded')
 
   let text = dashes . start . commentsummary . '…'
-  if !&diff | let text .= (len(commentsummary) ? ' ' : '') . end | endif
+  let text .= (len(commentsummary) ? ' ' : '') . end
   let text .= ' ' . comment
 
   return text
