@@ -30,6 +30,8 @@ let g:deoplete#sources#ternjs#docs = 1
 " }}}
 " diffchar  {{{
 let g:DiffPairVisible = 0
+" needed to play nice with *my* auto-diffupdate
+let g:DiffUpdate = 0
 " }}}
 " diff-enhanced {{{
 let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
@@ -256,7 +258,8 @@ augroup MyAutocmds
   autocmd BufAdd ?*.* exe 'set suffixesadd+=.'.expand('<amatch>:e')
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd VimResized * wincmd =
-  autocmd TextChanged,TextChangedI,InsertLeave * silent! diffupdate
+  " has to be nested to play nice with diffchar
+  autocmd TextChanged,InsertLeave * nested diffupdate
   autocmd Syntax * syntax sync fromstart
 augroup END
 " }}}
