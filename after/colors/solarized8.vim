@@ -4,10 +4,10 @@ highlight! link Substitute IncSearch
 
 highlight Comment               cterm=italic
 
-highlight DiffChange            cterm=none                      ctermfg=none
-highlight DiffAdd               cterm=none      ctermbg=0       ctermfg=none
-highlight DiffText              cterm=bold                      ctermfg=none
-highlight DiffDelete            cterm=none      ctermbg=bg      ctermfg=0
+highlight DiffChange            cterm=none      ctermbg=0       ctermfg=none
+highlight DiffAdd               cterm=none      ctermbg=23      ctermfg=none
+highlight DiffText              cterm=bold      ctermbg=24      ctermfg=none
+highlight DiffDelete            cterm=none      ctermbg=bg      ctermfg=95
 
 highlight TabLine               cterm=none      ctermbg=0       ctermfg=11
 highlight TabLineSel            cterm=none      ctermbg=0       ctermfg=14
