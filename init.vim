@@ -261,7 +261,6 @@ augroup MyAutocmds
   " has to be nested to play nice with diffchar
   autocmd TextChanged,InsertLeave * nested diffupdate
   autocmd Syntax * syntax sync fromstart
-  autocmd CursorMoved,InsertEnter,InsertLeave,TextChanged,WinLeave * exe &scrollbind ? 'normal zzze' : ''
 augroup END
 " }}}
 " colorscheme {{{
