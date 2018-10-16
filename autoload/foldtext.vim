@@ -32,7 +32,7 @@ function! foldtext#foldtext ()
   let folded = v:foldend - v:foldstart
 
   "" Create a little comment about how many lines have been folded
-  let comment = printf(&commentstring, ' ' . folded . ' lines folded')
+  let comment = printf(&commentstring, ' ' . folded . ' ' . (folded == 1 ? 'line' : 'lines') . ' folded')
 
   let text = dashes . start . commentsummary . '…'
   if !&diff | let text .= (len(commentsummary) ? ' ' : '') . end | endif
