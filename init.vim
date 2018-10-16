@@ -31,6 +31,9 @@ let g:deoplete#sources#ternjs#docs = 1
 " diffchar  {{{
 let g:DiffPairVisible = 0
 " }}}
+" diff-enhanced {{{
+let &diffexpr='EnhancedDiff#Diff("git diff", "--diff-algorithm=histogram")'
+" }}}
 " exchange {{{
 let g:exchange_indent = 1
 " }}}
@@ -139,6 +142,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'junegunn/gv.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'rickhowe/diffchar.vim'
+Plug 'chrisbra/vim-diff-enhanced'
 
 call plug#end()
 " }}}
