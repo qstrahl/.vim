@@ -259,7 +259,7 @@ augroup MyAutocmds
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd VimResized * wincmd =
   " has to be nested to play nice with diffchar
-  autocmd TextChanged,InsertLeave * nested diffupdate
+  autocmd TextChanged,InsertLeave * nested if &diff | diffupdate | endif
   autocmd Syntax * syntax sync fromstart
 augroup END
 " }}}
