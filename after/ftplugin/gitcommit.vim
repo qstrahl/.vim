@@ -6,6 +6,6 @@ if expand('%:t') =~# '^index$'
 
   augroup AutoSizeGitCommit
     autocmd!
-    autocmd WinEnter,BufWinEnter,TextChanged <buffer> if &previewwindow | exe min([ line('$'), &previewheight ]) 'wincmd _' | endif
+    autocmd WinEnter,BufWinEnter,TextChanged <buffer> if &previewwindow | exe line('$') 'wincmd _' | endif
   augroup END
 endif
