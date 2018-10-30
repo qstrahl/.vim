@@ -1,3 +1,6 @@
+"" Change the current directory of the window to this directory
+lcd %
+
 "" make dirvish buffers BufWinEnter and BufWinLeave like normal buffers
 exe 'doautocmd BufWinEnter' bufnr('%')
 augroup DirvishBufWinLeave
@@ -14,6 +17,3 @@ silent! sort ir :\v[^/]+$:
 
 "" Force an undo point
 let &undolevels = &undolevels
-
-"" Change the current directory of the window to this directory
-lcd %
