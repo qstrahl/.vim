@@ -2,9 +2,9 @@ highlight! link Folded Comment
 highlight! link SignColumn FoldColumn
 highlight! link Substitute IncSearch
 
-exe 'highlight DiffChange       gui=none        guibg=' . g:terminal_color_0 . '        guifg=none'
+exe 'highlight DiffChange       gui=none        guibg=#183040                           guifg=none'
 exe 'highlight DiffAdd          gui=none        guibg=#003333                           guifg=none'
-exe 'highlight DiffText         gui=bold        guibg=#003366                           guifg=none'
+exe 'highlight DiffText         gui=none        guibg=#183040                           guifg=#D0D0D0'
 exe 'highlight DiffDelete       gui=none        guibg=bg                                guifg=#663333'
 
 exe 'highlight TabLine          gui=none        guibg=' . g:terminal_color_0 . '        guifg=' . g:terminal_color_11
