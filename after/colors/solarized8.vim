@@ -25,12 +25,12 @@ exe 'highlight StyleWarningSign gui=none        guibg=' . g:terminal_color_0 . '
 exe 'highlight InfoSign         gui=bold        guibg=' . g:terminal_color_0 . '        guifg=' . g:terminal_color_4 
 exe 'highlight MessageSign      gui=bold        guibg=' . g:terminal_color_0 . '        guifg=fg'
 
-exe 'highlight ALEError         gui=underline,bold      guibg=NONE                      guifg=' . g:terminal_color_1
-exe 'highlight ALEStyleError    gui=underline,none      guibg=NONE                      guifg=' . g:terminal_color_1 
-exe 'highlight ALEWarning       gui=underline,bold      guibg=NONE                      guifg=' . g:terminal_color_3 
-exe 'highlight ALEStyleWarning  gui=underline,none      guibg=NONE                      guifg=' . g:terminal_color_3 
-exe 'highlight ALEInfo          gui=underline,bold      guibg=NONE                      guifg=' . g:terminal_color_4 
-exe 'highlight ALEMessage       gui=underline,bold      guibg=NONE                      guifg=fg'
+exe 'highlight ALEError         gui=underline,bold      guibg=none                      guifg=' . g:terminal_color_1
+exe 'highlight ALEStyleError    gui=underline,none      guibg=none                      guifg=' . g:terminal_color_1 
+exe 'highlight ALEWarning       gui=underline,bold      guibg=none                      guifg=' . g:terminal_color_3 
+exe 'highlight ALEStyleWarning  gui=underline,none      guibg=none                      guifg=' . g:terminal_color_3 
+exe 'highlight ALEInfo          gui=underline,bold      guibg=none                      guifg=' . g:terminal_color_4 
+exe 'highlight ALEMessage       gui=underline,bold      guibg=none                      guifg=fg'
 
 highlight! link ALEErrorSign            ErrorSign
 highlight! link ALEWarningSign          WarningSign
