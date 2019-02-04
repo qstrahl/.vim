@@ -174,6 +174,9 @@ set smartcase
 set softtabstop=8
 set splitbelow
 set splitright
+if $TERM =~ 'tmux' || $TERM =~ 'xterm'
+  set termguicolors
+endif
 set textwidth=120
 set undofile
 set viewoptions=folds,cursor
@@ -266,6 +269,7 @@ augroup END
 " }}}
 " colorscheme {{{
 set background=dark
+let g:solarized_term_italics = 1
 colorscheme solarized8
 exe 'doautocmd ColorScheme' g:colors_name
 " }}}
