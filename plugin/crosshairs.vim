@@ -1,27 +1,27 @@
 augroup Crosshairs
   autocmd!
-  autocmd BufLeave,WinLeave,BufWinLeave * call s:Remove()
-  autocmd BufEnter,WinEnter,BufWinEnter * call s:Restore()
+  autocmd WinLeave * call s:Remove()
+  autocmd WinEnter * call s:Restore()
 augroup END
 
 function! s:Remove()
   if getwinvar(0, '&cursorline')
-    let b:restore_cursorline = 1
+    let w:restore_cursorline = 1
     setlocal nocursorline
   endif
   if getwinvar(0, '&cursorcolumn')
-    let b:restore_cursorcolumn = 1
+    let w:restore_cursorcolumn = 1
     setlocal nocursorcolumn
   endif
 endfunction
 
 function! s:Restore()
-  if get(b:, 'restore_cursorline')
+  if get(w:, 'restore_cursorline')
     setlocal cursorline
-    unlet b:restore_cursorline
+    unlet w:restore_cursorline
   endif
-  if get(b:, 'restore_cursorcolumn')
+  if get(w:, 'restore_cursorcolumn')
     setlocal cursorcolumn
-    unlet b:restore_cursorcolumn
+    unlet w:restore_cursorcolumn
   endif
 endfunction
