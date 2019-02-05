@@ -10,6 +10,8 @@ function! s:SetupGitIndex ()
   exe 'resize' line('$')
   exe "normal \<C-n>"
   setlocal winfixheight cursorline
+  map <buffer> j <C-n>
+  map <buffer> k <C-p>
 
   augroup CustomFugitiveGitStatus
     autocmd!
@@ -22,7 +24,10 @@ endfunction
 function! s:DoStuff ()
   nnoremap <buffer> <Leader>d :<C-U>Gdiff<C-R>=v:count?' ~'.v:count :''<CR><CR>
   nnoremap <buffer> <Leader>e :<C-U>Gedit<C-R>=v:count?' ~'.v:count :''<CR><CR>
+  nnoremap <buffer> <Leader>l :<C-U>0Glog<C-R>=v:count?' HEAD~'.v:count.'..' :''<CR><CR>
   nnoremap <buffer> <Leader>s :<C-U>botright Gstatus<CR>
+
+  vnoremap <buffer> <Leader>l :Glog<C-R>=v:count?' HEAD~'.v:count.'..' :''<CR><CR>
 
   "" FZF integration
   if exists(':GitFiles')
