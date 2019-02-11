@@ -11,8 +11,6 @@ function! s:MakeDirs ()
     let dirs += [g:UltiSnipsSnippetsDir]
   endif
   for dir in dirs
-    if empty(finddir(dir))
-      call mkdir(dir, 'p')
-    endif
+    silent! call mkdir(dir, 'p')
   endfor
 endfunction
