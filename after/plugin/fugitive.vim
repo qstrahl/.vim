@@ -16,7 +16,7 @@ function! s:SetupGitIndex ()
   augroup CustomFugitiveGitStatus
     autocmd!
     autocmd TextChanged <buffer=abuf> exe 'resize' line('$')
-    autocmd BufLeave <buffer=abuf> if bufnr(0) == expand('<abuf>') | set winfixheight< cursorline<
+    autocmd BufLeave <buffer=abuf> if bufnr(0) == expand('<abuf>') | set winfixheight< cursorline< | wincmd = | endif
     autocmd WinLeave <buffer=abuf> exe 'resize' line('$')
   augroup END
 endfunction
