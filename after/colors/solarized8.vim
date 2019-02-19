@@ -8,7 +8,7 @@ highlight DiffText              cterm=none      ctermbg=24      ctermfg=250
 highlight DiffDelete            cterm=none      ctermbg=bg      ctermfg=95
 exe 'highlight DiffChange       gui=none        guibg=#183040                           guifg=none'
 exe 'highlight DiffAdd          gui=none        guibg=#003333                           guifg=none'
-exe 'highlight DiffText         gui=none        guibg=#183040                           guifg=#D0D0D0'
+exe 'highlight DiffText         gui=none        guibg=#2a4860                           guifg=#D0D0D0'
 exe 'highlight DiffDelete       gui=none        guibg=bg                                guifg=#663333'
 
 highlight TabLine               cterm=none      ctermbg=0       ctermfg=11
