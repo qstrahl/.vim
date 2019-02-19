@@ -56,6 +56,10 @@ exe 'highlight ALEStyleWarning  gui=underline,none      guibg=none              
 exe 'highlight ALEInfo          gui=underline,bold      guibg=none                      guifg=' . g:terminal_color_4 
 exe 'highlight ALEMessage       gui=underline,bold      guibg=none                      guifg=fg'
 
+highlight! link fzf1 StatusLine
+highlight! link fzf2 StatusLine
+highlight! link fzf3 StatusLine
+
 highlight! link ALEErrorSign            ErrorSign
 highlight! link ALEWarningSign          WarningSign
 highlight! link ALEStyleErrorSign       StyleErrorSign
