@@ -142,7 +142,7 @@ call plug#end()
 " options {{{
 set clipboard=unnamedplus
 set completeopt=menu,menuone
-set diffopt=filler,vertical,iwhite,foldcolumn:0
+set diffopt=internal,indent-heuristic,algorithm:histogram,hiddenoff,filler,vertical,iwhite,foldcolumn:0
 set expandtab
 set fillchars=diff:╱,fold:-,vert:│
 set foldlevelstart=99
