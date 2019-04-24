@@ -25,8 +25,6 @@ let g:delimitMate_excluded_regions = ""
 " }}}
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#ternjs#types = 1
-let g:deoplete#sources#ternjs#docs = 1
 " }}}
 " exchange {{{
 let g:exchange_indent = 1
@@ -45,6 +43,12 @@ let g:javascript_plugin_ngdoc = 1
 " jsx {{{
 let g:jsx_ext_required = 0
 " }}}
+" LanguageClient-neovim {{{
+let g:LanguageClient_serverCommands = {
+      \ 'javascript': ['javascript-typescript-langserver'],
+      \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
+\ }
+" }}}
 " localvimrc {{{
 let g:localvimrc_ask = 0
 " }}}
@@ -62,10 +66,6 @@ let g:skipview_files = ['COMMIT_EDITMSG', '\.git/\(\f*/\)*index']
 " }}}
 " solarized8 {{{
 let g:solarized_use16 = 1
-" }}}
-" tern_for_vim {{{
-let g:tern#command = ['tern']
-let g:tern#arguments = ['--persistent']
 " }}}
 " ultisnips {{{
 let g:UltiSnipsExpandTrigger = '<C-Space>'
@@ -107,12 +107,10 @@ Plug 'PeterRincker/vim-argumentative'
 Plug 'haya14busa/vim-asterisk'
 Plug 'lifepillar/vim-solarized8'
 Plug 'Raimondi/delimitMate'
-Plug 'ternjs/tern_for_vim', { 'do': 'npm install -g tern' }
 Plug 'sickill/vim-pasta'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'carlitux/deoplete-ternjs'
 Plug 'justinmk/vim-dirvish'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
 Plug 'cakebaker/scss-syntax.vim'
@@ -136,6 +134,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'junegunn/gv.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
 
 call plug#end()
 " }}}
