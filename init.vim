@@ -119,7 +119,7 @@ Plug 'ternjs/tern_for_vim', { 'do': 'npm install -g tern' }
 Plug 'sickill/vim-pasta'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'carlitux/deoplete-ternjs'
 Plug 'justinmk/vim-dirvish'
 Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
