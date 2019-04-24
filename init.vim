@@ -26,6 +26,11 @@ let g:delimitMate_excluded_regions = ""
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
 " }}}
+" diffchar  {{{                                 
+let g:DiffPairVisible = 0                       
+" needed to play nice with *my* auto-diffupdate 
+let g:DiffUpdate = 0                            
+" }}}                                           
 " exchange {{{
 let g:exchange_indent = 1
 " }}}
@@ -135,6 +140,7 @@ Plug 'vim-pandoc/vim-pandoc'
 Plug 'junegunn/gv.vim'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+Plug 'rickhowe/diffchar.vim'
 
 call plug#end()
 " }}}
