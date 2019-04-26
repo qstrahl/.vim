@@ -28,8 +28,6 @@ let g:deoplete#enable_at_startup = 1
 " }}}
 " diffchar  {{{                                 
 let g:DiffPairVisible = 0                       
-" needed to play nice with *my* auto-diffupdate 
-let g:DiffUpdate = 0                            
 " }}}                                           
 " exchange {{{
 let g:exchange_indent = 1
@@ -258,7 +256,7 @@ augroup MyAutocmds
   autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
   autocmd VimResized * wincmd =
   " has to be nested to play nice with diffchar
-  autocmd TextChanged,InsertLeave * nested if &diff | diffupdate | endif
+  autocmd TextChanged,InsertLeave * if &diff | diffupdate | endif
   autocmd Syntax * syntax sync fromstart
 augroup END
 " }}}
