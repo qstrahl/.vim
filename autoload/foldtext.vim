@@ -56,3 +56,5 @@ function! s:uncomment (text)
 
   return substitute(a:text, find, '\1', '')
 endfunction
+
+set foldtext=foldtext#foldtext()

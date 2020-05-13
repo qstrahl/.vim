@@ -1,11 +1,10 @@
-map *   <Plug>(asterisk-*)
-map #   <Plug>(asterisk-#)
-map g*  <Plug>(asterisk-g*)
-map g#  <Plug>(asterisk-g#)
-map z*  <Plug>(asterisk-z*)
-map gz* <Plug>(asterisk-gz*)
-map z#  <Plug>(asterisk-z#)
-map gz# <Plug>(asterisk-gz#)
+map *   <Plug>(asterisk-z*)
+map #   <Plug>(asterisk-z#)
+map g*  <Plug>(asterisk-zg*)
+map g#  <Plug>(asterisk-zg#)
 
-"" Why not?
-let g:asterisk#keepops = 1
+for op in ['*', '#', 'g*', 'g#']
+  let n = {'*':'n', '#':'N'}[op[-1:]]
+  exe "onoremap <expr> " . op . " '\<C-\>\<C-N>:normal " . op . "\<CR>' . v:operator . 'g" . n . "'"
+endfor
+unlet op n

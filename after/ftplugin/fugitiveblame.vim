@@ -1,2 +1,2 @@
-setlocal winfixwidth
-setlocal cursorline
+setlocal winfixwidth cursorline
+let b:undo_ftplugin = 'setlocal winfixwidth< cursorline<'

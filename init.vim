@@ -1,27 +1,71 @@
 " vim: set foldmethod=marker:
 " Author: Quinn Strahl
 
-let config_dir = expand('<sfile>:h')
-let mapleader=' '
+" options {{{
+setglobal clipboard=unnamedplus
+setglobal completeopt=menu,menuone
+setglobal diffopt=internal,indent-heuristic,algorithm:histogram,hiddenoff,filler,vertical,iwhite,foldcolumn:0
+setglobal expandtab
+setglobal fillchars=vert:\ ,diff:╱,fold:-
+setglobal foldlevelstart=99
+setglobal guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250
+setglobal hidden
+setglobal ignorecase
+setglobal inccommand=nosplit
+setglobal mouse=ar
+setglobal nostartofline
+setglobal nowrap
+setglobal path=**
+setglobal pumheight=13
+setglobal redrawtime=10000
+setglobal report=0
+setglobal scrolloff=0
+setglobal shada=!,%,'999,h,r/tmp,r*/COMMIT_EDITMSG
+setglobal shell=/usr/bin/env\ sh
+setglobal shiftwidth=2
+setglobal showtabline=1
+setglobal smartcase
+setglobal softtabstop=8
+setglobal splitbelow
+setglobal splitright
+" setglobal statusline=%!statusline#render()
+" setglobal tabline=%!tabline#render()
+setglobal textwidth=120
+setglobal ttimeoutlen=-1
+setglobal virtualedit=block
+setglobal wildignorecase
+setglobal wildmode=longest:full,full
+setglobal winminheight=0
 
-"" old habits die hard
-map \ <Leader>
+setglobal winminwidth=0
 
+" let &termguicolors = $TERM =~ 'tmux\|xterm'
+
+let g:mapleader="\<Space>"
+let g:maplocalleader='\'
+" }}}
+" Initialization / plugin system setup {{{
+" automatic auto-grouping for your autocommands!
+let $CONFIG = resolve(stdpath('config'))
+let s:augroupidx = len($CONFIG) + 1
+function! s:augroup ()
+  exe 'augroup' expand('<afile>:p:r')[s:augroupidx:]
+  autocmd!
+endfunction
+augroup init
+  autocmd! init SourcePre $CONFIG/* call s:augroup()
+augroup END
+" }}}
 " ale {{{
+let g:ale_set_loclist = 0
 let g:ale_sign_error = '✕'
 let g:ale_sign_warning = '!'
 let g:ale_sign_info = 'i'
 let g:ale_sign_style_error = g:ale_sign_error 
 let g:ale_sign_style_warning = g:ale_sign_warning
 " }}}
-" delimitMate {{{
-let g:delimitMate_expand_cr = 2
-let g:delimitMate_expand_space = 1
-let g:delimitMate_expand_inside_quotes = 1
-let g:delimitMate_insert_eol_marker = 0
-let g:delimitMate_jump_expansion = 1
-let g:delimitMate_balance_matchpairs = 1
-let g:delimitMate_excluded_regions = ""
+" asterisk {{{
+let g:asterisk#keeppos = 1
 " }}}
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
@@ -29,240 +73,93 @@ let g:deoplete#enable_at_startup = 1
 " diffchar  {{{                                 
 let g:DiffPairVisible = 0                       
 " }}}                                           
+" easy_align {{{
+let g:easy_align_bypass_fold = 1
+" }}}
 " exchange {{{
 let g:exchange_indent = 1
 " }}}
 " fzf {{{
-nmap <Leader>f :<C-U>Files<CR>
 let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
 " }}}
 " GV {{{
-map <Leader>v :GV<CR>
-" }}}
-" javascript {{{
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_ngdoc = 1
-" }}}
-" jsx {{{
-let g:jsx_ext_required = 0
 " }}}
 " LanguageClient-neovim {{{
 let g:LanguageClient_serverCommands = {
-      \ 'javascript': ['javascript-typescript-langserver'],
+      \ 'javascript': ['javascript-typescript-langserver', '-l', '.javascript-typescript-langserver.log'],
       \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
 \ }
 " }}}
-" localvimrc {{{
-let g:localvimrc_ask = 0
+" lion {{{
+let g:lion_squeeze_spaces = 1
+let g:lion_map_right = 'glr'
+let g:lion_map_left = 'gll'
 " }}}
 " netrw {{{
 " just disable the damn thing
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
 " }}}
-" pandoc {{{
-let g:pandoc#syntax#conceal#urls = 1
-let g:pandoc#folding#fdc = 0
-" }}}
-" restore_view {{{
-let g:skipview_files = ['COMMIT_EDITMSG', '\.git/\(\f*/\)*index']
-" }}}
-" solarized8 {{{
-let g:solarized_use16 = 1
+" qf (quickfix) {{{
+let g:qf_mapping_ack_style = 1
+let g:qf_loclist_window_bottom = 0
 " }}}
 " ultisnips {{{
-let g:UltiSnipsExpandTrigger = '<C-Space>'
-let g:UltiSnipsListSnippets = '<Nop>'
-let g:UltiSnipsJumpForwardTrigger = '<C-Space>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-S-Space>'
+let g:UltiSnipsExpandTrigger = "\<Nop>" " I prefer to use :Snippets from FZF
+let g:UltiSnipsListSnippets = "\<Nop>"
+let g:UltiSnipsJumpForwardTrigger = "\<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "\<S-Tab>"
 " }}}
-
 " load plugins! {{{
-let g:plug_window = '-tabnew'
-exe 'source' config_dir . '/vim-plug/plug.vim'
-call plug#begin(config_dir . '/bundle')
+let g:plug_window = 'enew'
+let s:plug_dir = stdpath('data') . '/plugged'
+silent! exe 'source' s:plug_dir . '/vim-plug/plug.vim'
+try | call plug#begin(s:plug_dir)
+catch /^Vim(call):E117/
+  let s:plug_git = 'https://github.com/junegunn/vim-plug.git'
+  silent exe '!git clone --depth 1' s:plug_git  s:plug_dir . '/vim-plug'
+  call plug#begin(s:plug_dir)
+endtry
 
-Plug 'junegunn/vim-plug'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sleuth'
-Plug 'mbbill/undotree'
-Plug 'perrywky/vim-matchit'
-Plug 'tpope/vim-characterize'
-Plug 'tpope/vim-eunuch'
-Plug 'qstrahl/vim-matchmaker'
-Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
-Plug 'othree/html5.vim'
-Plug 'tommcdo/vim-lion'
-Plug 'tommcdo/vim-exchange'
-Plug 'kchmck/vim-coffee-script'
-Plug 'tpope/vim-projectionist'
-Plug 'leshill/vim-json'
-Plug 'qstrahl/vim-dentures'
-Plug 'wellle/targets.vim'
-Plug 'PeterRincker/vim-argumentative'
-Plug 'haya14busa/vim-asterisk'
-Plug 'lifepillar/vim-solarized8'
-Plug 'Raimondi/delimitMate'
-Plug 'sickill/vim-pasta'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'justinmk/vim-dirvish'
-Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
-Plug 'cakebaker/scss-syntax.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'elixir-lang/vim-elixir'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'jparise/vim-graphql'
-Plug 'embear/vim-localvimrc'
-Plug 'guns/vim-sexp' | Plug 'tpope/vim-sexp-mappings-for-regular-people'
-Plug 'tpope/vim-scriptease'
-Plug 'tpope/vim-tbone'
-Plug 'tpope/vim-ragtag'
-Plug 'romainl/vim-qf'
-Plug 'stephenway/postcss.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'AndrewRadev/splitjoin.vim'
-Plug 'vim-scripts/restore_view.vim'
-Plug 'w0rp/ale'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'junegunn/gv.vim'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-Plug 'rickhowe/diffchar.vim'
-
+if &loadplugins
+  Plug 'junegunn/vim-plug'
+  Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
+  Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-repeat'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-sleuth'
+  Plug 'mbbill/undotree'
+  Plug 'perrywky/vim-matchit'
+  Plug 'tpope/vim-characterize'
+  Plug 'tpope/vim-eunuch'
+  Plug 'qstrahl/vim-matchmaker'
+  Plug 'tommcdo/vim-lion'
+  Plug 'tommcdo/vim-exchange'
+  Plug 'qstrahl/vim-dentures'
+  Plug 'wellle/targets.vim'
+  Plug 'haya14busa/vim-asterisk'
+  Plug 'sickill/vim-pasta'
+  Plug 'SirVer/ultisnips'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'honza/vim-snippets'
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'justinmk/vim-dirvish'
+  Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
+  Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
+  Plug 'junegunn/fzf.vim'
+  Plug 'tpope/vim-scriptease'
+  Plug 'romainl/vim-qf'
+  Plug 'AndrewRadev/splitjoin.vim'
+  Plug 'w0rp/ale'
+  Plug 'junegunn/gv.vim'
+  Plug 'junegunn/vim-easy-align'
+  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+  " Plug 'rickhowe/diffchar.vim'
+  Plug 'sheerun/vim-polyglot'
+endif
 call plug#end()
 " }}}
 
-" options {{{
-set clipboard=unnamedplus
-set completeopt=menu,menuone
-set diffopt=internal,indent-heuristic,algorithm:histogram,hiddenoff,filler,vertical,iwhite,foldcolumn:0
-set expandtab
-set fillchars=diff:╱,fold:-,vert:│
-set foldlevelstart=99
-set foldtext=foldtext#foldtext()
-set guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250
-set hidden
-set ignorecase
-set inccommand=nosplit
-set mouse=a
-set nowrap
-set path=**
-set pumheight=13
-set report=0
-set scrolloff=999
-set shell=sh
-set shiftwidth=2
-set smartcase
-set softtabstop=8
-set splitbelow
-set splitright
-if $TERM =~ 'tmux' || $TERM =~ 'xterm'
-  set termguicolors
-endif
-set textwidth=120
-set undofile
-set viewoptions=folds,cursor
-set virtualedit=all
-set wildignorecase
-set wildmode=longest:full,full
-" }}}
-" maps {{{
-"" tab completion
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<C-d>"
-
-"" I'm slow to release shift :<
-map <S-Space> <Space>
-map! <S-Space> <Space>
-
-"" visual diffget and diffput
-vnoremap <expr> <C-D><C-O> ":" . (v:count ? v:count : '') . "diffget<CR>"
-vnoremap <expr> <C-D><C-P> ":" . (v:count ? v:count : '') . "diffput<CR>"
-
-"" toggle diffopt=iwhite a la vim-unimpaired
-nnoremap [w :<C-U>set diffopt+=iwhite<CR>
-nnoremap ]w :<C-U>set diffopt-=iwhite<CR>
-
-"" sort visual selection
-vnoremap <Leader>s :sort<CR>
-vnoremap <Leader>S :sort n<CR>
-
-"" Why would <C-BS> do anything other than <C-W> in insert mode?!
-inoremap <C-BS> <C-W>
-
-"" I like splitting
-nnoremap _ <C-W>s
-nnoremap \| <C-W>v
-nnoremap <expr> +  "<C-W>s" . (v:count ? v:count : tabpagenr()) . "<C-W>T"
-
-"" I like the home row
-inoremap <C-j> <C-n>
-inoremap <C-k> <C-p>
-cnoremap <C-j> <Down>
-cnoremap <C-k> <Up>
-
-"" Backtick is ge, U is tilde
-noremap ` ge
-noremap ~ gE
-onoremap ` ge
-onoremap ~ gE
-noremap U ~
-
-"" Q closes windows; who needs Ex mode?
-nnoremap Q <C-W>q
-
-"" Map ' and g' to ` and g`
-noremap ' `
-noremap g' g`
-
-"" Make Y consistent with C and D
-nnoremap Y y$
-
-"" Pull the line under the cursor into the command line
-cnoremap <expr> <C-R><C-L> substitute(getline('.'), '^\s\+', '', '')
-
-"" Text object meaning 'a fold'
-vnoremap <expr> az &foldenable ? "V[zo]z" : ""
-onoremap <expr> az "<C-c>" . (&foldenable ? "V[zo]z" . v:operator : "")
-
-"" Clear formatting whitespace on the current line / selected region
-nnoremap <silent> <Leader>w :s/\(^\s*\)\@<! \{2,}/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>
-vnoremap <silent> <Leader>w :s/\%V\(^\s*\)\@<! \{2,}\%V/ /ge<Bar>call histdel("search",-1)<Bar>let @/ = histget("search",-1)<CR>gv
-
-"" Clear search highlighting
-nnoremap <Leader>/ :<C-U>noh<CR>
-
-"" Map for configuring fast
-noremap <Leader>c :Config<CR>
-" }}}
-" commands {{{
-command! Config exe 'keepalt -tabedit' resolve($MYVIMRC)
-" }}}
-" autocmds {{{
-augroup MyAutocmds
-  autocmd!
-  autocmd BufAdd ?*.* exe 'set suffixesadd+=.'.expand('<amatch>:e')
-  autocmd ColorScheme * silent runtime after/colors/<amatch>.vim
-  autocmd VimResized * wincmd =
-  " has to be nested to play nice with diffchar
-  autocmd TextChanged,InsertLeave * if &diff | diffupdate | endif
-  autocmd Syntax * syntax sync fromstart
-augroup END
-" }}}
-" colorscheme {{{
-set background=dark
-let g:solarized_term_italics = 1
-colorscheme solarized8
-exe 'doautocmd ColorScheme' g:colors_name
-" }}}
+colorscheme mine
