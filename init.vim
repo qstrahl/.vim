@@ -147,7 +147,7 @@ if &loadplugins
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'justinmk/vim-dirvish'
   Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
-  Plug '/usr/share/vim/vimfiles/plugin/fzf.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-scriptease'
   Plug 'romainl/vim-qf'
