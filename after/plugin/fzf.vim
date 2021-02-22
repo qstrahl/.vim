@@ -8,4 +8,4 @@ nmap <Leader>f <Cmd>Files<CR>
 nmap <Leader>g <Cmd>GitFiles -co --exclude-standard<CR>
 nmap <Leader>b <Cmd>Buffers<CR>
 
-inoremap <silent> <C-S> <C-o>:Snippets<CR>
+" inoremap <silent> <C-S> <C-o>:Snippets<CR>
