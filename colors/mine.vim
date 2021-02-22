@@ -19,7 +19,7 @@ hi! ErrorMsg            cterm=italic            ctermfg=1       ctermbg=none
 hi! TermCursor          cterm=none              ctermfg=none    ctermbg=none
 hi! TermCursorNC        cterm=none              ctermfg=none    ctermbg=none
 hi! FoldColumn          cterm=none              ctermfg=none    ctermbg=0
-hi! IncSearch           cterm=bold,italic       ctermfg=0       ctermbg=3
+hi! IncSearch           cterm=bold              ctermfg=0       ctermbg=11
 hi! LineNr              cterm=none              ctermfg=8       ctermbg=none
 hi! CursorLineNr        cterm=none              ctermfg=none    ctermbg=0
 hi! MatchParen          cterm=bold              ctermfg=15      ctermbg=none
@@ -29,7 +29,7 @@ hi! PmenuSel            cterm=none              ctermfg=10      ctermbg=237
 hi! PmenuSbar           cterm=none              ctermfg=none    ctermbg=237
 hi! PmenuThumb          cterm=none              ctermfg=none    ctermbg=239
 hi! QuickFixLine        cterm=none              ctermfg=none    ctermbg=236
-hi! Search              cterm=bold              ctermfg=0       ctermbg=11
+hi! Search              cterm=none              ctermfg=0       ctermbg=11
 hi! SpecialKey          cterm=none              ctermfg=12      ctermbg=0
 hi! SpellBad            cterm=underline         ctermfg=9       ctermbg=none
 hi! StatusLine          cterm=none              ctermfg=10      ctermbg=0
@@ -78,7 +78,7 @@ hi! Statement            cterm=none              ctermfg=3       ctermbg=none
 " hi Keyword              cterm=none              ctermfg=none    ctermbg=none
 " hi Exception            cterm=none              ctermfg=none    ctermbg=none
 
-hi! PreProc              cterm=italic            ctermfg=4       ctermbg=none
+hi! PreProc              cterm=none              ctermfg=4       ctermbg=none
 " hi Include              cterm=none              ctermfg=none    ctermbg=none
 " hi Define               cterm=none              ctermfg=none    ctermbg=none
 " hi Macro                cterm=none              ctermfg=none    ctermbg=none
