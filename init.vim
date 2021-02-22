@@ -104,6 +104,9 @@ let g:loaded_netrwPlugin = 1
 let g:qf_mapping_ack_style = 1
 let g:qf_loclist_window_bottom = 0
 " }}}
+" ragtag {{{
+let g:ragtag_global_maps = 1
+" }}}
 " ultisnips {{{
 let g:UltiSnipsExpandTrigger = "\<Nop>" " I prefer to use :Snippets from FZF
 let g:UltiSnipsListSnippets = "\<Nop>"
@@ -158,6 +161,7 @@ if &loadplugins
   Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
   " Plug 'rickhowe/diffchar.vim'
   Plug 'sheerun/vim-polyglot'
+  Plug 'tpope/vim-ragtag'
 endif
 call plug#end()
 " }}}
