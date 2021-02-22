@@ -161,6 +161,7 @@ if &loadplugins
   Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
   " Plug 'rickhowe/diffchar.vim'
   Plug 'sheerun/vim-polyglot'
+  Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'tpope/vim-ragtag'
 endif
 call plug#end()
