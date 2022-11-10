@@ -1,7 +1,7 @@
-nnoremap gd <Cmd>Gdiffsplit!<CR>
-nnoremap ge <Cmd>Gedit<CR>
-nnoremap gl <Cmd>Gllog<CR>
-nnoremap gs <Cmd>Git<CR>
+nnoremap <Leader>gd <Cmd>Gdiffsplit!<CR>
+nnoremap <Leader>ge <Cmd>Gedit<CR>
+nnoremap <Leader>gl <Cmd>Gllog<CR>
+nnoremap <Leader>gs <Cmd>Git<CR>
 
 function! s:cd ()
   let dir = FugitiveWorkTree()
