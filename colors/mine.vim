@@ -12,7 +12,7 @@ hi! Conceal             cterm=none              ctermfg=none    ctermbg=none
 hi! Cursor              cterm=none              ctermfg=none    ctermbg=none
 hi! CursorIM            cterm=none              ctermfg=none    ctermbg=none
 hi! CursorColumn        cterm=none              ctermfg=none    ctermbg=0
-hi! CursorLine          cterm=none              ctermfg=none    ctermbg=0
+hi! CursorLine          cterm=none              ctermfg=none    ctermbg=236
 hi! Directory           cterm=bold              ctermfg=4       ctermbg=none
 hi! EndOfBuffer         cterm=none              ctermfg=8       ctermbg=none
 hi! ErrorMsg            cterm=italic            ctermfg=1       ctermbg=none
@@ -21,7 +21,7 @@ hi! TermCursorNC        cterm=none              ctermfg=none    ctermbg=none
 hi! FoldColumn          cterm=none              ctermfg=none    ctermbg=0
 hi! IncSearch           cterm=bold              ctermfg=0       ctermbg=11
 hi! LineNr              cterm=none              ctermfg=8       ctermbg=none
-hi! CursorLineNr        cterm=none              ctermfg=none    ctermbg=0
+hi! CursorLineNr        cterm=none              ctermfg=none    ctermbg=236
 hi! MatchParen          cterm=bold              ctermfg=15      ctermbg=none
 hi! NonText             cterm=bold              ctermfg=8       ctermbg=0
 hi! Pmenu               cterm=none              ctermfg=244     ctermbg=236
@@ -38,15 +38,15 @@ hi! Title               cterm=bold,italic       ctermfg=none    ctermbg=0
 hi! Todo                cterm=italic            ctermfg=10      ctermbg=none
 hi! User1               cterm=bold,reverse      ctermfg=10      ctermbg=0
 hi! VertSplit           cterm=none              ctermfg=0       ctermbg=0
-hi! Visual              cterm=none              ctermfg=none    ctermbg=237
+hi! Visual              cterm=none              ctermfg=none    ctermbg=238
 hi! WarningMsg          cterm=italic            ctermfg=9       ctermbg=none
 hi! Whitespace          cterm=reverse           ctermfg=none    ctermbg=none
 hi! WildMenu            cterm=bold              ctermfg=0       ctermbg=10
 
-hi! DiffAdd             cterm=none              ctermfg=none    ctermbg=0
-hi! DiffChange          cterm=none              ctermfg=none    ctermbg=0
-hi! DiffText            cterm=bold              ctermfg=none    ctermbg=236
-hi! DiffDelete          cterm=reverse           ctermfg=0       ctermbg=none
+hi! DiffAdd             cterm=none              ctermfg=none    ctermbg=236
+hi! DiffChange          cterm=none              ctermfg=none    ctermbg=236
+hi! DiffText            cterm=bold              ctermfg=none    ctermbg=237
+hi! DiffDelete          cterm=reverse           ctermfg=236     ctermbg=none
 
 hi! diffAdded           cterm=none              ctermfg=2       ctermbg=none
 hi! diffRemoved         cterm=none              ctermfg=1       ctermbg=none
