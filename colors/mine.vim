@@ -96,6 +96,8 @@ hi! Special              cterm=none              ctermfg=13      ctermbg=none
 " hi SpecialComment       cterm=none              ctermfg=none    ctermbg=none
 " hi Debug                cterm=none              ctermfg=none    ctermbg=none
 
+hi! Delimiter            cterm=none              ctermfg=6      ctermbg=none
+
 hi! Underlined           cterm=underline         ctermfg=none    ctermbg=none
 
 hi! Ignore               cterm=none              ctermfg=8       ctermbg=none
