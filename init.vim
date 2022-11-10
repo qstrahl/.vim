@@ -126,6 +126,7 @@ endtry
 
 if &loadplugins
   Plug 'junegunn/vim-plug'
+  Plug 'neovim/nvim-lspconfig'
   Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-unimpaired'
