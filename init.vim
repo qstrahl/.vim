@@ -149,6 +149,7 @@ if &loadplugins
   Plug 'jiangmiao/auto-pairs'
   " Plug 'honza/vim-snippets'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'deoplete-plugins/deoplete-lsp'
   Plug 'justinmk/vim-dirvish'
   Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -164,6 +165,8 @@ if &loadplugins
   " Plug 'sheerun/vim-polyglot'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'tpope/vim-ragtag'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
+  Plug 'ojroques/nvim-lspfuzzy'
 endif
 call plug#end()
 " }}}
