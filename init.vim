@@ -114,7 +114,7 @@ let g:UltiSnipsJumpForwardTrigger = "\<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "\<S-Tab>"
 " }}}
 " load plugins! {{{
-let g:plug_window = 'enew'
+let g:plug_window = '-tabnew'
 let s:plug_dir = stdpath('data') . '/plugged'
 silent! exe 'source' s:plug_dir . '/vim-plug/plug.vim'
 try | call plug#begin(s:plug_dir)
