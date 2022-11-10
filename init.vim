@@ -137,16 +137,16 @@ if &loadplugins
   Plug 'perrywky/vim-matchit'
   Plug 'tpope/vim-characterize'
   Plug 'tpope/vim-eunuch'
-  Plug 'qstrahl/vim-matchmaker'
-  Plug 'tommcdo/vim-lion'
-  Plug 'tommcdo/vim-exchange'
+  " Plug 'qstrahl/vim-matchmaker'
+  " Plug 'tommcdo/vim-lion'
+  " Plug 'tommcdo/vim-exchange'
   Plug 'qstrahl/vim-dentures'
   Plug 'wellle/targets.vim'
   Plug 'haya14busa/vim-asterisk'
   Plug 'sickill/vim-pasta'
-  Plug 'SirVer/ultisnips'
+  " Plug 'SirVer/ultisnips'
   Plug 'jiangmiao/auto-pairs'
-  Plug 'honza/vim-snippets'
+  " Plug 'honza/vim-snippets'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'justinmk/vim-dirvish'
   Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
@@ -155,12 +155,12 @@ if &loadplugins
   Plug 'tpope/vim-scriptease'
   Plug 'romainl/vim-qf'
   Plug 'AndrewRadev/splitjoin.vim'
-  Plug 'w0rp/ale'
-  Plug 'junegunn/gv.vim'
+  " Plug 'dense-analysis/ale'
+  " Plug 'junegunn/gv.vim'
   Plug 'junegunn/vim-easy-align'
-  Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
+  " Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
   " Plug 'rickhowe/diffchar.vim'
-  Plug 'sheerun/vim-polyglot'
+  " Plug 'sheerun/vim-polyglot'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'tpope/vim-ragtag'
 endif
