@@ -165,6 +165,7 @@ if &loadplugins
   " Plug 'sheerun/vim-polyglot'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'tpope/vim-ragtag'
+  Plug 'tpope/vim-obsession'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
   Plug 'ojroques/nvim-lspfuzzy'
 endif
