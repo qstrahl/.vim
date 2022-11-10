@@ -12,7 +12,7 @@ xnoremap gl <Cmd>exe "'<,'>Gllog" <SID>count('@~%d..')<CR>
 
 function! s:cd ()
   let dir = FugitiveWorkTree()
-  let [ cmd, dir ] = len(dir) ? ['tcd', dir] : ['cd', getcwd(-1, -1)]
+  let [ cmd, dir ] = len(dir) ? ['tcd', dir] : ['lcd', getcwd(-1, -1)]
   exe cmd dir
 endfunction
 
