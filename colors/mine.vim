@@ -132,3 +132,9 @@ hi! link ALEStyleErrorSign       StyleErrorSign
 hi! link ALEStyleWarningSign     StyleWarningSign
 hi! link ALEInfoSign             InfoSign
 hi! link ALEMessageSign          MessageSign
+
+"" LSP related stuff
+hi! LspReference        cterm=bold      ctermbg=237
+hi! link LspReferenceRead       LspReference
+hi! link LspReferenceWrite      LspReference
+hi! link LspReferenceText       LspReference
