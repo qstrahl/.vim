@@ -138,3 +138,23 @@ hi! LspReference        cterm=bold      ctermbg=237
 hi! link LspReferenceRead       LspReference
 hi! link LspReferenceWrite      LspReference
 hi! link LspReferenceText       LspReference
+
+hi! DiagnosticError      cterm=italic    ctermfg=1
+hi! DiagnosticHint       cterm=italic    ctermfg=2
+hi! DiagnosticInfo       cterm=italic    ctermfg=4
+hi! DiagnosticWarn       cterm=italic    ctermfg=3
+
+" hi! DiagnosticFloatingError     cterm=italic    ctermfg=1       ctermbg=NONE
+" hi! DiagnosticFloatingHint      cterm=italic    ctermfg=2       ctermbg=NONE
+" hi! DiagnosticFloatingInfo      cterm=italic    ctermfg=4       ctermbg=NONE
+" hi! DiagnosticFloatingWarn      cterm=italic    ctermfg=3       ctermbg=NONE
+
+" hi! DiagnosticUnderlineError    cterm=underline ctermfg=NONE    ctermbg=NONE
+" hi! DiagnosticUnderlineHint     cterm=underline ctermfg=NONE    ctermbg=NONE
+" hi! DiagnosticUnderlineInfo     cterm=underline ctermfg=NONE    ctermbg=NONE
+" hi! DiagnosticUnderlineWarn     cterm=underline ctermfg=NONE    ctermbg=NONE
+
+hi! LspDiagnosticsSignError         cterm=bold      ctermfg=1       ctermbg=0
+hi! LspDiagnosticsSignHint          cterm=bold      ctermfg=2       ctermbg=0
+hi! LspDiagnosticsSignInformation   cterm=bold      ctermfg=4       ctermbg=0
+hi! LspDiagnosticsSignWarning       cterm=bold      ctermfg=3       ctermbg=0
