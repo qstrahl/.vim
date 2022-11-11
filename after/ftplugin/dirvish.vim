@@ -10,4 +10,7 @@ silent! sort ir :\v[^/]+$:
 "" Force an undo point
 let &g:undolevels = &g:undolevels
 
-autocmd! BufEnter <buffer> lcd %
+augroup dirvish_buflocal_custom
+  autocmd!
+  autocmd! BufEnter <buffer> lcd %
+augroup END
