@@ -1,7 +1,7 @@
 "" Change the current directory of the window to this directory
 lcd %
 
-setlocal bufhidden=unload
+" setlocal bufhidden=unload
 silent! call FugitiveDetect(@%)
 
 "" Sort with directories first, then with dotfiles first, then case-insensitively
