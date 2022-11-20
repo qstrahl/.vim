@@ -92,8 +92,6 @@ let g:LanguageClient_serverCommands = {
 " }}}
 " lion {{{
 let g:lion_squeeze_spaces = 1
-let g:lion_map_right = 'glr'
-let g:lion_map_left = 'gll'
 " }}}
 " netrw {{{
 " just disable the damn thing
@@ -138,8 +136,8 @@ if &loadplugins
   Plug 'perrywky/vim-matchit'
   Plug 'tpope/vim-characterize'
   Plug 'tpope/vim-eunuch'
-  " Plug 'tommcdo/vim-lion'
-  " Plug 'tommcdo/vim-exchange'
+  Plug 'tommcdo/vim-lion'
+  Plug 'tommcdo/vim-exchange'
   Plug 'qstrahl/vim-dentures'
   Plug 'wellle/targets.vim'
   Plug 'haya14busa/vim-asterisk'
@@ -163,7 +161,6 @@ if &loadplugins
   Plug 'AndrewRadev/splitjoin.vim'
   " Plug 'dense-analysis/ale'
   " Plug 'junegunn/gv.vim'
-  Plug 'junegunn/vim-easy-align'
   " Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
   " Plug 'rickhowe/diffchar.vim'
   " Plug 'sheerun/vim-polyglot'
