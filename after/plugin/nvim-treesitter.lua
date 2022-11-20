@@ -1,8 +1,4 @@
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
-
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
+require('nvim-treesitter.configs').setup {
   ensure_installed = "all", -- one of "all", or a list of languages
   highlight = {
     enable = true,
@@ -12,4 +8,6 @@ require'nvim-treesitter.configs'.setup {
   },
   ignore_install = { "haskell" } -- It's broken on mac
 }
-EOF
+
+vim.o.foldmethod = 'expr'
+vim.o.foldexpr = 'nvim_treesitter#foldexpr()'
