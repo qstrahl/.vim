@@ -56,36 +56,11 @@ augroup init
   autocmd! init SourcePre $CONFIG/* call s:augroup()
 augroup END
 " }}}
-" ale {{{
-let g:ale_set_loclist = 0
-let g:ale_sign_error = '×'
-let g:ale_sign_warning = '!'
-let g:ale_sign_info = 'i'
-let g:ale_sign_style_error = g:ale_sign_error 
-let g:ale_sign_style_warning = g:ale_sign_warning
-" }}}
 " asterisk {{{
 let g:asterisk#keeppos = 1
 " }}}
-" diffchar  {{{                                 
-let g:DiffPairVisible = 0                       
-" }}}                                           
-" easy_align {{{
-let g:easy_align_bypass_fold = 1
-" }}}
 " exchange {{{
 let g:exchange_indent = 1
-" }}}
-" fzf {{{
-let g:fzf_action = { 'ctrl-t': 'tab split', 'ctrl-s': 'split', 'ctrl-v': 'vsplit' }
-" }}}
-" GV {{{
-" }}}
-" LanguageClient-neovim {{{
-let g:LanguageClient_serverCommands = {
-      \ 'javascript': ['javascript-typescript-langserver', '-l', '.javascript-typescript-langserver.log'],
-      \ 'javascript.jsx': ['tcp://127.0.0.1:2089'],
-\ }
 " }}}
 " lion {{{
 let g:lion_squeeze_spaces = 1
@@ -101,12 +76,6 @@ let g:qf_loclist_window_bottom = 0
 " }}}
 " ragtag {{{
 let g:ragtag_global_maps = 1
-" }}}
-" ultisnips {{{
-let g:UltiSnipsExpandTrigger = "\<Nop>" " I prefer to use :Snippets from FZF
-let g:UltiSnipsListSnippets = "\<Nop>"
-let g:UltiSnipsJumpForwardTrigger = "\<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "\<S-Tab>"
 " }}}
 " load plugins! {{{
 let g:plug_window = '-tabnew'
