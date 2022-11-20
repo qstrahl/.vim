@@ -6,6 +6,9 @@ let g:colors_name='mine'
 hi! Normal              cterm=none              ctermfg=none    ctermbg=none
 hi! NormalNC            cterm=none              ctermfg=none    ctermbg=none
 
+hi! link FloatBorder Normal
+hi! link NormalFloat Normal
+
 " UI items
 hi! ColorColumn         cterm=none              ctermfg=none    ctermbg=0
 hi! Conceal             cterm=none              ctermfg=none    ctermbg=none
