@@ -142,8 +142,8 @@ if &loadplugins
   Plug 'wellle/targets.vim'
   Plug 'haya14busa/vim-asterisk'
   Plug 'sickill/vim-pasta'
+  Plug 'windwp/nvim-autopairs'
   " Plug 'SirVer/ultisnips'
-  Plug 'jiangmiao/auto-pairs'
   " Plug 'honza/vim-snippets'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'deoplete-plugins/deoplete-lsp'
