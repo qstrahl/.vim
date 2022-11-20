@@ -150,6 +150,9 @@ if &loadplugins
   " Plug 'honza/vim-snippets'
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'deoplete-plugins/deoplete-lsp'
+
+  Plug 'anuvyklack/pretty-fold.nvim'
+
   Plug 'justinmk/vim-dirvish'
   Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }

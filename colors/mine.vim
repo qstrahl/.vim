@@ -19,6 +19,7 @@ hi! ErrorMsg            cterm=italic            ctermfg=1       ctermbg=none
 hi! TermCursor          cterm=none              ctermfg=none    ctermbg=none
 hi! TermCursorNC        cterm=none              ctermfg=none    ctermbg=none
 hi! FoldColumn          cterm=none              ctermfg=none    ctermbg=0
+hi! Folded              cterm=italic,underline  ctermfg=8       ctermbg=none
 hi! IncSearch           cterm=bold              ctermfg=0       ctermbg=11
 hi! LineNr              cterm=none              ctermfg=8       ctermbg=none
 hi! CursorLineNr        cterm=none              ctermfg=none    ctermbg=236
@@ -104,7 +105,6 @@ hi! Ignore               cterm=none              ctermfg=8       ctermbg=none
 
 hi! Error                cterm=reverse           ctermfg=1       ctermbg=none
 
-hi! link Folded                  Comment
 hi! link SignColumn              FoldColumn
 hi! link Substitute              IncSearch
 
