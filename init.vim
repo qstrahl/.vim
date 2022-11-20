@@ -140,8 +140,6 @@ if &loadplugins
   Plug 'haya14busa/vim-asterisk'
   Plug 'sickill/vim-pasta'
   Plug 'windwp/nvim-autopairs'
-  " Plug 'SirVer/ultisnips'
-  " Plug 'honza/vim-snippets'
 
   "" Autocompletion
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -163,11 +161,6 @@ if &loadplugins
   Plug 'tpope/vim-scriptease'
   Plug 'romainl/vim-qf'
   Plug 'AndrewRadev/splitjoin.vim'
-  " Plug 'dense-analysis/ale'
-  " Plug 'junegunn/gv.vim'
-  " Plug 'autozimu/LanguageClient-neovim', { 'branch': 'next', 'do': 'bash install.sh' }
-  " Plug 'rickhowe/diffchar.vim'
-  " Plug 'sheerun/vim-polyglot'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-obsession'
