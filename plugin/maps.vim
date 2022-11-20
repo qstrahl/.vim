@@ -49,6 +49,9 @@ noremap g' g`
 nnoremap Y y$
 
 " Clear search highlighting
+noremap <C-/> <Cmd>noh<CR>
+ounmap <C-/>
+inoremap <C-/> <Cmd>noh<CR>
 noremap <Leader>/ <Cmd>noh<CR>
 ounmap <Leader>/
 
