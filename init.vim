@@ -138,7 +138,6 @@ if &loadplugins
   Plug 'perrywky/vim-matchit'
   Plug 'tpope/vim-characterize'
   Plug 'tpope/vim-eunuch'
-  " Plug 'qstrahl/vim-matchmaker'
   " Plug 'tommcdo/vim-lion'
   " Plug 'tommcdo/vim-exchange'
   Plug 'qstrahl/vim-dentures'
