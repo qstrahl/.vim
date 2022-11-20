@@ -27,7 +27,7 @@ hi! MatchParen          cterm=bold              ctermfg=15      ctermbg=none
 hi! NonText             cterm=bold              ctermfg=8       ctermbg=0
 hi! Pmenu               cterm=none              ctermfg=244     ctermbg=236
 hi! PmenuSel            cterm=none              ctermfg=10      ctermbg=237
-hi! PmenuSbar           cterm=none              ctermfg=none    ctermbg=237
+hi! PmenuSbar           cterm=none              ctermfg=247     ctermbg=237
 hi! PmenuThumb          cterm=none              ctermfg=none    ctermbg=239
 hi! QuickFixLine        cterm=none              ctermfg=none    ctermbg=236
 hi! Search              cterm=none              ctermfg=0       ctermbg=11
