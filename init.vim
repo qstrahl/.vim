@@ -3,7 +3,7 @@
 
 " options {{{
 setglobal clipboard=unnamedplus
-setglobal completeopt=menu,menuone
+setglobal completeopt=menu,menuone,noselect
 setglobal diffopt=internal,indent-heuristic,algorithm:histogram,closeoff,hiddenoff,filler,vertical,iwhite,foldcolumn:0
 setglobal expandtab
 setglobal fillchars=vert:\ ,diff:╱,fold:-
@@ -66,9 +66,6 @@ let g:ale_sign_style_warning = g:ale_sign_warning
 " }}}
 " asterisk {{{
 let g:asterisk#keeppos = 1
-" }}}
-" deoplete {{{
-let g:deoplete#enable_at_startup = 1
 " }}}
 " diffchar  {{{                                 
 let g:DiffPairVisible = 0                       
@@ -145,8 +142,15 @@ if &loadplugins
   Plug 'windwp/nvim-autopairs'
   " Plug 'SirVer/ultisnips'
   " Plug 'honza/vim-snippets'
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'deoplete-plugins/deoplete-lsp'
+
+  "" Autocompletion
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'hrsh7th/cmp-buffer'
+  Plug 'hrsh7th/cmp-path'
+  Plug 'hrsh7th/cmp-cmdline'
+  Plug 'hrsh7th/nvim-cmp' 
+  Plug 'hrsh7th/cmp-vsnip'
+  Plug 'hrsh7th/vim-vsnip'
 
   "" Fuzzy Finding
   Plug 'nvim-lua/plenary.nvim'

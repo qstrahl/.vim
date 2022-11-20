@@ -164,6 +164,9 @@ hi! LspDiagnosticsSignWarning       cterm=bold      ctermfg=3       ctermbg=0
 
 hi! IndentBlanklineChar ctermfg=0
 
+"" nvim-cmp overrides
+hi! CmpItemKind cterm=italic ctermfg=241 ctermbg=none
+
 "" telescope overrides
 hi! link TelescopePromptCounter LineNr
 hi! link TelescopeResultsDiffUntracked LineNr
