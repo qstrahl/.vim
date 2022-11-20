@@ -151,12 +151,14 @@ if &loadplugins
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'deoplete-plugins/deoplete-lsp'
 
+  "" Fuzzy Finding
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+
   Plug 'anuvyklack/pretty-fold.nvim'
 
   Plug 'justinmk/vim-dirvish'
   Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
   Plug 'tpope/vim-scriptease'
   Plug 'romainl/vim-qf'
   Plug 'AndrewRadev/splitjoin.vim'

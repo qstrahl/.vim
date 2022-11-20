@@ -163,3 +163,9 @@ hi! LspDiagnosticsSignInformation   cterm=bold      ctermfg=4       ctermbg=0
 hi! LspDiagnosticsSignWarning       cterm=bold      ctermfg=3       ctermbg=0
 
 hi! IndentBlanklineChar ctermfg=0
+
+"" telescope overrides
+hi! link TelescopePromptCounter LineNr
+hi! link TelescopeResultsDiffUntracked LineNr
+hi! link TelescopePreviewHyphen LineNr
+hi! link TelescopeMatching IncSearch
