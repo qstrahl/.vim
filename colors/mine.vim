@@ -35,7 +35,7 @@ hi! SpecialKey          cterm=none              ctermfg=12      ctermbg=0
 hi! SpellBad            cterm=underline         ctermfg=9       ctermbg=none
 hi! StatusLine          cterm=none              ctermfg=10      ctermbg=0
 hi! StatusLineNC        cterm=none              ctermfg=8       ctermbg=0
-hi! Title               cterm=bold,italic       ctermfg=none    ctermbg=0
+hi! Title               cterm=bold              ctermfg=none    ctermbg=none
 hi! Todo                cterm=italic            ctermfg=10      ctermbg=none
 hi! User1               cterm=bold,reverse      ctermfg=10      ctermbg=0
 hi! VertSplit           cterm=none              ctermfg=0       ctermbg=0
