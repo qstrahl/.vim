@@ -16,7 +16,7 @@ setglobal mouse=ar
 setglobal nostartofline
 setglobal nowrap
 setglobal path=**
-setglobal pumheight=13
+setglobal pumheight=15
 setglobal redrawtime=10000
 setglobal report=0
 setglobal scrolloff=0
