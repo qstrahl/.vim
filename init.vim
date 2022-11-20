@@ -134,7 +134,6 @@ if &loadplugins
   Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-obsession'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
-  Plug 'ojroques/nvim-lspfuzzy'
 endif
 call plug#end()
 " }}}
