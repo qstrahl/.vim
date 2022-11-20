@@ -28,8 +28,6 @@ setglobal smartcase
 setglobal softtabstop=8
 setglobal splitbelow
 setglobal splitright
-" setglobal statusline=%!statusline#render()
-" setglobal tabline=%!tabline#render()
 setglobal textwidth=120
 setglobal ttimeoutlen=-1
 setglobal virtualedit=block
