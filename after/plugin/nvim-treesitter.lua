@@ -6,6 +6,12 @@ require('nvim-treesitter.configs').setup {
   indent = {
     enable = true,
   },
+  autotag = {
+    enable = true,
+  },
+  endwise = {
+    enable = true,
+  },
   ignore_install = { "haskell" } -- It's broken on mac
 }
 

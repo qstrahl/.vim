@@ -89,13 +89,16 @@ endtry
 
 if &loadplugins
   Plug 'junegunn/vim-plug'
+
   Plug 'neovim/nvim-lspconfig'
+  Plug 'williamboman/mason.nvim'
+  Plug 'williamboman/mason-lspconfig.nvim'
+
   Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-abolish'
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-repeat'
-  Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-sleuth'
   Plug 'mbbill/undotree'
   Plug 'perrywky/vim-matchit'
@@ -103,11 +106,18 @@ if &loadplugins
   Plug 'tpope/vim-eunuch'
   Plug 'tommcdo/vim-lion'
   Plug 'tommcdo/vim-exchange'
-  Plug 'qstrahl/vim-dentures'
+  " Plug 'qstrahl/vim-dentures'
   Plug 'wellle/targets.vim'
   Plug 'haya14busa/vim-asterisk'
   Plug 'sickill/vim-pasta'
+  Plug 'numToStr/Comment.nvim'
+
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
+
+  "" Auto pair/close/tag
   Plug 'windwp/nvim-autopairs'
+  Plug 'windwp/nvim-ts-autotag'
+  Plug 'RRethy/nvim-treesitter-endwise'
 
   "" Autocompletion
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -132,7 +142,8 @@ if &loadplugins
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-obsession'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
+
+  Plug 'stevearc/dressing.nvim'
 endif
 call plug#end()
 " }}}
