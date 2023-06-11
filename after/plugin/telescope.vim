@@ -6,3 +6,4 @@ nnoremap <Leader>gf <Cmd>Telescope git_files<CR>
 nnoremap <Leader>gr <Cmd>Telescope live_grep<CR>
 nnoremap <Leader>b <Cmd>Telescope buffers<CR>
 nnoremap <Leader>h <Cmd>Telescope help_tags<CR>
+nnoremap <Leader>m <Cmd>Telescope keymaps<CR>
