@@ -30,6 +30,7 @@ setglobal splitbelow
 setglobal splitright
 setglobal textwidth=120
 setglobal ttimeoutlen=-1
+setglobal updatetime=1000
 setglobal virtualedit=block
 setglobal wildignorecase
 setglobal wildmode=longest:full,full
