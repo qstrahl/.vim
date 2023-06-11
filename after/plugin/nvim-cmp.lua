@@ -12,6 +12,7 @@ cmp.setup({
     documentation = cmp.config.window.bordered({
       winhighlight = 'Normal:Normal,Search:None',
       border = 'rounded',
+      scrollbar = false,
     }),
   },
   mapping = cmp.mapping.preset.insert({
