@@ -27,7 +27,7 @@ local actions = transform_mod({
   end,
 })
 
-require('telescope').setup{
+require('telescope').setup {
   defaults = {
     selection_caret = '  ',
     multi_icon = '➤ ',
