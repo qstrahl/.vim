@@ -14,7 +14,7 @@ cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 
 -- for _, start_pair in ipairs({ '(', '[', '{' }) do
 --   local rule = npairs.get_rule(start_pair)
-
+--
 --   npairs.add_rule(Rule(rule.start_pair, rule.end_pair)
 --     :use_key('q')
 --     :replace_endpair(function(opts)
@@ -23,16 +23,16 @@ cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 --       return 'foo'
 --     end)
 --   )
-
+--
 -- --   if rule ~= nil then
 -- --     function replace()
 -- --       return 'foo'
 -- --     end
-
+--
 -- --     function check_pair(opts)
 -- --       return true
 -- --     end
-
+--
 -- --     rule
 -- --       :use_key(rule.end_pair)
 -- --       :replace_endpair(replace, check_pair)
