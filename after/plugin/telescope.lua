@@ -31,6 +31,7 @@ require('telescope').setup {
   defaults = {
     selection_caret = '  ',
     multi_icon = '➤ ',
+    dynamic_preview_title = true,
 
     -- Default configuration for telescope goes here:
     -- config_key = value,
