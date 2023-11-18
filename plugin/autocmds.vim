@@ -88,7 +88,7 @@ function! s:EditWindowsFile(fname)
   let path = s:WindowsFilePath(a:fname)
 
   doautocmd BufReadPre
-  exe 'keepalt keeptjumps lockmarks edit' path
+  exe 'keepalt keepjumps lockmarks edit' path
   doautocmd BufReadPost
   " silent lockmarks keepjumps delete_
 endfunction
