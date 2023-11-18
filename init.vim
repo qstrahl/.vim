@@ -4,7 +4,7 @@
 " options {{{
 setglobal clipboard=unnamedplus
 setglobal completeopt=menu,menuone,noselect
-setglobal diffopt=internal,indent-heuristic,algorithm:histogram,closeoff,hiddenoff,filler,vertical,iwhite,foldcolumn:0
+setglobal diffopt=internal,indent-heuristic,algorithm:patience,closeoff,hiddenoff,filler,vertical,foldcolumn:0,linematch:60
 setglobal expandtab
 setglobal fillchars=vert:\ ,diff:╱,fold:-
 setglobal foldlevelstart=99
@@ -20,7 +20,7 @@ setglobal pumheight=15
 setglobal redrawtime=10000
 setglobal report=0
 setglobal scrolloff=0
-setglobal shada=!,%,'999,h,r/tmp,r*/COMMIT_EDITMSG
+setglobal shada=!,%,'99999,h,r/tmp,r*/COMMIT_EDITMSG
 setglobal shell=/usr/bin/env\ sh
 setglobal shiftwidth=2
 setglobal showtabline=1
@@ -35,7 +35,6 @@ setglobal virtualedit=block
 setglobal wildignorecase
 setglobal wildmode=longest:full,full
 setglobal winminheight=0
-
 setglobal winminwidth=0
 
 " let &termguicolors = $TERM =~ 'tmux\|xterm'
@@ -68,6 +67,12 @@ let g:lion_squeeze_spaces = 1
 " just disable the damn thing
 let g:loaded_netrw       = 1
 let g:loaded_netrwPlugin = 1
+" let g:netrw_banner = 0
+" let g:netrw_list_hide = '\v^\.\.?/'
+" let g:netrw_liststyle = 1
+" let g:netrw_sort_sequence = '\/'
+" let g:netrw_bufsettings = 'noma nomod nonu nowrap ro nornu nobl bh=unload'
+" let g:netrw_fastbrowse = 2
 " }}}
 " qf (quickfix) {{{
 let g:qf_mapping_ack_style = 1
@@ -93,6 +98,7 @@ if &loadplugins
   Plug 'neovim/nvim-lspconfig'
   Plug 'williamboman/mason.nvim'
   Plug 'williamboman/mason-lspconfig.nvim'
+  Plug 'folke/neodev.nvim'
 
   Plug 'tpope/vim-fugitive' | Plug 'tpope/vim-rhubarb'
   Plug 'tpope/vim-abolish'
@@ -131,6 +137,7 @@ if &loadplugins
   "" Fuzzy Finding
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+  Plug 'LinArcX/telescope-scriptnames.nvim'
 
   Plug 'anuvyklack/pretty-fold.nvim'
 

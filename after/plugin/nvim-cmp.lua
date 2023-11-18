@@ -1,5 +1,5 @@
 -- Set up nvim-cmp.
-local cmp = require'cmp'
+local cmp = require('cmp')
 
 cmp.setup({
   snippet = {
@@ -41,28 +41,29 @@ cmp.setup({
 --   })
 -- })
 
+-- I just... I can't believe I have to write this function
+local function noop(fallback)
+  fallback()
+end
+
+-- This one is more forgivable. I like this one
+local function if_visible(callback, fallback)
+  return function()
+    if cmp.visible() then callback() else fallback() end
+  end
+end
+
 local cmdline_map_overrides = {
-  ['<C-j>'] = {
-    c = function(fallback)
-      local cmp = require('cmp')
-      if cmp.visible() then
-        cmp.select_next_item()
-      else
-        fallback()
-      end
-    end,
-  },
-  ['<C-k>'] = {
-    c = function(fallback)
-      local cmp = require('cmp')
-      if cmp.visible() then
-        cmp.select_prev_item()
-      else
-        fallback()
-      end
-    end,
-  },
+  ['<C-j>'] = { c = if_visible(cmp.select_next_item, cmp.complete) },
+  ['<C-k>'] = { c = if_visible(cmp.select_prev_item, cmp.complete) },
+  ['<C-n>'] = { c = noop },
+  ['<C-p>'] = { c = noop },
+  ['<C-i>'] = { c = noop },
+  ['<C-o>'] = { c = noop },
 }
+
+-- TODO: Look into passing optional args to cmp.complete
+-- may be able to switch sources to only command line history when appropriate
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {

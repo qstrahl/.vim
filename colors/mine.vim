@@ -6,7 +6,7 @@ let g:colors_name='mine'
 hi! Normal              cterm=none              ctermfg=none    ctermbg=none
 hi! NormalNC            cterm=none              ctermfg=none    ctermbg=none
 
-hi! link FloatBorder Normal
+hi! link FloatBorder FloatTitle
 hi! link NormalFloat Normal
 
 " UI items
@@ -47,10 +47,10 @@ hi! WarningMsg          cterm=italic            ctermfg=9       ctermbg=none
 hi! Whitespace          cterm=reverse           ctermfg=none    ctermbg=none
 hi! WildMenu            cterm=bold              ctermfg=0       ctermbg=10
 
-hi! DiffAdd             cterm=none              ctermfg=none    ctermbg=236
-hi! DiffChange          cterm=none              ctermfg=none    ctermbg=236
-hi! DiffText            cterm=bold              ctermfg=none    ctermbg=237
-hi! DiffDelete          cterm=reverse           ctermfg=236     ctermbg=none
+hi! DiffDelete          cterm=reverse           ctermfg=235     ctermbg=none
+hi! DiffAdd             cterm=none              ctermfg=none    ctermbg=235
+hi! DiffChange          cterm=none              ctermfg=none    ctermbg=235
+hi! DiffText            cterm=bold              ctermfg=none    ctermbg=236
 
 hi! diffAdded           cterm=none              ctermfg=2       ctermbg=none
 hi! diffRemoved         cterm=none              ctermfg=1       ctermbg=none
@@ -137,15 +137,17 @@ hi! link ALEInfoSign             InfoSign
 hi! link ALEMessageSign          MessageSign
 
 "" LSP related stuff
-hi! LspReference        cterm=bold      ctermbg=237
+hi! LspReference         cterm=bold,reverse ctermfg=none ctermbg=none
 hi! link LspReferenceRead       LspReference
 hi! link LspReferenceWrite      LspReference
 hi! link LspReferenceText       LspReference
 
 hi! DiagnosticError      cterm=italic    ctermfg=1
+hi! DiagnosticWarn       cterm=italic    ctermfg=3
 hi! DiagnosticHint       cterm=italic    ctermfg=2
 hi! DiagnosticInfo       cterm=italic    ctermfg=4
-hi! DiagnosticWarn       cterm=italic    ctermfg=3
+
+hi! DiagnosticUnnecessary cterm=underline ctermbg=none ctermfg=none
 
 " hi! DiagnosticFloatingError     cterm=italic    ctermfg=1       ctermbg=NONE
 " hi! DiagnosticFloatingHint      cterm=italic    ctermfg=2       ctermbg=NONE
@@ -174,3 +176,22 @@ hi! link TelescopePromptCounter LineNr
 hi! link TelescopeResultsDiffUntracked LineNr
 hi! link TelescopePreviewHyphen LineNr
 hi! link TelescopeMatching IncSearch
+hi! link TelescopeBorder FloatBorder
+hi! TelescopeResultsDiffUntracked       ctermfg=6
+hi! TelescopeResultsDiffAdd             ctermfg=2
+hi! TelescopeResultsDiffDelete          ctermfg=1
+hi! TelescopeResultsDiffChange          ctermfg=3
+
+"" fugitive overrides
+hi! link fugitiveHelpTag Normal
+hi! link fugitiveHeader Title
+hi! link fugitiveHeading Title
+hi! link fugitiveStagedHeading Title
+hi! link fugitiveUnstagedHeading Title
+hi! link fugitiveUntrackedHeading Title
+
+hi! fugitiveCount                       ctermfg=13
+hi! fugitiveStagedModifier              ctermfg=2
+hi! fugitiveUnstagedModifier            ctermfg=3
+hi! fugitiveUntrackedModifier           ctermfg=6
+hi! fugitiveSymbolicRef                 ctermfg=5

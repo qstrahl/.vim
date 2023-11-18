@@ -1,14 +1,14 @@
 finish
-if !has('clipboard') && executable('clip.exe') && executable('paste.exe')
+if exists('$WSLENV') && executable('clip.exe') && executable('powershell.exe')
   let g:clipboard = {
         \   'name': 'WSL',
         \   'copy': {
-        \      '+': {lines -> system('clip.exe', lines)},
-        \      '*': {lines -> system('clip.exe', lines)}
+        \      '+': 'clip.exe',
+        \      '*': 'clip.exe'
         \    },
         \   'paste': {
-        \      '+': {-> system('paste.exe')},
-        \      '*': {-> system('paste.exe')}
+        \      '+': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        \      '*': 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
         \   },
         \   'cache_enabled': 0
         \ }
