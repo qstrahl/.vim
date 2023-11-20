@@ -95,7 +95,7 @@ endfunction
 
 augroup MyCustomAutocmds
   autocmd!
-  autocmd! VimEnter * if !len(expand('%') . &buftype) | setlocal bufhidden=wipe | endif
+  " autocmd! VimEnter * if !len(expand('%') . &buftype) | setlocal bufhidden=wipe | endif
   autocmd! VimResized * if &equalalways | wincmd = | endif
   autocmd! TextChanged,InsertLeave * if &diff | diffupdate | endif
   " TODO: figure out wtf I'm doing with my life
