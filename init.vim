@@ -82,6 +82,7 @@ let g:qf_loclist_window_bottom = 0
 let g:ragtag_global_maps = 1
 " }}}
 " load plugins! {{{
+let s:install_plugins = 0
 let g:plug_window = '-tabnew'
 let s:plug_dir = stdpath('data') . '/plugged'
 let s:plug_path = s:plug_dir . '/vim-plug/plug.vim'
@@ -91,6 +92,7 @@ catch /^Vim(call):E117/
   let s:plug_git = 'https://github.com/junegunn/vim-plug.git'
   silent exe '!git clone --depth 1' s:plug_git  s:plug_dir . '/vim-plug'
   silent exe 'source' s:plug_path
+  let s:install_plugins = 1
   call plug#begin(s:plug_dir)
 endtry
 
@@ -155,6 +157,10 @@ if &loadplugins
   Plug 'stevearc/dressing.nvim'
 endif
 call plug#end()
+
+if s:install_plugins
+  PlugInstall
+endif
 " }}}
 
 colorscheme mine
