@@ -84,11 +84,13 @@ let g:ragtag_global_maps = 1
 " load plugins! {{{
 let g:plug_window = '-tabnew'
 let s:plug_dir = stdpath('data') . '/plugged'
-silent! exe 'source' s:plug_dir . '/vim-plug/plug.vim'
+let s:plug_path = s:plug_dir . '/vim-plug/plug.vim'
+silent! exe 'source' s:plug_path
 try | call plug#begin(s:plug_dir)
 catch /^Vim(call):E117/
   let s:plug_git = 'https://github.com/junegunn/vim-plug.git'
   silent exe '!git clone --depth 1' s:plug_git  s:plug_dir . '/vim-plug'
+  silent exe 'source' s:plug_path
   call plug#begin(s:plug_dir)
 endtry
 
