@@ -158,11 +158,11 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
 )
 
 -- always-available maps
-vim.keymap.set('n', '<space>do', vim.diagnostic.open_float)
+vim.keymap.set('n', '<Leader>do', vim.diagnostic.open_float)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<space>dl', vim.diagnostic.setloclist)
-vim.keymap.set('n', '<space>dq', vim.diagnostic.setqflist)
+vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<Leader>dq', vim.diagnostic.setqflist)
 
 -- buffer-specfic configuration, happens on LSP attachment
 local function on_lsp_attach (ev)
@@ -200,20 +200,20 @@ local function on_lsp_attach (ev)
   -- builtin lsp functions
   set_buf_keymap('n', 'gD',           vim.lsp.buf.declaration             )
   set_buf_keymap('n', 'gd',           vim.lsp.buf.definition              )
-  set_buf_keymap('n', '<space>D',     vim.lsp.buf.type_definition         )
+  set_buf_keymap('n', '<Leader>D',     vim.lsp.buf.type_definition         )
   set_buf_keymap('n', 'gI',           vim.lsp.buf.implementation          )
   set_buf_keymap('n', 'K',            vim.lsp.buf.hover                   )
   set_buf_keymap('n', '<C-k>',        vim.lsp.buf.signature_help          )
-  set_buf_keymap('n', '<space>a',     vim.lsp.buf.code_action             )
+  set_buf_keymap('n', '<Leader>a',     vim.lsp.buf.code_action             )
   set_buf_keymap('n', 'gr',           vim.lsp.buf.references              )
-  set_buf_keymap('n', '<space>n',     vim.lsp.buf.rename                  )
-  set_buf_keymap('n', '<space>wa',    vim.lsp.buf.add_workspace_folder    )
-  set_buf_keymap('n', '<space>wr',    vim.lsp.buf.remove_workspace_folder )
+  set_buf_keymap('n', '<Leader>n',     vim.lsp.buf.rename                  )
+  set_buf_keymap('n', '<Leader>wa',    vim.lsp.buf.add_workspace_folder    )
+  set_buf_keymap('n', '<Leader>wr',    vim.lsp.buf.remove_workspace_folder )
 
   -- custom lsp functions
   set_buf_keymap('n', '<Leader>s',        document_symbol         )
   set_buf_keymap('n', '<Leader>S',        workspace_symbol        )
-  set_buf_keymap('n', '<space>wl',        list_workspace_folders  )
+  set_buf_keymap('n', '<Leader>wl',        list_workspace_folders  )
 
   -- Set some keybinds conditional on server capabilities
 
