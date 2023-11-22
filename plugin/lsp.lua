@@ -211,8 +211,6 @@ local function on_lsp_attach (ev)
   set_buf_keymap('n', '<Leader>wr',    vim.lsp.buf.remove_workspace_folder )
 
   -- custom lsp functions
-  set_buf_keymap('n', '<Leader>s',        document_symbol         )
-  set_buf_keymap('n', '<Leader>S',        workspace_symbol        )
   set_buf_keymap('n', '<Leader>wl',        list_workspace_folders  )
 
   -- Set some keybinds conditional on server capabilities

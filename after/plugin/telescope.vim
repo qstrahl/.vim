@@ -18,3 +18,7 @@ nnoremap <Leader>h <Cmd>Telescope help_tags<CR>
 nnoremap <Leader>m <Cmd>Telescope keymaps<CR>
 nnoremap <Leader>o <Cmd>Telescope oldfiles<CR>
 nnoremap <Leader>v <Cmd>Telescope scriptnames<CR>
+
+"" lsp specific stuff
+nnoremap <Leader>s <Cmd>Telescope lsp_document_symbols<CR>
+nnoremap <Leader>S <Cmd>Telescope lsp_workspace_symbols<CR>
