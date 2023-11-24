@@ -64,7 +64,7 @@ noremap U ~
 
 " Q closes windows; who needs Ex mode?
 nnoremap Q <C-w>q
-nnoremap <C-q> <C-w>q
+nnoremap <C-q> <C-v>
 
 " I don't ever really want to jump to an unmarked column on a marked line
 noremap ' `
