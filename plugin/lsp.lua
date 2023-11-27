@@ -215,14 +215,7 @@ local function on_lsp_attach (ev)
 
   -- Set some keybinds conditional on server capabilities
 
-  -- TODO: make this work properly
   if client then
-    if client.server_capabilities.documentRangeFormattingProvider then
-      set_buf_operator('n', 'gq', operator(lsp_format))
-      set_buf_keymap('n', 'gqq', lsp_format)
-      set_buf_keymap('v', 'gq', lsp_format)
-    end
-
     -- highlight symbols in the document on CursorHold
     if client.server_capabilities.documentHighlightProvider then
       set_buf_augroup('UserLspDocumentHighlight',
