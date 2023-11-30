@@ -4,7 +4,9 @@ nnoremap <M-j> <C-w>j
 nnoremap <M-k> <C-w>k
 nnoremap <M-l> <C-w>l
 nnoremap <M-n> gt
+nnoremap <M-]> gt
 nnoremap <M-p> gT
+nnoremap <M-[> gT
 
 " Break window into its own tabbpage
 nnoremap <C-w><C-CR> <Cmd>-tab sp<CR>
