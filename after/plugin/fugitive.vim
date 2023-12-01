@@ -1,8 +1,9 @@
-let s:matches_alt_bufname = 'worktree . "/" . v:val[2:] ==# FugitivePath(expand("#"))'
+let s:matches_prev_bufname = 'worktree . "/" . v:val[2:] ==# FugitivePath(prevfile)'
 
 "" Opens git status buffer in a transitory floating window
 function! s:OpenStatus()
   let worktree = FugitiveWorkTree()
+  let prevfile = expand('%')
 
   if !len(worktree)
     "" if not in a git repo, commit petty plugin fraud
@@ -24,15 +25,24 @@ function! s:OpenStatus()
     let config.width = 1
     let config.height = 1
 
-    "" open a new floating window (with the current buffer in it)
-    let s:statuswin = nvim_open_win(0, 1, config)
+    "" Remember the current layout of all the 
+    let cmd = winrestcmd()
 
-    "" load the status buffer into that window
-    Gedit :
+    "" Open the super special status window
+    Git
+
+    "" Store the handle of the status window
+    let s:statuswin = nvim_get_current_win()
+
+    "" Turn it into a super cool floating window
+    call nvim_win_set_config(s:statuswin, config)
+
+    "" Restore the layout of the windows from before
+    exe cmd
 
     "" search for the previous file name in the git status buffer
     let lines = getbufline('%', 1, '$')
-    let matchline = indexof(lines, s:matches_alt_bufname) + 1
+    let matchline = indexof(lines, s:matches_prev_bufname) + 1
 
     "" if it's in there, highlight it - otherwise, jump to the first file
     if matchline
@@ -41,7 +51,7 @@ function! s:OpenStatus()
       normal )
     endif
 
-    autocmd! VimResized,TextChanged <buffer> silent! call s:AdjustStatus()
+    autocmd! VimResized,TextChanged <buffer> call s:AdjustStatus()
     autocmd! BufLeave <buffer> call s:CloseStatus()
     call s:AdjustStatus()
   endif
@@ -67,7 +77,7 @@ endfunction
 "" Closes floating git status window
 function! s:CloseStatus ()
   if exists('s:statuswin')
-    silent! call nvim_win_close(s:statuswin, 1)
+    call nvim_win_close(s:statuswin, 1)
     unlet s:statuswin
   endif
 endfunction
