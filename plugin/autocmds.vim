@@ -101,10 +101,10 @@ augroup MyCustomAutocmds
   " TODO: figure out wtf I'm doing with my life
   " autocmd! OptionSet diff if &diff | exe 'normal zz' | endif
   " autocmd! CursorMoved,TextChanged * if &diff | exe 'normal zz' | endif
-  autocmd! Syntax * syntax sync fromstart
+  " autocmd! Syntax * syntax sync fromstart
 
   "" what the fuck does this do?
-  autocmd! QuitPre * autocmd plugin/autocmds WinLeave * wincmd p | exe 'doautocmd WinEnter' winnr() | autocmd! plugin/autocmds WinLeave
+  " autocmd! QuitPre * autocmd plugin/autocmds WinLeave * wincmd p | exe 'doautocmd WinEnter' winnr() | autocmd! plugin/autocmds WinLeave
 
   "" attempt to keep tmux CWD in sync with vim CWD
   autocmd! DirChanged * call chansend(v:stderr, printf("\033]7;%s\033\\", fnameescape(getcwd())))
