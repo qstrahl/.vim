@@ -45,7 +45,8 @@ function! s:OpenStatus()
     let matchline = indexof(lines, s:matches_prev_bufname) + 1
 
     "" if it's in there, highlight it - otherwise, jump to the first file
-    if matchline
+    "" (the first 5 lines are taken up by static text)
+    if matchline > 5
       exe matchline
     else
       normal )
