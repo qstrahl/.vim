@@ -65,6 +65,7 @@ hi! MessageSign         cterm=none      ctermfg=6       ctermbg=0
 hi! Comment              cterm=italic            ctermfg=8       ctermbg=none
 
 hi! Constant             cterm=none              ctermfg=5       ctermbg=none
+hi! link String Constant
 " hi String               cterm=none              ctermfg=none    ctermbg=none
 " hi Character            cterm=none              ctermfg=none    ctermbg=none
 " hi Number               cterm=none              ctermfg=none    ctermbg=none
