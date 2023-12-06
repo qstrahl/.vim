@@ -78,6 +78,7 @@ hi! link @variable Identifier
 " hi Function             cterm=none              ctermfg=none    ctermbg=none
 
 hi! Statement            cterm=none              ctermfg=3       ctermbg=none
+hi! link Operator Statement
 " hi Conditional          cterm=none              ctermfg=none    ctermbg=none
 " hi Repeat               cterm=none              ctermfg=none    ctermbg=none
 " hi Label                cterm=none              ctermfg=none    ctermbg=none
