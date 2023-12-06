@@ -27,9 +27,10 @@ function! s:OpenStatus()
 
     "" Remember the current layout of all the 
     let cmd = winrestcmd()
+    let view = winsaveview()
 
     "" Open the super special status window
-    Git
+    botright Git
 
     "" Store the handle of the status window
     let s:statuswin = nvim_get_current_win()
@@ -38,7 +39,10 @@ function! s:OpenStatus()
     call nvim_win_set_config(s:statuswin, config)
 
     "" Restore the layout of the windows from before
-    exe cmd
+    noautocmd exe cmd
+    noautocmd wincmd p
+    noautocmd call winrestview(view)
+    noautocmd wincmd p
 
     "" search for the previous file name in the git status buffer
     let lines = getbufline('%', 1, '$')
