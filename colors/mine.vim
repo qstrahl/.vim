@@ -73,6 +73,7 @@ hi! link String Constant
 " hi Float                cterm=none              ctermfg=none    ctermbg=none
 
 hi! Identifier           cterm=none              ctermfg=6       ctermbg=none
+hi! link Function Identifier
 " hi Function             cterm=none              ctermfg=none    ctermbg=none
 
 hi! Statement            cterm=none              ctermfg=3       ctermbg=none
