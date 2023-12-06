@@ -110,7 +110,7 @@ hi! Ignore               cterm=none              ctermfg=8       ctermbg=none
 
 hi! Error                cterm=reverse           ctermfg=1       ctermbg=none
 
-hi! Delimiter            cterm=none              ctermfg=8      ctermbg=none
+hi! link Delimiter Normal
 
 "" The syntax highlighting for bash has some... opinions
 hi! link @constant.bash Identifier
