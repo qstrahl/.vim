@@ -74,6 +74,7 @@ hi! link String Constant
 
 hi! Identifier           cterm=none              ctermfg=6       ctermbg=none
 hi! link Function Identifier
+hi! link @variable Identifier
 " hi Function             cterm=none              ctermfg=none    ctermbg=none
 
 hi! Statement            cterm=none              ctermfg=3       ctermbg=none
