@@ -55,6 +55,8 @@ hi! DiffText            cterm=bold              ctermfg=none    ctermbg=236
 
 hi! diffAdded           cterm=none              ctermfg=2       ctermbg=none
 hi! diffRemoved         cterm=none              ctermfg=1       ctermbg=none
+hi! link @text.diff.add diffAdded
+hi! link @text.diff.delete diffRemoved
 
 hi! ErrorSign           cterm=bold      ctermfg=1       ctermbg=0
 hi! WarningSign         cterm=none      ctermfg=9       ctermbg=0
