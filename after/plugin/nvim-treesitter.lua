@@ -1,5 +1,5 @@
 require('nvim-treesitter.configs').setup {
-  ensure_installed = "all", -- one of "all", or a list of languages
+  ensure_installed = 'all', -- one of 'all', or a list of languages
   highlight = {
     enable = true,
   },
@@ -12,7 +12,7 @@ require('nvim-treesitter.configs').setup {
   endwise = {
     enable = true,
   },
-  ignore_install = { "haskell" } -- It's broken on mac
+  ignore_install = { 'haskell' }, -- It's broken on mac
 }
 
 vim.o.foldmethod = 'expr'
