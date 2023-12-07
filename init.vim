@@ -117,7 +117,6 @@ if &loadplugins
   Plug 'tommcdo/vim-lion'
   Plug 'tommcdo/vim-exchange'
   " Plug 'qstrahl/vim-dentures'
-  Plug 'wellle/targets.vim'
   Plug 'haya14busa/vim-asterisk'
   Plug 'sickill/vim-pasta'
   Plug 'numToStr/Comment.nvim'
@@ -128,6 +127,9 @@ if &loadplugins
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
   Plug 'RRethy/nvim-treesitter-endwise'
+
+  "" More treesitter-based plugins
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 
   "" Autocompletion
   Plug 'hrsh7th/cmp-nvim-lsp'
