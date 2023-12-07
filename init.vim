@@ -130,6 +130,7 @@ if &loadplugins
 
   "" More treesitter-based plugins
   Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'Wansmer/treesj'
 
   "" Autocompletion
   Plug 'hrsh7th/cmp-nvim-lsp'
@@ -152,7 +153,6 @@ if &loadplugins
   Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
   Plug 'tpope/vim-scriptease'
   Plug 'romainl/vim-qf'
-  Plug 'AndrewRadev/splitjoin.vim'
   Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
   Plug 'tpope/vim-ragtag'
   Plug 'tpope/vim-obsession'
