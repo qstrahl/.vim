@@ -100,7 +100,6 @@ hi! Type                 cterm=none              ctermfg=2       ctermbg=none
 hi! Special              cterm=none              ctermfg=13      ctermbg=none
 " hi SpecialChar          cterm=none              ctermfg=none    ctermbg=none
 " hi Tag                  cterm=none              ctermfg=none    ctermbg=none
-" hi Delimiter            cterm=none              ctermfg=none    ctermbg=none
 " hi SpecialComment       cterm=none              ctermfg=none    ctermbg=none
 " hi Debug                cterm=none              ctermfg=none    ctermbg=none
 
@@ -110,7 +109,7 @@ hi! Ignore               cterm=none              ctermfg=8       ctermbg=none
 
 hi! Error                cterm=reverse           ctermfg=1       ctermbg=none
 
-hi! link Delimiter Normal
+hi! Delimiter           cterm=none              ctermfg=8       ctermbg=none
 
 "" The syntax highlighting for bash has some... opinions
 hi! link @constant.bash Identifier
