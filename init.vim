@@ -142,6 +142,7 @@ if &loadplugins
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
   Plug 'LinArcX/telescope-scriptnames.nvim'
+  Plug 'nvim-telescope/telescope-github.nvim'
 
   Plug 'anuvyklack/pretty-fold.nvim'
 

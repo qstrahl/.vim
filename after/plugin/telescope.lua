@@ -4,6 +4,7 @@ local actions = require('telescope.actions')
 -- local state = require('telescope.actions.state')
 
 telescope.load_extension('scriptnames')
+telescope.load_extension('gh')
 
 -- local custom_actions = transform_mod({
 --   paste = function(prompt_bufnr)
