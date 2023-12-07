@@ -42,6 +42,7 @@ hi! Title               cterm=bold              ctermfg=none    ctermbg=none
 hi! Todo                cterm=italic            ctermfg=10      ctermbg=none
 hi! User1               cterm=bold,reverse      ctermfg=10      ctermbg=0
 hi! VertSplit           cterm=none              ctermfg=0       ctermbg=0
+hi! WinSeparator        cterm=none              ctermfg=0       ctermbg=0
 hi! Visual              cterm=none              ctermfg=none    ctermbg=238
 hi! WarningMsg          cterm=italic            ctermfg=9       ctermbg=none
 hi! Whitespace          cterm=reverse           ctermfg=none    ctermbg=none
