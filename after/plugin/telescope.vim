@@ -1,5 +1,5 @@
 "" show all available Telescope pickers
-nnoremap <Leader><Leader> <Cmd>Telescope builtin<CR>
+nnoremap <Leader><Leader> <Cmd>Telescope builtin include_extensions=true<CR>
 
 "" git-specific pickers
 nnoremap <Leader>gb <Cmd>Telescope git_branches<CR>
