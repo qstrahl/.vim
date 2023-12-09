@@ -7,6 +7,7 @@ setglobal completeopt=menu,menuone,noselect
 setglobal diffopt=internal,indent-heuristic,algorithm:patience,closeoff,hiddenoff,filler,vertical,foldcolumn:0,linematch:60
 setglobal expandtab
 setglobal fillchars=vert:\ ,fold:\ ,diff:╱
+setglobal foldmethod=expr
 setglobal foldlevelstart=99
 setglobal guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250
 setglobal hidden

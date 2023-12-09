@@ -252,6 +252,5 @@ end
 
 vim.g.HighlightedFoldtext = HighlightedFoldtext
 
-vim.o.foldmethod = 'expr'
 vim.o.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.o.foldtext = 'HighlightedFoldtext()'
