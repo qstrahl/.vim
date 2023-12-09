@@ -47,7 +47,7 @@ augroup MyCustomAutocmds
   autocmd!
   " autocmd VimEnter * if !len(expand('%') . &buftype) | setlocal bufhidden=wipe | endif
   autocmd VimResized * if &equalalways | wincmd = | endif
-  autocmd TextChanged,InsertLeave * if &diff | diffupdate | endif
+  autocmd TextChanged,InsertLeave * if &diff | diffupdate | redraw! | endif
   " TODO: figure out wtf I'm doing with my life
   " autocmd OptionSet diff if &diff | exe 'normal zz' | endif
   " autocmd CursorMoved,TextChanged * if &diff | exe 'normal zz' | endif
