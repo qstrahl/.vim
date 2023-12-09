@@ -6,7 +6,7 @@ setglobal clipboard=unnamedplus
 setglobal completeopt=menu,menuone,noselect
 setglobal diffopt=internal,indent-heuristic,algorithm:patience,closeoff,hiddenoff,filler,vertical,foldcolumn:0,linematch:60
 setglobal expandtab
-setglobal fillchars=vert:\ ,diff:╱,fold:-
+setglobal fillchars=vert:\ ,fold:\ ,diff:╱
 setglobal foldlevelstart=99
 setglobal guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250
 setglobal hidden
@@ -146,8 +146,6 @@ if &loadplugins
   Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
   Plug 'LinArcX/telescope-scriptnames.nvim'
   Plug 'nvim-telescope/telescope-github.nvim'
-
-  Plug 'anuvyklack/pretty-fold.nvim'
 
   Plug 'stevearc/oil.nvim'
   Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'

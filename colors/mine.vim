@@ -22,7 +22,8 @@ hi! ErrorMsg            cterm=italic            ctermfg=1       ctermbg=none
 hi! TermCursor          cterm=none              ctermfg=none    ctermbg=none
 hi! TermCursorNC        cterm=none              ctermfg=none    ctermbg=none
 hi! FoldColumn          cterm=none              ctermfg=none    ctermbg=0
-hi! Folded              cterm=italic,underline  ctermfg=8       ctermbg=none
+hi! Folded              cterm=none              ctermfg=8       ctermbg=none
+hi! FoldedText          cterm=reverse           ctermfg=8       ctermbg=none
 hi! IncSearch           cterm=bold              ctermfg=0       ctermbg=11
 hi! LineNr              cterm=none              ctermfg=8       ctermbg=none
 hi! CursorLineNr        cterm=none              ctermfg=none    ctermbg=236
