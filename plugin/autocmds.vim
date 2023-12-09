@@ -101,6 +101,7 @@ augroup MyCustomAutocmds
   " TODO: figure out wtf I'm doing with my life
   " autocmd OptionSet diff if &diff | exe 'normal zz' | endif
   " autocmd CursorMoved,TextChanged * if &diff | exe 'normal zz' | endif
+
   " autocmd Syntax * syntax sync fromstart
 
   "" what the fuck does this do?
