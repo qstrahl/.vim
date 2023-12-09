@@ -227,6 +227,18 @@ function HighlightedFoldtext()
     local result2 = parse_line(vim.v.foldend)
     if result2 then
       local first = result2[1]
+      local highlight = first[2][1]
+
+      -- remove surrounding commentstrings from comments for maximum ~aesthetic~
+      if highlight == '@comment' then
+        -- escape the comment string...
+        local commentstring = vim.bo.commentstring:gsub('(%W)', '%%%1')
+        -- inject non-escaped match pattern into the comment string...
+        commentstring = commentstring:gsub('%%%%s', '%s*(%.*)%s*')
+        -- magic away the comment string!
+        first[1] = first[1]:gsub(commentstring, '%1')
+      end
+
       result2[1] = { vim.trim(first[1]), first[2] }
 
       for _, item in ipairs(result2) do
