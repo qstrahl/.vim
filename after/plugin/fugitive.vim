@@ -87,12 +87,50 @@ function! s:CloseStatus ()
   endif
 endfunction
 
+"" Auto-diff new fugitive buffers in tabs containing diffs of the same file
+function! s:KeepDiff()
+  if !get(w:, 'keep_diff')
+    return
+  endif
+
+  let tabnr = tabpagenr()
+  let [ tabinfo ] = gettabinfo(tabnr)
+
+  for win in tabinfo.windows
+    if getwinvar(win, '&diff')
+      diffthis
+      normal ]c[czM
+      return
+    endif
+  endfor
+endfunction
+
+function! s:DiffLog()
+  let tabnr = tabpagenr()
+  let [ tabinfo ] = gettabinfo(tabnr)
+  if len(tabinfo.windows) > 1
+    tab sb
+  endif
+  diffthis
+  leftabove vsp
+  let w:keep_diff = 1
+  botright 0Gllog
+  2wincmd w
+  wincmd p
+endfunction
+
+augroup MyFugitive
+  autocmd!
+  autocmd FileType help call FugitiveDetect(@%)
+  autocmd BufWinEnter * call s:KeepDiff()
+augroup END
+
 "" Custom fugitive maps for oft-needed commands
 nnoremap <Leader>gs <Cmd>call <SID>OpenStatus()<CR>
 
 nnoremap <Leader>gd <Cmd>Gdiffsplit!<CR>
 nnoremap <Leader>ge <Cmd>Gedit<CR>
-nnoremap <Leader>gl <Cmd>Gllog<CR>
+nnoremap <Leader>gl <Cmd>call <SID>DiffLog()<CR>
 
 nnoremap <Leader>gD <Cmd>Git difftool -y<CR>
 nnoremap <Leader>gm <Cmd>Git mergetool -y<CR>
