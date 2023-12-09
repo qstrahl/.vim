@@ -95,36 +95,36 @@ endfunction
 
 augroup MyCustomAutocmds
   autocmd!
-  " autocmd! VimEnter * if !len(expand('%') . &buftype) | setlocal bufhidden=wipe | endif
-  autocmd! VimResized * if &equalalways | wincmd = | endif
-  autocmd! TextChanged,InsertLeave * if &diff | diffupdate | endif
+  " autocmd VimEnter * if !len(expand('%') . &buftype) | setlocal bufhidden=wipe | endif
+  autocmd VimResized * if &equalalways | wincmd = | endif
+  autocmd TextChanged,InsertLeave * if &diff | diffupdate | endif
   " TODO: figure out wtf I'm doing with my life
-  " autocmd! OptionSet diff if &diff | exe 'normal zz' | endif
-  " autocmd! CursorMoved,TextChanged * if &diff | exe 'normal zz' | endif
-  " autocmd! Syntax * syntax sync fromstart
+  " autocmd OptionSet diff if &diff | exe 'normal zz' | endif
+  " autocmd CursorMoved,TextChanged * if &diff | exe 'normal zz' | endif
+  " autocmd Syntax * syntax sync fromstart
 
   "" what the fuck does this do?
-  " autocmd! QuitPre * autocmd plugin/autocmds WinLeave * wincmd p | exe 'doautocmd WinEnter' winnr() | autocmd! plugin/autocmds WinLeave
+  " autocmd QuitPre * autocmd plugin/autocmds WinLeave * wincmd p | exe 'doautocmd WinEnter' winnr() | autocmd! plugin/autocmds WinLeave
 
   "" attempt to keep tmux CWD in sync with vim CWD
-  autocmd! DirChanged * call chansend(v:stderr, printf("\033]7;%s\033\\", fnameescape(getcwd())))
-  autocmd! VimLeave * call chansend(v:stderr, "\033]7;\033\\")
+  autocmd DirChanged * call chansend(v:stderr, printf("\033]7;%s\033\\", fnameescape(getcwd())))
+  autocmd VimLeave * call chansend(v:stderr, "\033]7;\033\\")
 
   "" uhhhhhh does this do stuff???
-  autocmd! BufReadPre,BufWritePre * let &l:undofile = expand('<afile>:p') !~# '\v\f*/?\.git/\u+(_\u+)*'
+  autocmd BufReadPre,BufWritePre * let &l:undofile = expand('<afile>:p') !~# '\v\f*/?\.git/\u+(_\u+)*'
 
   "" automatically manage window stuff (working directory, statusline)
-  autocmd! BufWinEnter,WinNew * call s:ManageWindow()
-  autocmd! FileType dirvish call s:ManageWindow()
+  autocmd BufWinEnter,WinNew * call s:ManageWindow()
+  autocmd FileType dirvish call s:ManageWindow()
 
   "" translate Windows paths to WSL paths
-  autocmd! FileReadCmd \v^\a:\\[[:fname:]\\]+$ call s:ReadWindowsFile(expand('<afile>'))
-  autocmd! BufReadCmd  \v^\a:\\[[:fname:]\\]+$ call s:EditWindowsFile(expand('<afile>'))
+  autocmd FileReadCmd \v^\a:\\[[:fname:]\\]+$ call s:ReadWindowsFile(expand('<afile>'))
+  autocmd BufReadCmd  \v^\a:\\[[:fname:]\\]+$ call s:EditWindowsFile(expand('<afile>'))
 
   "" If a swapfile already exists, just open the corresponding file readonly
-  " autocmd! SwapExists * let v:swapchoice = "o"
+  " autocmd SwapExists * let v:swapchoice = "o"
 
   "" TODO: revisit a pull request on romainl/vim-qf to integrate with fugitive
-  autocmd! QuickFixCmdPost grep-fugitive nested call qf#OpenQuickfix()
-  autocmd! QuickFixCmdPost lgrep-fugitive nested call qf#OpenLoclist()
+  autocmd QuickFixCmdPost grep-fugitive nested call qf#OpenQuickfix()
+  autocmd QuickFixCmdPost lgrep-fugitive nested call qf#OpenLoclist()
 augroup END
