@@ -128,4 +128,3 @@ augroup MyCustomAutocmds
   autocmd! QuickFixCmdPost grep-fugitive nested call qf#OpenQuickfix()
   autocmd! QuickFixCmdPost lgrep-fugitive nested call qf#OpenLoclist()
 augroup END
-
