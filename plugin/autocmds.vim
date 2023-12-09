@@ -1,69 +1,19 @@
-"" Manage window-specific stuff like working directory, statusline, etc
-function! s:ManageWindow()
-  let bufname = expand('%:p')
+"" Choose an appropriate working directory for the current window
+function! s:cd()
+  let bufname = expand('%:p:s?^oil://??')
   let gitdir = FugitiveWorkTree()
   let [ gitpath; _ ] = FugitiveParse()
   let dir = isdirectory(bufname) ? bufname : gitdir
 
-  " echoerr 'ManageWindow' bufname dir gitdir gitpath
-
-  "" choose an appropriate working directory for the current buffer
   if len(dir)
     exe 'lcd' dir
-    let scope = 'window'
+    " let scope = 'window'
   else
     exe 'cd' getcwd(-1)
-    let scope = 'global'
+    " let scope = 'global'
   endif
 
   " exe 'doautocmd DirChanged' scope
-
-  let b:repo = fnamemodify(gitdir, ':t')
-  let b:bufname = ''
-  let b:commit = ''
-
-  "" if editing a git blob
-  if len(gitpath)
-    let [ _, commit, path; _ ] = matchlist(gitpath, '\v^(:?\x+)?(:\f*)?$')
-    let path = path[1:]
-    
-    "" handle special cases (staged file, merge sources, etc)
-    if commit ==# ':0'
-      let commit = 'staged'
-    else
-      let commit = commit[0:7]
-    endif
-
-    "" add commit info and gitdir-relative bufname to window vars
-    if path ==# ''
-      if commit ==# ''
-        "" if path and commit are both empty, this is the git status buffer
-        let b:bufname = 'Git Status'
-      else
-        "" if only path is empty, this is a commit buffer; use commit as name
-        let b:bufname = 'Git Commit: ' . commit
-      endif
-    else
-      "" if path is not empty, we're editing a blob
-      let b:bufname = path
-      let b:commit = commit
-    endif
-  elseif bufname ==# gitdir . '/'
-    let b:bufname = fnamemodify(bufname, ':~')
-  elseif len(gitdir)
-    "" show bufname relative to git worktree
-    let b:bufname = bufname[len(gitdir) + 1:]
-  else
-    "" show bufname relative to $HOME
-    " let b:bufname = fnamemodify(bufname, ':~')
-  endif
-
-  "" use custom statusline for special git buffers / files in git repos
-  if len(b:bufname . b:commit)
-    setlocal statusline=%<%([%{b:repo}]%)\ %{b:bufname}\ %([%{b:commit}]%)%h%m%r%=%-14.(%l,%c%V%)\ %P
-  else
-    set statusline<
-  endif
 endfunction
 
 function! s:WindowsFilePath(fname)
@@ -115,7 +65,7 @@ augroup MyCustomAutocmds
   autocmd BufReadPre,BufWritePre * let &l:undofile = expand('<afile>:p') !~# '\v\f*/?\.git/\u+(_\u+)*'
 
   "" automatically manage window stuff (working directory, statusline)
-  autocmd BufWinEnter,WinNew * call s:ManageWindow()
+  autocmd BufWinEnter,WinNew * call s:cd()
 
   "" translate Windows paths to WSL paths
   autocmd FileReadCmd \v^\a:\\[[:fname:]\\]+$ call s:ReadWindowsFile(expand('<afile>'))
