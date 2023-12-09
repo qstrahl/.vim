@@ -24,6 +24,8 @@ hi! TermCursorNC        cterm=none              ctermfg=none    ctermbg=none
 hi! FoldColumn          cterm=none              ctermfg=none    ctermbg=0
 hi! Folded              cterm=none              ctermfg=8       ctermbg=none
 hi! FoldedText          cterm=reverse           ctermfg=8       ctermbg=none
+hi! DiffFolded          cterm=none              ctermfg=0       ctermbg=none
+hi! DiffFoldedText      cterm=reverse           ctermfg=0       ctermbg=8
 hi! IncSearch           cterm=bold              ctermfg=0       ctermbg=11
 hi! LineNr              cterm=none              ctermfg=8       ctermbg=none
 hi! CursorLineNr        cterm=none              ctermfg=none    ctermbg=236

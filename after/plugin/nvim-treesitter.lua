@@ -208,22 +208,39 @@ local function parse_line(linenr)
 end
 
 function HighlightedFoldtext()
-  local result = parse_line(vim.v.foldstart)
-  if not result then
-    return vim.fn.foldtext()
-  end
+  local numlines = vim.v.foldend - vim.v.foldstart
+  local text = '\u{f0278} ' .. numlines
+  local folded, result
 
-  local folded = {
-    { '\u{2590}', 'FoldedIcon' },
-    { '\u{f0278} ' .. vim.v.foldend - vim.v.foldstart, 'FoldedText' },
-    { '\u{258c}', 'FoldedIcon' },
-  }
+  -- diffs get dumb foldtext
+  if vim.wo.diff then
+    text = ' ' .. text .. ' '
+    local width = vim.fn.winwidth(0)
+    local offset = vim.fn.wincol() - vim.fn.virtcol('.')
+    local fillwidth = width - vim.fn.strdisplaywidth(text) - offset
+    local fillchar = '\u{2501}'
 
-  for _, item in ipairs(folded) do
-    table.insert(result, item)
-  end
+    result = {
+      { (fillchar):rep(fillwidth), 'DiffFolded' },
+      { text, 'DiffFoldedText' },
+    }
+  -- everything else gets galaxy brain foldtext
+  else
+    result = parse_line(vim.v.foldstart)
+    if not result then
+      return vim.fn.foldtext()
+    end
 
-  if not vim.wo.diff then
+    folded = {
+      { '\u{2590}', 'FoldedIcon' },
+      { text, 'FoldedText' },
+      { '\u{258c}', 'FoldedIcon' },
+    }
+
+    for _, item in ipairs(folded) do
+      table.insert(result, item)
+    end
+
     local result2 = parse_line(vim.v.foldend)
     if result2 then
       local first = result2[1]
