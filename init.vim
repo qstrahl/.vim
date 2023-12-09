@@ -149,7 +149,7 @@ if &loadplugins
 
   Plug 'anuvyklack/pretty-fold.nvim'
 
-  Plug 'justinmk/vim-dirvish'
+  Plug 'stevearc/oil.nvim'
   Plug 'mattn/webapi-vim' | Plug 'mattn/gist-vim'
   Plug 'tpope/vim-scriptease'
   Plug 'romainl/vim-qf'

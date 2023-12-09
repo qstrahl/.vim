@@ -116,7 +116,6 @@ augroup MyCustomAutocmds
 
   "" automatically manage window stuff (working directory, statusline)
   autocmd BufWinEnter,WinNew * call s:ManageWindow()
-  autocmd FileType dirvish call s:ManageWindow()
 
   "" translate Windows paths to WSL paths
   autocmd FileReadCmd \v^\a:\\[[:fname:]\\]+$ call s:ReadWindowsFile(expand('<afile>'))
