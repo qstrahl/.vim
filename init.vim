@@ -18,6 +18,7 @@ setglobal nostartofline
 setglobal notermguicolors
 setglobal nowrap
 setglobal path=**
+setglobal previewheight=9
 setglobal pumheight=15
 setglobal redrawtime=10000
 setglobal report=0
