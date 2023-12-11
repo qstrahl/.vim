@@ -208,9 +208,9 @@ local function on_lsp_attach (ev)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
 
   -- builtin lsp functions
-  set_buf_keymap('n', 'gD',             vim.lsp.buf.declaration                 )
+  set_buf_keymap('n', 'gD',             vim.lsp.buf.type_definition             )
   set_buf_keymap('n', 'gd',             vim.lsp.buf.definition                  )
-  set_buf_keymap('n', '<Leader>D',      vim.lsp.buf.type_definition             )
+  set_buf_keymap('n', '<Leader>D',      vim.lsp.buf.declaration                 )
   set_buf_keymap('n', 'gI',             vim.lsp.buf.implementation              )
   set_buf_keymap('n', 'K',              vim.lsp.buf.hover                       )
   set_buf_keymap('n', '<C-k>',          vim.lsp.buf.signature_help              )
