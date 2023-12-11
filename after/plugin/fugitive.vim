@@ -109,7 +109,7 @@ function! s:DiffLog()
   let bufname = expand('%:s?^oil://??')
 
   if isdirectory(bufname)
-    exe 'Gllog --' bufname
+    exe 'Gclog --' bufname
   else
     let tabnr = tabpagenr()
     let [ tabinfo ] = gettabinfo(tabnr)
@@ -117,9 +117,10 @@ function! s:DiffLog()
       tab sb
     endif
     diffthis
+    let w:keep_diff = 1
     leftabove vsp
     let w:keep_diff = 1
-    botright 0Gllog
+    botright 0Gclog
     2wincmd w
     wincmd p
   endif
