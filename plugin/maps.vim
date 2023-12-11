@@ -8,6 +8,9 @@ nnoremap <M-]> gt
 nnoremap <M-p> gT
 nnoremap <M-[> gT
 
+" Close common special windows with <Esc>
+nnoremap <Leader><Esc> <Cmd>lclose\|cclose\|pclose\|helpclose<CR>
+
 " Break window into its own tabbpage
 nnoremap <C-w><C-CR> <Cmd>-tab sp<CR>
 
