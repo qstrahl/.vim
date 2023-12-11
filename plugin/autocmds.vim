@@ -43,6 +43,21 @@ function! s:EditWindowsFile(fname)
   " silent lockmarks keepjumps delete_
 endfunction
 
+function! s:SetupQF()
+  call s:ResizeQF()
+
+  augroup MyCustomQF
+    autocmd!
+    autocmd TextChanged <buffer> call s:ResizeQF()
+  augroup END
+endfunction
+
+function! s:ResizeQF()
+  let maxheight = get(g:, 'qf_max_height', &previewheight)
+  let listlen = line('$')
+  exe min([ maxheight, listlen ]) 'wincmd _'
+endfunction
+
 augroup MyCustomAutocmds
   autocmd!
   " autocmd VimEnter * if !len(expand('%') . &buftype) | setlocal bufhidden=wipe | endif
@@ -77,4 +92,6 @@ augroup MyCustomAutocmds
   "" TODO: revisit a pull request on romainl/vim-qf to integrate with fugitive
   autocmd QuickFixCmdPost grep-fugitive nested call qf#OpenQuickfix()
   autocmd QuickFixCmdPost lgrep-fugitive nested call qf#OpenLoclist()
+
+  autocmd BufWinEnter * if &buftype ==# 'quickfix' | call s:SetupQF() | endif
 augroup END
