@@ -213,7 +213,7 @@ function HighlightedFoldtext()
   local folded, result
 
   -- diffs get dumb foldtext
-  if vim.wo.diff then
+  if vim.wo.foldmethod == 'diff' then
     text = ' ' .. text .. ' '
     local width = vim.fn.winwidth(0)
     local hscroll = vim.fn.winsaveview().leftcol
