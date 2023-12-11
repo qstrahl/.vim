@@ -48,7 +48,6 @@ function! StlHelpTags()
   if len(matches)
     let [ section; _ ] = matches
     let section = trim(section)[1:-2]
-    let section = substitute(section, '\S\zs_\ze\S', ' ', 'g')
     let section = split(section, '\*\s*\*')
     let section = join(section, " \u00b7 ")
     return section
