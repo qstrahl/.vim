@@ -165,6 +165,15 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist)
 vim.keymap.set('n', '<Leader>dq', vim.diagnostic.setqflist)
 
+local function setloclist (options)
+  vim.fn.setloclist(0, {}, ' ', options)
+  vim.api.nvim_command('lclose|lwindow|wincmd p')
+end
+
+local function references ()
+  vim.lsp.buf.references(nil, { on_list = setloclist })
+end
+
 -- buffer-specfic configuration, happens on LSP attachment
 local function on_lsp_attach (ev)
   local buffer = ev.buf
@@ -206,7 +215,7 @@ local function on_lsp_attach (ev)
   set_buf_keymap('n', 'K',              vim.lsp.buf.hover                       )
   set_buf_keymap('n', '<C-k>',          vim.lsp.buf.signature_help              )
   set_buf_keymap('n', '<Leader>a',      vim.lsp.buf.code_action                 )
-  set_buf_keymap('n', 'gr',             vim.lsp.buf.references                  )
+  set_buf_keymap('n', 'gr',             references                              )
   set_buf_keymap('n', '<Leader>n',      vim.lsp.buf.rename                      )
   set_buf_keymap('n', '<Leader>wa',     vim.lsp.buf.add_workspace_folder        )
   set_buf_keymap('n', '<Leader>wr',     vim.lsp.buf.remove_workspace_folder     )
