@@ -106,17 +106,23 @@ function! s:KeepDiff()
 endfunction
 
 function! s:DiffLog()
-  let tabnr = tabpagenr()
-  let [ tabinfo ] = gettabinfo(tabnr)
-  if len(tabinfo.windows) > 1
-    tab sb
+  let bufname = expand('%:s?^oil://??')
+
+  if isdirectory(bufname)
+    exe 'Gllog --' bufname
+  else
+    let tabnr = tabpagenr()
+    let [ tabinfo ] = gettabinfo(tabnr)
+    if len(tabinfo.windows) > 1
+      tab sb
+    endif
+    diffthis
+    leftabove vsp
+    let w:keep_diff = 1
+    botright 0Gllog
+    2wincmd w
+    wincmd p
   endif
-  diffthis
-  leftabove vsp
-  let w:keep_diff = 1
-  botright 0Gllog
-  2wincmd w
-  wincmd p
 endfunction
 
 augroup MyFugitive
