@@ -216,7 +216,8 @@ function HighlightedFoldtext()
   if vim.wo.diff then
     text = ' ' .. text .. ' '
     local width = vim.fn.winwidth(0)
-    local offset = vim.fn.wincol() - vim.fn.virtcol('.')
+    local hscroll = vim.fn.winsaveview().leftcol
+    local offset = vim.fn.wincol() - vim.fn.virtcol('.') + hscroll
     local fillwidth = width - vim.fn.strdisplaywidth(text) - offset
     local fillchar = '\u{2501}'
 
