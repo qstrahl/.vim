@@ -20,7 +20,7 @@ function! MyGitStatusLine()
 endfunction
 
 function! MyQfStatusLine()
-  return "\ueb86 %1*%<%{get(w:,'quickfix_title','')}%*%=%l / %L"
+  return "\ueb86 %1*%<%{get(w:,'quickfix_title','')}%*%=%1*%l%*/%L"
 endfunction
 
 function! MyHelpStatusLine()
