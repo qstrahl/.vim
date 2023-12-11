@@ -165,8 +165,6 @@ function! StlMod()
   endif 
 endfunction
 
-highlight! User1 cterm=bold
-
 augroup MyStatusLine
   autocmd!
   autocmd FileType * setlocal statusline<
