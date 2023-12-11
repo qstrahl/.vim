@@ -15,6 +15,7 @@ setglobal ignorecase
 setglobal inccommand=nosplit
 setglobal mouse=ar
 setglobal nostartofline
+setglobal notermguicolors
 setglobal nowrap
 setglobal path=**
 setglobal pumheight=15
