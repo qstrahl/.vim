@@ -10,6 +10,7 @@ setglobal fillchars=vert:\ ,fold:\ ,diff:╱
 setglobal foldmethod=expr
 setglobal foldlevelstart=99
 setglobal guicursor=n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250
+setglobal helpheight=0
 setglobal hidden
 setglobal ignorecase
 setglobal inccommand=nosplit
