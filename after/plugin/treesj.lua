@@ -26,6 +26,6 @@ treesj.setup {
   -- langs = {}, -- See the default presets in lua/treesj/langs
 }
 
-vim.keymap.set('n', '<Leader>s', treesj.split)
-vim.keymap.set('n', '<Leader>j', treesj.join)
-vim.keymap.set('n', '<Leader>t', treesj.toggle)
+vim.keymap.set('n', 'gs', treesj.split)
+vim.keymap.set('n', 'gj', treesj.join)
+-- vim.keymap.set('n', '<Leader>t', treesj.toggle)
