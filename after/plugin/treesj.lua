@@ -28,4 +28,4 @@ treesj.setup {
 
 vim.keymap.set('n', 'gs', treesj.split)
 vim.keymap.set('n', 'gj', treesj.join)
--- vim.keymap.set('n', '<Leader>t', treesj.toggle)
+vim.keymap.set('n', 'gt', treesj.toggle)
