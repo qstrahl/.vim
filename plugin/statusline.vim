@@ -71,16 +71,6 @@ function! StlGitFile()
   endif
 endfunction
 
-function! StlType()
-  if &buftype ==# 'help'
-    return "  \uf059"
-  elseif &buftype ==# 'quickfix'
-    return "  \ueb86"
-  else
-    return ""
-  endif
-endfunction
-
 function! StlRepo()
   if !exists('b:stl_repo')
     let b:stl_repo = fnamemodify(FugitiveWorkTree(), ':s?/\+??:t')
