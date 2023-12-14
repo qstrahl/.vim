@@ -1,11 +1,12 @@
 let s:ruler = "%= %5.(%l:%)%-7.(%c%V%) %P"
 let s:repo = "%(\ue65d %{StlRepo()} %)"
+let s:commit = "\ueafc%{StlCommit()}"
 
 function! MyStatusLine()
   let stl = ""
   let stl .= s:repo
   let stl .= "%1*%<%{StlName()}%*"
-  let stl .= "%( \ueafc%{StlCommit()}%)%( %{StlMod()}%)"
+  let stl .= "%( " . s:commit . "%)%( %{StlMod()}%)"
   let stl .= s:ruler
   return stl
 endfunction
@@ -13,7 +14,7 @@ endfunction
 function! MyGitStatusLine()
   let stl = ""
   let stl .= s:repo
-  let stl .= "%1*\ueafc%{StlCommit()}%* "
+  let stl .= "%1*" . s:commit . "%* "
   let stl .= "%<%(\u00b7 %{StlGitFile()}%)"
   let stl .= "%= %P"
   return stl
