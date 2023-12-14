@@ -79,71 +79,60 @@ function! StlRepo()
 endfunction
 
 function! StlName()
-  if !exists('b:stl_name')
-    let b:stl_name = ''
-
-    let name = expand('%:p')
-
-    if name =~# '^oil://'
-      let name = name[6:]
-    endif
-
-    let gitdir = FugitiveWorkTree()
-    let [ gitpath; _ ] = FugitiveParse()
-
-    "" if editing a git blob
-    if len(gitpath)
-      let [ _, commit, path; _ ] = matchlist(gitpath, '\v^(:?\x+)?(:\f*)?$')
-      let path = path[1:]
-
-      let commit = StlCommit()
-
-      "" add commit info and gitdir-relative name to window vars
-      if path ==# ''
-        if commit ==# ''
-          "" if path and commit are both empty, this is the git status buffer
-          let b:stl_name = 'Git Status'
-        else
-          "" if only path is empty, this is a commit buffer; use commit as name
-          let b:stl_name = 'Git Commit: ' . commit
-        endif
-      else
-        "" if path is not empty, we're editing a blob
-        let b:stl_name = path
-      endif
-    "" if editing a nameless buffer
-    elseif @% ==# ''
-      if &buftype ==# 'nofile' && &bufhidden ==# 'hide' && !&swapfile
-        let b:stl_name = '[Scratch]'
-      else
-        let b:stl_name = '[No Name]'
-      endif
-    "" if editing a file within a git repo
-    elseif len(gitdir) > 0 && gitdir !=# name[:-2]
-      "" show name relative to git worktree
-      let b:stl_name = name[len(gitdir) + 1:]
+  "" Handle no-name and scratch buffers
+  if @% ==# ''
+    if &buftype ==# 'nofile' && &bufhidden ==# 'hide' && !&swapfile
+      return '[Scratch]'
     else
-      "" show name relative to $HOME
-      let b:stl_name = fnamemodify(name, ':~')
+      return '[No Name]'
     endif
   endif
 
-  return b:stl_name
+  "" Handle special fugitive buffers
+
+  let fugitive_type = get(b:, 'fugitive_type', '')
+
+  if fugitive_type ==# 'index'
+    return 'Git Status'
+  endif
+
+  "" Strip plugin scheme from directory names
+  let name = expand('%:p:s?^oil://??')
+
+  let gitdir = FugitiveWorkTree()
+  let [ commit, path ] = s:gitdata()
+
+  if fugitive_type ==# 'blob'
+    return path
+  elseif fugitive_type ==# 'tree'
+    "" Show path relative to git dir
+    "" For the git dir itself, show path relative to $HOME
+    let path = len(path) ? path : fnamemodify(gitdir, ':~')
+
+    "" Always show a trailing slash
+    if path !~# '/$'
+      let path .= '/'
+    endif
+
+    return path
+  endif
+
+  "" Handle everything else
+
+  "" if editing a file/directory in a git repo
+  if len(gitdir) && gitdir !=# name[:-2]
+    "" show name relative to git worktree
+    return name[len(gitdir) + 1:]
+  else
+    "" for everything else, show name relative to $HOME
+    return fnamemodify(name, ':~')
+  endif
 endfunction
 
 function! StlCommit()
-  if !exists('b:stl_commit')
-    let b:stl_commit = ''
+  let [ commit, _ ] = s:gitdata()
 
-    let [ gitpath; _ ] = FugitiveParse()
-    if len(gitpath)
-      let [ _, commit, path; _ ] = matchlist(gitpath, '\v^(:?\x+)?(:\f*)?$')
-      
-      let b:stl_commit = commit[0:7]
-    endif
-  endif
-
-  return b:stl_commit
+  return commit[:6]
 endfunction
 
 function! StlMod()
@@ -156,12 +145,29 @@ function! StlMod()
   endif 
 endfunction
 
+function! s:gitdata()
+  let [ gitpath; _ ] = FugitiveParse()
+  let gitdata = matchlist(gitpath, '\v^(:?\x+)?(:\f*)?$')
+  let [ commit, path ] = len(gitdata) > 2 ? gitdata[1:2] : ['', '']
+
+  return [ commit, path[1:] ]
+endfunction
+
+function! s:SetStatusLine()
+  if &filetype ==# 'qf'
+    setlocal statusline=%!MyQfStatusLine()
+  elseif &filetype ==# 'help'
+    setlocal statusline=%!MyHelpStatusLine()
+  elseif &filetype ==# 'git' && get(b:, 'fugitive_type') ==# 'commit'
+    setlocal statusline=%!MyGitStatusLine()
+  else
+    setlocal statusline<
+  endif
+endfunction
+
 augroup MyStatusLine
   autocmd!
-  autocmd FileType * setlocal statusline<
-  autocmd FileType qf setlocal statusline=%!MyQfStatusLine()
-  autocmd FileType git setlocal statusline=%!MyGitStatusLine()
-  autocmd FileType help setlocal statusline=%!MyHelpStatusLine()
+  autocmd FileType * call s:SetStatusLine()
 augroup END
 
 setglobal statusline=%!MyStatusLine()
