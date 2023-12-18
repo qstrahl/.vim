@@ -86,6 +86,8 @@ function! StlName()
     else
       return '[No Name]'
     endif
+  elseif &buftype ==# 'nofile'
+    return @%
   endif
 
   "" Handle special fugitive buffers
