@@ -58,6 +58,7 @@ require('telescope').setup {
     selection_caret = '  ',
     multi_icon = '➤ ',
     dynamic_preview_title = true,
+    path_display = {'truncate'},
 
     -- Default configuration for telescope goes here:
     -- config_key = value,
