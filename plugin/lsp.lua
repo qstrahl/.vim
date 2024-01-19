@@ -167,7 +167,7 @@ vim.keymap.set('n', '<Leader>dq', vim.diagnostic.setqflist)
 
 local function setloclist (options)
   vim.fn.setloclist(0, {}, ' ', options)
-  vim.api.nvim_command('lclose|lwindow|wincmd p')
+  vim.api.nvim_command('lclose|lwindow|wincmd p|ll')
 end
 
 local function references ()
