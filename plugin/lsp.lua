@@ -170,8 +170,21 @@ local function setloclist (options)
   vim.api.nvim_command('lclose|lwindow|wincmd p|ll')
 end
 
+local function setloclist_reverse (options)
+  local items = {}
+  for i, _ in ipairs(options.items) do
+    items[i] = options.items[#options.items - i + 1]
+  end
+  options.items = items
+  setloclist(options)
+end
+
 local function references ()
   vim.lsp.buf.references(nil, { on_list = setloclist })
+end
+
+local function definitions ()
+  vim.lsp.buf.definition({ on_list = setloclist_reverse })
 end
 
 -- buffer-specfic configuration, happens on LSP attachment
@@ -209,7 +222,7 @@ local function on_lsp_attach (ev)
 
   -- builtin lsp functions
   set_buf_keymap('n', 'gD',             vim.lsp.buf.type_definition             )
-  set_buf_keymap('n', 'gd',             vim.lsp.buf.definition                  )
+  set_buf_keymap('n', 'gd',             definitions                             )
   set_buf_keymap('n', '<Leader>D',      vim.lsp.buf.declaration                 )
   set_buf_keymap('n', 'gI',             vim.lsp.buf.implementation              )
   set_buf_keymap('n', 'K',              vim.lsp.buf.hover                       )
