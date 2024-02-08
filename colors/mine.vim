@@ -172,6 +172,12 @@ hi! DiagnosticUnnecessary cterm=underline ctermbg=none ctermfg=none
 " hi! DiagnosticUnderlineInfo     cterm=underline ctermfg=NONE    ctermbg=NONE
 " hi! DiagnosticUnderlineWarn     cterm=underline ctermfg=NONE    ctermbg=NONE
 
+hi! DiagnosticSignError         ctermfg=1       ctermbg=0
+hi! DiagnosticSignHint          ctermfg=2       ctermbg=0
+hi! DiagnosticSignInfo          ctermfg=4       ctermbg=0
+hi! DiagnosticSignOk            ctermfg=2       ctermbg=0
+hi! DiagnosticSignWarn          ctermfg=3       ctermbg=0
+
 hi! LspDiagnosticsSignError         cterm=bold      ctermfg=1       ctermbg=0
 hi! LspDiagnosticsSignHint          cterm=bold      ctermfg=2       ctermbg=0
 hi! LspDiagnosticsSignInformation   cterm=bold      ctermfg=4       ctermbg=0
