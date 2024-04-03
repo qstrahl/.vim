@@ -17,6 +17,9 @@ nnoremap <C-w><C-CR> <Cmd>-tab sp<CR>
 " <C-v> pastes from clipboard in insert/command mode
 noremap! <C-v> <C-r>+
 
+" Paste getcwd() with <C-r><C-.> in insert/command mode
+noremap! <C-r><C-.> <C-r>=getcwd()<CR>
+
 " Okay... okay hear me out... it makes sense, okay?
 imap <C-o> <S-Tab>
 cmap <C-i> <Down>
