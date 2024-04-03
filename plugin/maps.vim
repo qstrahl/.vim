@@ -14,6 +14,7 @@ nnoremap <Leader><Esc> <Cmd>lclose\|cclose\|pclose\|helpclose<CR>
 " Break window into its own tabbpage
 nnoremap <C-w><C-CR> <Cmd>-tab sp<CR>
 
+" <C-v> pastes from clipboard in insert/command mode
 noremap! <C-v> <C-r>+
 
 " Okay... okay hear me out... it makes sense, okay?
