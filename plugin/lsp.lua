@@ -5,6 +5,7 @@ require("mason-lspconfig").setup {
     'cssls',
     'elixirls',
     'eslint',
+    'biome',
     'graphql',
     'html',
     'jsonls',
