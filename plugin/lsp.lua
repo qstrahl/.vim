@@ -160,9 +160,6 @@ vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
 )
 
 -- always-available maps
-vim.keymap.set('n', '<Leader>do', vim.diagnostic.open_float)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
 vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist)
 vim.keymap.set('n', '<Leader>dq', vim.diagnostic.setqflist)
 
