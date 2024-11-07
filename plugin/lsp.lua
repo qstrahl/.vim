@@ -16,6 +16,7 @@ require("mason-lspconfig").setup {
     'rust_analyzer',
     'sqlls',
     'ts_ls',
+    'vtsls',
     'vimls',
     'lemminx',
     'yamlls',
