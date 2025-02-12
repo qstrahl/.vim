@@ -27,7 +27,7 @@ require("mason-lspconfig").setup {
 require('neodev').setup()
 
 local lspconfig = require('lspconfig')
-local lspconfig_ui_windows = require('lspconfig.ui.windows')
+-- local lspconfig_ui_windows = require('lspconfig.ui.windows')
 
 local function extend (...)
   return vim.tbl_extend('force', ...)
@@ -60,23 +60,23 @@ local function set_augroup(group, clear_group, ...)
 end
 
 -- Takes a callback intended for a keymap and makes it work like an operator
-local function operator (callback)
-  return function ()
-    vim.lsp.opfunc = callback
-    vim.o.opfunc = 'v:lua.vim.lsp.opfunc'
-    return 'g@'
-  end
-end
+-- local function operator (callback)
+--   return function ()
+--     vim.lsp.opfunc = callback
+--     vim.o.opfunc = 'v:lua.vim.lsp.opfunc'
+--     return 'g@'
+--   end
+-- end
 
 -- helper for defining custom lsp functions involving lists of stuff
-local function on_list (listOpts, callback)
-  return {
-    on_list = function(args)
-      local list = args.items
-      vim.ui.select(list, listOpts, callback)
-    end
-  }
-end
+-- local function on_list (listOpts, callback)
+--   return {
+--     on_list = function(args)
+--       local list = args.items
+--       vim.ui.select(list, listOpts, callback)
+--     end
+--   }
+-- end
 
 -- custom lsp functions
 
@@ -84,81 +84,81 @@ local function list_workspace_folders ()
   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 end
 
-local function document_symbol ()
-  vim.lsp.buf.document_symbol()
-end
+-- local function document_symbol ()
+--   vim.lsp.buf.document_symbol()
+-- end
 
-local function workspace_symbol ()
-  vim.lsp.buf.workspace_symbol('', on_list(
-    {
-      prompt = 'Select a Workspace Symbol:',
-      format_item = function(item)
-        return item.text
-      end,
-    },
-    function (chosenItem)
-      print(vim.inspect(chosenItem))
-      -- TODO: something more useful
-    end
-  ))
-end
+-- local function workspace_symbol ()
+--   vim.lsp.buf.workspace_symbol('', on_list(
+--     {
+--       prompt = 'Select a Workspace Symbol:',
+--       format_item = function(item)
+--         return item.text
+--       end,
+--     },
+--     function (chosenItem)
+--       print(vim.inspect(chosenItem))
+--       -- TODO: something more useful
+--     end
+--   ))
+-- end
 
-local function lsp_format (motion)
-  local buffer = vim.api.nvim_get_current_buf()
-  local mode = ({ char = 'v', line = 'V', block = '<c-v>' })[motion]
-  local range
-
-  if mode then
-    range = {
-      vim.api.nvim_buf_get_mark(buffer, '['),
-      vim.api.nvim_buf_get_mark(buffer, ']'),
-    }
-  elseif vim.api.nvim_get_mode()[1] ~= 'no' then
-    range = {
-      vim.api.nvim_buf_get_mark(buffer, '<'),
-      vim.api.nvim_buf_get_mark(buffer, '>'),
-    }
-  else
-    local linenr = unpack(vim.api.nvim_win_get_cursor(0))
-    local count = vim.v.count
-
-    if count == 1 then
-      count = 0
-    end
-
-    local lastline = vim.api.nvim_buf_get_lines(buffer, linenr, linenr + count, false)[-2]
-    local lastlinelen = string.len(lastline)
-
-    range = {
-      { linenr, 0 },
-      { linenr + count, lastlinelen - 1 }
-    }
-  end
-
-  -- print(vim.inspect(mode), vim.inspect(range))
-
-  vim.lsp.buf.format {
-    async = true,
-    bufnr = buffer,
-    range = range,
-  }
-end
+-- local function lsp_format (motion)
+--   local buffer = vim.api.nvim_get_current_buf()
+--   local mode = ({ char = 'v', line = 'V', block = '<c-v>' })[motion]
+--   local range
+--
+--   if mode then
+--     range = {
+--       vim.api.nvim_buf_get_mark(buffer, '['),
+--       vim.api.nvim_buf_get_mark(buffer, ']'),
+--     }
+--   elseif vim.api.nvim_get_mode()[1] ~= 'no' then
+--     range = {
+--       vim.api.nvim_buf_get_mark(buffer, '<'),
+--       vim.api.nvim_buf_get_mark(buffer, '>'),
+--     }
+--   else
+--     local linenr = unpack(vim.api.nvim_win_get_cursor(0))
+--     local count = vim.v.count
+--
+--     if count == 1 then
+--       count = 0
+--     end
+--
+--     local lastline = vim.api.nvim_buf_get_lines(buffer, linenr, linenr + count, false)[-2]
+--     local lastlinelen = string.len(lastline)
+--
+--     range = {
+--       { linenr, 0 },
+--       { linenr + count, lastlinelen - 1 }
+--     }
+--   end
+--
+--   -- print(vim.inspect(mode), vim.inspect(range))
+--
+--   vim.lsp.buf.format {
+--     async = true,
+--     bufnr = buffer,
+--     range = range,
+--   }
+-- end
 
 -- styling lsp ui elements
 
-local border = 'rounded'
+-- local border = 'rounded'
 
-lspconfig_ui_windows.default_options.border = border
+-- lspconfig_ui_windows.default_options.border = border
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-  -- Use a sharp border with `FloatBorder` highlights
-  vim.lsp.handlers.hover, { border = border }
-)
+-- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+--   -- Use a sharp border with `FloatBorder` highlights
+--   vim.lsp.handlers.hover, { border = border }
+-- )
 
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-  -- Use a sharp border with `FloatBorder` highlights
-  vim.lsp.handlers.signature_help, { border = border }
-)
+-- vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+--   -- Use a sharp border with `FloatBorder` highlights
+--   vim.lsp.handlers.signature_help, { border = border }
+-- )
 
 -- always-available maps
 vim.keymap.set('n', '<Leader>dl', vim.diagnostic.setloclist)
@@ -192,7 +192,7 @@ local function on_lsp_attach (ev)
   local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
   local keymap_opts = { buffer = buffer, noremap = true, silent = true }
-  local operator_opts = extend(keymap_opts, { expr = true })
+  -- local operator_opts = extend(keymap_opts, { expr = true })
 
   -- Set buflocal autocmds all in the same group
   local function set_buf_augroup (group, ...)
@@ -209,9 +209,9 @@ local function on_lsp_attach (ev)
   end
 
   -- Set buflocal operator keymap
-  local function set_buf_operator (mode, keys, callback)
-    vim.keymap.set(mode, keys, operator(callback), operator_opts)
-  end
+  -- local function set_buf_operator (mode, keys, callback)
+  --   vim.keymap.set(mode, keys, operator(callback), operator_opts)
+  -- end
 
   -- Enable completion triggered by <c-x><c-o>
   vim.bo[buffer].omnifunc = 'v:lua.vim.lsp.omnifunc'
