@@ -186,6 +186,16 @@ local function definitions ()
   vim.lsp.buf.definition({ on_list = setloclist_reverse })
 end
 
+local border = "rounded"
+
+local function hover ()
+  vim.lsp.buf.hover({ border = border })
+end
+
+local function signature_help ()
+  vim.lsp.buf.signature_help({ border = border })
+end
+
 -- buffer-specfic configuration, happens on LSP attachment
 local function on_lsp_attach (ev)
   local buffer = ev.buf
@@ -224,8 +234,8 @@ local function on_lsp_attach (ev)
   set_buf_keymap('n', 'gd',             definitions                             )
   set_buf_keymap('n', '<Leader>D',      vim.lsp.buf.declaration                 )
   set_buf_keymap('n', 'gI',             vim.lsp.buf.implementation              )
-  set_buf_keymap('n', 'K',              vim.lsp.buf.hover                       )
-  set_buf_keymap('n', '<C-k>',          vim.lsp.buf.signature_help              )
+  set_buf_keymap('n', 'K',              hover                                   )
+  set_buf_keymap('n', '<C-k>',          signature_help                          )
   set_buf_keymap('n', '<Leader>a',      vim.lsp.buf.code_action                 )
   set_buf_keymap('n', 'gr',             references                              )
   set_buf_keymap('n', '<Leader>n',      vim.lsp.buf.rename                      )
