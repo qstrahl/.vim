@@ -4,7 +4,7 @@
 " options {{{
 setglobal clipboard=unnamedplus
 setglobal completeopt=menu,menuone,noselect
-setglobal diffopt=internal,indent-heuristic,algorithm:patience,closeoff,hiddenoff,filler,vertical,foldcolumn:0,linematch:60
+setglobal diffopt=internal,inline:word,indent-heuristic,algorithm:patience,closeoff,hiddenoff,filler,vertical,foldcolumn:0,linematch:60
 setglobal expandtab
 setglobal fillchars=vert:\ ,fold:\ ,diff:╱
 setglobal foldmethod=expr
