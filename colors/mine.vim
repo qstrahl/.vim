@@ -178,11 +178,6 @@ hi! DiagnosticSignInfo          ctermfg=4       ctermbg=0
 hi! DiagnosticSignOk            ctermfg=2       ctermbg=0
 hi! DiagnosticSignWarn          ctermfg=3       ctermbg=0
 
-hi! LspDiagnosticsSignError         cterm=bold      ctermfg=1       ctermbg=0
-hi! LspDiagnosticsSignHint          cterm=bold      ctermfg=2       ctermbg=0
-hi! LspDiagnosticsSignInformation   cterm=bold      ctermfg=4       ctermbg=0
-hi! LspDiagnosticsSignWarning       cterm=bold      ctermfg=3       ctermbg=0
-
 hi! link LspInfoBorder FloatBorder
 
 hi! IndentBlanklineChar ctermfg=0
