@@ -26,9 +26,6 @@ require("mason-lspconfig").setup {
 -- neovim-specific lsp plugin!
 require('neodev').setup()
 
-local lspconfig = require('lspconfig')
--- local lspconfig_ui_windows = require('lspconfig.ui.windows')
-
 local function extend (...)
   return vim.tbl_extend('force', ...)
 end
@@ -301,19 +298,10 @@ local server_settings = {
 
 }
 
-local handlers = {
-  -- default server handler
-  function (server_name)
-    lspconfig[server_name].setup(default_server_config)
-  end
-}
-
 for key, settings in pairs(server_settings) do
   -- construct server-specific handlers from server_settings
-  handlers[key] = function ()
-    local config = extend(default_server_config, { settings = settings })
-    lspconfig[key].setup(config)
-  end
+  local config = extend(default_server_config, { settings = settings })
+  vim.lsp.config(key, config)
 end
 
-require("mason-lspconfig").setup_handlers(handlers)
+require("mason-lspconfig").setup()
