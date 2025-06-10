@@ -125,15 +125,16 @@ if &loadplugins
   Plug 'sickill/vim-pasta'
   Plug 'numToStr/Comment.nvim'
 
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " We recommend updating the parsers on update
+  Plug 'nvim-treesitter/nvim-treesitter', {'branch': 'main', 'do': ':TSUpdate'} " We recommend updating the parsers on update
 
   "" Auto pair/close/tag
   Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
-  Plug 'RRethy/nvim-treesitter-endwise'
+  Plug 'brianhuster/treesitter-endwise.nvim'
+  " Plug 'RRethy/nvim-treesitter-endwise' " consider switching back if/when compatible with nvim-treesitter@main
 
   "" More treesitter-based plugins
-  Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+  Plug 'nvim-treesitter/nvim-treesitter-textobjects', {'branch': 'main'}
   Plug 'Wansmer/treesj'
 
   "" Autocompletion
