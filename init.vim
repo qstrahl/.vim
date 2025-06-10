@@ -148,7 +148,7 @@ if &loadplugins
 
   "" Fuzzy Finding
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+  Plug 'nvim-telescope/telescope.nvim'
   Plug 'LinArcX/telescope-scriptnames.nvim'
   Plug 'nvim-telescope/telescope-github.nvim'
 
