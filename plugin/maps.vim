@@ -54,6 +54,9 @@ nnoremap <C-Bslash> <C-w>v
 nnoremap <M-Bslash> <C-w>v
 nnoremap <expr> +  "<C-w>s" . (v:count ? v:count : tabpagenr()) . "<C-w>T"
 
+" Tabs are fine too
+nnoremap <M-CR> <Cmd>tab sp<CR>
+
 " zen - obliviate all distractions
 nnoremap Z zMzxzz
 
