@@ -33,7 +33,7 @@ setglobal softtabstop=8
 setglobal splitbelow
 setglobal splitright
 setglobal textwidth=120
-setglobal ttimeoutlen=-1
+" setglobal ttimeoutlen=-1 "" ttimeoutlen=-1 seems to interfere with OSC52
 setglobal updatetime=1000
 setglobal virtualedit=block
 setglobal wildignorecase
@@ -43,6 +43,7 @@ setglobal winminwidth=0
 
 " let &termguicolors = $TERM =~ 'tmux\|xterm'
 
+let g:clipboard="osc52"
 let g:mapleader="\<Space>"
 let g:maplocalleader='\'
 " }}}

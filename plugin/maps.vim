@@ -48,8 +48,10 @@ map! <S-BS> <Delete>
 " I like splitting
 nnoremap _ <C-w>s
 nnoremap <C--> <C-w>s
+nnoremap <M--> <C-w>s
 nnoremap <Bar> <C-w>v
 nnoremap <C-Bslash> <C-w>v
+nnoremap <M-Bslash> <C-w>v
 nnoremap <expr> +  "<C-w>s" . (v:count ? v:count : tabpagenr()) . "<C-w>T"
 
 " zen - obliviate all distractions
