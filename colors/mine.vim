@@ -189,7 +189,7 @@ hi! CmpItemKind cterm=italic ctermfg=241 ctermbg=none
 hi! link TelescopePromptCounter LineNr
 hi! link TelescopeResultsDiffUntracked LineNr
 hi! link TelescopePreviewHyphen LineNr
-hi! link TelescopeMatching IncSearch
+hi! TelescopeMatching cterm=bold ctermfg=7
 hi! link TelescopeBorder FloatBorder
 hi! TelescopeResultsDiffUntracked       ctermfg=6
 hi! TelescopeResultsDiffAdd             ctermfg=2
