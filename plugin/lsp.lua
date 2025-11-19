@@ -180,7 +180,7 @@ local function references ()
 end
 
 local function definitions ()
-  vim.lsp.buf.definition({ on_list = setloclist_reverse })
+  vim.lsp.buf.definition({})
 end
 
 local border = "rounded"
