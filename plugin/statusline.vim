@@ -22,7 +22,7 @@ function! MyGitStatusLine()
 endfunction
 
 function! MyQfStatusLine()
-  return "\ueb86 %1*%<%{get(w:,'quickfix_title','')}%*%= %1*%l%*/%L"
+  return "\ueb86 %1*%<%{get(w:,'quickfix_title','')}%*%= %{StlListItems()}"
 endfunction
 
 function! MyHelpStatusLine()
@@ -146,6 +146,13 @@ function! StlMod()
   else
     return ' '
   endif 
+endfunction
+
+function! StlListItems()
+  let wintype = win_gettype()
+  let what = {'size': 0, 'idx': 0}
+  let list = wintype ==# 'quickfix' ? getqflist(what) : getloclist(0, what)
+  return '[' . list.idx . '/' . list.size . ']'
 endfunction
 
 function! s:gitdata()
