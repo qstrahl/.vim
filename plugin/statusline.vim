@@ -1,4 +1,4 @@
-let s:ruler = "%= %5.(%l:%)%-7.(%c%V%) %P"
+let s:ruler = "%5.(%l:%)%-7.(%c%V%) %P"
 let s:repo = "%(\ue65d %{StlRepo()} %)"
 let s:commit = "\ueafc%{StlCommit()}"
 
@@ -7,6 +7,7 @@ function! MyStatusLine()
   let stl .= s:repo
   let stl .= "%1*%<%{StlName()}%*"
   let stl .= "%( " . s:commit . "%)%( %{StlMod()}%)"
+  let stl .= "%= "
   let stl .= s:ruler
   return stl
 endfunction
@@ -25,7 +26,7 @@ function! MyQfStatusLine()
 endfunction
 
 function! MyHelpStatusLine()
-  return "\uf059 %1*%{expand('%:t:r')}%* %<%(\u00b7 %{StlHelpTags()}%)" . s:ruler
+  return "\uf059 %1*%{expand('%:t:r')}%* %<%(\u00b7 %{StlHelpTags()}%)%= " . s:ruler
 endfunction
 
 function! s:prevmatch(pattern, ...)
