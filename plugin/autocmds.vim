@@ -58,6 +58,54 @@ function! s:ResizeQF()
   exe min([ maxheight, listlen ]) 'wincmd _'
 endfunction
 
+"" Try to keep location list windows vertically aligned with their parents
+function! s:ManageQuickfixLayout()
+  "" Count the number of windows open
+  let wincount = winnr('$')
+
+  "" Nothing to do if we don't have enough windows to cause problems
+  if wincount < 3 | return | endif
+
+  "" Track old & new window numbers, check if old window has a loclist
+  let oldwin = winnr('#')
+  let newwin = winnr()
+  let loclist = getloclist(oldwin)
+
+  "" Nothing to do if old window has no loclist
+  if !len(loclist) | return | endif
+
+  "" Go back to the old window
+  wincmd p
+
+  "" If the old window was a qf/loclist, go back and do nothing else
+  if &buftype ==# 'quickfix'
+    wincmd p
+    return
+  endif
+
+  "" Close any open loclist window for this window
+  lclose
+
+  "" If the number of windows changed, a loclist window was closed
+  let closed = winnr('$') < wincount
+  let locwin = 0
+
+  "" If we closed a loclist window, re-open it, adjust, resize, & go back
+  if closed
+    lopen
+    let locwin = winnr()
+    "" Adjust new window nubmer if new loclist window has shuffled it
+    if newwin == locwin
+      let newwin += 1
+    endif
+    call s:ResizeQF()
+    wincmd p
+  endif
+
+  "" Finally, go back to the new window
+  exe newwin "wincmd w"
+endfunction
+
 augroup MyCustomAutocmds
   autocmd!
   " autocmd VimEnter * if !len(expand('%') . &buftype) | setlocal bufhidden=wipe | endif
@@ -94,4 +142,6 @@ augroup MyCustomAutocmds
   autocmd QuickFixCmdPost lgrep-fugitive nested call qf#OpenLoclist()
 
   autocmd BufWinEnter * if &buftype ==# 'quickfix' | call s:SetupQF() | endif
+
+  autocmd WinNew * call s:ManageQuickfixLayout()
 augroup END
