@@ -100,6 +100,11 @@ function! s:ManageQuickfixLayout()
     endif
     call s:ResizeQF()
     wincmd p
+
+    "" TODO: try to make this respect &eadirection
+    if &equalalways
+      wincmd =
+    endif
   endif
 
   "" Finally, go back to the new window
