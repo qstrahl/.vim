@@ -171,7 +171,7 @@ function! s:SetStatusLine()
   elseif &filetype ==# 'git' && get(b:, 'fugitive_type') ==# 'commit'
     setlocal statusline=%!MyGitStatusLine()
   else
-    setlocal statusline<
+    set statusline<
   endif
 endfunction
 
