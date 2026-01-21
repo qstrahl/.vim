@@ -147,6 +147,10 @@ if &loadplugins
   Plug 'hrsh7th/cmp-vsnip'
   Plug 'hrsh7th/vim-vsnip'
 
+  Plug 'copilotlsp-nvim/copilot-lsp'
+  Plug 'zbirenbaum/copilot.lua' 
+  Plug 'zbirenbaum/copilot-cmp'
+
   "" Fuzzy Finding
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
